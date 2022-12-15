@@ -13,7 +13,8 @@ source("db_connection.R", local = knitr::knit_global())
 source("utils.R", local = knitr::knit_global())
 ```
 
-<sup>*DISCLAIMER: the results and findings below are preliminary and have not been fully validated or peer reviewed. Use with care. Do not quote or disseminate.*</sup>
+```{r, child=c('header.section.Rmd')}
+```
 
 This document enumerates the research questions and topics we are investigating in the knowledge base around OpenAPI specifications and provides a summary of findings. More in-depth analysis is available for selected topics.
 

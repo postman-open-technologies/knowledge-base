@@ -6,9 +6,9 @@ OAS Validity
 - <a href="#methodology" id="toc-methodology">Methodology</a>
 - <a href="#api" id="toc-api">API</a>
 
-*DISCLAIMER: the results and findings below are preliminary and have not
-been fully validated or peer reviewed. Use with care. Do not quote or
-disseminate.*
+<sup>*DISCLAIMER: the results and findings below are preliminary and
+have not been fully validated or peer reviewed. Use with care. Do not
+quote or disseminate.*</sup>
 
 ### *How many valid OpenAPIs do we have?*
 

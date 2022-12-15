@@ -7,6 +7,10 @@ Knowledge Base: OpenAPI Paths Analysis
     id="toc-how-is-the-path-property-used-in-apis">How is the path property
     used in APIs?</a>
 
+<sup>*DISCLAIMER: the results and findings below are preliminary and
+have not been fully validated or peer reviewed. Use with care. Do not
+quote or disseminate.*</sup>
+
 # Findings
 
 ## How is the path property used in APIs?

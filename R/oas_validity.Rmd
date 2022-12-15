@@ -14,7 +14,8 @@ source("db_connection.R", local = knitr::knit_global())
 source("utils.R", local = knitr::knit_global())
 ```
 
-*DISCLAIMER: the results and findings below are preliminary and have not been fully validated or peer reviewed. Use with care. Do not quote or disseminate.*
+```{r, child=c('header.section.Rmd')}
+```
 
 ### *How many valid OpenAPIs do we have?*
 ```{r validation, eval=TRUE, echo=FALSE}

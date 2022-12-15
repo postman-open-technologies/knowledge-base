@@ -7,11 +7,13 @@ output:
     toc_depth: 2
 ---
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 source("db_connection.R", local = knitr::knit_global())
 source("utils.R", local = knitr::knit_global())
+```
+
+```{r, child=c('header.section.Rmd')}
 ```
 
 # Findings
