@@ -1,5 +1,5 @@
 ---
-title: "Knowledge Base: OpenAPI Paths Analysis"
+title: "OAS Paths Analysis"
 date: "<sup>Last updated: `r format(Sys.time(), '%Y-%m-%d')`</sup>"
 output:
   github_document:

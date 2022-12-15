@@ -15,7 +15,7 @@ quote or disseminate.*</sup>
 - Out of 11,247 entries, 8,654 (76.9%) are valid and 2,593 (23.1%) are
   invalid
 - 3,170 out of the 4,087 Swagger (v2.x) entries are valid (77.6%)
-- 7,160 out of the 5,484 OpenAPI (v3.x) entries are valid (76.6%)
+- 5,484 out of the 7,160 OpenAPI (v3.x) entries are valid (76.6%)
 
 *Further analysis is in progress to understand what are the common
 causes of errors.*

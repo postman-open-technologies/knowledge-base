@@ -39,7 +39,7 @@ df = dbGetQuery(conn, query)
 
 - Out of `r format_count(df$n[1])` entries, `r format_count(df$n_valid[1])` (`r format_pct(df$pct_valid[1])`%) are valid and `r format_count(df$n_invalid[1])` (`r format_pct(df$pct_invalid[1])`%) are invalid
 - `r format_count(df$n_valid_swagger[1])` out of the `r format_count(df$n_swagger[1])` Swagger (v2.x) entries are valid (`r format_pct(df$pct_valid_swagger[1])`%)
-- `r format_count(df$n_openapi[1])` out of the `r format_count(df$n_valid_openapi[1])` OpenAPI (v3.x) entries are valid (`r format_pct(df$pct_valid_openapi[1])`%)
+- `r format_count(df$n_valid_openapi[1])` out of the `r format_count(df$n_openapi[1])` OpenAPI (v3.x) entries are valid (`r format_pct(df$pct_valid_openapi[1])`%)
 
 *Further analysis is in progress to understand what are the common causes of errors.*
 
