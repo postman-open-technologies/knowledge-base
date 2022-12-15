@@ -1,0 +1,31 @@
+```{r oas_paths_summary_query, eval=TRUE }
+query = "
+select 
+	min(count) min_paths, 
+	avg(count) avg_paths, 
+	max(count) max_paths,
+	count(*) as n_has_path,
+	count(*) filter (where count between 1 and 5) as n_01_to_05_paths,
+	count(*) filter (where count between 1 and 5) / count(*)::numeric as pct_01_to_05_paths,
+	count(*) filter (where count between 6 and 10) as n_06_to_10_paths,
+	count(*) filter (where count between 6 and 10) / count(*)::numeric as pct_06_to_10_paths,
+	count(*) filter (where count between 11 and 20) as n_11_to_20_paths,
+	count(*) filter (where count between 11 and 20) / count(*)::numeric as pct_11_to_20_paths,
+	count(*) filter (where count between 21 and 50) as n_21_to_50_paths,
+	count(*) filter (where count between 21 and 50) / count(*)::numeric as pct_21_to_50_paths,
+	count(*) filter (where count > 50) as n_over_50_paths,
+	count(*) filter (where count > 50) / count(*)::numeric as pct_over_50_paths
+from (
+select uri, count(*) as count
+	from (
+	  select uri, jsonb_object_keys(json_data->'paths') as keys
+	  from vw_oas_resource
+	  where (json_meta->'isValid')::boolean
+	) as t1 group by 1
+) as t2
+"
+df = dbGetQuery(conn, query)
+```
+
+- The average number of path per API is `r format(round(df$avg_paths[1],1), big.mark = ",")`, ranging from `r format_count(df$min_paths[1])` to `r format_count(df$max_paths[1])`.
+- Out of the `r format_count(df$n_has_path[1])` APIs with a path, `r format_count(df$n_01_to_05_paths[1])` (`r format_pct(df$pct_01_to_05_paths[1])`%) have 1-5 paths, `r format_count(df$n_06_to_10_paths[1])` (`r format_pct(df$pct_06_to_10_paths[1])`%) have 6-10 paths, `r format_count(df$n_11_to_20_paths[1])` (`r format_pct(df$pct_11_to_20_paths[1])`%) have 11-20 paths, `r format_count(df$n_21_to_50_paths[1])` (`r format_pct(df$pct_21_to_50_paths[1])`%) have 21-50 paths, and `r format_count(df$n_over_50_paths[1])` (`r format_count(df$pct_over_50_paths[1])`%) have over 50 paths.

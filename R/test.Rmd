@@ -1,0 +1,84 @@
+---
+title: Test
+output:
+  github_document:
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+source("db_connection.R", local = knitr::knit_global())
+```
+
+```{r oas_security_summary_query, eval=TRUE, echo=FALSE}
+query = "
+select count(*) as n,
+count(*) filter (where json_data->'security' is not null) as n_has_security,
+count(*) filter (where json_data->'security' is not null) / count(*)::numeric as pct_has_security,
+count(*) filter (where jsonb_array_length(json_data->'security') = 0) as is_empty_array
+from vw_oas_resource
+where json_meta->'isValid' = 'true'
+"
+df = dbGetQuery(conn, query)
+
+query = "
+select count(*) as n,
+count(*) filter (where json_data->'security' is not null) as n_has_security,
+count(*) filter (where json_data->'security' is not null) / count(*)::numeric as pct_has_security,
+count(*) filter (where json_data->'securityDefinitions' is not null) as n_has_securitydefinitions,
+count(*) filter (where json_data->'securityDefinitions' is not null) / count(*)::numeric as pct_has_securitydefinitions
+from vw_oas_resource
+where json_meta->'isValid' = 'true' and class = 'Swagger'
+"
+df_v2a = dbGetQuery(conn, query)
+
+query = "
+select value->>'type' as type, count(*) as n, count(*) / sum(count(*)) over() as pct
+from vw_oas_resource_securitydefinitions
+group by 1 order by 2 desc
+"
+df_v2b = dbGetQuery(conn, query)
+
+
+query = "
+select count(*) as n,
+count(*) filter (where json_data->'security' is not null) as n_has_security,
+count(*) filter (where json_data->'security' is not null) / count(*)::numeric as pct_has_security,
+count(*) filter (where json_data->'components'->'securitySchemes' is not null) as n_has_securityschemes,
+count(*) filter (where json_data->'components'->'securitySchemes' is not null) / count(*)::numeric as pct_has_securityschemes
+from vw_oas_resource
+where json_meta->'isValid' = 'true' and class = 'OpenApi'
+"
+df_v3a = dbGetQuery(conn, query)
+
+
+query = "
+select value->>'type' as type, count(*) as n, count(*) / sum(count(*)) over() as pct
+from vw_oas_resource_components_securityscheme
+group by 1 order by 2 desc
+"
+df_v3b = dbGetQuery(conn, query)
+
+```
+
+- Out of `r format(df$n[1], big.mark = ",")` valid APIs, `r format(df$n_has_security[1], big.mark = ",")` (`r format(round(df$pct_has_security[1]*100,1))`%) have a `security` property.
+
+- For Swagger (v2.x), out of the `r format(df_v2a$n[1], big.mark = ",")` valid APIs, `r format(df_v2a$n_has_securitydefinitions[1], big.mark = ",")` (`r format(round(df_v2a$pct_has_securitydefinitions*100,1))`%) have a `securityDefinitions` property.
+The `type` is distributed as 
+`r format(df_v2b$n[1], big.mark = ",")` (`r format(round(df_v2b$pct[1]*100,1))`%) `r df_v2b$type[1]`, 
+`r format(df_v2b$n[2], big.mark = ",")` (`r format(round(df_v2b$pct[2]*100,1))`%) `r df_v2b$type[2]`, 
+and `r format(df_v2b$n[3], big.mark = ",")` (`r format(round(df_v2b$pct[3]*100,1))`%) `r df_v2b$type[3]`.
+
+- For OpenAPI (v3.x), out of the `r format(df_v3a$n[1], big.mark = ",")` valid APIs, `r format(df_v3a$n_has_securityschemes[1], big.mark = ",")` (`r format(round(df_v3a$pct_has_securityschemes*100,1))`%) have a `components/securitySchemes` property.
+The `type` is distributed as 
+`r format(df_v3b[df_v3b$type == 'apiKey' & !is.na(df_v3b$type),]$n, big.mark = ",")` (`r format(round(df_v3b[df_v3b$type == 'apiKey' & !is.na(df_v3b$type),]$pct*100,1), big.mark = ",")`%) apiKey, 
+`r format(df_v3b[df_v3b$type == 'http' & !is.na(df_v3b$type),]$n, big.mark = ",")` (`r format(round(df_v3b[df_v3b$type == 'http' & !is.na(df_v3b$type),]$pct*100,1), big.mark = ",")`%) http, 
+`r format(df_v3b[df_v3b$type == 'oauth2' & !is.na(df_v3b$type),]$n, big.mark = ",")` (`r format(round(df_v3b[df_v3b$type == 'oauth2' & !is.na(df_v3b$type),]$pct*100,1), big.mark = ",")`%) oauth2, 
+`r format(df_v3b[df_v3b$type == 'openIdConnect' & !is.na(df_v3b$type),]$n, big.mark = ",")` (`r format(round(df_v3b[df_v3b$type == 'openIdConnect' & !is.na(df_v3b$type),]$pct*100,1), big.mark = ",")`%) openIdConnect, 
+and `r format(df_v3b[is.na(df_v3b$type),]$n, big.mark = ",")` (`r format(round(df_v3b[is.na(df_v3b$type),]$pct*100,1), big.mark = ",")`%) empty value. 
+
+- As only `r format(df_v2a$n_has_security[1], big.mark = ",")` (`r format(round(df_v2a$pct_has_security[1]*100,1))` %) of v2.x 
+and `r format(df_v3a$n_has_security[1], big.mark = ",")`  (`r format(round(df_v3a$pct_has_security[1]*100,1))` %) of v3.x APIs
+have a `security` property, it suggest that the security schemes may not always be used. This requires further investigation.
+

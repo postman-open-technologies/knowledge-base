@@ -1,0 +1,52 @@
+---
+title: "Knowledge Base: OpenAPI Paths Analysis"
+date: "<sup>Last updated: `r format(Sys.time(), '%Y-%m-%d')`</sup>"
+output:
+  github_document:
+    toc: true
+    toc_depth: 2
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+source("db_connection.R", local = knitr::knit_global())
+source("utils.R", local = knitr::knit_global())
+```
+
+# Findings
+
+## How is the path property used in APIs?
+```{r oas_paths_summary, child=c('oas_paths_summary.section.Rmd')}
+```
+
+```{r oas_paths_buckets_query, eval=TRUE }
+query = "
+select 
+	bucket, 
+	case 
+		when bucket=0 then '0'
+		when bucket=1 then '1-5'
+		when bucket=2 then '6-10'
+		when bucket=3 then '11-20'
+		when bucket=4 then '21-50'
+		when bucket=5 then '50+'
+	end as label,
+	count(*)
+from (
+select uri, count(*) as count , 
+	width_bucket(count(*), array[1,6,11,21,51]) as bucket
+	from (
+	  select uri, jsonb_object_keys(json_data->'paths') as keys
+	  from vw_oas_resource
+	  where (json_meta->'isValid')::boolean
+	) as t1 group by 1 
+) as t2
+group by 1,2 order by bucket
+"
+df = dbGetQuery(conn, query)
+```
+
+```{r oas_paths_buckets_barplot, include = TRUE}
+barplot(df$count, names.arg = df$label, main = "Distribution of paths entries per API", xlab = "Count of 'paths' entries", ylab = "Count of APIs")
+```

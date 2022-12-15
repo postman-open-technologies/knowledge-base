@@ -1,0 +1,61 @@
+---
+title: "OAS Validity"
+date: "<sup>Last updated: `r format(Sys.time(), '%Y-%m-%d')`</sup>"
+output:
+  github_document:
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+require('ggplot2')
+knitr::opts_chunk$set(echo = FALSE)
+source("db_connection.R", local = knitr::knit_global())
+source("utils.R", local = knitr::knit_global())
+```
+
+*DISCLAIMER: the results and findings below are preliminary and have not been fully validated or peer reviewed. Use with care. Do not quote or disseminate.*
+
+### *How many valid OpenAPIs do we have?*
+```{r validation, eval=TRUE, echo=FALSE}
+query = "
+select count(*) as n,
+count(*) filter (where json_meta->'isValid' = 'true') as n_valid,
+count(*) filter (where json_meta->'isValid' = 'true') / count(*)::numeric as pct_valid,
+count(*) filter (where json_meta->'isValid' = 'false') as n_invalid,
+count(*) filter (where json_meta->'isValid' = 'false') / count(*)::numeric as pct_invalid,
+count(*) filter (where json_meta->>'class' = 'Swagger') as n_swagger,
+count(*) filter (where json_meta->'isValid' = 'true' and json_meta->>'class' = 'Swagger') as n_valid_swagger,
+count(*) filter (where json_meta->'isValid' = 'true' and json_meta->>'class' = 'Swagger') / count(*) filter (where json_meta->>'class' = 'Swagger')::numeric as pct_valid_swagger,
+count(*) filter (where json_meta->>'class' = 'OpenApi') as n_openapi,
+count(*) filter (where json_meta->'isValid' = 'true' and json_meta->>'class' = 'OpenApi') as n_valid_openapi,
+count(*) filter (where json_meta->'isValid' = 'true' and json_meta->>'class' = 'OpenApi') / count(*) filter (where json_meta->>'class' = 'OpenApi')::numeric as pct_valid_openapi,
+count(*) filter (where json_meta->'isValid' is null) as n_unknown
+from vw_oas_resource
+"
+df = dbGetQuery(conn, query)
+```
+
+- Out of `r format_count(df$n[1])` entries, `r format_count(df$n_valid[1])` (`r format_pct(df$pct_valid[1])`%) are valid and `r format_count(df$n_invalid[1])` (`r format_pct(df$pct_invalid[1])`%) are invalid
+- `r format_count(df$n_valid_swagger[1])` out of the `r format_count(df$n_swagger[1])` Swagger (v2.x) entries are valid (`r format_pct(df$pct_valid_swagger[1])`%)
+- `r format_count(df$n_openapi[1])` out of the `r format_count(df$n_valid_openapi[1])` OpenAPI (v3.x) entries are valid (`r format_pct(df$pct_valid_openapi[1])`%)
+
+*Further analysis is in progress to understand what are the common causes of errors.*
+
+```{r oas_validity_charts, echo=FALSE, include = TRUE}
+category = c(rep('Valid',3), rep('Invalid',3))
+version = rep( c("All", "Swagger", "OpenAPI"), 2)
+percentage = c(df$pct_valid[1], df$pct_valid_swagger[1], df$pct_valid_openapi[1], 1-df$pct_valid[1], 1-df$pct_valid_swagger[1], 1-df$pct_valid_openapi[1])
+data = data.frame(category, version, percentage)
+ggplot(data, aes(fill=version, y=percentage, x=category)) + geom_bar(position="dodge", stat="identity")
+```
+
+## Recommendations
+- Further investigate and analyze common source of errors
+
+## Methodology
+Results are based on the count of the `isValid` boolean property in the resource metadata. This flag is set by the `kb_oas_validation.py` script, which uses the JSON schemas published under the [OAI GitHub project](https://github.com/OAI/OpenAPI-Specification/tree/main/schemas). Validation is performed by the Python [jsonschema](https://github.com/python-jsonschema/jsonschema) package. Validation errors are saved in a local file for further analysis.
+ 
+## API
+Data for this topic can be found under the /oas/statistics/validity endpoint.
+

@@ -1,0 +1,264 @@
+---
+title: "OAS Summary"
+date: "<sup>Last updated: `r format(Sys.time(), '%Y-%m-%d')`</sup>"
+output:
+  github_document:
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+source("db_connection.R", local = knitr::knit_global())
+source("utils.R", local = knitr::knit_global())
+```
+
+<sup>*DISCLAIMER: the results and findings below are preliminary and have not been fully validated or peer reviewed. Use with care. Do not quote or disseminate.*</sup>
+
+This document enumerates the research questions and topics we are investigating in the knowledge base around OpenAPI specifications and provides a summary of findings. More in-depth analysis is available for selected topics.
+
+## Validity and source of errors
+
+### How many valid OpenAPIs do we have?
+
+```{r validation, eval=TRUE, echo=FALSE}
+query = "
+select count(*) as total,
+count(*) filter (where json_meta->'isValid' = 'true') as n_valid,
+count(*) filter (where json_meta->'isValid' = 'true') / count(*)::numeric as pct_valid,
+count(*) filter (where json_meta->'isValid' = 'false') as is_invalid,
+count(*) filter (where json_meta->'isValid' = 'false') / count(*)::numeric as is_invalid_pct
+from vw_oas_resource
+"
+df = dbGetQuery(conn, query)
+```
+Out of `r format_count(df$total[1])` APIs, `r format_count_and_pct(df$n_valid[1], df$pct_valid[1])` are valid. 
+
+See [validity analysis](oas_validity.md) for further details.
+
+### What are the primary sources of error in APIs?
+
+*This research topic will be initiated shortly*
+
+## Server
+
+### How is the server property used in APIs?
+
+```{r servers, eval=TRUE, echo=FALSE}
+query = "
+select count(*) as n_valid,
+count(*) filter (where json_data->'servers' is not null) as n_has_servers,
+count(*) filter (where json_data->'servers' is not null) / count(*)::numeric as pct_has_servers,
+avg(jsonb_array_length(json_data->'servers')) filter (where json_data->'servers' is not null) as avg_servers,
+min(jsonb_array_length(json_data->'servers')) filter (where json_data->'servers' is not null) as min_servers,
+max(jsonb_array_length(json_data->'servers')) filter (where json_data->'servers' is not null) as max_servers
+from vw_oas_resource
+where json_meta->'isValid' = 'true'
+"
+df = dbGetQuery(conn, query)
+```
+
+- Out of `r format_count(df$n_valid[1])` valid APIs, `r format_count_and_pct(df$n_has_servers[1], df$pct_has_servers[1])` have a `servers` property, with an average of `r format(round(df$avg_server[1],1))` server/entry, and a range of `r format_count(df$min_servers[1])`-`r format_count(df$max_servers[1])`. 
+
+### How often do APIs use localhost vs domain based servers? 
+
+```{r servers_hosts, eval=TRUE, echo=FALSE}
+query = "
+select
+	count(*) as n_all, 
+	sum(is_localhost) as n_localhost, 
+	sum(is_localhost) / count(*)::numeric as pct_localhost, 
+	sum(is_dnshost) as n_dnshost,
+	sum(is_dnshost) / count(*)::numeric as pct_dnshost,
+	sum(is_relative) as n_relative,
+	sum(is_relative) / count(*)::numeric as pct_relative,
+	sum(is_http) as n_http,
+	sum(is_http) / count(*)::numeric as pct_http,
+	sum(is_https) as n_https,
+	sum(is_https)  / count(*)::numeric as pct_https,
+	sum(case when is_http=0 and is_https=0 then 1 else 0 end) as n_noprotocol
+	from vw_oas_resource_servers
+"
+df = dbGetQuery(conn, query)
+```
+
+- Out of the `r format_count(df$n_all[1])` server entries (across all APIs), `r format_count_and_pct(df$n_localhost[1], df$pct_localhost[1])` contain localhost or 127.0.0.1, and `r format_count_and_pct(df$n_dnshost[1], df$pct_dnshost[1])` use a domain based name. `r format_count_and_pct(df$n_relative[1], df$pct_relative[1])` use a relative path (no server, just starting with /), and the residuals entries are not categorized. 
+- `r format_count_and_pct(df$n_http[1], df$pct_http[1])` use an http:// protocol, and `r format_count_and_pct(df$n_https[1], df$pct_https[1])` https://.
+- *@TODO: compute API level statistics (localhost vs DNS vs mixed)*
+
+## Paths
+
+### How is the path property used in APIs?
+```{r, child=c('oas_paths_summary.section.Rmd')}
+```
+
+See [paths analysis](oas_paths.md) for further details.
+
+## JSON Schema
+
+### What is average number of locally defined JSON objects per API?
+
+```{r oas_jsonschema_summary_query, eval=TRUE, echo=FALSE}
+query = "
+select 
+	min(count), 
+	avg(count), 
+	max(count),
+	count(*) as n,
+	count(*) filter (where count between 1 and 5) as n_01_to_05,
+	count(*) filter (where count between 1 and 5) / count(*)::numeric as pct_01_to_05,
+	count(*) filter (where count between 6 and 10) as n_06_to_10,
+	count(*) filter (where count between 6 and 10) / count(*)::numeric as pct_06_to_10,
+	count(*) filter (where count between 11 and 20) as n_11_to_20,
+	count(*) filter (where count between 11 and 20) / count(*)::numeric as pct_11_to_20,
+	count(*) filter (where count between 21 and 50) as n_21_to_50,
+	count(*) filter (where count between 21 and 50) / count(*)::numeric as pct_21_to_50,
+	count(*) filter (where count > 50) as n_over_50,
+	count(*) filter (where count > 50) / count(*)::numeric as pct_over_50
+from 
+(
+select uri, count(*) as count
+  from (
+	select uri, jsonb_object_keys(json_data->'components'->'schemas') as keys from vw_oas_resource where (json_meta->'isValid')::boolean and class = 'OpenApi'
+	union
+	select uri, jsonb_object_keys(json_data->'definitions') as keys from vw_oas_resource where (json_meta->'isValid')::boolean and class = 'Swagger'
+  ) as t1 group by 1
+) as t1
+"
+df = dbGetQuery(conn, query)
+```
+
+- The average number of JSON objects defined locally under /definitions (Swagger) or /components/schema (OpenAPI) is `r format(round(df$avg[1],1), big.mark = ",")`, ranging from `r format_count(df$min[1])` to `r format_count(df$max[1])`.
+- Out of the `r format_count(df$n[1])` APIs, `r format_count_and_pct(df$n_01_to_05[1], df$pct_01_to_05[1])` have 1-5 entries, `r format_count_and_pct(df$n_06_to_10[1], df$pct_06_to_10[1])` have 6-10 entries, `r format_count_and_pct(df$n_11_to_20[1], df$pct_11_to_20[1])` have 11-20 entries, `r format_count_and_pct(df$n_21_to_50[1], df$pct_21_to_50[1])` have 21-50 entries, and `r format_count_and_pct(df$n_over_50[1], df$pct_over_50[1])` have over 50 entries.
+
+
+## Licensing
+
+### How is the license property used in APIs?
+
+```{r oas_license_summary_query, eval=TRUE, echo=FALSE}
+query = "
+select count(*) as n,
+count(*) filter (where json_data->'info'->'license' is not null) as n_has_license,
+count(*) filter (where json_data->'info'->'license' is not null) / count(*)::numeric as pct_has_license,
+count(*) filter (where json_data->'info'->'license'->'name' is not null) as n_has_license_name,
+count(*) filter (where json_data->'info'->'license'->'name' is not null) / count(*)::numeric as pct_has_license_name,
+count(*) filter (where json_data->'info'->'license'->'url' is not null) as n_has_license_url,
+count(*) filter (where json_data->'info'->'license'->'url' is not null) / count(*)::numeric as pct_has_license_url,
+count(*) filter (where json_data->'info'->'license'->'name' is not null and json_data->'info'->'license'->'url' is not null) as n_has_license_name_and_url,
+count(*) filter (where json_data->'info'->'license'->'name' is not null and json_data->'info'->'license'->'url' is not null)  / count(*)::numeric  as pct_has_license_name_and_url,
+count(*) filter (where json_meta->>'schemaVersion' like '3.1%') as n_v31,
+count(*) filter (where json_data->'info'->'license'->'identifier' is not null) as n_v31_has_license_identifier,
+count(*) filter (where json_data->'info'->'license'->'identifier' is not null) / (count(*) filter (where json_meta->>'schemaVersion' like '3.1%'))::numeric as pct_v31_has_license_identifier
+from vw_oas_resource
+where json_meta->'isValid' = 'true'
+"
+df = dbGetQuery(conn, query)
+```
+
+- Out of `r format_count(df$n[1])` valid APIs, `r format_count_and_pct(df$n_has_license[1], df$pct_has_license[1])` have a `license` property, with `r format_count_and_pct(df$n_has_license_name_and_url[1], df$pct_has_license_name_and_url[1])` providing both the `name` and `url`.
+- Out of the `r format_count(df$n_v31[1])` v3.1 APIs with a license, `r format_count_and_pct(df$n_v31_has_license_identifier[1], df$pct_v31_has_license_identifier[1])` use the `identifier` property (introduced in 3.1).
+
+### What is the breakdown of licenses use by the APIs?
+
+```{r oas_license_type_query, eval=TRUE, echo=FALSE}
+query = "
+select harmonize_license(json_data->'info'->'license'->>'name', json_data->'info'->'license'->>'url') as license, count(*) as count, round(count(*) / sum(count(*)) over(),3) as pct
+from vw_oas_resource
+where json_meta->'isValid' = 'true' and json_data->'info'->'license' is not null
+group by license order by count desc 
+"
+df = dbGetQuery(conn, query)
+```
+- Analysis based on a simple harmonization method looking at terms in the license name and url values indicates that 
+ `r format_count(df[df$license == 'APACHE',]$count)` 
+ (`r format_pct(df[df$license == 'APACHE',]$pct)`%)
+ of the APIs use an Apache license.
+- Other notable categories include MIT (`r format_pct(df[df$license == 'MIT',]$pct)`%),
+Creative Commons (`r format_pct(df[df$license == 'CC',]$pct)`%),
+GNU/GPL (`r format_pct(df[df$license == 'GNU',]$pct)`%).
+- `r format_pct(df[df$license == 'OTHER',]$pct)`% are categorized as Other.
+
+## Security
+
+### How are the security related properties used in APIs?
+
+*Note that in OpenAPI versions 3, `securityDefinitions` was renamed to `securitySchemes` and moved inside `components`, and the `type: basic` was replaced with `type: http` with `scheme: basic`.*
+
+```{r oas_security_summary_query, eval=TRUE, echo=FALSE}
+query = "
+select count(*) as n,
+count(*) filter (where json_data->'security' is not null) as n_has_security,
+count(*) filter (where json_data->'security' is not null) / count(*)::numeric as pct_has_security,
+count(*) filter (where jsonb_array_length(json_data->'security') = 0) as is_empty_array
+from vw_oas_resource
+where json_meta->'isValid' = 'true'
+"
+df = dbGetQuery(conn, query)
+
+query = "
+select count(*) as n,
+count(*) filter (where json_data->'security' is not null) as n_has_security,
+count(*) filter (where json_data->'security' is not null) / count(*)::numeric as pct_has_security,
+count(*) filter (where json_data->'securityDefinitions' is not null) as n_has_securitydefinitions,
+count(*) filter (where json_data->'securityDefinitions' is not null) / count(*)::numeric as pct_has_securitydefinitions
+from vw_oas_resource
+where json_meta->'isValid' = 'true' and class = 'Swagger'
+"
+df_v2a = dbGetQuery(conn, query)
+
+query = "
+select value->>'type' as type, count(*) as n, count(*) / sum(count(*)) over() as pct
+from vw_oas_resource_securitydefinitions
+group by 1 order by 2 desc
+"
+df_v2b = dbGetQuery(conn, query)
+
+
+query = "
+select count(*) as n,
+count(*) filter (where json_data->'security' is not null) as n_has_security,
+count(*) filter (where json_data->'security' is not null) / count(*)::numeric as pct_has_security,
+count(*) filter (where json_data->'components'->'securitySchemes' is not null) as n_has_securityschemes,
+count(*) filter (where json_data->'components'->'securitySchemes' is not null) / count(*)::numeric as pct_has_securityschemes
+from vw_oas_resource
+where json_meta->'isValid' = 'true' and class = 'OpenApi'
+"
+df_v3a = dbGetQuery(conn, query)
+
+
+query = "
+select value->>'type' as type, count(*) as n, count(*) / sum(count(*)) over() as pct
+from vw_oas_resource_components_securityscheme
+group by 1 order by 2 desc
+"
+df_v3b = dbGetQuery(conn, query)
+
+```
+
+- Out of `r format_count(df$n[1])` valid APIs, `r format_count_and_pct(df$n_has_security[1], df$pct_has_security[1])` have a `security` property.
+
+- For Swagger (v2.x), out of the `r format_count(df_v2a$n[1])` valid APIs, `r format_count_and_pct(df_v2a$n_has_securitydefinitions[1], df_v2a$pct_has_securitydefinitions)` have a `securityDefinitions` property.
+The `type` is distributed as 
+`r format_count_and_pct(df_v2b$n[1], df_v2b$pct[1])` `r df_v2b$type[1]`, 
+`r format_count_and_pct(df_v2b$n[2], df_v2b$pct[2])` `r df_v2b$type[2]`, 
+and `r format_count_and_pct(df_v2b$n[3], df_v2b$pct[3])` `r df_v2b$type[3]`.
+
+- For OpenAPI (v3.x), out of the `r format_count(df_v3a$n[1])` valid APIs, `r format_count_and_pct(df_v3a$n_has_securityschemes[1], df_v3a$pct_has_securityschemes)` have a `components/securitySchemes` property.
+The `type` is distributed as 
+`r format_count_and_pct(df_v3b[df_v3b$type == 'apiKey' & !is.na(df_v3b$type),]$n, df_v3b[df_v3b$type == 'apiKey' & !is.na(df_v3b$type),]$pct)` apiKey, 
+`r format_count_and_pct(df_v3b[df_v3b$type == 'http' & !is.na(df_v3b$type),]$n, df_v3b[df_v3b$type == 'http' & !is.na(df_v3b$type),]$pct)` http, 
+`r format(df_v3b[df_v3b$type == 'oauth2' & !is.na(df_v3b$type),]$n, big.mark = ",")` (`r format(round(df_v3b[df_v3b$type == 'oauth2' & !is.na(df_v3b$type),]$pct*100,1), big.mark = ",")`%) oauth2, 
+`r format_count_and_pct(df_v3b[df_v3b$type == 'openIdConnect' & !is.na(df_v3b$type),]$n, df_v3b[df_v3b$type == 'openIdConnect' & !is.na(df_v3b$type),]$pct)` openIdConnect, 
+and `r format_count_and_pct(df_v3b[is.na(df_v3b$type),]$n, df_v3b[is.na(df_v3b$type),]$pct)` empty value.
+
+- As only `r format_count_and_pct(df_v2a$n_has_security[1], df_v2a$pct_has_security[1])` of v2.x 
+and `r format_count_and_pct(df_v3a$n_has_security[1], df_v3a$pct_has_security[1])` of v3.x APIs
+have a `security` property, it suggest that the security schemes may not always be used. This requires further investigation.
+
+## Responses
+
+### What is the breakdown of status codes in the OpenAPIs responses?
+
+*This research topic will be initiated shortly*
+

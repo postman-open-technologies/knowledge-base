@@ -1,0 +1,42 @@
+OAS Validity
+================
+<sup>Last updated: 2022-12-14</sup>
+
+- <a href="#recommendations" id="toc-recommendations">Recommendations</a>
+- <a href="#methodology" id="toc-methodology">Methodology</a>
+- <a href="#api" id="toc-api">API</a>
+
+*DISCLAIMER: the results and findings below are preliminary and have not
+been fully validated or peer reviewed. Use with care. Do not quote or
+disseminate.*
+
+### *How many valid OpenAPIs do we have?*
+
+- Out of 11,247 entries, 8,654 (76.9%) are valid and 2,593 (23.1%) are
+  invalid
+- 3,170 out of the 4,087 Swagger (v2.x) entries are valid (77.6%)
+- 7,160 out of the 5,484 OpenAPI (v3.x) entries are valid (76.6%)
+
+*Further analysis is in progress to understand what are the common
+causes of errors.*
+
+![](oas_validity_files/figure-gfm/oas_validity_charts-1.png)<!-- -->
+
+## Recommendations
+
+- Further investigate and analyze common source of errors
+
+## Methodology
+
+Results are based on the count of the `isValid` boolean property in the
+resource metadata. This flag is set by the `kb_oas_validation.py`
+script, which uses the JSON schemas published under the [OAI GitHub
+project](https://github.com/OAI/OpenAPI-Specification/tree/main/schemas).
+Validation is performed by the Python
+[jsonschema](https://github.com/python-jsonschema/jsonschema) package.
+Validation errors are saved in a local file for further analysis.
+
+## API
+
+Data for this topic can be found under the /oas/statistics/validity
+endpoint.
