@@ -601,21 +601,57 @@ padding-top: 0px;
 
 <body>
 
-<h1 id="oas-paths-analysis">OAS Paths Analysis</h1>
+<h1 id="oas-summary">OAS Summary</h1>
 <p><sup>Last updated: 2022-12-16</sup></p>
 <ul>
-<li><a href="#findings" id="toc-findings">Findings</a>
-<ul>
-<li><a href="#how-is-the-path-property-used-in-apis" id="toc-how-is-the-path-property-used-in-apis">How is the path property
-used in APIs?</a></li>
-</ul></li>
+<li><a href="#validity-and-source-of-errors" id="toc-validity-and-source-of-errors">Validity and source of
+errors</a></li>
+<li><a href="#server" id="toc-server">Server</a></li>
+<li><a href="#paths" id="toc-paths">Paths</a></li>
+<li><a href="#json-schema" id="toc-json-schema">JSON Schema</a></li>
+<li><a href="#licensing" id="toc-licensing">Licensing</a></li>
+<li><a href="#security" id="toc-security">Security</a></li>
+<li><a href="#responses" id="toc-responses">Responses</a></li>
 </ul>
 <p><sup><em>DISCLAIMER: the results and findings below are preliminary
 and have not been fully validated or peer reviewed. Use with care. Do
 not quote or disseminate.</em></sup></p>
-<h1 id="findings">Findings</h1>
-<h2 id="how-is-the-path-property-used-in-apis">How is the path property
-used in APIs?</h2>
+<p>This document enumerates the research questions and topics we are
+investigating in the knowledge base around OpenAPI specifications and
+provides a summary of findings. More in-depth analysis is available for
+selected topics.</p>
+<h2 id="validity-and-source-of-errors">Validity and source of
+errors</h2>
+<h3 id="how-many-valid-openapis-do-we-have">How many valid OpenAPIs do
+we have?</h3>
+<p>Out of 11,247 APIs, 8,654 (76.9%) are valid.</p>
+<p>See <a href="oas_validity.md">validity analysis</a> for further
+details.</p>
+<h3 id="what-are-the-primary-sources-of-error-in-apis">What are the
+primary sources of error in APIs?</h3>
+<p><em>This research topic will be initiated shortly</em></p>
+<h2 id="server">Server</h2>
+<h3 id="how-is-the-server-property-used-in-apis">How is the server
+property used in APIs?</h3>
+<ul>
+<li>Out of 8,654 valid APIs, 4,382 (50.6%) have a <code>servers</code>
+property, with an average of 1.3 server/entry, and a range of 0-14.</li>
+</ul>
+<h3 id="how-often-do-apis-use-localhost-vs-domain-based-servers">How
+often do APIs use localhost vs domain based servers?</h3>
+<ul>
+<li>Out of the 5,697 server entries (across all APIs), 1,224 (21.5%)
+contain localhost or 127.0.0.1, and 3,768 (66.1%) use a domain based
+name. 493 (8.7%) use a relative path (no server, just starting with /),
+and the residuals entries are not categorized.</li>
+<li>1,730 (30.4%) use an <a href="http://">http://</a> protocol, and
+3,213 (56.4%) <a href="https://">https://</a>.</li>
+<li><em>@TODO: compute API level statistics (localhost vs DNS vs
+mixed)</em></li>
+</ul>
+<h2 id="paths">Paths</h2>
+<h3 id="how-is-the-path-property-used-in-apis">How is the path property
+used in APIs?</h3>
 <ul>
 <li>The average number of path per API is 11.2, ranging from 1 to
 271.</li>
@@ -623,7 +659,66 @@ used in APIs?</h2>
 1,314 (15.6%) have 6-10 paths, 1,258 (14.9%) have 11-20 paths, 806
 (9.6%) have 21-50 paths, and 353 (0.0419489%) have over 50 paths.</li>
 </ul>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>See <a href="oas_paths.md">paths analysis</a> for further
+details.</p>
+<h2 id="json-schema">JSON Schema</h2>
+<h3 id="what-is-average-number-of-locally-defined-json-objects-per-api">What
+is average number of locally defined JSON objects per API?</h3>
+<ul>
+<li>The average number of JSON objects defined locally under
+/definitions (Swagger) or /components/schema (OpenAPI) is 20.8, ranging
+from 1 to 642.</li>
+<li>Out of the 7,153 APIs, 2,916 (40.8%) have 1-5 entries, 1,320 (18.5%)
+have 6-10 entries, 1,135 (15.9%) have 11-20 entries, 997 (13.9%) have
+21-50 entries, and 785 (11%) have over 50 entries.</li>
+</ul>
+<h2 id="licensing">Licensing</h2>
+<h3 id="how-is-the-license-property-used-in-apis">How is the license
+property used in APIs?</h3>
+<ul>
+<li>Out of 8,654 valid APIs, 2,966 (34.3%) have a <code>license</code>
+property, with 2,656 (30.7%) providing both the <code>name</code> and
+<code>url</code>.</li>
+<li>Out of the 74 v3.1 APIs with a license, 5 (6.8%) use the
+<code>identifier</code> property (introduced in 3.1).</li>
+</ul>
+<h3 id="what-is-the-breakdown-of-licenses-use-by-the-apis">What is the
+breakdown of licenses use by the APIs?</h3>
+<ul>
+<li>Analysis based on a simple harmonization method looking at terms in
+the license name and url values indicates that 1,504 (50.7%) of the APIs
+use an Apache license.</li>
+<li>Other notable categories include MIT (16.9%), Creative Commons
+(7.8%), GNU/GPL (4.7%).</li>
+<li>12.4% are categorized as Other.</li>
+</ul>
+<h2 id="security">Security</h2>
+<h3 id="how-are-the-security-related-properties-used-in-apis">How are
+the security related properties used in APIs?</h3>
+<p><em>Note that in OpenAPI versions 3, <code>securityDefinitions</code>
+was renamed to <code>securitySchemes</code> and moved inside
+<code>components</code>, and the <code>type: basic</code> was replaced
+with <code>type: http</code> with <code>scheme: basic</code>.</em></p>
+<ul>
+<li><p>Out of 8,654 valid APIs, 1,635 (18.9%) have a
+<code>security</code> property.</p></li>
+<li><p>For Swagger (v2.x), out of the 3,170 valid APIs, 1,329 (41.9%)
+have a <code>securityDefinitions</code> property. The <code>type</code>
+is distributed as 916 (44.7%) oauth2, 882 (43%) apiKey, and 252 (12.3%)
+basic.</p></li>
+<li><p>For OpenAPI (v3.x), out of the 5,484 valid APIs, 2,338 (42.6%)
+have a <code>components/securitySchemes</code> property. The
+<code>type</code> is distributed as 1,246 (39.1%) apiKey, 1,041 (32.7%)
+http, 834 (26.2%) oauth2, 26 (0.8%) openIdConnect, and 40 (1.3%) empty
+value.</p></li>
+<li><p>As only 565 (17.8%) of v2.x and 1,070 (19.5%) of v3.x APIs have a
+<code>security</code> property, it suggest that the security schemes may
+not always be used. This requires further investigation.</p></li>
+</ul>
+<h2 id="responses">Responses</h2>
+<h3 id="what-is-the-breakdown-of-status-codes-in-the-openapis-responses">What
+is the breakdown of status codes in the OpenAPIs responses?</h3>
+<p><em>This research topic will be initiated shortly</em></p>
 
 </body>
 </html>
