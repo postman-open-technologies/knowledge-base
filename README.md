@@ -1,7 +1,7 @@
 # Postan Open Technologies Knowledge Base
 This is a project dedicated to mining and extracting knowledge from across the API universe. There is a wealth of knowledge present in the OpenAPI, Swagger, Postman Collections, Spectral, and other API artifacts available here on GitHub, but also the open web. This is a project to harvest those artifacts and begin making sense of them.
 
-Right now we are harvesting OpenAPI and Swagger from GitHub, validating, and beginning to ask a varietiy of questions of them, and develop different types of automation across this ongoing body of work. Our goal is to develop more usable knowledge available as simple APIs that can be used to inform all stages of the API lifecycle. Here are the questions we are working on right now.
+Right now we are harvesting OpenAPI and Swagger from GitHub, validating, and beginning to ask a variety of questions of them, and develop different types of automation across this ongoing body of work. Our goal is to develop more usable knowledge available as simple APIs that can be used to inform all stages of the API lifecycle. Here are the questions we are working on right now.
 
 - How many valid OpenAPIs do we have?
 - What is the breakdown of status codes present for responses? 
