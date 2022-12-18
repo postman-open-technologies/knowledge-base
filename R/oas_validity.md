@@ -1,6 +1,6 @@
 OAS Validity
 ================
-<sup>Last updated: 2022-12-17</sup>
+<sup>Last updated: 2022-12-18</sup>
 
 - <a href="#recommendations" id="toc-recommendations">Recommendations</a>
 - <a href="#methodology" id="toc-methodology">Methodology</a>
