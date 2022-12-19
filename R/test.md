@@ -1,17 +1,17 @@
 Test
 ================
 
-- Out of 11,754 valid APIs, 2,284 (19.4%) have a `security` property.
+- Out of 11,847 valid APIs, 2,303 (19.4%) have a `security` property.
 
-- For Swagger (v2.x), out of the 4,540 valid APIs, 1,905 (42%) have a
-  `securityDefinitions` property. The `type` is distributed as 1,322
-  (45.8%) apiKey, 1,244 (43.1%) oauth2, and 318 (11%) basic.
+- For Swagger (v2.x), out of the 4,556 valid APIs, 1,911 (41.9%) have a
+  `securityDefinitions` property. The `type` is distributed as 1,326
+  (45.8%) apiKey, 1,252 (43.2%) oauth2, and 319 (11%) basic.
 
-- For OpenAPI (v3.x), out of the 7,214 valid APIs, 3,095 (42.9%) have a
+- For OpenAPI (v3.x), out of the 7,291 valid APIs, 3,123 (42.8%) have a
   `components/securitySchemes` property. The `type` is distributed as
-  1,643 (38.7%) apiKey, 1,448 (34.1%) http, 1,066 (25.1%) oauth2, 34
+  1,654 (38.6%) apiKey, 1,461 (34.1%) http, 1,079 (25.2%) oauth2, 34
   (0.8%) openIdConnect, and 52 (1.2%) empty value.
 
-- As only 816 (18 %) of v2.x and 1,468 (20.3 %) of v3.x APIs have a
+- As only 823 (18.1 %) of v2.x and 1,480 (20.3 %) of v3.x APIs have a
   `security` property, it suggest that the security schemes may not
   always be used. This requires further investigation.
