@@ -2,8 +2,6 @@
 
 This document captures ideas /suggestions around new functionalities or enhancements that could be introduced in Postman platform to address some of the issues and overall increase the quality of APIs.
 
-## OpenAPI
-
 ### Licensing
 
 - We need to encourage the use of license (currently under 35%)
