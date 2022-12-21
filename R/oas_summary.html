@@ -602,7 +602,7 @@ padding-top: 0px;
 <body>
 
 <h1 id="oas-summary">OAS Summary</h1>
-<p><sup>Last updated: 2022-12-20</sup></p>
+<p><sup>Last updated: 2022-12-21</sup></p>
 <ul>
 <li><a href="#validity-and-source-of-errors" id="toc-validity-and-source-of-errors">Validity and source of
 errors</a></li>
@@ -624,7 +624,7 @@ selected topics.</p>
 errors</h2>
 <h3 id="how-many-valid-openapis-do-we-have">How many valid OpenAPIs do
 we have?</h3>
-<p>Out of 15,507 APIs, 11,975 (77.2%) are valid.</p>
+<p>Out of 15,562 APIs, 12,018 (77.2%) are valid.</p>
 <p>See <a href="oas_validity.md">validity analysis</a> for further
 details.</p>
 <h3 id="what-are-the-primary-sources-of-error-in-apis">What are the
@@ -634,18 +634,18 @@ primary sources of error in APIs?</h3>
 <h3 id="how-is-the-server-property-used-in-apis">How is the server
 property used in APIs?</h3>
 <ul>
-<li>Out of 11,975 valid APIs, 5,973 (49.9%) have a <code>servers</code>
+<li>Out of 12,018 valid APIs, 6,000 (49.9%) have a <code>servers</code>
 property, with an average of 1.3 server/entry, and a range of 0-13.</li>
 </ul>
 <h3 id="how-often-do-apis-use-localhost-vs-domain-based-servers">How
 often do APIs use localhost vs domain based servers?</h3>
 <ul>
-<li>Out of the 7,794 server entries (across all APIs), 1,807 (23.2%)
-contain localhost or 127.0.0.1, and 5,039 (64.7%) use a domain based
-name. 658 (8.4%) use a relative path (no server, just starting with /),
+<li>Out of the 7,827 server entries (across all APIs), 1,806 (23.1%)
+contain localhost or 127.0.0.1, and 5,071 (64.8%) use a domain based
+name. 661 (8.4%) use a relative path (no server, just starting with /),
 and the residuals entries are not categorized.</li>
-<li>2,435 (31.2%) use an <a href="http://">http://</a> protocol, and
-4,351 (55.8%) <a href="https://">https://</a>.</li>
+<li>2,442 (31.2%) use an <a href="http://">http://</a> protocol, and
+4,375 (55.9%) <a href="https://">https://</a>.</li>
 <li><em>@TODO: compute API level statistics (localhost vs DNS vs
 mixed)</em></li>
 </ul>
@@ -655,9 +655,9 @@ used in APIs?</h3>
 <ul>
 <li>The average number of path per API is 11.3, ranging from 1 to
 310.</li>
-<li>Out of the 11,551 APIs with a path, 6,373 (55.2%) have 1-5 paths,
-1,832 (15.9%) have 6-10 paths, 1,732 (15%) have 11-20 paths, 1,137
-(9.8%) have 21-50 paths, and 477 (0.04129513%) have over 50 paths.</li>
+<li>Out of the 11,588 APIs with a path, 6,380 (55.1%) have 1-5 paths,
+1,845 (15.9%) have 6-10 paths, 1,743 (15%) have 11-20 paths, 1,143
+(9.9%) have 21-50 paths, and 477 (0.04116327%) have over 50 paths.</li>
 </ul>
 <p>See <a href="oas_paths.md">paths analysis</a> for further
 details.</p>
@@ -666,31 +666,31 @@ details.</p>
 is average number of locally defined JSON objects per API?</h3>
 <ul>
 <li>The average number of JSON objects defined locally under
-/definitions (Swagger) or /components/schema (OpenAPI) is 21.8, ranging
+/definitions (Swagger) or /components/schema (OpenAPI) is 21.7, ranging
 from 1 to 642.</li>
-<li>Out of the 9,847 APIs, 4,041 (41%) have 1-5 entries, 1,769 (18%)
-have 6-10 entries, 1,495 (15.2%) have 11-20 entries, 1,374 (14%) have
-21-50 entries, and 1,168 (11.9%) have over 50 entries.</li>
+<li>Out of the 9,890 APIs, 4,057 (41%) have 1-5 entries, 1,782 (18%)
+have 6-10 entries, 1,500 (15.2%) have 11-20 entries, 1,379 (13.9%) have
+21-50 entries, and 1,172 (11.9%) have over 50 entries.</li>
 </ul>
 <h2 id="licensing">Licensing</h2>
 <h3 id="how-is-the-license-property-used-in-apis">How is the license
 property used in APIs?</h3>
 <ul>
-<li>Out of 11,975 valid APIs, 4,042 (33.8%) have a <code>license</code>
-property, with 3,619 (30.2%) providing both the <code>name</code> and
+<li>Out of 12,018 valid APIs, 4,038 (33.6%) have a <code>license</code>
+property, with 3,617 (30.1%) providing both the <code>name</code> and
 <code>url</code>.</li>
-<li>Out of the 89 v3.1 APIs with a license, 5 (5.6%) use the
+<li>Out of the 89 v3.1 APIs with a license, 4 (4.5%) use the
 <code>identifier</code> property (introduced in 3.1).</li>
 </ul>
 <h3 id="what-is-the-breakdown-of-licenses-use-by-the-apis">What is the
 breakdown of licenses use by the APIs?</h3>
 <ul>
 <li>Analysis based on a simple harmonization method looking at terms in
-the license name and url values indicates that 2,066 (51.1%) of the APIs
+the license name and url values indicates that 2,069 (51.2%) of the APIs
 use an Apache license.</li>
-<li>Other notable categories include MIT (16.2%), Creative Commons
-(8.1%), GNU/GPL (4.6%).</li>
-<li>13.3% are categorized as Other.</li>
+<li>Other notable categories include MIT (16.1%), Creative Commons
+(8.2%), GNU/GPL (4.6%).</li>
+<li>13.2% are categorized as Other.</li>
 </ul>
 <h2 id="security">Security</h2>
 <h3 id="how-are-the-security-related-properties-used-in-apis">How are
@@ -700,18 +700,18 @@ was renamed to <code>securitySchemes</code> and moved inside
 <code>components</code>, and the <code>type: basic</code> was replaced
 with <code>type: http</code> with <code>scheme: basic</code>.</em></p>
 <ul>
-<li><p>Out of 11,975 valid APIs, 2,356 (19.7%) have a
+<li><p>Out of 12,018 valid APIs, 2,371 (19.7%) have a
 <code>security</code> property.</p></li>
-<li><p>For Swagger (v2.x), out of the 4,570 valid APIs, 1,912 (41.8%)
-have a <code>securityDefinitions</code> property. The <code>type</code>
-is distributed as 1,334 (46%) apiKey, 1,246 (42.9%) oauth2, and 322
-(11.1%) basic.</p></li>
-<li><p>For OpenAPI (v3.x), out of the 7,405 valid APIs, 3,186 (43%) have
-a <code>components/securitySchemes</code> property. The
-<code>type</code> is distributed as 1,677 (38.1%) apiKey, 1,521 (34.5%)
-http, 1,080 (24.5%) oauth2, 56 (1.3%) openIdConnect, and 70 (1.6%) empty
+<li><p>For Swagger (v2.x), out of the 4,587 valid APIs, 1,926 (42%) have
+a <code>securityDefinitions</code> property. The <code>type</code> is
+distributed as 1,342 (46%) apiKey, 1,252 (42.9%) oauth2, and 322 (11%)
+basic.</p></li>
+<li><p>For OpenAPI (v3.x), out of the 7,431 valid APIs, 3,206 (43.1%)
+have a <code>components/securitySchemes</code> property. The
+<code>type</code> is distributed as 1,684 (38%) apiKey, 1,529 (34.5%)
+http, 1,095 (24.7%) oauth2, 56 (1.3%) openIdConnect, and 70 (1.6%) empty
 value.</p></li>
-<li><p>As only 832 (18.2%) of v2.x and 1,524 (20.6%) of v3.x APIs have a
+<li><p>As only 836 (18.2%) of v2.x and 1,535 (20.7%) of v3.x APIs have a
 <code>security</code> property, it suggest that the security schemes may
 not always be used. This requires further investigation.</p></li>
 </ul>
