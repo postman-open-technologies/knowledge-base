@@ -52,3 +52,10 @@ df = dbGetQuery(conn, query)
 ```{r oas_paths_buckets_barplot, include = TRUE}
 barplot(df$count, names.arg = df$label, main = "Distribution of paths entries per API", xlab = "Count of 'paths' entries", ylab = "Count of APIs")
 ```
+
+# Methodology
+
+Results are based on the content and count of entries in the `/paths` property in the API specification.
+
+
+
