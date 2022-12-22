@@ -2,10 +2,6 @@ OAS Validity
 ================
 <sup>Last updated: 2022-12-22</sup>
 
-- <a href="#findings" id="toc-findings">Findings</a>
-  - <a href="#how-many-valid-openapis-do-we-have"
-    id="toc-how-many-valid-openapis-do-we-have"><em>How many valid OpenAPIs
-    do we have?</em></a>
 - <a href="#recommendations" id="toc-recommendations">Recommendations</a>
 - <a href="#methodology" id="toc-methodology">Methodology</a>
 - <a href="#api" id="toc-api">API</a>
@@ -14,9 +10,7 @@ OAS Validity
 have not been fully validated or peer reviewed. Use with care. Do not
 quote or disseminate.*</sup>
 
-# Findings
-
-## *How many valid OpenAPIs do we have?*
+### *How many valid OpenAPIs do we have?*
 
 - Out of 15,644 entries, 12,085 (77.3%) are valid and 3,559 (22.7%) are
   invalid
@@ -28,11 +22,11 @@ causes of errors.*
 
 ![](oas_validity_files/figure-gfm/oas_validity_charts-1.png)<!-- -->
 
-# Recommendations
+## Recommendations
 
 - Further investigate and analyze common source of errors
 
-# Methodology
+## Methodology
 
 Results are based on the count of the `isValid` boolean property in the
 resource metadata. This flag is set by the `kb_oas_validation.py`
@@ -42,7 +36,7 @@ Validation is performed by the Python
 [jsonschema](https://github.com/python-jsonschema/jsonschema) package.
 Validation errors are saved in a local file for further analysis.
 
-# API
+## API
 
 Data for this topic can be found under the /oas/statistics/validity
 endpoint.
