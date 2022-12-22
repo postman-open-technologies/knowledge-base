@@ -1,6 +1,6 @@
 OAS Validity
 ================
-<sup>Last updated: 2022-12-21</sup>
+<sup>Last updated: 2022-12-22</sup>
 
 - <a href="#recommendations" id="toc-recommendations">Recommendations</a>
 - <a href="#methodology" id="toc-methodology">Methodology</a>
@@ -12,10 +12,10 @@ quote or disseminate.*</sup>
 
 ### *How many valid OpenAPIs do we have?*
 
-- Out of 15,562 entries, 12,018 (77.2%) are valid and 3,544 (22.8%) are
+- Out of 15,644 entries, 12,085 (77.3%) are valid and 3,559 (22.7%) are
   invalid
-- 4,587 out of the 5,876 Swagger (v2.x) entries are valid (78.1%)
-- 7,431 out of the 9,686 OpenAPI (v3.x) entries are valid (76.7%)
+- 4,627 out of the 5,928 Swagger (v2.x) entries are valid (78.1%)
+- 7,458 out of the 9,716 OpenAPI (v3.x) entries are valid (76.8%)
 
 *Further analysis is in progress to understand what are the common
 causes of errors.*
