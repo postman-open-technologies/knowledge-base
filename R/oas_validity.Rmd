@@ -17,7 +17,9 @@ source("utils.R", local = knitr::knit_global())
 ```{r, child=c('header.section.Rmd')}
 ```
 
-### *How many valid OpenAPIs do we have?*
+# Findings
+
+## *How many valid OpenAPIs do we have?*
 ```{r validation, eval=TRUE, echo=FALSE}
 query = "
 select count(*) as n,
@@ -51,12 +53,12 @@ data = data.frame(category, version, percentage)
 ggplot(data, aes(fill=version, y=percentage, x=category)) + geom_bar(position="dodge", stat="identity")
 ```
 
-## Recommendations
+# Recommendations
 - Further investigate and analyze common source of errors
 
-## Methodology
+# Methodology
 Results are based on the count of the `isValid` boolean property in the resource metadata. This flag is set by the `kb_oas_validation.py` script, which uses the JSON schemas published under the [OAI GitHub project](https://github.com/OAI/OpenAPI-Specification/tree/main/schemas). Validation is performed by the Python [jsonschema](https://github.com/python-jsonschema/jsonschema) package. Validation errors are saved in a local file for further analysis.
  
-## API
+# API
 Data for this topic can be found under the /oas/statistics/validity endpoint.
 

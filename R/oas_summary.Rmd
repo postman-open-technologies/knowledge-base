@@ -22,6 +22,8 @@ This document enumerates the research questions and topics we are investigating 
 
 ### How many valid OpenAPIs do we have?
 
+<sup>See [validity analysis](oas_validity.md) for further details.<sup>
+
 ```{r validation, eval=TRUE, echo=FALSE}
 query = "
 select count(*) as total,
@@ -34,8 +36,6 @@ from vw_oas_resource
 df = dbGetQuery(conn, query)
 ```
 Out of `r format_count(df$total[1])` APIs, `r format_count_and_pct(df$n_valid[1], df$pct_valid[1])` are valid. 
-
-See [validity analysis](oas_validity.md) for further details.
 
 ### What are the primary sources of error in APIs?
 
@@ -89,11 +89,11 @@ df = dbGetQuery(conn, query)
 
 ## Paths
 
+<sup>See [paths analysis](oas_paths.md) for further details.</sup>
+
 ### How is the path property used in APIs?
 ```{r, child=c('oas_paths_summary.section.Rmd')}
 ```
-
-See [paths analysis](oas_paths.md) for further details.
 
 ## JSON Schema
 
@@ -184,7 +184,7 @@ GNU/GPL (`r format_pct(df[df$license == 'GNU',]$pct)`%).
 
 ### How are the security related properties used in APIs?
 
-*Note that in OpenAPI versions 3, `securityDefinitions` was renamed to `securitySchemes` and moved inside `components`, and the `type: basic` was replaced with `type: http` with `scheme: basic`.*
+<sup>*Note that in OpenAPI versions 3, `securityDefinitions` was renamed to `securitySchemes` and moved inside `components`, and the `type: basic` was replaced with `type: http` with `scheme: basic`.*</sup>
 
 ```{r oas_security_summary_query, eval=TRUE, echo=FALSE}
 query = "
@@ -262,4 +262,3 @@ have a `security` property, it suggest that the security schemes may not always 
 ### What is the breakdown of status codes in the OpenAPIs responses?
 
 *This research topic will be initiated shortly*
-
