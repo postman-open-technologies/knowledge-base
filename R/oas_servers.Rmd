@@ -36,7 +36,6 @@ This differences between both versions add a bit to the complexity of the analys
 
 *@TODO: compute API level statistics (localhost vs DNS vs mixed)*
 
-
 # Methodology
 
 Results are based on the content and count of entries in the `/servers` property in the OpenAPI 3.x specification, and its equivalent in version 2.0.

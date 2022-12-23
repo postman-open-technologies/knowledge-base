@@ -32,7 +32,13 @@ for the host and other components of the URL.
 
 ## How is the server property used in APIs?
 
-\#`{r, child=c('oas_servers_summary.section.Rmd')} #`
+- Out of 4,627 valid OpenAPI version 2.x specifications, 3,414 (73.8%)
+  have a `host` property, 3,388 (73.2%) have a `basePath` property, and
+  3,737 (80.8%) have a `schemes` property.
+
+- Out of 7,458 valid OpenAPI version 3.x specifications, 6,025 (80.8%)
+  have a `servers` property, with an average of 1.3 server/entry, and a
+  range of 0-13.
 
 ## How often do APIs use localhost vs domain based servers?
 

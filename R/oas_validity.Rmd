@@ -16,6 +16,7 @@ source("utils.R", local = knitr::knit_global())
 
 ```{r, child=c('header.section.Rmd')}
 ```
+<sup>[View issues related to oas:validity](https://github.com/postman-open-technologies/knowledge-base/labels/oas%validity)</sup>
 
 # Findings
 

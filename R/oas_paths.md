@@ -1,6 +1,6 @@
 OAS Paths Analysis
 ================
-<sup>Last updated: 2022-12-23</sup>
+<sup>Last updated: 2022-12-22</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#how-is-the-path-property-used-in-apis"
@@ -26,4 +26,4 @@ quote or disseminate.*</sup>
 # Methodology
 
 Results are based on the content and count of entries in the `/paths`
-property in the API specification.
+property in the APIs specifications.

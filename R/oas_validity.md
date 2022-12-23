@@ -1,6 +1,6 @@
 OAS Validity
 ================
-<sup>Last updated: 2022-12-23</sup>
+<sup>Last updated: 2022-12-22</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#how-many-valid-openapis-do-we-have"
@@ -12,7 +12,8 @@ OAS Validity
 
 <sup>*DISCLAIMER: the results and findings below are preliminary and
 have not been fully validated or peer reviewed. Use with care. Do not
-quote or disseminate.*</sup>
+quote or disseminate.*</sup> <sup>[View issues related to
+oas:validity](https://github.com/postman-open-technologies/knowledge-base/labels/oas%validity)</sup>
 
 # Findings
 
