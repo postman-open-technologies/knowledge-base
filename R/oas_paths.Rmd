@@ -55,7 +55,7 @@ barplot(df$count, names.arg = df$label, main = "Distribution of paths entries pe
 
 # Methodology
 
-Results are based on the content and count of entries in the `/paths` property in the API specification.
+Results are based on the content and count of entries in the `/paths` property in the APIs specifications.
 
 
 

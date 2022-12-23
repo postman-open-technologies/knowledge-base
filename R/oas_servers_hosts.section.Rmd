@@ -1,0 +1,29 @@
+```{r servers_hosts, eval=TRUE, echo=FALSE}
+query = "
+select
+	count(*) as n_all, 
+	sum(is_localhost) as n_localhost, 
+	sum(is_localhost) / count(*)::numeric as pct_localhost, 
+	sum(is_dnshost) as n_dnshost,
+	sum(is_dnshost) / count(*)::numeric as pct_dnshost,
+	sum(is_relative) as n_relative,
+	sum(is_relative) / count(*)::numeric as pct_relative,
+	sum(is_templatehost) as n_templatehost,
+	sum(is_templatehost) / count(*)::numeric as pct_templatehost,
+	sum(is_http) as n_http,
+	sum(is_http) / count(*)::numeric as pct_http,
+	sum(is_https) as n_https,
+	sum(is_https)  / count(*)::numeric as pct_https
+	from (
+		select uri, 'Swagger' as class, is_localhost, is_dnshost, is_relative, 0 as is_templatehost, is_http, Is_https from vw_oas_resource_host
+		union
+		select uri, 'OpenApi' as class, is_localhost, is_dnshost, is_relative, is_templatehost, is_http, Is_https from vw_oas_resource_servers
+	) as t1
+"
+df = dbGetQuery(conn, query)
+```
+
+- Out of the `r format_count(df$n_all[1])` server entries (across all APIs), `r format_count_and_pct(df$n_localhost[1], df$pct_localhost[1])` contain localhost or 127.0.0.1, `r format_count_and_pct(df$n_dnshost[1], df$pct_dnshost[1])` use a DNS host, and `r format_count_and_pct(df$n_templatehost[1], df$pct_templatehost[1])` use a variable template (3.x only). `r format_count_and_pct(df$n_relative[1], df$pct_relative[1])` use a relative path (no server specified). 
+- `r format_count_and_pct(df$n_http[1], df$pct_http[1])` use an http:// protocol, and `r format_count_and_pct(df$n_https[1], df$pct_https[1])` https://.
+
+

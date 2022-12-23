@@ -24,9 +24,9 @@ selected topics.
 
 ### How many valid OpenAPIs do we have?
 
-Out of 15,644 APIs, 12,085 (77.3%) are valid.
+<sup>See [validity analysis](oas_validity.md) for further details.<sup>
 
-See [validity analysis](oas_validity.md) for further details.
+Out of 15,644 APIs, 12,085 (77.3%) are valid.
 
 ### What are the primary sources of error in APIs?
 
@@ -34,21 +34,29 @@ See [validity analysis](oas_validity.md) for further details.
 
 ## Server
 
+<sup>See [servers analysis](oas_servers.md) for further details.</sup>
+
 ### How is the server property used in APIs?
 
-- Out of 12,085 valid APIs, 6,025 (49.9%) have a `servers` property,
-  with an average of 1.3 server/entry, and a range of 0-13.
+- Out of 4,627 valid OpenAPI version 2.x specifications, 3,414 (73.8%)
+  have a `host` property, 3,388 (73.2%) have a `basePath` property, and
+  3,737 (80.8%) have a `schemes` property.
+
+- Out of 7,458 valid OpenAPI version 3.x specifications, 6,025 (80.8%)
+  have a `servers` property, with an average of 1.3 server/entry, and a
+  range of 0-13.
 
 ### How often do APIs use localhost vs domain based servers?
 
-- Out of the 7,860 server entries (across all APIs), 1,815 (23.1%)
-  contain localhost or 127.0.0.1, and 5,088 (64.7%) use a domain based
-  name. 667 (8.5%) use a relative path (no server, just starting with
-  /), and the residuals entries are not categorized.
-- 2,449 (31.2%) use an <http://> protocol, and 4,394 (55.9%) <https://>.
-- *@TODO: compute API level statistics (localhost vs DNS vs mixed)*
+- Out of the 10,917 server entries (across all APIs), 1,849 (16.9%)
+  contain localhost or 127.0.0.1, 6,417 (58.8%) use a DNS host, and 530
+  (4.9%) use a variable template (3.x only). 1,291 (11.8%) use a
+  relative path (no server specified).
+- 4,039 (37%) use an <http://> protocol, and 6,339 (58.1%) <https://>.
 
 ## Paths
+
+<sup>See [paths analysis](oas_paths.md) for further details.</sup>
 
 ### How is the path property used in APIs?
 
@@ -56,8 +64,6 @@ See [validity analysis](oas_validity.md) for further details.
 - Out of the 11,650 APIs with a path, 6,406 (55%) have 1-5 paths, 1,862
   (16%) have 6-10 paths, 1,758 (15.1%) have 11-20 paths, 1,148 (9.9%)
   have 21-50 paths, and 476 (0.04085837%) have over 50 paths.
-
-See [paths analysis](oas_paths.md) for further details.
 
 ## JSON Schema
 
@@ -92,9 +98,10 @@ See [paths analysis](oas_paths.md) for further details.
 
 ### How are the security related properties used in APIs?
 
-*Note that in OpenAPI versions 3, `securityDefinitions` was renamed to
-`securitySchemes` and moved inside `components`, and the `type: basic`
-was replaced with `type: http` with `scheme: basic`.*
+<sup>*Note that in OpenAPI versions 3, `securityDefinitions` was renamed
+to `securitySchemes` and moved inside `components`, and the
+`type: basic` was replaced with `type: http` with
+`scheme: basic`.*</sup>
 
 - Out of 12,085 valid APIs, 2,380 (19.7%) have a `security` property.
 

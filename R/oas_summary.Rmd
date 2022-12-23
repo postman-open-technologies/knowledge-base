@@ -43,49 +43,18 @@ Out of `r format_count(df$total[1])` APIs, `r format_count_and_pct(df$n_valid[1]
 
 ## Server
 
+<sup>See [servers analysis](oas_servers.md) for further details.</sup>
+
+
 ### How is the server property used in APIs?
 
-```{r servers, eval=TRUE, echo=FALSE}
-query = "
-select count(*) as n_valid,
-count(*) filter (where json_data->'servers' is not null) as n_has_servers,
-count(*) filter (where json_data->'servers' is not null) / count(*)::numeric as pct_has_servers,
-avg(jsonb_array_length(json_data->'servers')) filter (where json_data->'servers' is not null) as avg_servers,
-min(jsonb_array_length(json_data->'servers')) filter (where json_data->'servers' is not null) as min_servers,
-max(jsonb_array_length(json_data->'servers')) filter (where json_data->'servers' is not null) as max_servers
-from vw_oas_resource
-where json_meta->'isValid' = 'true'
-"
-df = dbGetQuery(conn, query)
+```{r, child=c('oas_servers_summary.section.Rmd')}
 ```
-
-- Out of `r format_count(df$n_valid[1])` valid APIs, `r format_count_and_pct(df$n_has_servers[1], df$pct_has_servers[1])` have a `servers` property, with an average of `r format(round(df$avg_server[1],1))` server/entry, and a range of `r format_count(df$min_servers[1])`-`r format_count(df$max_servers[1])`. 
 
 ### How often do APIs use localhost vs domain based servers? 
 
-```{r servers_hosts, eval=TRUE, echo=FALSE}
-query = "
-select
-	count(*) as n_all, 
-	sum(is_localhost) as n_localhost, 
-	sum(is_localhost) / count(*)::numeric as pct_localhost, 
-	sum(is_dnshost) as n_dnshost,
-	sum(is_dnshost) / count(*)::numeric as pct_dnshost,
-	sum(is_relative) as n_relative,
-	sum(is_relative) / count(*)::numeric as pct_relative,
-	sum(is_http) as n_http,
-	sum(is_http) / count(*)::numeric as pct_http,
-	sum(is_https) as n_https,
-	sum(is_https)  / count(*)::numeric as pct_https,
-	sum(case when is_http=0 and is_https=0 then 1 else 0 end) as n_noprotocol
-	from vw_oas_resource_servers
-"
-df = dbGetQuery(conn, query)
+```{r, child=c('oas_servers_hosts.section.Rmd')}
 ```
-
-- Out of the `r format_count(df$n_all[1])` server entries (across all APIs), `r format_count_and_pct(df$n_localhost[1], df$pct_localhost[1])` contain localhost or 127.0.0.1, and `r format_count_and_pct(df$n_dnshost[1], df$pct_dnshost[1])` use a domain based name. `r format_count_and_pct(df$n_relative[1], df$pct_relative[1])` use a relative path (no server, just starting with /), and the residuals entries are not categorized. 
-- `r format_count_and_pct(df$n_http[1], df$pct_http[1])` use an http:// protocol, and `r format_count_and_pct(df$n_https[1], df$pct_https[1])` https://.
-- *@TODO: compute API level statistics (localhost vs DNS vs mixed)*
 
 ## Paths
 
