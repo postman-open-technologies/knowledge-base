@@ -602,7 +602,7 @@ padding-top: 0px;
 <body>
 
 <h1 id="oas-summary">OAS Summary</h1>
-<p><sup>Last updated: 2022-12-22</sup></p>
+<p><sup>Last updated: 2022-12-23</sup></p>
 <ul>
 <li><a href="#validity-and-source-of-errors" id="toc-validity-and-source-of-errors">Validity and source of
 errors</a></li>
@@ -624,9 +624,9 @@ selected topics.</p>
 errors</h2>
 <h3 id="how-many-valid-openapis-do-we-have">How many valid OpenAPIs do
 we have?</h3>
+<p><sup>See <a href="oas_validity.md">validity analysis</a> for further
+details.<sup></p>
 <p>Out of 15,644 APIs, 12,085 (77.3%) are valid.</p>
-<p>See <a href="oas_validity.md">validity analysis</a> for further
-details.</p>
 <h3 id="what-are-the-primary-sources-of-error-in-apis">What are the
 primary sources of error in APIs?</h3>
 <p><em>This research topic will be initiated shortly</em></p>
@@ -639,17 +639,36 @@ property, with an average of 1.3 server/entry, and a range of 0-13.</li>
 </ul>
 <h3 id="how-often-do-apis-use-localhost-vs-domain-based-servers">How
 often do APIs use localhost vs domain based servers?</h3>
+<pre><code>## Error in postgresqlExecStatement(conn, statement, ...) : 
+##   RPosgreSQL error: could not Retrieve the result : ERROR:  permission denied for view vw_oas_resource_servers
+
+## Warning in postgresqlQuickSQL(conn, statement, ...): Could not create execute: 
+## select
+##  count(*) as n_all, 
+##  sum(is_localhost) as n_localhost, 
+##  sum(is_localhost) / count(*)::numeric as pct_localhost, 
+##  sum(is_dnshost) as n_dnshost,
+##  sum(is_dnshost) / count(*)::numeric as pct_dnshost,
+##  sum(is_relative) as n_relative,
+##  sum(is_relative) / count(*)::numeric as pct_relative,
+##  sum(is_http) as n_http,
+##  sum(is_http) / count(*)::numeric as pct_http,
+##  sum(is_https) as n_https,
+##  sum(is_https)  / count(*)::numeric as pct_https,
+##  sum(case when is_http=0 and is_https=0 then 1 else 0 end) as n_noprotocol
+##  from vw_oas_resource_servers</code></pre>
 <ul>
-<li>Out of the 7,860 server entries (across all APIs), 1,815 (23.1%)
-contain localhost or 127.0.0.1, and 5,088 (64.7%) use a domain based
-name. 667 (8.5%) use a relative path (no server, just starting with /),
-and the residuals entries are not categorized.</li>
-<li>2,449 (31.2%) use an <a href="http://">http://</a> protocol, and
-4,394 (55.9%) <a href="https://">https://</a>.</li>
+<li>Out of the NULL server entries (across all APIs), contain localhost
+or 127.0.0.1, and use a domain based name. use a relative path (no
+server, just starting with /), and the residuals entries are not
+categorized.</li>
+<li>use an <a href="http://">http://</a> protocol, and <a href="https://">https://</a>.</li>
 <li><em>@TODO: compute API level statistics (localhost vs DNS vs
 mixed)</em></li>
 </ul>
 <h2 id="paths">Paths</h2>
+<p><sup>See <a href="oas_paths.md">paths analysis</a> for further
+details.</sup></p>
 <h3 id="how-is-the-path-property-used-in-apis">How is the path property
 used in APIs?</h3>
 <ul>
@@ -659,8 +678,6 @@ used in APIs?</h3>
 1,862 (16%) have 6-10 paths, 1,758 (15.1%) have 11-20 paths, 1,148
 (9.9%) have 21-50 paths, and 476 (0.04085837%) have over 50 paths.</li>
 </ul>
-<p>See <a href="oas_paths.md">paths analysis</a> for further
-details.</p>
 <h2 id="json-schema">JSON Schema</h2>
 <h3 id="what-is-average-number-of-locally-defined-json-objects-per-api">What
 is average number of locally defined JSON objects per API?</h3>
@@ -695,10 +712,11 @@ use an Apache license.</li>
 <h2 id="security">Security</h2>
 <h3 id="how-are-the-security-related-properties-used-in-apis">How are
 the security related properties used in APIs?</h3>
-<p><em>Note that in OpenAPI versions 3, <code>securityDefinitions</code>
-was renamed to <code>securitySchemes</code> and moved inside
-<code>components</code>, and the <code>type: basic</code> was replaced
-with <code>type: http</code> with <code>scheme: basic</code>.</em></p>
+<p><sup><em>Note that in OpenAPI versions 3,
+<code>securityDefinitions</code> was renamed to
+<code>securitySchemes</code> and moved inside <code>components</code>,
+and the <code>type: basic</code> was replaced with
+<code>type: http</code> with <code>scheme: basic</code>.</em></sup></p>
 <ul>
 <li><p>Out of 12,085 valid APIs, 2,380 (19.7%) have a
 <code>security</code> property.</p></li>

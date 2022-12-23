@@ -1,6 +1,6 @@
 OAS Summary
 ================
-<sup>Last updated: 2022-12-22</sup>
+<sup>Last updated: 2022-12-23</sup>
 
 - <a href="#validity-and-source-of-errors"
   id="toc-validity-and-source-of-errors">Validity and source of errors</a>
@@ -24,9 +24,9 @@ selected topics.
 
 ### How many valid OpenAPIs do we have?
 
-Out of 15,644 APIs, 12,085 (77.3%) are valid.
+<sup>See [validity analysis](oas_validity.md) for further details.<sup>
 
-See [validity analysis](oas_validity.md) for further details.
+Out of 15,644 APIs, 12,085 (77.3%) are valid.
 
 ### What are the primary sources of error in APIs?
 
@@ -41,14 +41,35 @@ See [validity analysis](oas_validity.md) for further details.
 
 ### How often do APIs use localhost vs domain based servers?
 
-- Out of the 7,860 server entries (across all APIs), 1,815 (23.1%)
-  contain localhost or 127.0.0.1, and 5,088 (64.7%) use a domain based
-  name. 667 (8.5%) use a relative path (no server, just starting with
-  /), and the residuals entries are not categorized.
-- 2,449 (31.2%) use an <http://> protocol, and 4,394 (55.9%) <https://>.
+    ## Error in postgresqlExecStatement(conn, statement, ...) : 
+    ##   RPosgreSQL error: could not Retrieve the result : ERROR:  permission denied for view vw_oas_resource_servers
+
+    ## Warning in postgresqlQuickSQL(conn, statement, ...): Could not create execute: 
+    ## select
+    ##  count(*) as n_all, 
+    ##  sum(is_localhost) as n_localhost, 
+    ##  sum(is_localhost) / count(*)::numeric as pct_localhost, 
+    ##  sum(is_dnshost) as n_dnshost,
+    ##  sum(is_dnshost) / count(*)::numeric as pct_dnshost,
+    ##  sum(is_relative) as n_relative,
+    ##  sum(is_relative) / count(*)::numeric as pct_relative,
+    ##  sum(is_http) as n_http,
+    ##  sum(is_http) / count(*)::numeric as pct_http,
+    ##  sum(is_https) as n_https,
+    ##  sum(is_https)  / count(*)::numeric as pct_https,
+    ##  sum(case when is_http=0 and is_https=0 then 1 else 0 end) as n_noprotocol
+    ##  from vw_oas_resource_servers
+
+- Out of the NULL server entries (across all APIs), contain localhost or
+  127.0.0.1, and use a domain based name. use a relative path (no
+  server, just starting with /), and the residuals entries are not
+  categorized.
+- use an <http://> protocol, and <https://>.
 - *@TODO: compute API level statistics (localhost vs DNS vs mixed)*
 
 ## Paths
+
+<sup>See [paths analysis](oas_paths.md) for further details.</sup>
 
 ### How is the path property used in APIs?
 
@@ -56,8 +77,6 @@ See [validity analysis](oas_validity.md) for further details.
 - Out of the 11,650 APIs with a path, 6,406 (55%) have 1-5 paths, 1,862
   (16%) have 6-10 paths, 1,758 (15.1%) have 11-20 paths, 1,148 (9.9%)
   have 21-50 paths, and 476 (0.04085837%) have over 50 paths.
-
-See [paths analysis](oas_paths.md) for further details.
 
 ## JSON Schema
 
@@ -92,9 +111,10 @@ See [paths analysis](oas_paths.md) for further details.
 
 ### How are the security related properties used in APIs?
 
-*Note that in OpenAPI versions 3, `securityDefinitions` was renamed to
-`securitySchemes` and moved inside `components`, and the `type: basic`
-was replaced with `type: http` with `scheme: basic`.*
+<sup>*Note that in OpenAPI versions 3, `securityDefinitions` was renamed
+to `securitySchemes` and moved inside `components`, and the
+`type: basic` was replaced with `type: http` with
+`scheme: basic`.*</sup>
 
 - Out of 12,085 valid APIs, 2,380 (19.7%) have a `security` property.
 
