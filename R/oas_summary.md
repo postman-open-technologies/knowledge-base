@@ -1,6 +1,6 @@
 OAS Summary
 ================
-<sup>Last updated: 2022-12-22</sup>
+<sup>Last updated: 2022-12-23</sup>
 
 - <a href="#validity-and-source-of-errors"
   id="toc-validity-and-source-of-errors">Validity and source of errors</a>
@@ -34,25 +34,38 @@ Out of 15,644 APIs, 12,085 (77.3%) are valid.
 
 ## Server
 
-<sup>See [servers analysis](oas_servers.md) for further details.</sup>
-
 ### How is the server property used in APIs?
 
-- Out of 4,627 valid OpenAPI version 2.x specifications, 3,414 (73.8%)
-  have a `host` property, 3,388 (73.2%) have a `basePath` property, and
-  3,737 (80.8%) have a `schemes` property.
-
-- Out of 7,458 valid OpenAPI version 3.x specifications, 6,025 (80.8%)
-  have a `servers` property, with an average of 1.3 server/entry, and a
-  range of 0-13.
+- Out of 12,085 valid APIs, 6,025 (49.9%) have a `servers` property,
+  with an average of 1.3 server/entry, and a range of 0-13.
 
 ### How often do APIs use localhost vs domain based servers?
 
-- Out of the 10,917 server entries (across all APIs), 1,849 (16.9%)
-  contain localhost or 127.0.0.1, 6,417 (58.8%) use a DNS host, and 530
-  (4.9%) use a variable template (3.x only). 1,291 (11.8%) use a
-  relative path (no server specified).
-- 4,039 (37%) use an <http://> protocol, and 6,339 (58.1%) <https://>.
+    ## Error in postgresqlExecStatement(conn, statement, ...) : 
+    ##   RPosgreSQL error: could not Retrieve the result : ERROR:  permission denied for view vw_oas_resource_servers
+
+    ## Warning in postgresqlQuickSQL(conn, statement, ...): Could not create execute: 
+    ## select
+    ##  count(*) as n_all, 
+    ##  sum(is_localhost) as n_localhost, 
+    ##  sum(is_localhost) / count(*)::numeric as pct_localhost, 
+    ##  sum(is_dnshost) as n_dnshost,
+    ##  sum(is_dnshost) / count(*)::numeric as pct_dnshost,
+    ##  sum(is_relative) as n_relative,
+    ##  sum(is_relative) / count(*)::numeric as pct_relative,
+    ##  sum(is_http) as n_http,
+    ##  sum(is_http) / count(*)::numeric as pct_http,
+    ##  sum(is_https) as n_https,
+    ##  sum(is_https)  / count(*)::numeric as pct_https,
+    ##  sum(case when is_http=0 and is_https=0 then 1 else 0 end) as n_noprotocol
+    ##  from vw_oas_resource_servers
+
+- Out of the NULL server entries (across all APIs), contain localhost or
+  127.0.0.1, and use a domain based name. use a relative path (no
+  server, just starting with /), and the residuals entries are not
+  categorized.
+- use an <http://> protocol, and <https://>.
+- *@TODO: compute API level statistics (localhost vs DNS vs mixed)*
 
 ## Paths
 
