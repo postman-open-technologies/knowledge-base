@@ -1,0 +1,39 @@
+---
+title: "OAS Servers Analysis: Top Level Domains"
+date: "<sup>Last updated: `r format(Sys.time(), '%Y-%m-%d')`</sup>"
+output:
+  github_document:
+    toc: false
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+source("db_connection.R", local = knitr::knit_global())
+source("utils.R", local = knitr::knit_global())
+```
+
+```{r, child=c('header.section.Rmd')}
+```
+
+<sup>[Back to analysis](oas_servers.md) | [View issues related to oas:servers](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Aservers)</sup>
+
+
+## Top level domains
+
+```{r oas_servers_tlds, eval=TRUE, echo=FALSE}
+query = "
+select tld, count(*) as n from vw_oas_resource_tld group by tld having count(*) >= 5 order by n desc, tld
+"
+df = dbGetQuery(conn, query)
+```
+
+List of top level domains used by at least 5 APIs
+
+| Rank | Domain | #APIs |
+|--- |--- |--- |
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+for (i in 1:nrow(df)) {
+  cat(paste("|",i,"|",df[i,'tld'],"|",df[i,'n'],"|\n"))
+}
+```

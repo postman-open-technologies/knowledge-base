@@ -15,7 +15,8 @@ source("utils.R", local = knitr::knit_global())
 
 ```{r, child=c('header.section.Rmd')}
 ```
-<sup>[View issues related to oas:servers](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Aservers)</sup>
+
+<sup>[Back to summary](oas_summary.md) | [View related issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Aservers)</sup>
 
 # Overview
  
@@ -36,6 +37,25 @@ This differences between both versions add a bit to the complexity of the analys
 
 *@TODO: compute API level statistics (localhost vs DNS vs mixed)*
 
+## What are the most commonly used top level domains for APIs?
+
+```{r oas_servers_tlds, eval=TRUE, echo=FALSE}
+query = "
+select tld, count(*) as n from vw_oas_resource_tld group by tld order by n desc, tld limit 10;
+"
+df = dbGetQuery(conn, query)
+```
+
+The following 10 top level domains are the most commonly used in our APIs collection. See [top level domains](oas_servers_tld.md) for a more comprehensive list.
+
+| Rank | Domain | #APIs |
+|--- |--- |--- |
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+for (i in 1:nrow(df)) {
+  cat(paste("|",i,"|",df[i,'tld'],"|",df[i,'n'],"|\n"))
+}
+```
+
 # Methodology
 
 Results are based on the content and count of entries in the `/servers` property in the OpenAPI 3.x specification, and its equivalent in version 2.0.
@@ -43,6 +63,8 @@ Results are based on the content and count of entries in the `/servers` property
 For the purpose of categorization across, we extract the host, protocol, and base name from all servers entries in 3.x to align on the 2.0 version
 
 The host is then categorized as local if the name contains `localhost` or `127.0.0.1`, and  dns based if it is a valid domain name. This therefore excludes relative paths as well as entries that use variable templates.
+
+The top level domain names statistics, we derived the entries from the `host` and `servers` properties present in the API specifications, excluding local and IP based hosts. The query uses a distinct clause to prevent multiple counts withing the same as API.
 
 
 

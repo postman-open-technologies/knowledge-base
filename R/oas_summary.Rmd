@@ -56,6 +56,20 @@ Out of `r format_count(df$total[1])` APIs, `r format_count_and_pct(df$n_valid[1]
 ```{r, child=c('oas_servers_hosts.section.Rmd')}
 ```
 
+### What are the most commonly used top level domains?
+
+```{r oas_servers_tld, eval=TRUE, echo=FALSE}
+query = "
+select tld, count(*) as n from vw_oas_resource_tld group by tld order by n desc, tld limit 3
+"
+df = dbGetQuery(conn, query)
+```
+
+- The top 3 most commonly used top level domains in our API collection are 
+`r df$tld[1]` (`r format_count(df$n[1])`),
+`r df$tld[2]` (`r format_count(df$n[2])`),
+and `r df$tld[3]` (`r format_count(df$n[3])`).
+
 ## Paths
 
 <sup>See [paths analysis](oas_paths.md) for further details.</sup>

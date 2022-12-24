@@ -1,6 +1,6 @@
 OAS Paths Analysis
 ================
-<sup>Last updated: 2022-12-22</sup>
+<sup>Last updated: 2022-12-23</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#how-is-the-path-property-used-in-apis"
@@ -11,6 +11,9 @@ OAS Paths Analysis
 <sup>*DISCLAIMER: the results and findings below are preliminary and
 have not been fully validated or peer reviewed. Use with care. Do not
 quote or disseminate.*</sup>
+
+<sup>[Back to summary](oas_summary.md) \| [View related
+issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Apaths)</sup>
 
 # Findings
 

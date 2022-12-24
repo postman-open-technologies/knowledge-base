@@ -1,6 +1,6 @@
 OAS Servers Analysis
 ================
-<sup>Last updated: 2022-12-22</sup>
+<sup>Last updated: 2022-12-23</sup>
 
 - <a href="#overview" id="toc-overview">Overview</a>
 - <a href="#findings" id="toc-findings">Findings</a>
@@ -10,12 +10,17 @@ OAS Servers Analysis
   - <a href="#how-often-do-apis-use-localhost-vs-domain-based-servers"
     id="toc-how-often-do-apis-use-localhost-vs-domain-based-servers">How
     often do APIs use localhost vs domain based servers?</a>
+  - <a href="#what-are-the-most-commonly-used-top-level-domains-for-apis"
+    id="toc-what-are-the-most-commonly-used-top-level-domains-for-apis">What
+    are the most commonly used top level domains for APIs?</a>
 - <a href="#methodology" id="toc-methodology">Methodology</a>
 
 <sup>*DISCLAIMER: the results and findings below are preliminary and
 have not been fully validated or peer reviewed. Use with care. Do not
-quote or disseminate.*</sup> <sup>[View issues related to
-oas:servers](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Aservers)</sup>
+quote or disseminate.*</sup>
+
+<sup>[Back to summary](oas_summary.md) \| [View related
+issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Aservers)</sup>
 
 # Overview
 
@@ -42,13 +47,32 @@ for the host and other components of the URL.
 
 ## How often do APIs use localhost vs domain based servers?
 
-- Out of the 10,917 server entries (across all APIs), 1,849 (16.9%)
-  contain localhost or 127.0.0.1, 6,417 (58.8%) use a DNS host, and 530
-  (4.9%) use a variable template (3.x only). 1,291 (11.8%) use a
+- Out of the 10,917 host/servers entries (across all APIs), 1,849
+  (16.9%) contain localhost or 127.0.0.1, 6,417 (58.8%) use a DNS host,
+  and 530 (4.9%) use a variable template (3.x only). 1,291 (11.8%) use a
   relative path (no server specified).
 - 4,039 (37%) use an <http://> protocol, and 6,339 (58.1%) <https://>.
 
 *@TODO: compute API level statistics (localhost vs DNS vs mixed)*
+
+## What are the most commonly used top level domains for APIs?
+
+The following 10 top level domains are the most commonly used in our
+APIs collection. See [top level domains](oas_servers_tld.md) for a more
+comprehensive list.
+
+| Rank | Domain              | \#APIs |
+|------|---------------------|--------|
+| 1    | swaggerhub.com      | 613    |
+| 2    | azure.com           | 358    |
+| 3    | swagger.io          | 337    |
+| 4    | herokuapp.com       | 221    |
+| 5    | example.com         | 191    |
+| 6    | googleapis.com      | 136    |
+| 7    | openweathermap.org  | 100    |
+| 8    | microsoft.com       | 92     |
+| 9    | azurestack.external | 82     |
+| 10   | epa.gov             | 62     |
 
 # Methodology
 
@@ -64,3 +88,8 @@ The host is then categorized as local if the name contains `localhost`
 or `127.0.0.1`, and dns based if it is a valid domain name. This
 therefore excludes relative paths as well as entries that use variable
 templates.
+
+The top level domain names statistics, we derived the entries from the
+`host` and `servers` properties present in the API specifications,
+excluding local and IP based hosts. The query uses a distinct clause to
+prevent multiple counts withing the same as API.

@@ -16,6 +16,8 @@ source("utils.R", local = knitr::knit_global())
 ```{r, child=c('header.section.Rmd')}
 ```
 
+<sup>[Back to summary](oas_summary.md) | [View related issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Apaths)</sup>
+
 # Findings
 
 ## How is the path property used in APIs?
