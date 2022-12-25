@@ -1,6 +1,6 @@
 OAS Summary
 ================
-<sup>Last updated: 2022-12-23</sup>
+<sup>Last updated: 2022-12-25</sup>
 
 - <a href="#validity-and-source-of-errors"
   id="toc-validity-and-source-of-errors">Validity and source of errors</a>
@@ -54,9 +54,9 @@ Out of 15,644 APIs, 12,085 (77.3%) are valid.
   relative path (no server specified).
 - 4,039 (37%) use an <http://> protocol, and 6,339 (58.1%) <https://>.
 
-### What are the most commonly found top level domains?
+### What are the most commonly used top level domains?
 
-- The top 3 most commonly found top level domains in our API collection
+- The top 3 most commonly used top level domains in our API collection
   are swaggerhub.com (613), azure.com (358), and swagger.io (337).
 
 ## Paths

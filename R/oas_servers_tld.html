@@ -601,65 +601,16 @@ padding-top: 0px;
 
 <body>
 
-<h1 id="oas-servers-analysis">OAS Servers Analysis</h1>
+<h1 id="oas-servers-analysis-top-level-domains">OAS Servers Analysis:
+Top Level Domains</h1>
 <p><sup>Last updated: 2022-12-25</sup></p>
-<ul>
-<li><a href="#overview" id="toc-overview">Overview</a></li>
-<li><a href="#findings" id="toc-findings">Findings</a>
-<ul>
-<li><a href="#how-is-the-server-property-used-in-apis" id="toc-how-is-the-server-property-used-in-apis">How is the server
-property used in APIs?</a></li>
-<li><a href="#how-often-do-apis-use-localhost-vs-domain-based-servers" id="toc-how-often-do-apis-use-localhost-vs-domain-based-servers">How
-often do APIs use localhost vs domain based servers?</a></li>
-<li><a href="#what-are-the-most-commonly-used-top-level-domains-for-apis" id="toc-what-are-the-most-commonly-used-top-level-domains-for-apis">What
-are the most commonly used top level domains for APIs?</a></li>
-</ul></li>
-<li><a href="#methodology" id="toc-methodology">Methodology</a></li>
-</ul>
 <p><sup><em>DISCLAIMER: the results and findings below are preliminary
 and have not been fully validated or peer reviewed. Use with care. Do
 not quote or disseminate.</em></sup></p>
-<p><sup><a href="oas_summary.md">Back to summary</a> | <a href="https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Aservers">View
-related issues</a></sup></p>
-<h1 id="overview">Overview</h1>
-<p>The <code>servers</code> property in OpenAPI provide connectivity
-information to target server(s) for the API. It replaces the
-<code>host</code>, <code>basePath</code> and <code>schemes</code>
-properties used in OpenAPI 2. This differences between both versions add
-a bit to the complexity of the analysis. Note that more server entries
-may appears in the 3.x versions as the version 2.x was essentially
-limited to a single server entry (with multiple protocols). Version 3.x
-also introduced server variables which may obfuscate values for the host
-and other components of the URL.</p>
-<h1 id="findings">Findings</h1>
-<h2 id="how-is-the-server-property-used-in-apis">How is the server
-property used in APIs?</h2>
-<ul>
-<li><p>Out of 4,627 valid OpenAPI version 2.x specifications, 3,414
-(73.8%) have a <code>host</code> property, 3,388 (73.2%) have a
-<code>basePath</code> property, and 3,737 (80.8%) have a
-<code>schemes</code> property.</p></li>
-<li><p>Out of 7,458 valid OpenAPI version 3.x specifications, 6,025
-(80.8%) have a <code>servers</code> property, with an average of 1.3
-server/entry, and a range of 0-13.</p></li>
-</ul>
-<h2 id="how-often-do-apis-use-localhost-vs-domain-based-servers">How
-often do APIs use localhost vs domain based servers?</h2>
-<ul>
-<li>Out of the 10,917 host/servers entries (across all APIs), 1,849
-(16.9%) contain localhost or 127.0.0.1, 6,417 (58.8%) use a DNS host,
-and 530 (4.9%) use a variable template (3.x only). 1,291 (11.8%) use a
-relative path (no server specified).</li>
-<li>4,039 (37%) use an <a href="http://">http://</a> protocol, and 6,339
-(58.1%) <a href="https://">https://</a>.</li>
-</ul>
-<p><em>@TODO: compute API level statistics (localhost vs DNS vs
-mixed)</em></p>
-<h2 id="what-are-the-most-commonly-used-top-level-domains-for-apis">What
-are the most commonly used top level domains for APIs?</h2>
-<p>The following 10 top level domains are the most commonly used in our
-APIs collection. See <a href="oas_servers_tld.md">top level domains</a>
-for a more comprehensive list.</p>
+<p><sup><a href="oas_servers.md">Back to analysis</a> | <a href="https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Aservers">View
+issues related to oas:servers</a></sup></p>
+<h2 id="top-level-domains">Top level domains</h2>
+<p>List of top level domains used by at least 5 APIs</p>
 <table>
 <thead>
 <tr class="header">
@@ -719,23 +670,738 @@ for a more comprehensive list.</p>
 <td>epa.gov</td>
 <td>62</td>
 </tr>
+<tr class="odd">
+<td>11</td>
+<td>wordnik.com</td>
+<td>62</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>amadeus.com</td>
+<td>59</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>adyen.com</td>
+<td>57</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>amazonaws.com</td>
+<td>54</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>amazon.com</td>
+<td>54</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>apitore.com</td>
+<td>44</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>org.uk</td>
+<td>44</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>azurewebsites.net</td>
+<td>43</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>elements.com</td>
+<td>35</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>appspot.com</td>
+<td>34</td>
+</tr>
+<tr class="odd">
+<td>21</td>
+<td>example.xyz</td>
+<td>34</td>
+</tr>
+<tr class="even">
+<td>22</td>
+<td>cloud.goog</td>
+<td>33</td>
+</tr>
+<tr class="odd">
+<td>23</td>
+<td>quora.io</td>
+<td>33</td>
+</tr>
+<tr class="even">
+<td>24</td>
+<td>apis.guru</td>
+<td>28</td>
+</tr>
+<tr class="odd">
+<td>25</td>
+<td>azure.local</td>
+<td>28</td>
+</tr>
+<tr class="even">
+<td>26</td>
+<td>sap.com</td>
+<td>28</td>
+</tr>
+<tr class="odd">
+<td>27</td>
+<td>ebay.com</td>
+<td>27</td>
+</tr>
+<tr class="even">
+<td>28</td>
+<td>rapidapi.com</td>
+<td>27</td>
+</tr>
+<tr class="odd">
+<td>29</td>
+<td>ac.nz</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td>30</td>
+<td>trade.gov</td>
+<td>25</td>
+</tr>
+<tr class="odd">
+<td>31</td>
+<td>deutschebahn.com</td>
+<td>24</td>
+</tr>
+<tr class="even">
+<td>32</td>
+<td>openbankproject.com</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>33</td>
+<td>stoplight.io</td>
+<td>24</td>
+</tr>
+<tr class="even">
+<td>34</td>
+<td>wso2.com</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>35</td>
+<td>apigee.net</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td>36</td>
+<td>bc.ca</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>37</td>
+<td>gov.uk</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>38</td>
+<td>api.net</td>
+<td>19</td>
+</tr>
+<tr class="odd">
+<td>39</td>
+<td>com.au</td>
+<td>19</td>
+</tr>
+<tr class="even">
+<td>40</td>
+<td>co.uk</td>
+<td>19</td>
+</tr>
+<tr class="odd">
+<td>41</td>
+<td>egovernments.org</td>
+<td>19</td>
+</tr>
+<tr class="even">
+<td>42</td>
+<td>fantasydata.net</td>
+<td>19</td>
+</tr>
+<tr class="odd">
+<td>43</td>
+<td>api.com</td>
+<td>18</td>
+</tr>
+<tr class="even">
+<td>44</td>
+<td>cosmos.network</td>
+<td>18</td>
+</tr>
+<tr class="odd">
+<td>45</td>
+<td>nytimes.com</td>
+<td>17</td>
+</tr>
+<tr class="even">
+<td>46</td>
+<td>sportsdata.io</td>
+<td>17</td>
+</tr>
+<tr class="odd">
+<td>47</td>
+<td>governify.io</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<td>48</td>
+<td>gov.in</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td>49</td>
+<td>server.test</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>50</td>
+<td>clever.com</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td>51</td>
+<td>sentient.io</td>
+<td>14</td>
+</tr>
+<tr class="even">
+<td>52</td>
+<td>aramark.net</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>53</td>
+<td>bigoven.com</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td>54</td>
+<td>concursolutions.com</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>55</td>
+<td>example.org</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td>56</td>
+<td>spotify.com</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>57</td>
+<td>bbc.com</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>58</td>
+<td>canada.ca</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>59</td>
+<td>gov.au</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>60</td>
+<td>ncats.io</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>61</td>
+<td>netdata.io</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>62</td>
+<td>bikewise.org</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td>63</td>
+<td>brapi.org</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>64</td>
+<td>govt.nz</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td>65</td>
+<td>hollaex.com</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>66</td>
+<td>vtextracking.com</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td>67</td>
+<td>wmata.com</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>68</td>
+<td>aminocom.com</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>69</td>
+<td>omdbapi.com</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>70</td>
+<td>strava.com</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>71</td>
+<td>1forge.com</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>72</td>
+<td>adafruit.com</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>73</td>
+<td>arrivy.com</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>74</td>
+<td>bankit.dk</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>75</td>
+<td>com.br</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>76</td>
+<td>github.com</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>77</td>
+<td>github.io</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>78</td>
+<td>httpbin.org</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>79</td>
+<td>iii.org</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>80</td>
+<td>mastercard.com</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>81</td>
+<td>nhs.uk</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>82</td>
+<td>samsara.com</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>83</td>
+<td>twilio.com</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>84</td>
+<td>va.gov</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>85</td>
+<td>apigee.com</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>86</td>
+<td>betty.app</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>87</td>
+<td>is.com</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>88</td>
+<td>italia.it</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>89</td>
+<td>lufthansa.com</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>90</td>
+<td>mashape.com</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>91</td>
+<td>o2.cz</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>92</td>
+<td>sample.com</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>93</td>
+<td>simplekart.com</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>94</td>
+<td>alchemy.com</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>95</td>
+<td>benz.com</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>96</td>
+<td>cloudfunctions.net</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>97</td>
+<td>codas.com</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>98</td>
+<td>example.io</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>99</td>
+<td>gettyimages.com</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>100</td>
+<td>letmc.com</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>101</td>
+<td>naviplancentral.com</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>102</td>
+<td>opentlc.com</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>103</td>
+<td>telefonica.com</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>temenos.com</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>105</td>
+<td>ups.com</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>106</td>
+<td>acnhapi.com</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>107</td>
+<td>ainize.ai</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>108</td>
+<td>data.gov</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>109</td>
+<td>datumbox.com</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>110</td>
+<td>dolby.com</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>111</td>
+<td>foursquare.com</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>112</td>
+<td>getsandbox.com</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>113</td>
+<td>kalshi.com</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>114</td>
+<td>lotadata.com</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>115</td>
+<td>nrel.gov</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>116</td>
+<td>openapi.io</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>117</td>
+<td>server.com</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>118</td>
+<td>tomtom.com</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>119</td>
+<td>twitter.com</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>120</td>
+<td>xero.com</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>121</td>
+<td>adopta.agency</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>122</td>
+<td>anchore.local</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>123</td>
+<td>apicast.io</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>124</td>
+<td>apimatic.io</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>125</td>
+<td>apis.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>126</td>
+<td>appcelerator.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>127</td>
+<td>appveyor.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>128</td>
+<td>box.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>129</td>
+<td>brex.io</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>130</td>
+<td>chompthis.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>131</td>
+<td>cloudmersive.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>132</td>
+<td>cobiscorp.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>133</td>
+<td>deepl.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>134</td>
+<td>domain.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>135</td>
+<td>domainsdb.info</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>136</td>
+<td>evetech.net</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>137</td>
+<td>flickr.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>138</td>
+<td>gitlab.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>139</td>
+<td>haloapi.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>140</td>
+<td>hel.fi</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>141</td>
+<td>icons8.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>142</td>
+<td>m3o.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>143</td>
+<td>mapmyindia.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>144</td>
+<td>monitored.equipment</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>145</td>
+<td>npr.org</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>146</td>
+<td>ns.nl</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>147</td>
+<td>orphadata.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>148</td>
+<td>paylocity.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>149</td>
+<td>redhat.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>150</td>
+<td>run.app</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>151</td>
+<td>solutions.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>152</td>
+<td>storecove.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>153</td>
+<td>tastylog.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>154</td>
+<td>twinehealth.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>155</td>
+<td>whapi.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>156</td>
+<td>worldmodelers.com</td>
+<td>5</td>
+</tr>
 </tbody>
 </table>
-<h1 id="methodology">Methodology</h1>
-<p>Results are based on the content and count of entries in the
-<code>/servers</code> property in the OpenAPI 3.x specification, and its
-equivalent in version 2.0.</p>
-<p>For the purpose of categorization across, we extract the host,
-protocol, and base name from all servers entries in 3.x to align on the
-2.0 version</p>
-<p>The host is then categorized as local if the name contains
-<code>localhost</code> or <code>127.0.0.1</code>, and dns based if it is
-a valid domain name. This therefore excludes relative paths as well as
-entries that use variable templates.</p>
-<p>The top level domain names statistics, we derived the entries from
-the <code>host</code> and <code>servers</code> properties present in the
-API specifications, excluding local and IP based hosts. The query uses a
-distinct clause to prevent multiple counts withing the same as API.</p>
 
 </body>
 </html>
