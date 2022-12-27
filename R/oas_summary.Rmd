@@ -18,6 +18,15 @@ source("utils.R", local = knitr::knit_global())
 
 This document enumerates the research questions and topics we are investigating in the knowledge base around OpenAPI specifications and provides a summary of findings. More in-depth analysis is available for selected topics.
 
+## Size
+
+### What is the typicaly size of an API?
+
+<sup>See [size analysis](oas_size.md) for further details.<sup>
+
+```{r, child=c('oas_size_summary.section.Rmd')}
+```
+
 ## Validity and source of errors
 
 ### How many valid OpenAPIs do we have?
@@ -35,7 +44,7 @@ from vw_oas_resource
 "
 df = dbGetQuery(conn, query)
 ```
-Out of `r format_count(df$total[1])` APIs, `r format_count_and_pct(df$n_valid[1], df$pct_valid[1])` are valid. 
+-  Out of `r format_count(df$total[1])` APIs, `r format_count_and_pct(df$n_valid[1], df$pct_valid[1])` are valid. 
 
 ### What are the primary sources of error in APIs?
 

@@ -2,6 +2,7 @@ OAS Summary
 ================
 <sup>Last updated: 2022-12-27</sup>
 
+- <a href="#size" id="toc-size">Size</a>
 - <a href="#validity-and-source-of-errors"
   id="toc-validity-and-source-of-errors">Validity and source of errors</a>
 - <a href="#server" id="toc-server">Server</a>
@@ -20,13 +21,26 @@ investigating in the knowledge base around OpenAPI specifications and
 provides a summary of findings. More in-depth analysis is available for
 selected topics.
 
+## Size
+
+### What is the typicaly size of an API?
+
+<sup>See [size analysis](oas_size.md) for further details.<sup>
+
+- Based on 12,085 valid API specifications, the average JSON size is
+  `format(round(df$avg_size[1],1), big.mark = ","))`Kb, ranging from \<
+  1Kb to `format(round(df$max_size_swagger[1],1), big.mark = ","))`. No
+  significant difference is ovbersrved between versionb 2.x
+  (`format(round(df$avg_size[1],1), big.mark = ","))`) and 3.0
+  (`format(round(df$avg_size_openapi[1],1), big.mark = ","))`)
+
 ## Validity and source of errors
 
 ### How many valid OpenAPIs do we have?
 
 <sup>See [validity analysis](oas_validity.md) for further details.<sup>
 
-Out of 15,644 APIs, 12,085 (77.3%) are valid.
+- Out of 15,644 APIs, 12,085 (77.3%) are valid.
 
 ### What are the primary sources of error in APIs?
 

@@ -1,0 +1,24 @@
+```{r oas_size_summary, eval=TRUE, echo=FALSE}
+query = "
+select 
+	count(*) as n_valid,
+	avg(json_data_size )/1024 as avg_size,
+	min(json_data_size )/1024 as min_size,
+	max(json_data_size )/1024 as max_size,
+	count(*) filter (where class='Swagger') as n_swagger,
+	avg(json_data_size) filter (where class='Swagger')/1024  as avg_size_swagger,
+	min(json_data_size) filter (where class='Swagger')/1024  as min_size_swagger,
+	max(json_data_size) filter (where class='Swagger')/1024  as max_size_swagger,
+	avg(json_data_size) filter (where class='OpenApi')/1024  as avg_size_openapi,
+	min(json_data_size) filter (where class='OpenApi')/1024  as min_size_openapi,
+	max(json_data_size) filter (where class='OpenApi')/1024  as max_size_openapi
+from vw_oas_resource 
+where json_meta->'isValid' = 'true'
+"
+df = dbGetQuery(conn, query)
+```
+
+- Based on `r format_count(df$n_valid[1])` valid API specifications, the average JSON size is `r format(round(df$avg_size[1],1), big.mark = ",")`Kb, ranging from < 1Kb to `r format(round(df$max_size_swagger[1],1), big.mark = ",")`Kb.
+- No significant difference is observed between version 2.x (`r format(round(df$avg_size[1],1), big.mark = ",")`Kb) and 3.0 (`r format(round(df$avg_size_openapi[1],1), big.mark = ",")`Kb)
+
+
