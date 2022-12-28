@@ -24,10 +24,10 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 - No significant difference is observed between version 2.x (28.8Kb) and
   3.0 (29.2Kb)
 
-<img src="oas_size_files/figure-gfm/oas_paths_buckets_barplot-1.png" width="90%" height="70%" />
+<img src="oas_size_files/figure-gfm/oas_paths_buckets_barplot-1.png" width="90%" />
 
 # Methodology
 
-Results are based on json_data_size field in the OAS resource view
-populated by the python ingestion script based on size optimized JSON
-file (no identation or cr/lf)
+Results are based on the `json_data_size` field in the OAS resource
+view. This value is computed by the Python ingestion script using size
+optimized files (no indentation or cr/lf end of line characters).

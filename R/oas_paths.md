@@ -24,7 +24,7 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
   (16%) have 6-10 paths, 1,758 (15.1%) have 11-20 paths, 1,148 (9.9%)
   have 21-50 paths, and 476 (0.04085837%) have over 50 paths.
 
-![](oas_paths_files/figure-gfm/oas_paths_buckets_barplot-1.png)<!-- -->
+<img src="oas_paths_files/figure-gfm/oas_paths_buckets_barplot-1.png" width="90%" />
 
 # Methodology
 

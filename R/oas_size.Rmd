@@ -11,6 +11,8 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 source("db_connection.R", local = knitr::knit_global())
 source("utils.R", local = knitr::knit_global())
+library("ggplot2")
+
 ```
 
 ```{r, child=c('header.section.Rmd')}
@@ -49,14 +51,20 @@ group by 1 order by bucket;
 df = dbGetQuery(conn, query)
 ```
 
-```{r oas_paths_buckets_barplot, include = TRUE, out.height="70%", out.width="90%"}
-x <- barplot(df$count, main = "API specification JSON size", xlab = "Size in Kb", ylab = "Count of APIs", xaxt = 'n')
-text(x=x, df$label, xpd=TRUE, srt=-45, adj=0, y=par("usr")[3])
+```{r oas_paths_buckets_barplot, include = TRUE, out.width="90%"}
+df$label <- factor(df$label, levels = df$label)
+ggplot(df, aes(x = label, y = count)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label = count), vjust = -0.3) +
+  ggtitle("API JSON Size") +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
+  xlab("Size in Kb") +
+  ylab("Count of APIs")
 ```
 
 # Methodology
 
-Results are based on json_data_size field in the OAS resource view populated by the python ingestion script based on size optimized JSON file (no identation or cr/lf)
+Results are based on the `json_data_size` field in the OAS resource view. This value is computed by the Python ingestion script using size optimized files (no indentation or cr/lf end of line characters).
 
 
 

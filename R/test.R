@@ -32,6 +32,16 @@ par(mar = c(7, 4, 2, 2)+1)
 x <- barplot(df$count, main = "API specification JSON size", xlab = "Size in Kb", ylab = "Count of APIs", xaxt = 'n')
 text(x=x, df$label, xpd=TRUE, srt=-45, adj=0, y=par("usr")[3])
 
+library("ggplot2")
+df$label <- factor(df$label, levels = df$label)
+ggplot(df, aes(x = label, y = count)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label = count), vjust = -0.3) +
+  ggtitle("API specification JSON size") +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
+  xlab("Size in Kb") +
+  ylab("Count of APIs")
+
 
 
 df$label

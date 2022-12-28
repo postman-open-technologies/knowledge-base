@@ -11,6 +11,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 source("db_connection.R", local = knitr::knit_global())
 source("utils.R", local = knitr::knit_global())
+library("ggplot2")
 ```
 
 ```{r, child=c('header.section.Rmd')}
@@ -51,8 +52,15 @@ group by 1,2 order by bucket
 df = dbGetQuery(conn, query)
 ```
 
-```{r oas_paths_buckets_barplot, include = TRUE}
-barplot(df$count, names.arg = df$label, main = "Distribution of paths entries per API", xlab = "Count of 'paths' entries", ylab = "Count of APIs")
+```{r oas_paths_buckets_barplot, include = TRUE, out.width="90%"}
+df$label <- factor(df$label, levels = df$label)
+ggplot(df, aes(x = label, y = count)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label = count), vjust = -0.3) +
+  ggtitle("Distribution of paths entries per API") +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
+  xlab("Count of 'paths' entries") +
+  ylab("Count of APIs")
 ```
 
 # Methodology
