@@ -1,6 +1,6 @@
 OAS Summary
 ================
-<sup>Last updated: 2022-12-27</sup>
+<sup>Last updated: 2022-12-28</sup>
 
 - <a href="#size" id="toc-size">Size</a>
 - <a href="#validity-and-source-of-errors"
@@ -28,11 +28,9 @@ selected topics.
 <sup>See [size analysis](oas_size.md) for further details.<sup>
 
 - Based on 12,085 valid API specifications, the average JSON size is
-  `format(round(df$avg_size[1],1), big.mark = ","))`Kb, ranging from \<
-  1Kb to `format(round(df$max_size_swagger[1],1), big.mark = ","))`. No
-  significant difference is ovbersrved between versionb 2.x
-  (`format(round(df$avg_size[1],1), big.mark = ","))`) and 3.0
-  (`format(round(df$avg_size_openapi[1],1), big.mark = ","))`)
+  28.8Kb, ranging from \< 1Kb to 526Kb.
+- No significant difference is observed between version 2 (28.8Kb) and 3
+  (29.2Kb)
 
 ## Validity and source of errors
 
