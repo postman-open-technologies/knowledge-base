@@ -1,6 +1,6 @@
 OAS JSON Size
 ================
-<sup>Last updated: 2022-12-30</sup>
+<sup>Last updated: 2022-12-31</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#what-is-the-typical-size-of-an-api"
@@ -19,7 +19,7 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 
 ## What is the typical size of an API?
 
-- Based on 12,085 valid API specifications, the average JSON size is
+- Based on 12,087 valid API specifications, the average JSON size is
   28.8Kb, ranging from \< 1Kb to 526Kb.
 - No significant difference is observed between version 2 (28.8Kb) and 3
   (29.2Kb)
