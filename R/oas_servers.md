@@ -1,6 +1,6 @@
 OAS Servers Analysis
 ================
-<sup>Last updated: 2022-12-31</sup>
+<sup>Last updated: 2023-01-01</sup>
 
 - <a href="#overview" id="toc-overview">Overview</a>
 - <a href="#findings" id="toc-findings">Findings</a>
@@ -38,20 +38,20 @@ for the host and other components of the URL.
 ## How is the server property used in APIs?
 
 - Out of 4,625 valid OpenAPI version 2.x specifications, 3,411 (73.8%)
-  have a `host` property, 3,390 (73.3%) have a `basePath` property, and
+  have a `host` property, 3,388 (73.3%) have a `basePath` property, and
   3,734 (80.7%) have a `schemes` property.
 
-- Out of 7,462 valid OpenAPI version 3.x specifications, 6,029 (80.8%)
+- Out of 7,468 valid OpenAPI version 3.x specifications, 6,031 (80.8%)
   have a `servers` property, with an average of 1.3 server/entry, and a
   range of 0-13.
 
 ## How often do APIs use localhost vs domain based servers?
 
-- Out of the 10,917 host/servers entries (across all APIs), 1,848
-  (16.9%) contain localhost or 127.0.0.1, 6,424 (58.8%) use a DNS host,
-  and 526 (4.8%) use a variable template (3.x only). 1,291 (11.8%) use a
+- Out of the 10,922 host/servers entries (across all APIs), 1,843
+  (16.9%) contain localhost or 127.0.0.1, 6,432 (58.9%) use a DNS host,
+  and 530 (4.9%) use a variable template (3.x only). 1,289 (11.8%) use a
   relative path (no server specified).
-- 4,037 (37%) use an <http://> protocol, and 6,342 (58.1%) <https://>.
+- 4,044 (37%) use an <http://> protocol, and 6,346 (58.1%) <https://>.
 
 *@TODO: compute API level statistics (localhost vs DNS vs mixed)*
 
@@ -63,16 +63,16 @@ comprehensive list.
 
 | Rank | Domain              | \#APIs |
 |------|---------------------|--------|
-| 1    | swaggerhub.com      | 613    |
-| 2    | azure.com           | 360    |
+| 1    | swaggerhub.com      | 615    |
+| 2    | azure.com           | 356    |
 | 3    | swagger.io          | 338    |
 | 4    | herokuapp.com       | 221    |
-| 5    | example.com         | 191    |
-| 6    | googleapis.com      | 139    |
+| 5    | example.com         | 192    |
+| 6    | googleapis.com      | 138    |
 | 7    | openweathermap.org  | 100    |
 | 8    | microsoft.com       | 92     |
 | 9    | azurestack.external | 82     |
-| 10   | epa.gov             | 62     |
+| 10   | wordnik.com         | 62     |
 
 # Methodology
 
