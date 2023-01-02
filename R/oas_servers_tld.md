@@ -1,6 +1,6 @@
 OAS Servers Analysis: Top Level Domains
 ================
-<sup>Last updated: 2023-01-01</sup>
+<sup>Last updated: 2023-01-02</sup>
 
 <sup>*DISCLAIMER: the results and findings below are preliminary and
 have not been fully validated or peer reviewed. Use with care. Do not
@@ -15,18 +15,18 @@ List of top level domains used by at least 5 APIs
 
 | Rank | Domain                | \#APIs |
 |------|-----------------------|--------|
-| 1    | swaggerhub.com        | 615    |
+| 1    | swaggerhub.com        | 616    |
 | 2    | azure.com             | 356    |
 | 3    | swagger.io            | 338    |
-| 4    | herokuapp.com         | 221    |
-| 5    | example.com           | 192    |
-| 6    | googleapis.com        | 138    |
+| 4    | herokuapp.com         | 220    |
+| 5    | example.com           | 191    |
+| 6    | googleapis.com        | 140    |
 | 7    | openweathermap.org    | 100    |
 | 8    | microsoft.com         | 92     |
 | 9    | azurestack.external   | 82     |
 | 10   | wordnik.com           | 62     |
 | 11   | epa.gov               | 61     |
-| 12   | amadeus.com           | 58     |
+| 12   | amadeus.com           | 59     |
 | 13   | adyen.com             | 57     |
 | 14   | amazonaws.com         | 57     |
 | 15   | amazon.com            | 54     |
@@ -38,31 +38,31 @@ List of top level domains used by at least 5 APIs
 | 21   | example.xyz           | 34     |
 | 22   | cloud.goog            | 33     |
 | 23   | quora.io              | 33     |
-| 24   | apis.guru             | 28     |
+| 24   | apis.guru             | 31     |
 | 25   | azure.local           | 28     |
 | 26   | sap.com               | 28     |
 | 27   | ebay.com              | 27     |
 | 28   | rapidapi.com          | 27     |
 | 29   | ac.nz                 | 25     |
 | 30   | trade.gov             | 25     |
-| 31   | bc.ca                 | 24     |
-| 32   | deutschebahn.com      | 24     |
-| 33   | openbankproject.com   | 24     |
-| 34   | stoplight.io          | 24     |
-| 35   | wso2.com              | 24     |
-| 36   | apigee.net            | 22     |
-| 37   | co.uk                 | 20     |
-| 38   | gov.uk                | 20     |
-| 39   | api.net               | 19     |
-| 40   | com.au                | 19     |
-| 41   | egovernments.org      | 19     |
+| 31   | openbankproject.com   | 24     |
+| 32   | stoplight.io          | 24     |
+| 33   | wso2.com              | 24     |
+| 34   | apigee.net            | 22     |
+| 35   | bc.ca                 | 22     |
+| 36   | deutschebahn.com      | 22     |
+| 37   | egovernments.org      | 22     |
+| 38   | co.uk                 | 20     |
+| 39   | gov.uk                | 20     |
+| 40   | api.net               | 19     |
+| 41   | com.au                | 19     |
 | 42   | fantasydata.net       | 19     |
-| 43   | api.com               | 18     |
-| 44   | cosmos.network        | 18     |
-| 45   | nytimes.com           | 17     |
+| 43   | nytimes.com           | 19     |
+| 44   | api.com               | 18     |
+| 45   | cosmos.network        | 18     |
 | 46   | sportsdata.io         | 17     |
-| 47   | spotify.com           | 17     |
-| 48   | governify.io          | 16     |
+| 47   | governify.io          | 16     |
+| 48   | spotify.com           | 16     |
 | 49   | gov.in                | 15     |
 | 50   | server.test           | 15     |
 | 51   | sentient.io           | 14     |
@@ -93,17 +93,17 @@ List of top level domains used by at least 5 APIs
 | 76   | github.io             | 9      |
 | 77   | httpbin.org           | 9      |
 | 78   | iii.org               | 9      |
-| 79   | mastercard.com        | 9      |
-| 80   | nhs.uk                | 9      |
-| 81   | omdbapi.com           | 9      |
-| 82   | samsara.com           | 9      |
-| 83   | twilio.com            | 9      |
-| 84   | va.gov                | 9      |
-| 85   | apigee.com            | 8      |
-| 86   | betty.app             | 8      |
-| 87   | is.com                | 8      |
-| 88   | italia.it             | 8      |
-| 89   | lufthansa.com         | 8      |
+| 79   | lufthansa.com         | 9      |
+| 80   | mastercard.com        | 9      |
+| 81   | nhs.uk                | 9      |
+| 82   | omdbapi.com           | 9      |
+| 83   | samsara.com           | 9      |
+| 84   | twilio.com            | 9      |
+| 85   | va.gov                | 9      |
+| 86   | apigee.com            | 8      |
+| 87   | betty.app             | 8      |
+| 88   | is.com                | 8      |
+| 89   | italia.it             | 8      |
 | 90   | mashape.com           | 8      |
 | 91   | o2.cz                 | 8      |
 | 92   | sample.com            | 8      |
@@ -117,9 +117,9 @@ List of top level domains used by at least 5 APIs
 | 100  | letmc.com             | 7      |
 | 101  | naviplancentral.com   | 7      |
 | 102  | opentlc.com           | 7      |
-| 103  | schooldigger.com      | 7      |
-| 104  | telefonica.com        | 7      |
-| 105  | temenos.com           | 7      |
+| 103  | telefonica.com        | 7      |
+| 104  | temenos.com           | 7      |
+| 105  | tomtom.com            | 7      |
 | 106  | ups.com               | 7      |
 | 107  | acnhapi.com           | 6      |
 | 108  | ainize.ai             | 6      |
@@ -131,8 +131,8 @@ List of top level domains used by at least 5 APIs
 | 114  | kalshi.com            | 6      |
 | 115  | nrel.gov              | 6      |
 | 116  | openapi.io            | 6      |
-| 117  | server.com            | 6      |
-| 118  | tomtom.com            | 6      |
+| 117  | schooldigger.com      | 6      |
+| 118  | server.com            | 6      |
 | 119  | twitter.com           | 6      |
 | 120  | xero.com              | 6      |
 | 121  | adopta.agency         | 5      |
@@ -155,17 +155,18 @@ List of top level domains used by at least 5 APIs
 | 138  | haloapi.com           | 5      |
 | 139  | hel.fi                | 5      |
 | 140  | icons8.com            | 5      |
-| 141  | m3o.com               | 5      |
-| 142  | mapmyindia.com        | 5      |
-| 143  | monitored.equipment   | 5      |
-| 144  | ns.nl                 | 5      |
-| 145  | orphadata.com         | 5      |
-| 146  | paylocity.com         | 5      |
-| 147  | redhat.com            | 5      |
-| 148  | run.app               | 5      |
-| 149  | solutions.com         | 5      |
-| 150  | storecove.com         | 5      |
-| 151  | tastylog.com          | 5      |
-| 152  | twinehealth.com       | 5      |
-| 153  | whapi.com             | 5      |
-| 154  | worldmodelers.com     | 5      |
+| 141  | languagetool.org      | 5      |
+| 142  | m3o.com               | 5      |
+| 143  | mapmyindia.com        | 5      |
+| 144  | monitored.equipment   | 5      |
+| 145  | ns.nl                 | 5      |
+| 146  | orphadata.com         | 5      |
+| 147  | paylocity.com         | 5      |
+| 148  | redhat.com            | 5      |
+| 149  | run.app               | 5      |
+| 150  | solutions.com         | 5      |
+| 151  | storecove.com         | 5      |
+| 152  | tastylog.com          | 5      |
+| 153  | twinehealth.com       | 5      |
+| 154  | whapi.com             | 5      |
+| 155  | worldmodelers.com     | 5      |

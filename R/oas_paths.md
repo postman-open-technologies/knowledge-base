@@ -1,6 +1,6 @@
 OAS Paths Analysis
 ================
-<sup>Last updated: 2023-01-01</sup>
+<sup>Last updated: 2023-01-02</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#how-is-the-path-property-used-in-apis"
@@ -20,9 +20,9 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 ## How is the path property used in APIs?
 
 - The average number of path per API is 11.2, ranging from 1 to 310.
-- Out of the 11,657 APIs with a path, 6,412 (55%) have 1-5 paths, 1,853
-  (15.9%) have 6-10 paths, 1,769 (15.2%) have 11-20 paths, 1,149 (9.9%)
-  have 21-50 paths, and 474 (0.04066226%) have over 50 paths.
+- Out of the 11,666 APIs with a path, 6,420 (55%) have 1-5 paths, 1,858
+  (15.9%) have 6-10 paths, 1,770 (15.2%) have 11-20 paths, 1,144 (9.8%)
+  have 21-50 paths, and 474 (0.04063089%) have over 50 paths.
 
 <img src="oas_paths_files/figure-gfm/oas_paths_buckets_barplot-1.png" width="90%" />
 
