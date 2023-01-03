@@ -1,6 +1,6 @@
 OAS Validity
 ================
-<sup>Last updated: 2023-01-02</sup>
+<sup>Last updated: 2023-01-03</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#how-many-valid-openapis-do-we-have"
@@ -20,10 +20,10 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 
 ## *How many valid OpenAPIs do we have?*
 
-- Out of 15,657 entries, 12,102 (77.3%) are valid and 3,555 (22.7%) are
+- Out of 15,660 entries, 12,108 (77.3%) are valid and 3,552 (22.7%) are
   invalid
-- 4,627 out of the 5,929 Swagger (v2.x) entries are valid (78%)
-- 7,475 out of the 9,728 OpenAPI (v3.x) entries are valid (76.8%)
+- 4,630 out of the 5,930 Swagger (v2.x) entries are valid (78.1%)
+- 7,478 out of the 9,730 OpenAPI (v3.x) entries are valid (76.9%)
 
 *Further analysis is in progress to understand what are the common
 causes of errors.*
