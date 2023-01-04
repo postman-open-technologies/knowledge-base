@@ -1,5 +1,8 @@
 # Knowledge Base Research: Change Log
 
+## 2023-01
+- oas:validity: Started analysis of source of errors
+
 ## 2022-12
 - oas:size: Added JSON size analysis
 - oas:servers: Completed initial analysis for servers top level domains

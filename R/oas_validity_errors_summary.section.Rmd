@@ -1,0 +1,35 @@
+```{r validation_errors, eval=TRUE, echo=FALSE}
+query = "
+select count(distinct uri) as n_apis, count(*) as n_errors from vw_oas_resource_validation_errors;
+"
+df0 = dbGetQuery(conn, query)
+
+query = "
+select 
+	case when path#>>'{0}' is null then 'root' else path#>>'{0}' end as path, 
+	count(*) as n, 
+	count(*) / sum(count(*)) over() as pct
+from vw_oas_resource_validation_errors
+group by 1
+order by n desc
+"
+df1 = dbGetQuery(conn, query)
+
+query = "
+select path, count(*) as n, count(*) / sum(count(*)) over() as pct
+from (
+	select distinct uri, case when path#>>'{0}' is null then 'root' else path#>>'{0}' end as path
+	from vw_oas_resource_validation_errors
+) as t1
+group by 1
+order by n desc
+"
+df2 = dbGetQuery(conn, query)
+
+```
+
+- A total of `r format_count(df0$n_errors[1])` validation errors are found across `r format_count(df0$n_apis[1])` invalid APIs
+- Looking at the *error* counts, `r format_count_and_pct(df1$n[1], df1$pct[1])` are found under ``r format_count(df1$path[1])``. This is followed by `r format_count_and_pct(df1$n[2], df1$pct[2])`  under ``r format_count(df1$path[2])``, `r format_count_and_pct(df1$n[3], df1$pct[3])` under ``r format_count(df1$path[3])``, `r format_count_and_pct(df1$n[4], df1$pct[4])` under ``r format_count(df1$path[4])``, and  `r format_count_and_pct(df1$n[5], df1$pct[5])`  under ``r format_count(df1$path[5])`` 
+- Looking at the *API* counts, `r format_count_and_pct(df2$n[1], df2$pct[1])`have at least one error under ``r format_count(df2$path[1])``. This is followed by `r format_count_and_pct(df2$n[2], df2$pct[2])`  under ``r format_count(df2$path[2])``, `r format_count_and_pct(df2$n[3], df2$pct[3])` under ``r format_count(df2$path[3])``, `r format_count_and_pct(df2$n[4], df2$pct[4])` under ``r format_count(df2$path[4])``, and  `r format_count_and_pct(df2$n[5], df2$pct[5])`  under ``r format_count(df2$path[5])``
+- Keep in mind the `definitions` property is only used by OpenAPI 2.x and `components` by OpenAPI  3.x (as v2 `definitions` became `components/schema` in v3)
+- `root` in the above findings mean an error at the highest level of the API specification (not under a property path)

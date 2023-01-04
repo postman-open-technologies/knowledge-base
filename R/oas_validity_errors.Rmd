@@ -1,0 +1,66 @@
+---
+title: "OAS Validity: Source of Errors"
+date: "<sup>Last updated: `r format(Sys.time(), '%Y-%m-%d')`</sup>"
+output:
+  github_document:
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+require('knitr')
+require('ggplot2')
+knitr::opts_chunk$set(echo = FALSE)
+source("db_connection.R", local = knitr::knit_global())
+source("utils.R", local = knitr::knit_global())
+```
+
+```{r, child=c('header.section.Rmd')}
+```
+
+<sup>[Back to validity](oas_validity.md) | [View related issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Avalidity)</sup>
+
+# Findings
+
+## *Which top level paths of API specifications are the source of validation errors?*
+
+```{r, child=c('oas_validity_errors_summary.section.Rmd')}
+```
+
+<details>
+<summary>Table: Count of errors by top property</summary>
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+kable(df1)
+```
+</details>
+
+<details>
+<summary>Table: Count of APIs with 1 or more errors by top property</summary>
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+kable(df2)
+```
+</details>
+
+## *Which errors are found under `path`?*
+
+*Analysis in progress*
+
+## *Which errors are found under `definitions` and `components`?*
+
+*Analysis in progress*
+
+## *Which errors are found at the root level?*
+
+*Analysis in progress*
+
+
+# Recommendations
+- t.d.b.
+
+# Methodology
+
+Validation errors reported by the Python [jsonschema](https://github.com/python-jsonschema/jsonschema) package are stored in JSON format in the database table, with a view exposing each issue as a record. The validation metadata provides information on the JSON path where the error occured and an error message. To classify the nature of the issue, the error messages are matched to various categories using regular expressions.
+
+
+
+

@@ -16,6 +16,7 @@ source("utils.R", local = knitr::knit_global())
 
 ```{r, child=c('header.section.Rmd')}
 ```
+
 <sup>[Back to summary](oas_summary.md) | [View related issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Avalidity)</sup>
 
 # Findings
@@ -41,10 +42,8 @@ df = dbGetQuery(conn, query)
 ```
 
 - Out of `r format_count(df$n[1])` entries, `r format_count(df$n_valid[1])` (`r format_pct(df$pct_valid[1])`%) are valid and `r format_count(df$n_invalid[1])` (`r format_pct(df$pct_invalid[1])`%) are invalid
-- `r format_count(df$n_valid_swagger[1])` out of the `r format_count(df$n_swagger[1])` Swagger (v2.x) entries are valid (`r format_pct(df$pct_valid_swagger[1])`%)
-- `r format_count(df$n_valid_openapi[1])` out of the `r format_count(df$n_openapi[1])` OpenAPI (v3.x) entries are valid (`r format_pct(df$pct_valid_openapi[1])`%)
-
-*Further analysis is in progress to understand what are the common causes of errors.*
+- `r format_count(df$n_valid_swagger[1])` out of the `r format_count(df$n_swagger[1])` OpenAPI v2.x entries are valid (`r format_pct(df$pct_valid_swagger[1])`%)
+- `r format_count(df$n_valid_openapi[1])` out of the `r format_count(df$n_openapi[1])` OpenAPI v3.x entries are valid (`r format_pct(df$pct_valid_openapi[1])`%)
 
 ```{r oas_validity_charts, echo=FALSE, include = TRUE}
 category = c(rep('Valid',3), rep('Invalid',3))
@@ -54,12 +53,13 @@ data = data.frame(category, version, percentage)
 ggplot(data, aes(fill=version, y=percentage, x=category)) + geom_bar(position="dodge", stat="identity")
 ```
 
-# Recommendations
-- Further investigate and analyze common source of errors
+## *Which top level paths of API specifications are the source of validation errors?*
+
+<sup>See [source of errors](oas_validity_errors.md) for details and more in-depth analysis around validation issues.<sup>
+
+```{r, child=c('oas_validity_errors_summary.section.Rmd')}
+```
 
 # Methodology
 Results are based on the count of the `isValid` boolean property in the resource metadata. This flag is set by the `kb_oas_validation.py` script, which uses the JSON schemas published under the [OAI GitHub project](https://github.com/OAI/OpenAPI-Specification/tree/main/schemas). Validation is performed by the Python [jsonschema](https://github.com/python-jsonschema/jsonschema) package. Validation errors are saved in a local file for further analysis.
  
-# API
-Data for this topic can be found under the /oas/statistics/validity endpoint.
-

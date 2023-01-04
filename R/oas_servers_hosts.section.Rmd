@@ -24,6 +24,6 @@ df = dbGetQuery(conn, query)
 ```
 
 - Out of the `r format_count(df$n_all[1])` host/servers entries (across all APIs), `r format_count_and_pct(df$n_localhost[1], df$pct_localhost[1])` contain localhost or 127.0.0.1, `r format_count_and_pct(df$n_dnshost[1], df$pct_dnshost[1])` use a DNS host, and `r format_count_and_pct(df$n_templatehost[1], df$pct_templatehost[1])` use a variable template (3.x only). `r format_count_and_pct(df$n_relative[1], df$pct_relative[1])` use a relative path (no server specified). 
-- `r format_count_and_pct(df$n_http[1], df$pct_http[1])` use an http:// protocol, and `r format_count_and_pct(df$n_https[1], df$pct_https[1])` https://.
+- `r format_count_and_pct(df$n_http[1], df$pct_http[1])` use an http protocol, and `r format_count_and_pct(df$n_https[1], df$pct_https[1])` https.
 
 
