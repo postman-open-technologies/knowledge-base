@@ -601,140 +601,301 @@ padding-top: 0px;
 
 <body>
 
-<h1 id="oas-servers-analysis">OAS Servers Analysis</h1>
+<h1 id="oas-validity-source-of-errors">OAS Validity: Source of
+Errors</h1>
 <p><sup>Last updated: 2023-01-05</sup></p>
 <ul>
-<li><a href="#overview" id="toc-overview">Overview</a></li>
 <li><a href="#findings" id="toc-findings">Findings</a>
 <ul>
-<li><a href="#how-is-the-server-property-used-in-apis" id="toc-how-is-the-server-property-used-in-apis">How is the server
-property used in APIs?</a></li>
-<li><a href="#how-often-do-apis-use-localhost-vs-domain-based-servers" id="toc-how-often-do-apis-use-localhost-vs-domain-based-servers">How
-often do APIs use localhost vs domain based servers?</a></li>
-<li><a href="#what-are-the-most-commonly-used-top-level-domains-for-apis" id="toc-what-are-the-most-commonly-used-top-level-domains-for-apis">What
-are the most commonly used top level domains for APIs?</a></li>
+<li><a href="#which-top-level-paths-of-api-specifications-are-the-source-of-validation-errors" id="toc-which-top-level-paths-of-api-specifications-are-the-source-of-validation-errors"><em>Which
+top level paths of API specifications are the source of validation
+errors?</em></a></li>
+<li><a href="#which-errors-are-found-under-path" id="toc-which-errors-are-found-under-path"><em>Which errors are found
+under <code>path</code>?</em></a></li>
+<li><a href="#which-errors-are-found-under-definitions-and-components" id="toc-which-errors-are-found-under-definitions-and-components"><em>Which
+errors are found under <code>definitions</code> and
+<code>components</code>?</em></a></li>
+<li><a href="#which-errors-are-found-at-the-root-level" id="toc-which-errors-are-found-at-the-root-level"><em>Which errors are
+found at the root level?</em></a></li>
 </ul></li>
+<li><a href="#recommendations" id="toc-recommendations">Recommendations</a></li>
 <li><a href="#methodology" id="toc-methodology">Methodology</a></li>
 </ul>
 <p><sup><em>DISCLAIMER: the results and findings below are preliminary
 and have not been fully validated or peer reviewed. Use with care. Do
 not quote or disseminate.</em></sup></p>
-<p><sup><a href="oas_summary.md">Back to summary</a> | <a href="https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Aservers">View
+<p><sup><a href="oas_validity.md">Back to validity</a> | <a href="https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Avalidity">View
 related issues</a></sup></p>
-<h1 id="overview">Overview</h1>
-<p>The <code>servers</code> property in OpenAPI provide connectivity
-information to target server(s) for the API. It replaces the
-<code>host</code>, <code>basePath</code> and <code>schemes</code>
-properties used in OpenAPI 2. This differences between both versions add
-a bit to the complexity of the analysis. Note that more server entries
-may appears in the 3.x versions as the version 2.x was essentially
-limited to a single server entry (with multiple protocols). Version 3.x
-also introduced server variables which may obfuscate values for the host
-and other components of the URL.</p>
 <h1 id="findings">Findings</h1>
-<h2 id="how-is-the-server-property-used-in-apis">How is the server
-property used in APIs?</h2>
+<h2 id="which-top-level-paths-of-api-specifications-are-the-source-of-validation-errors"><em>Which
+top level paths of API specifications are the source of validation
+errors?</em></h2>
 <ul>
-<li><p>Out of 4,630 valid OpenAPI version 2.x specifications, 3,419
-(73.8%) have a <code>host</code> property, 3,390 (73.2%) have a
-<code>basePath</code> property, and 3,737 (80.7%) have a
-<code>schemes</code> property.</p></li>
-<li><p>Out of 7,480 valid OpenAPI version 3.x specifications, 6,041
-(80.8%) have a <code>servers</code> property, with an average of 1.3
-server/entry, and a range of 0-13.</p></li>
+<li>A total of 57,825 validation errors are found across 3,554 invalid
+APIs</li>
+<li>Looking at the <em>error</em> counts, 45,608 (78.9%) are found under
+<code>paths</code>. This is followed by 5,087 (8.8%) under
+<code>components</code>, 4,324 (7.5%) under <code>definitions</code>,
+1,152 (2%) under <code>root</code>, and 596 (1%) under
+<code>info</code></li>
+<li>Looking at the <em>API</em> counts, 2,163 (39.4%)have at least one
+error under <code>paths</code>. This is followed by 949 (17.3%) under
+<code>root</code>, 773 (14.1%) under <code>components</code>, 488 (8.9%)
+under <code>info</code>, and 307 (5.6%) under
+<code>definitions</code></li>
+<li>Keep in mind the <code>definitions</code> property is only used by
+OpenAPI 2.x and <code>components</code> by OpenAPI 3.x (as v2
+<code>definitions</code> became <code>components/schema</code> in
+v3)</li>
+<li><code>root</code> in the above findings mean an error at the highest
+level of the API specification (not under a property path)</li>
 </ul>
-<h2 id="how-often-do-apis-use-localhost-vs-domain-based-servers">How
-often do APIs use localhost vs domain based servers?</h2>
-<ul>
-<li>Out of the 10,935 host/servers entries (across all APIs), 1,848
-(16.9%) contain localhost or 127.0.0.1, 6,437 (58.9%) use a DNS host,
-and 529 (4.8%) use a variable template (3.x only). 1,288 (11.8%) use a
-relative path (no server specified).</li>
-<li>4,047 (37%) use an http protocol, and 6,348 (58.1%) https.</li>
-</ul>
-<p><em>@TODO: compute API level statistics (localhost vs DNS vs
-mixed)</em></p>
-<h2 id="what-are-the-most-commonly-used-top-level-domains-for-apis">What
-are the most commonly used top level domains for APIs?</h2>
-<p>The following 10 top level domains are the most commonly used in our
-APIs collection. See <a href="oas_servers_tld.md">top level domains</a>
-for a more comprehensive list.</p>
+<details>
+<summary>
+Table: Count of errors by top property
+</summary>
+
 <table>
 <thead>
 <tr class="header">
-<th>Rank</th>
-<th>Domain</th>
-<th>#APIs</th>
+<th align="left">path</th>
+<th align="right">n</th>
+<th align="right">pct</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1</td>
-<td>swaggerhub.com</td>
-<td>615</td>
+<td align="left">paths</td>
+<td align="right">45608</td>
+<td align="right">0.7887246</td>
 </tr>
 <tr class="even">
-<td>2</td>
-<td>azure.com</td>
-<td>360</td>
+<td align="left">components</td>
+<td align="right">5087</td>
+<td align="right">0.0879723</td>
 </tr>
 <tr class="odd">
-<td>3</td>
-<td>swagger.io</td>
-<td>337</td>
+<td align="left">definitions</td>
+<td align="right">4324</td>
+<td align="right">0.0747773</td>
 </tr>
 <tr class="even">
-<td>4</td>
-<td>herokuapp.com</td>
-<td>220</td>
+<td align="left">root</td>
+<td align="right">1152</td>
+<td align="right">0.0199222</td>
 </tr>
 <tr class="odd">
-<td>5</td>
-<td>example.com</td>
-<td>192</td>
+<td align="left">info</td>
+<td align="right">596</td>
+<td align="right">0.0103070</td>
 </tr>
 <tr class="even">
-<td>6</td>
-<td>googleapis.com</td>
-<td>138</td>
+<td align="left">servers</td>
+<td align="right">311</td>
+<td align="right">0.0053783</td>
 </tr>
 <tr class="odd">
-<td>7</td>
-<td>openweathermap.org</td>
-<td>100</td>
+<td align="left">tags</td>
+<td align="right">208</td>
+<td align="right">0.0035971</td>
 </tr>
 <tr class="even">
-<td>8</td>
-<td>microsoft.com</td>
-<td>92</td>
+<td align="left">basePath</td>
+<td align="right">118</td>
+<td align="right">0.0020406</td>
 </tr>
 <tr class="odd">
-<td>9</td>
-<td>azurestack.external</td>
-<td>82</td>
+<td align="left">host</td>
+<td align="right">115</td>
+<td align="right">0.0019888</td>
 </tr>
 <tr class="even">
-<td>10</td>
-<td>epa.gov</td>
-<td>62</td>
+<td align="left">security</td>
+<td align="right">64</td>
+<td align="right">0.0011068</td>
+</tr>
+<tr class="odd">
+<td align="left">schemes</td>
+<td align="right">51</td>
+<td align="right">0.0008820</td>
+</tr>
+<tr class="even">
+<td align="left">securityDefinitions</td>
+<td align="right">48</td>
+<td align="right">0.0008301</td>
+</tr>
+<tr class="odd">
+<td align="left">parameters</td>
+<td align="right">40</td>
+<td align="right">0.0006917</td>
+</tr>
+<tr class="even">
+<td align="left">responses</td>
+<td align="right">34</td>
+<td align="right">0.0005880</td>
+</tr>
+<tr class="odd">
+<td align="left">produces</td>
+<td align="right">32</td>
+<td align="right">0.0005534</td>
+</tr>
+<tr class="even">
+<td align="left">externalDocs</td>
+<td align="right">19</td>
+<td align="right">0.0003286</td>
+</tr>
+<tr class="odd">
+<td align="left">openapi</td>
+<td align="right">9</td>
+<td align="right">0.0001556</td>
+</tr>
+<tr class="even">
+<td align="left">consumes</td>
+<td align="right">6</td>
+<td align="right">0.0001038</td>
+</tr>
+<tr class="odd">
+<td align="left">swagger</td>
+<td align="right">3</td>
+<td align="right">0.0000519</td>
 </tr>
 </tbody>
 </table>
+</details>
+<details>
+<summary>
+Table: Count of APIs with 1 or more errors by top property
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">path</th>
+<th align="right">n</th>
+<th align="right">pct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">paths</td>
+<td align="right">2163</td>
+<td align="right">0.3939173</td>
+</tr>
+<tr class="even">
+<td align="left">root</td>
+<td align="right">949</td>
+<td align="right">0.1728283</td>
+</tr>
+<tr class="odd">
+<td align="left">components</td>
+<td align="right">773</td>
+<td align="right">0.1407758</td>
+</tr>
+<tr class="even">
+<td align="left">info</td>
+<td align="right">488</td>
+<td align="right">0.0888727</td>
+</tr>
+<tr class="odd">
+<td align="left">definitions</td>
+<td align="right">307</td>
+<td align="right">0.0559097</td>
+</tr>
+<tr class="even">
+<td align="left">servers</td>
+<td align="right">260</td>
+<td align="right">0.0473502</td>
+</tr>
+<tr class="odd">
+<td align="left">basePath</td>
+<td align="right">118</td>
+<td align="right">0.0214897</td>
+</tr>
+<tr class="even">
+<td align="left">host</td>
+<td align="right">115</td>
+<td align="right">0.0209434</td>
+</tr>
+<tr class="odd">
+<td align="left">tags</td>
+<td align="right">74</td>
+<td align="right">0.0134766</td>
+</tr>
+<tr class="even">
+<td align="left">security</td>
+<td align="right">64</td>
+<td align="right">0.0116554</td>
+</tr>
+<tr class="odd">
+<td align="left">schemes</td>
+<td align="right">48</td>
+<td align="right">0.0087416</td>
+</tr>
+<tr class="even">
+<td align="left">securityDefinitions</td>
+<td align="right">44</td>
+<td align="right">0.0080131</td>
+</tr>
+<tr class="odd">
+<td align="left">produces</td>
+<td align="right">32</td>
+<td align="right">0.0058277</td>
+</tr>
+<tr class="even">
+<td align="left">externalDocs</td>
+<td align="right">15</td>
+<td align="right">0.0027317</td>
+</tr>
+<tr class="odd">
+<td align="left">parameters</td>
+<td align="right">12</td>
+<td align="right">0.0021854</td>
+</tr>
+<tr class="even">
+<td align="left">responses</td>
+<td align="right">11</td>
+<td align="right">0.0020033</td>
+</tr>
+<tr class="odd">
+<td align="left">openapi</td>
+<td align="right">9</td>
+<td align="right">0.0016390</td>
+</tr>
+<tr class="even">
+<td align="left">consumes</td>
+<td align="right">6</td>
+<td align="right">0.0010927</td>
+</tr>
+<tr class="odd">
+<td align="left">swagger</td>
+<td align="right">3</td>
+<td align="right">0.0005463</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<h2 id="which-errors-are-found-under-path"><em>Which errors are found
+under <code>path</code>?</em></h2>
+<p><em>Analysis in progress</em></p>
+<h2 id="which-errors-are-found-under-definitions-and-components"><em>Which
+errors are found under <code>definitions</code> and
+<code>components</code>?</em></h2>
+<p><em>Analysis in progress</em></p>
+<h2 id="which-errors-are-found-at-the-root-level"><em>Which errors are
+found at the root level?</em></h2>
+<p><em>Analysis in progress</em></p>
+<h1 id="recommendations">Recommendations</h1>
+<ul>
+<li>t.d.b.</li>
+</ul>
 <h1 id="methodology">Methodology</h1>
-<p>Results are based on the content and count of entries in the
-<code>/servers</code> property in the OpenAPI 3.x specification, and its
-equivalent in version 2.0.</p>
-<p>For the purpose of categorization across, we extract the host,
-protocol, and base name from all servers entries in 3.x to align on the
-2.0 version</p>
-<p>The host is then categorized as local if the name contains
-<code>localhost</code> or <code>127.0.0.1</code>, and dns based if it is
-a valid domain name. This therefore excludes relative paths as well as
-entries that use variable templates.</p>
-<p>The top level domain names statistics, we derived the entries from
-the <code>host</code> and <code>servers</code> properties present in the
-API specifications, excluding local and IP based hosts. The query uses a
-distinct clause to prevent multiple counts withing the same as API.</p>
+<p>Validation errors reported by the Python <a href="https://github.com/python-jsonschema/jsonschema">jsonschema</a>
+package are stored in JSON format in the database table, with a view
+exposing each issue as a record. The validation metadata provides
+information on the JSON path where the error occured and an error
+message. To classify the nature of the issue, the error messages are
+matched to various categories using regular expressions.</p>
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 OAS Validity
 ================
-<sup>Last updated: 2023-01-04</sup>
+<sup>Last updated: 2023-01-05</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#how-many-valid-openapis-do-we-have"
@@ -24,10 +24,10 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 
 ## *How many valid OpenAPIs do we have?*
 
-- Out of 15,664 entries, 12,109 (77.3%) are valid and 3,555 (22.7%) are
+- Out of 15,664 entries, 12,110 (77.3%) are valid and 3,554 (22.7%) are
   invalid
 - 4,630 out of the 5,931 OpenAPI v2.x entries are valid (78.1%)
-- 7,479 out of the 9,733 OpenAPI v3.x entries are valid (76.8%)
+- 7,480 out of the 9,733 OpenAPI v3.x entries are valid (76.9%)
 
 ![](oas_validity_files/figure-gfm/oas_validity_charts-1.png)<!-- -->
 
@@ -36,15 +36,15 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 <sup>See [source of errors](oas_validity_errors.md) for details and more
 in-depth analysis around validation issues.<sup>
 
-- A total of 58,053 validation errors are found across 3,555 invalid
+- A total of 57,825 validation errors are found across 3,554 invalid
   APIs
-- Looking at the *error* counts, 45,803 (78.9%) are found under `paths`.
-  This is followed by 5,087 (8.8%) under `components`, 4,356 (7.5%)
-  under `definitions`, 1,152 (2%) under `root`, and 597 (1%) under
+- Looking at the *error* counts, 45,608 (78.9%) are found under `paths`.
+  This is followed by 5,087 (8.8%) under `components`, 4,324 (7.5%)
+  under `definitions`, 1,152 (2%) under `root`, and 596 (1%) under
   `info`
-- Looking at the *API* counts, 2,162 (39.4%)have at least one error
+- Looking at the *API* counts, 2,163 (39.4%)have at least one error
   under `paths`. This is followed by 949 (17.3%) under `root`, 773
-  (14.1%) under `components`, 489 (8.9%) under `info`, and 307 (5.6%)
+  (14.1%) under `components`, 488 (8.9%) under `info`, and 307 (5.6%)
   under `definitions`
 - Keep in mind the `definitions` property is only used by OpenAPI 2.x
   and `components` by OpenAPI 3.x (as v2 `definitions` became
