@@ -41,9 +41,45 @@ kable(df2)
 ```
 </details>
 
-## *Which errors are found under `path`?*
+## *Which errors are found under `paths`?*
 
-*Analysis in progress*
+The majority of the API validation issues occur under the `path` property.
+
+```{r, eval=TRUE, echo=FALSE}
+query = "
+select category, count(*) as n,  count(*) / sum(count(*)) over() as pct
+from (
+	select uri, repo_path, message, path, 
+	case 
+		when message ~ 'regexes'  then 'REGEX'
+		when message ~ '''object'''  then 'NOTOBJ'
+		when message ~ 'Unevaluated'  then 'UNEVAL'
+		else 'OTH'
+	end as category
+	from  vw_oas_resource_validation_errors  
+	where  path#>>'{0}' = 'paths' and jsonb_array_length(path) = 1
+	order by category, message, repo_path
+) as t1
+group by 1
+order by n desc
+"
+paths_df0 = dbGetQuery(conn, query)
+```
+
+ `r format_count(sum(paths_df0$n))` errors are found under at the first level (the properties right under `/paths`) ,which represents a small proportion of all `paths` errors (`r format_pct(sum(paths_df0$n) / df0$n_errors[1])`%), but are nonetheless important as they hide all underlying content.
+ 
+They can be categorized as follows:
+
+ - Regex mismatch: `r format_count_and_pct(paths_df0[paths_df0$category=='REGEX',]$n, paths_df0[paths_df0$category=='REGEX',]$pct)`. Raised when the property name does not start with a / or x-, essentially not matching the JSON schema  `'^/', '^x-'` regular expression. Note that the schema validation library aggregates all regex issues under a single error (not one per property). 
+ - Not an object: `r format_count_and_pct(paths_df0[paths_df0$category=='NOTOBJ',]$n, paths_df0[paths_df0$category=='NOTOBJ',]$pct)`. Raised when the `paths` property is not a valid JSON {object}. Examples includes an empty [] or populated array, a string, a null value, etc.
+ - Unevaluated properties: `r format_count_and_pct(paths_df0[paths_df0$category=='UNEVAL',]$n, paths_df0[paths_df0$category=='UNEVAL',]$pct)`. Raise when an invalid property name is used in a v3.1 specification.
+ 
+ <details>
+<summary>Table: Categorized count of errors under `paths` first level</summary>
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+kable(paths_df0)
+```
+</details>
 
 ## *Which errors are found under `definitions` and `components`?*
 

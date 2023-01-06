@@ -1,4 +1,4 @@
-```{r validation_errors, eval=TRUE, echo=FALSE}
+```{r, eval=TRUE, echo=FALSE}
 query = "
 select count(distinct uri) as n_apis, count(*) as n_errors from vw_oas_resource_validation_errors;
 "

@@ -8,7 +8,12 @@ This document captures ideas /suggestions around new functionalities or enhancem
 - License name is an open text string, but could be used to provide an [SPDX](https://spdx.dev/) license identifier or harmonized/common names for version prior to 3.1
 - In version 3.1.x, we should promote the use of the identifier property (in which case the url should not be used)
 - We should introduce governance rules to ensure the use of license, and enforce harmonized names, common license URLs, and SPDX identifiers
-- Having a license picker or wizard in the Postman UI would go a long way in improving licensing (rather that having to type these values in).
+- Having a license picker or wizard in the Postman UI would go a long way in improving licensing (rather than having to type these values in).
+
+### Paths
+
+- The Postman editor should ensure that an entry directly under `/paths` either starts with a `/` or `x-` (basically matches the schema regex `'^/', '^x-'`)
+ 
 
 ### Security
 - The use if security is low, we need to encourage this more. 
