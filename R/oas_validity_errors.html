@@ -603,15 +603,15 @@ padding-top: 0px;
 
 <h1 id="oas-validity-source-of-errors">OAS Validity: Source of
 Errors</h1>
-<p><sup>Last updated: 2023-01-05</sup></p>
+<p><sup>Last updated: 2023-01-06</sup></p>
 <ul>
 <li><a href="#findings" id="toc-findings">Findings</a>
 <ul>
 <li><a href="#which-top-level-paths-of-api-specifications-are-the-source-of-validation-errors" id="toc-which-top-level-paths-of-api-specifications-are-the-source-of-validation-errors"><em>Which
 top level paths of API specifications are the source of validation
 errors?</em></a></li>
-<li><a href="#which-errors-are-found-under-path" id="toc-which-errors-are-found-under-path"><em>Which errors are found
-under <code>path</code>?</em></a></li>
+<li><a href="#which-errors-are-found-under-paths" id="toc-which-errors-are-found-under-paths"><em>Which errors are found
+under <code>paths</code>?</em></a></li>
 <li><a href="#which-errors-are-found-under-definitions-and-components" id="toc-which-errors-are-found-under-definitions-and-components"><em>Which
 errors are found under <code>definitions</code> and
 <code>components</code>?</em></a></li>
@@ -631,14 +631,14 @@ related issues</a></sup></p>
 top level paths of API specifications are the source of validation
 errors?</em></h2>
 <ul>
-<li>A total of 57,825 validation errors are found across 3,554 invalid
+<li>A total of 57,821 validation errors are found across 3,553 invalid
 APIs</li>
-<li>Looking at the <em>error</em> counts, 45,608 (78.9%) are found under
+<li>Looking at the <em>error</em> counts, 45,604 (78.9%) are found under
 <code>paths</code>. This is followed by 5,087 (8.8%) under
 <code>components</code>, 4,324 (7.5%) under <code>definitions</code>,
 1,152 (2%) under <code>root</code>, and 596 (1%) under
 <code>info</code></li>
-<li>Looking at the <em>API</em> counts, 2,163 (39.4%)have at least one
+<li>Looking at the <em>API</em> counts, 2,162 (39.4%)have at least one
 error under <code>paths</code>. This is followed by 949 (17.3%) under
 <code>root</code>, 773 (14.1%) under <code>components</code>, 488 (8.9%)
 under <code>info</code>, and 307 (5.6%) under
@@ -666,53 +666,53 @@ Table: Count of errors by top property
 <tbody>
 <tr class="odd">
 <td align="left">paths</td>
-<td align="right">45608</td>
-<td align="right">0.7887246</td>
+<td align="right">45604</td>
+<td align="right">0.7887100</td>
 </tr>
 <tr class="even">
 <td align="left">components</td>
 <td align="right">5087</td>
-<td align="right">0.0879723</td>
+<td align="right">0.0879784</td>
 </tr>
 <tr class="odd">
 <td align="left">definitions</td>
 <td align="right">4324</td>
-<td align="right">0.0747773</td>
+<td align="right">0.0747825</td>
 </tr>
 <tr class="even">
 <td align="left">root</td>
 <td align="right">1152</td>
-<td align="right">0.0199222</td>
+<td align="right">0.0199236</td>
 </tr>
 <tr class="odd">
 <td align="left">info</td>
 <td align="right">596</td>
-<td align="right">0.0103070</td>
+<td align="right">0.0103077</td>
 </tr>
 <tr class="even">
 <td align="left">servers</td>
 <td align="right">311</td>
-<td align="right">0.0053783</td>
+<td align="right">0.0053787</td>
 </tr>
 <tr class="odd">
 <td align="left">tags</td>
 <td align="right">208</td>
-<td align="right">0.0035971</td>
+<td align="right">0.0035973</td>
 </tr>
 <tr class="even">
 <td align="left">basePath</td>
 <td align="right">118</td>
-<td align="right">0.0020406</td>
+<td align="right">0.0020408</td>
 </tr>
 <tr class="odd">
 <td align="left">host</td>
 <td align="right">115</td>
-<td align="right">0.0019888</td>
+<td align="right">0.0019889</td>
 </tr>
 <tr class="even">
 <td align="left">security</td>
 <td align="right">64</td>
-<td align="right">0.0011068</td>
+<td align="right">0.0011069</td>
 </tr>
 <tr class="odd">
 <td align="left">schemes</td>
@@ -727,7 +727,7 @@ Table: Count of errors by top property
 <tr class="odd">
 <td align="left">parameters</td>
 <td align="right">40</td>
-<td align="right">0.0006917</td>
+<td align="right">0.0006918</td>
 </tr>
 <tr class="even">
 <td align="left">responses</td>
@@ -747,7 +747,7 @@ Table: Count of errors by top property
 <tr class="odd">
 <td align="left">openapi</td>
 <td align="right">9</td>
-<td align="right">0.0001556</td>
+<td align="right">0.0001557</td>
 </tr>
 <tr class="even">
 <td align="left">consumes</td>
@@ -778,106 +778,157 @@ Table: Count of APIs with 1 or more errors by top property
 <tbody>
 <tr class="odd">
 <td align="left">paths</td>
-<td align="right">2163</td>
-<td align="right">0.3939173</td>
+<td align="right">2162</td>
+<td align="right">0.3938069</td>
 </tr>
 <tr class="even">
 <td align="left">root</td>
 <td align="right">949</td>
-<td align="right">0.1728283</td>
+<td align="right">0.1728597</td>
 </tr>
 <tr class="odd">
 <td align="left">components</td>
 <td align="right">773</td>
-<td align="right">0.1407758</td>
+<td align="right">0.1408015</td>
 </tr>
 <tr class="even">
 <td align="left">info</td>
 <td align="right">488</td>
-<td align="right">0.0888727</td>
+<td align="right">0.0888889</td>
 </tr>
 <tr class="odd">
 <td align="left">definitions</td>
 <td align="right">307</td>
-<td align="right">0.0559097</td>
+<td align="right">0.0559199</td>
 </tr>
 <tr class="even">
 <td align="left">servers</td>
 <td align="right">260</td>
-<td align="right">0.0473502</td>
+<td align="right">0.0473588</td>
 </tr>
 <tr class="odd">
 <td align="left">basePath</td>
 <td align="right">118</td>
-<td align="right">0.0214897</td>
+<td align="right">0.0214936</td>
 </tr>
 <tr class="even">
 <td align="left">host</td>
 <td align="right">115</td>
-<td align="right">0.0209434</td>
+<td align="right">0.0209472</td>
 </tr>
 <tr class="odd">
 <td align="left">tags</td>
 <td align="right">74</td>
-<td align="right">0.0134766</td>
+<td align="right">0.0134791</td>
 </tr>
 <tr class="even">
 <td align="left">security</td>
 <td align="right">64</td>
-<td align="right">0.0116554</td>
+<td align="right">0.0116576</td>
 </tr>
 <tr class="odd">
 <td align="left">schemes</td>
 <td align="right">48</td>
-<td align="right">0.0087416</td>
+<td align="right">0.0087432</td>
 </tr>
 <tr class="even">
 <td align="left">securityDefinitions</td>
 <td align="right">44</td>
-<td align="right">0.0080131</td>
+<td align="right">0.0080146</td>
 </tr>
 <tr class="odd">
 <td align="left">produces</td>
 <td align="right">32</td>
-<td align="right">0.0058277</td>
+<td align="right">0.0058288</td>
 </tr>
 <tr class="even">
 <td align="left">externalDocs</td>
 <td align="right">15</td>
-<td align="right">0.0027317</td>
+<td align="right">0.0027322</td>
 </tr>
 <tr class="odd">
 <td align="left">parameters</td>
 <td align="right">12</td>
-<td align="right">0.0021854</td>
+<td align="right">0.0021858</td>
 </tr>
 <tr class="even">
 <td align="left">responses</td>
 <td align="right">11</td>
-<td align="right">0.0020033</td>
+<td align="right">0.0020036</td>
 </tr>
 <tr class="odd">
 <td align="left">openapi</td>
 <td align="right">9</td>
-<td align="right">0.0016390</td>
+<td align="right">0.0016393</td>
 </tr>
 <tr class="even">
 <td align="left">consumes</td>
 <td align="right">6</td>
-<td align="right">0.0010927</td>
+<td align="right">0.0010929</td>
 </tr>
 <tr class="odd">
 <td align="left">swagger</td>
 <td align="right">3</td>
-<td align="right">0.0005463</td>
+<td align="right">0.0005464</td>
 </tr>
 </tbody>
 </table>
 </details>
 
-<h2 id="which-errors-are-found-under-path"><em>Which errors are found
-under <code>path</code>?</em></h2>
-<p><em>Analysis in progress</em></p>
+<h2 id="which-errors-are-found-under-paths"><em>Which errors are found
+under <code>paths</code>?</em></h2>
+<p>The majority of the API validation issues occur under the
+<code>path</code> property.</p>
+<p>276 errors are found under at the first level (the properties right
+under <code>/paths</code>) ,which represents a small proportion of all
+<code>paths</code> errors (0.5%), but are nonetheless important as they
+hide all underlying content.</p>
+<p>They can be categorized as follows:</p>
+<ul>
+<li>Regex mismatch: 206 (74.6%). Raised when the property name does not
+start with a / or x-, essentially not matching the JSON schema
+<code>&#39;^/&#39;, &#39;^x-&#39;</code> regular expression. Note that the schema
+validation library aggregates all regex issues under a single error (not
+one per property).</li>
+<li>Not an object: 67 (24.3%). Raised when the <code>paths</code>
+property is not a valid JSON {object}. Examples includes an empty [] or
+populated array, a string, a null value, etc.</li>
+<li>Unevaluated properties: 3 (1.1%). Raise when an invalid property
+name is used in a v3.1 specification.</li>
+</ul>
+<details>
+<summary>
+Table: Categorized count of errors under `paths` first level
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">category</th>
+<th align="right">n</th>
+<th align="right">pct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">REGEX</td>
+<td align="right">206</td>
+<td align="right">0.7463768</td>
+</tr>
+<tr class="even">
+<td align="left">NOTOBJ</td>
+<td align="right">67</td>
+<td align="right">0.2427536</td>
+</tr>
+<tr class="odd">
+<td align="left">UNEVAL</td>
+<td align="right">3</td>
+<td align="right">0.0108696</td>
+</tr>
+</tbody>
+</table>
+</details>
+
 <h2 id="which-errors-are-found-under-definitions-and-components"><em>Which
 errors are found under <code>definitions</code> and
 <code>components</code>?</em></h2>
