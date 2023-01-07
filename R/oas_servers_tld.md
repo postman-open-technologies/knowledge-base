@@ -1,6 +1,6 @@
 OAS Servers Analysis: Top Level Domains
 ================
-<sup>Last updated: 2023-01-06</sup>
+<sup>Last updated: 2023-01-07</sup>
 
 <sup>*DISCLAIMER: the results and findings below are preliminary and
 have not been fully validated or peer reviewed. Use with care. Do not
@@ -16,11 +16,11 @@ List of top level domains used by at least 5 APIs
 | Rank | Domain                | \#APIs |
 |------|-----------------------|--------|
 | 1    | swaggerhub.com        | 615    |
-| 2    | azure.com             | 357    |
+| 2    | azure.com             | 361    |
 | 3    | swagger.io            | 337    |
 | 4    | herokuapp.com         | 220    |
 | 5    | example.com           | 192    |
-| 6    | googleapis.com        | 138    |
+| 6    | googleapis.com        | 139    |
 | 7    | openweathermap.org    | 101    |
 | 8    | microsoft.com         | 92     |
 | 9    | azurestack.external   | 82     |
@@ -44,12 +44,12 @@ List of top level domains used by at least 5 APIs
 | 27   | ebay.com              | 27     |
 | 28   | rapidapi.com          | 27     |
 | 29   | ac.nz                 | 25     |
-| 30   | deutschebahn.com      | 25     |
-| 31   | trade.gov             | 25     |
-| 32   | openbankproject.com   | 24     |
-| 33   | wso2.com              | 24     |
-| 34   | stoplight.io          | 23     |
-| 35   | apigee.net            | 22     |
+| 30   | trade.gov             | 25     |
+| 31   | openbankproject.com   | 24     |
+| 32   | wso2.com              | 24     |
+| 33   | stoplight.io          | 23     |
+| 34   | apigee.net            | 22     |
+| 35   | deutschebahn.com      | 22     |
 | 36   | egovernments.org      | 22     |
 | 37   | bc.ca                 | 21     |
 | 38   | com.au                | 20     |
@@ -57,25 +57,25 @@ List of top level domains used by at least 5 APIs
 | 40   | gov.uk                | 20     |
 | 41   | api.net               | 19     |
 | 42   | fantasydata.net       | 19     |
-| 43   | nytimes.com           | 19     |
-| 44   | api.com               | 18     |
-| 45   | cosmos.network        | 18     |
+| 43   | api.com               | 18     |
+| 44   | cosmos.network        | 18     |
+| 45   | nytimes.com           | 18     |
 | 46   | sportsdata.io         | 17     |
 | 47   | governify.io          | 16     |
 | 48   | gov.in                | 15     |
-| 49   | o2.cz                 | 15     |
-| 50   | server.test           | 15     |
-| 51   | sentient.io           | 14     |
-| 52   | spotify.com           | 14     |
-| 53   | aramark.net           | 13     |
-| 54   | concursolutions.com   | 13     |
-| 55   | example.org           | 13     |
-| 56   | bbc.com               | 12     |
-| 57   | bigoven.com           | 12     |
-| 58   | bikewise.org          | 12     |
-| 59   | gov.au                | 12     |
-| 60   | ncats.io              | 12     |
-| 61   | netdata.io            | 12     |
+| 49   | server.test           | 15     |
+| 50   | sentient.io           | 14     |
+| 51   | spotify.com           | 14     |
+| 52   | aramark.net           | 13     |
+| 53   | concursolutions.com   | 13     |
+| 54   | example.org           | 13     |
+| 55   | bbc.com               | 12     |
+| 56   | bigoven.com           | 12     |
+| 57   | bikewise.org          | 12     |
+| 58   | gov.au                | 12     |
+| 59   | ncats.io              | 12     |
+| 60   | netdata.io            | 12     |
+| 61   | o2.cz                 | 12     |
 | 62   | brapi.org             | 11     |
 | 63   | canada.ca             | 11     |
 | 64   | govt.nz               | 11     |
@@ -143,28 +143,29 @@ List of top level domains used by at least 5 APIs
 | 126  | appveyor.com          | 5      |
 | 127  | brex.io               | 5      |
 | 128  | chompthis.com         | 5      |
-| 129  | cobiscorp.com         | 5      |
-| 130  | deepl.com             | 5      |
-| 131  | domain.com            | 5      |
-| 132  | domainsdb.info        | 5      |
-| 133  | evetech.net           | 5      |
-| 134  | flickr.com            | 5      |
-| 135  | githubusercontent.com | 5      |
-| 136  | gitlab.com            | 5      |
-| 137  | haloapi.com           | 5      |
-| 138  | hel.fi                | 5      |
-| 139  | icons8.com            | 5      |
-| 140  | m3o.com               | 5      |
-| 141  | mapmyindia.com        | 5      |
-| 142  | monitored.equipment   | 5      |
-| 143  | ns.nl                 | 5      |
-| 144  | orphadata.com         | 5      |
-| 145  | paylocity.com         | 5      |
-| 146  | redhat.com            | 5      |
-| 147  | run.app               | 5      |
-| 148  | solutions.com         | 5      |
-| 149  | storecove.com         | 5      |
-| 150  | tastylog.com          | 5      |
-| 151  | twinehealth.com       | 5      |
-| 152  | whapi.com             | 5      |
-| 153  | worldmodelers.com     | 5      |
+| 129  | cloudmersive.com      | 5      |
+| 130  | cobiscorp.com         | 5      |
+| 131  | deepl.com             | 5      |
+| 132  | domain.com            | 5      |
+| 133  | domainsdb.info        | 5      |
+| 134  | evetech.net           | 5      |
+| 135  | flickr.com            | 5      |
+| 136  | githubusercontent.com | 5      |
+| 137  | gitlab.com            | 5      |
+| 138  | haloapi.com           | 5      |
+| 139  | hel.fi                | 5      |
+| 140  | icons8.com            | 5      |
+| 141  | m3o.com               | 5      |
+| 142  | mapmyindia.com        | 5      |
+| 143  | monitored.equipment   | 5      |
+| 144  | ns.nl                 | 5      |
+| 145  | orphadata.com         | 5      |
+| 146  | paylocity.com         | 5      |
+| 147  | redhat.com            | 5      |
+| 148  | run.app               | 5      |
+| 149  | solutions.com         | 5      |
+| 150  | storecove.com         | 5      |
+| 151  | tastylog.com          | 5      |
+| 152  | twinehealth.com       | 5      |
+| 153  | whapi.com             | 5      |
+| 154  | worldmodelers.com     | 5      |

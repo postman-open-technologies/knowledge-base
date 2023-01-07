@@ -602,7 +602,7 @@ padding-top: 0px;
 <body>
 
 <h1 id="oas-summary">OAS Summary</h1>
-<p><sup>Last updated: 2023-01-06</sup></p>
+<p><sup>Last updated: 2023-01-07</sup></p>
 <ul>
 <li><a href="#size" id="toc-size">Size</a></li>
 <li><a href="#validity-and-source-of-errors" id="toc-validity-and-source-of-errors">Validity and source of
@@ -627,7 +627,7 @@ of an API?</h3>
 <p><sup>See <a href="oas_size.md">size analysis</a> for further
 details.<sup></p>
 <ul>
-<li>Based on 12,112 valid API specifications, the average JSON size is
+<li>Based on 12,110 valid API specifications, the average JSON size is
 28.8Kb, ranging from &lt; 1Kb to 526Kb.</li>
 <li>No significant difference is observed between version 2 (28.8Kb) and
 3 (29.2Kb)</li>
@@ -639,7 +639,7 @@ we have?</h3>
 <p><sup>See <a href="oas_validity.md">validity analysis</a> for further
 details.<sup></p>
 <ul>
-<li>Out of 15,665 APIs, 12,112 (77.3%) are valid.</li>
+<li>Out of 15,665 APIs, 12,110 (77.3%) are valid.</li>
 </ul>
 <h3 id="what-are-the-primary-sources-of-error-in-apis">What are the
 primary sources of error in APIs?</h3>
@@ -650,28 +650,28 @@ details.</sup></p>
 <h3 id="how-is-the-server-property-used-in-apis">How is the server
 property used in APIs?</h3>
 <ul>
-<li><p>Out of 4,630 valid OpenAPI version 2.x specifications, 3,419
-(73.8%) have a <code>host</code> property, 3,394 (73.3%) have a
+<li><p>Out of 4,630 valid OpenAPI version 2.x specifications, 3,418
+(73.8%) have a <code>host</code> property, 3,390 (73.2%) have a
 <code>basePath</code> property, and 3,737 (80.7%) have a
 <code>schemes</code> property.</p></li>
-<li><p>Out of 7,482 valid OpenAPI version 3.x specifications, 6,042
+<li><p>Out of 7,480 valid OpenAPI version 3.x specifications, 6,041
 (80.8%) have a <code>servers</code> property, with an average of 1.3
 server/entry, and a range of 0-13.</p></li>
 </ul>
 <h3 id="how-often-do-apis-use-localhost-vs-domain-based-servers">How
 often do APIs use localhost vs domain based servers?</h3>
 <ul>
-<li>Out of the 10,937 host/servers entries (across all APIs), 1,847
-(16.9%) contain localhost or 127.0.0.1, 6,440 (58.9%) use a DNS host,
-and 529 (4.8%) use a variable template (3.x only). 1,288 (11.8%) use a
+<li>Out of the 10,933 host/servers entries (across all APIs), 1,847
+(16.9%) contain localhost or 127.0.0.1, 6,437 (58.9%) use a DNS host,
+and 527 (4.8%) use a variable template (3.x only). 1,289 (11.8%) use a
 relative path (no server specified).</li>
-<li>4,050 (37%) use an http protocol, and 6,350 (58.1%) https.</li>
+<li>4,046 (37%) use an http protocol, and 6,348 (58.1%) https.</li>
 </ul>
 <h3 id="what-are-the-most-commonly-used-top-level-domains">What are the
 most commonly used top level domains?</h3>
 <ul>
 <li>The top 3 most commonly used top level domains in our API collection
-are swaggerhub.com (615), azure.com (357), and swagger.io (337).</li>
+are swaggerhub.com (615), azure.com (361), and swagger.io (337).</li>
 </ul>
 <h2 id="paths">Paths</h2>
 <p><sup>See <a href="oas_paths.md">paths analysis</a> for further
@@ -681,9 +681,9 @@ used in APIs?</h3>
 <ul>
 <li>The average number of path per API is 11.2, ranging from 1 to
 310.</li>
-<li>Out of the 11,676 APIs with a path, 6,423 (55%) have 1-5 paths,
-1,861 (15.9%) have 6-10 paths, 1,773 (15.2%) have 11-20 paths, 1,145
-(9.8%) have 21-50 paths, and 474 (0.04059609%) have over 50 paths.</li>
+<li>Out of the 11,673 APIs with a path, 6,418 (55%) have 1-5 paths,
+1,862 (16%) have 6-10 paths, 1,773 (15.2%) have 11-20 paths, 1,146
+(9.8%) have 21-50 paths, and 474 (0.04060653%) have over 50 paths.</li>
 </ul>
 <h2 id="json-schema">JSON Schema</h2>
 <h3 id="what-is-average-number-of-locally-defined-json-objects-per-api">What
@@ -692,16 +692,16 @@ is average number of locally defined JSON objects per API?</h3>
 <li>The average number of JSON objects defined locally under
 /definitions (Swagger) or /components/schema (OpenAPI) is 21.7, ranging
 from 1 to 642.</li>
-<li>Out of the 9,974 APIs, 4,080 (40.9%) have 1-5 entries, 1,796 (18%)
-have 6-10 entries, 1,525 (15.3%) have 11-20 entries, 1,394 (14%) have
+<li>Out of the 9,974 APIs, 4,077 (40.9%) have 1-5 entries, 1,797 (18%)
+have 6-10 entries, 1,528 (15.3%) have 11-20 entries, 1,393 (14%) have
 21-50 entries, and 1,179 (11.8%) have over 50 entries.</li>
 </ul>
 <h2 id="licensing">Licensing</h2>
 <h3 id="how-is-the-license-property-used-in-apis">How is the license
 property used in APIs?</h3>
 <ul>
-<li>Out of 12,112 valid APIs, 4,085 (33.7%) have a <code>license</code>
-property, with 3,664 (30.3%) providing both the <code>name</code> and
+<li>Out of 12,110 valid APIs, 4,082 (33.7%) have a <code>license</code>
+property, with 3,661 (30.2%) providing both the <code>name</code> and
 <code>url</code>.</li>
 <li>Out of the 90 v3.1 APIs with a license, 4 (4.4%) use the
 <code>identifier</code> property (introduced in 3.1).</li>
@@ -710,11 +710,11 @@ property, with 3,664 (30.3%) providing both the <code>name</code> and
 breakdown of licenses use by the APIs?</h3>
 <ul>
 <li>Analysis based on a simple harmonization method looking at terms in
-the license name and url values indicates that 2,076 (50.8%) of the APIs
+the license name and url values indicates that 2,075 (50.8%) of the APIs
 use an Apache license.</li>
 <li>Other notable categories include MIT (16.1%), Creative Commons
-(8.2%), GNU/GPL (4.6%).</li>
-<li>13.7% are categorized as Other.</li>
+(8.3%), GNU/GPL (4.6%).</li>
+<li>13.6% are categorized as Other.</li>
 </ul>
 <h2 id="security">Security</h2>
 <h3 id="how-are-the-security-related-properties-used-in-apis">How are
@@ -725,18 +725,18 @@ the security related properties used in APIs?</h3>
 and the <code>type: basic</code> was replaced with
 <code>type: http</code> with <code>scheme: basic</code>.</em></sup></p>
 <ul>
-<li><p>Out of 12,112 valid APIs, 2,383 (19.7%) have a
+<li><p>Out of 12,110 valid APIs, 2,380 (19.7%) have a
 <code>security</code> property.</p></li>
-<li><p>For Swagger (v2.x), out of the 4,630 valid APIs, 1,928 (41.6%)
+<li><p>For Swagger (v2.x), out of the 4,630 valid APIs, 1,931 (41.7%)
 have a <code>securityDefinitions</code> property. The <code>type</code>
-is distributed as 1,336 (45.8%) apiKey, 1,260 (43.2%) oauth2, and 320
+is distributed as 1,335 (45.7%) apiKey, 1,266 (43.3%) oauth2, and 320
 (11%) basic.</p></li>
-<li><p>For OpenAPI (v3.x), out of the 7,482 valid APIs, 3,230 (43.2%)
+<li><p>For OpenAPI (v3.x), out of the 7,480 valid APIs, 3,228 (43.2%)
 have a <code>components/securitySchemes</code> property. The
-<code>type</code> is distributed as 1,699 (38.1%) apiKey, 1,530 (34.3%)
+<code>type</code> is distributed as 1,697 (38%) apiKey, 1,530 (34.3%)
 http, 1,110 (24.9%) oauth2, 56 (1.3%) openIdConnect, and 70 (1.6%) empty
 value.</p></li>
-<li><p>As only 833 (18%) of v2.x and 1,550 (20.7%) of v3.x APIs have a
+<li><p>As only 832 (18%) of v2.x and 1,548 (20.7%) of v3.x APIs have a
 <code>security</code> property, it suggest that the security schemes may
 not always be used. This requires further investigation.</p></li>
 </ul>
