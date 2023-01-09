@@ -1,6 +1,6 @@
 OAS Validity: Source of Errors
 ================
-<sup>Last updated: 2023-01-08</sup>
+<sup>Last updated: 2023-01-09</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a
@@ -32,13 +32,13 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 
 ## *Which top level paths of API specifications are the source of validation errors?*
 
-- A total of 58,412 validation errors are found across 3,559 invalid
+- A total of 58,504 validation errors are found across 3,558 invalid
   APIs
-- Looking at the *error* counts, 46,188 (79.1%) are found under `paths`.
-  This is followed by 5,088 (8.7%) under `components`, 4,324 (7.4%)
+- Looking at the *error* counts, 46,249 (79.1%) are found under `paths`.
+  This is followed by 5,088 (8.7%) under `components`, 4,355 (7.4%)
   under `definitions`, 1,152 (2%) under `root`, and 599 (1%) under
   `info`
-- Looking at the *API* counts, 2,165 (39.4%)have at least one error
+- Looking at the *API* counts, 2,164 (39.4%)have at least one error
   under `paths`. This is followed by 949 (17.3%) under `root`, 774
   (14.1%) under `components`, 490 (8.9%) under `info`, and 307 (5.6%)
   under `definitions`
@@ -55,25 +55,25 @@ Table: Count of errors by top property
 
 | path                |     n |       pct |
 |:--------------------|------:|----------:|
-| paths               | 46188 | 0.7907279 |
-| components          |  5088 | 0.0871054 |
-| definitions         |  4324 | 0.0740259 |
-| root                |  1152 | 0.0197220 |
-| info                |   599 | 0.0102547 |
-| servers             |   312 | 0.0053414 |
-| tags                |   208 | 0.0035609 |
-| basePath            |   118 | 0.0020201 |
-| host                |   117 | 0.0020030 |
-| security            |    64 | 0.0010957 |
-| schemes             |    51 | 0.0008731 |
-| securityDefinitions |    48 | 0.0008217 |
-| parameters          |    40 | 0.0006848 |
-| responses           |    34 | 0.0005821 |
-| produces            |    32 | 0.0005478 |
-| externalDocs        |    19 | 0.0003253 |
-| openapi             |     9 | 0.0001541 |
-| consumes            |     6 | 0.0001027 |
-| swagger             |     3 | 0.0000514 |
+| paths               | 46249 | 0.7905271 |
+| components          |  5088 | 0.0869684 |
+| definitions         |  4355 | 0.0744394 |
+| root                |  1152 | 0.0196910 |
+| info                |   599 | 0.0102386 |
+| servers             |   312 | 0.0053330 |
+| tags                |   208 | 0.0035553 |
+| basePath            |   118 | 0.0020170 |
+| host                |   117 | 0.0019999 |
+| security            |    64 | 0.0010939 |
+| schemes             |    51 | 0.0008717 |
+| securityDefinitions |    48 | 0.0008205 |
+| parameters          |    40 | 0.0006837 |
+| responses           |    34 | 0.0005812 |
+| produces            |    32 | 0.0005470 |
+| externalDocs        |    19 | 0.0003248 |
+| openapi             |     9 | 0.0001538 |
+| consumes            |     6 | 0.0001026 |
+| swagger             |     3 | 0.0000513 |
 
 </details>
 <details>
@@ -83,25 +83,25 @@ Table: Count of APIs with 1 or more errors by top property
 
 | path                |    n |       pct |
 |:--------------------|-----:|----------:|
-| paths               | 2165 | 0.3937079 |
-| root                |  949 | 0.1725768 |
-| components          |  774 | 0.1407529 |
-| info                |  490 | 0.0891071 |
-| definitions         |  307 | 0.0558283 |
-| servers             |  261 | 0.0474632 |
-| basePath            |  118 | 0.0214584 |
-| host                |  117 | 0.0212766 |
-| tags                |   74 | 0.0134570 |
-| security            |   64 | 0.0116385 |
-| schemes             |   48 | 0.0087289 |
-| securityDefinitions |   44 | 0.0080015 |
-| produces            |   32 | 0.0058192 |
-| externalDocs        |   15 | 0.0027278 |
-| parameters          |   12 | 0.0021822 |
-| responses           |   11 | 0.0020004 |
-| openapi             |    9 | 0.0016367 |
-| consumes            |    6 | 0.0010911 |
-| swagger             |    3 | 0.0005456 |
+| paths               | 2164 | 0.3935977 |
+| root                |  949 | 0.1726082 |
+| components          |  774 | 0.1407785 |
+| info                |  490 | 0.0891233 |
+| definitions         |  307 | 0.0558385 |
+| servers             |  261 | 0.0474718 |
+| basePath            |  118 | 0.0214623 |
+| host                |  117 | 0.0212805 |
+| tags                |   74 | 0.0134594 |
+| security            |   64 | 0.0116406 |
+| schemes             |   48 | 0.0087304 |
+| securityDefinitions |   44 | 0.0080029 |
+| produces            |   32 | 0.0058203 |
+| externalDocs        |   15 | 0.0027283 |
+| parameters          |   12 | 0.0021826 |
+| responses           |   11 | 0.0020007 |
+| openapi             |    9 | 0.0016370 |
+| consumes            |    6 | 0.0010913 |
+| swagger             |    3 | 0.0005457 |
 
 </details>
 

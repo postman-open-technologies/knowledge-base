@@ -1,6 +1,6 @@
 OAS Validity
 ================
-<sup>Last updated: 2023-01-08</sup>
+<sup>Last updated: 2023-01-09</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#how-many-valid-openapis-do-we-have"
@@ -24,10 +24,10 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 
 ## *How many valid OpenAPIs do we have?*
 
-- Out of 15,673 entries, 12,114 (77.3%) are valid and 3,559 (22.7%) are
+- Out of 15,674 entries, 12,116 (77.3%) are valid and 3,558 (22.7%) are
   invalid
-- 4,629 out of the 5,933 OpenAPI v2.x entries are valid (78%)
-- 7,485 out of the 9,740 OpenAPI v3.x entries are valid (76.8%)
+- 4,630 out of the 5,934 OpenAPI v2.x entries are valid (78%)
+- 7,486 out of the 9,740 OpenAPI v3.x entries are valid (76.9%)
 
 ![](oas_validity_files/figure-gfm/oas_validity_charts-1.png)<!-- -->
 
@@ -36,13 +36,13 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 <sup>See [source of errors](oas_validity_errors.md) for details and more
 in-depth analysis around validation issues.<sup>
 
-- A total of 58,412 validation errors are found across 3,559 invalid
+- A total of 58,504 validation errors are found across 3,558 invalid
   APIs
-- Looking at the *error* counts, 46,188 (79.1%) are found under `paths`.
-  This is followed by 5,088 (8.7%) under `components`, 4,324 (7.4%)
+- Looking at the *error* counts, 46,249 (79.1%) are found under `paths`.
+  This is followed by 5,088 (8.7%) under `components`, 4,355 (7.4%)
   under `definitions`, 1,152 (2%) under `root`, and 599 (1%) under
   `info`
-- Looking at the *API* counts, 2,165 (39.4%)have at least one error
+- Looking at the *API* counts, 2,164 (39.4%)have at least one error
   under `paths`. This is followed by 949 (17.3%) under `root`, 774
   (14.1%) under `components`, 490 (8.9%) under `info`, and 307 (5.6%)
   under `definitions`

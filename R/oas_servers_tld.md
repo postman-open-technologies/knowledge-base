@@ -1,6 +1,6 @@
 OAS Servers Analysis: Top Level Domains
 ================
-<sup>Last updated: 2023-01-08</sup>
+<sup>Last updated: 2023-01-09</sup>
 
 <sup>*DISCLAIMER: the results and findings below are preliminary and
 have not been fully validated or peer reviewed. Use with care. Do not
@@ -15,12 +15,12 @@ List of top level domains used by at least 5 APIs
 
 | Rank | Domain                | \#APIs |
 |------|-----------------------|--------|
-| 1    | swaggerhub.com        | 615    |
+| 1    | swaggerhub.com        | 616    |
 | 2    | azure.com             | 357    |
 | 3    | swagger.io            | 337    |
 | 4    | herokuapp.com         | 220    |
 | 5    | example.com           | 191    |
-| 6    | googleapis.com        | 139    |
+| 6    | googleapis.com        | 138    |
 | 7    | openweathermap.org    | 101    |
 | 8    | microsoft.com         | 92     |
 | 9    | azurestack.external   | 82     |
@@ -62,7 +62,7 @@ List of top level domains used by at least 5 APIs
 | 45   | cosmos.network        | 18     |
 | 46   | sportsdata.io         | 17     |
 | 47   | governify.io          | 16     |
-| 48   | gov.in                | 15     |
+| 48   | gov.in                | 16     |
 | 49   | server.test           | 15     |
 | 50   | sentient.io           | 14     |
 | 51   | spotify.com           | 14     |
@@ -128,33 +128,33 @@ List of top level domains used by at least 5 APIs
 | 111  | dolby.com             | 6      |
 | 112  | foursquare.com        | 6      |
 | 113  | getsandbox.com        | 6      |
-| 114  | kalshi.com            | 6      |
-| 115  | nrel.gov              | 6      |
-| 116  | openapi.io            | 6      |
-| 117  | server.com            | 6      |
-| 118  | tomtom.com            | 6      |
-| 119  | twitter.com           | 6      |
-| 120  | xero.com              | 6      |
-| 121  | adopta.agency         | 5      |
-| 122  | anchore.local         | 5      |
-| 123  | apicast.io            | 5      |
-| 124  | apimatic.io           | 5      |
-| 125  | apis.com              | 5      |
-| 126  | appcelerator.com      | 5      |
-| 127  | appveyor.com          | 5      |
-| 128  | brex.io               | 5      |
-| 129  | chompthis.com         | 5      |
-| 130  | cobiscorp.com         | 5      |
-| 131  | deepl.com             | 5      |
-| 132  | domain.com            | 5      |
-| 133  | domainsdb.info        | 5      |
-| 134  | evetech.net           | 5      |
-| 135  | flickr.com            | 5      |
-| 136  | githubusercontent.com | 5      |
-| 137  | gitlab.com            | 5      |
-| 138  | haloapi.com           | 5      |
-| 139  | hel.fi                | 5      |
-| 140  | icons8.com            | 5      |
+| 114  | nrel.gov              | 6      |
+| 115  | openapi.io            | 6      |
+| 116  | server.com            | 6      |
+| 117  | tomtom.com            | 6      |
+| 118  | twitter.com           | 6      |
+| 119  | xero.com              | 6      |
+| 120  | adopta.agency         | 5      |
+| 121  | anchore.local         | 5      |
+| 122  | apicast.io            | 5      |
+| 123  | apimatic.io           | 5      |
+| 124  | apis.com              | 5      |
+| 125  | appcelerator.com      | 5      |
+| 126  | appveyor.com          | 5      |
+| 127  | brex.io               | 5      |
+| 128  | chompthis.com         | 5      |
+| 129  | cobiscorp.com         | 5      |
+| 130  | deepl.com             | 5      |
+| 131  | domain.com            | 5      |
+| 132  | domainsdb.info        | 5      |
+| 133  | evetech.net           | 5      |
+| 134  | flickr.com            | 5      |
+| 135  | githubusercontent.com | 5      |
+| 136  | gitlab.com            | 5      |
+| 137  | haloapi.com           | 5      |
+| 138  | hel.fi                | 5      |
+| 139  | icons8.com            | 5      |
+| 140  | kalshi.com            | 5      |
 | 141  | m3o.com               | 5      |
 | 142  | mapmyindia.com        | 5      |
 | 143  | monitored.equipment   | 5      |
