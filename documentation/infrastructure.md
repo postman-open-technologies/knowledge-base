@@ -2,7 +2,7 @@
 
 The knowledge base is hosted in the Postman AWS Labs cloud and supported by a variety of technologies and tools. 
 
-The core content is stored as files in an master S3 bucket, which are then be loaded in databases, search engines, and other tools for processing and analysis. Postgres is currently our primary database, where we are taking advantage of the JSON data type support and querying features. 
+The core content is stored as files in a master S3 bucket, which are then be loaded in databases, search engines, and other tools for processing and analysis. Postgres is currently our primary database, where we are taking advantage of the JSON data type support and querying features. 
 
 Candidate technologies on our roadmap for strengthening the capabilities and performance include [Neo4J](https://neo4j.com/) (graph/JSON data), [Apache Solr](https://solr.apache.org/) (indexing/search), [OpenLink Virtuoso](https://vos.openlinksw.com/owiki/wiki/VOS) and/or [Apache Jena](https://jena.apache.org/) (RDF).
 
@@ -14,7 +14,6 @@ External access to back end services is controlled and proxied by an [NGINX](htt
 Knowledge base APIs are in the early design and development stage and not currently publicly available. We anticipate for these to become available for early access in the first half of 2023 through a [Zuplo](https://zuplo.com/) gateway.
 
 The AWS hosted above solutions are currently running on micro/small t3 EC2 instances.
-
 
 
 

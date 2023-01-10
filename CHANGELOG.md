@@ -1,6 +1,7 @@
-# Knowledge Base Research: Change Log
+# Knowledge Base: Change Log
 
 ## 2023-01
+- docs: Added basic documentation for postgres database
 - oas:validity: Added error analysis for /paths top level content
 - oas:validity: Initial analysis of source of errors
 
