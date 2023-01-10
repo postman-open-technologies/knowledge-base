@@ -602,7 +602,7 @@ padding-top: 0px;
 <body>
 
 <h1 id="oas-servers-analysis">OAS Servers Analysis</h1>
-<p><sup>Last updated: 2023-01-09</sup></p>
+<p><sup>Last updated: 2023-01-10</sup></p>
 <ul>
 <li><a href="#overview" id="toc-overview">Overview</a></li>
 <li><a href="#findings" id="toc-findings">Findings</a>
@@ -635,9 +635,9 @@ and other components of the URL.</p>
 <h2 id="how-is-the-server-property-used-in-apis">How is the server
 property used in APIs?</h2>
 <ul>
-<li><p>Out of 4,630 valid OpenAPI version 2.x specifications, 3,418
-(73.8%) have a <code>host</code> property, 3,394 (73.3%) have a
-<code>basePath</code> property, and 3,739 (80.8%) have a
+<li><p>Out of 4,630 valid OpenAPI version 2.x specifications, 3,419
+(73.8%) have a <code>host</code> property, 3,395 (73.3%) have a
+<code>basePath</code> property, and 3,740 (80.8%) have a
 <code>schemes</code> property.</p></li>
 <li><p>Out of 7,486 valid OpenAPI version 3.x specifications, 6,046
 (80.8%) have a <code>servers</code> property, with an average of 1.3
@@ -646,11 +646,11 @@ server/entry, and a range of 0-13.</p></li>
 <h2 id="how-often-do-apis-use-localhost-vs-domain-based-servers">How
 often do APIs use localhost vs domain based servers?</h2>
 <ul>
-<li>Out of the 10,941 host/servers entries (across all APIs), 1,848
-(16.9%) contain localhost or 127.0.0.1, 6,439 (58.9%) use a DNS host,
+<li>Out of the 10,942 host/servers entries (across all APIs), 1,848
+(16.9%) contain localhost or 127.0.0.1, 6,439 (58.8%) use a DNS host,
 and 533 (4.9%) use a variable template (3.x only). 1,290 (11.8%) use a
 relative path (no server specified).</li>
-<li>4,052 (37%) use an http protocol, and 6,353 (58.1%) https.</li>
+<li>4,053 (37%) use an http protocol, and 6,353 (58.1%) https.</li>
 </ul>
 <p><em>@TODO: compute API level statistics (localhost vs DNS vs
 mixed)</em></p>
