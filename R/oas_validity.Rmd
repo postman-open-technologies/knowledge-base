@@ -29,12 +29,12 @@ count(*) filter (where json_meta->'isValid' = 'true') as n_valid,
 count(*) filter (where json_meta->'isValid' = 'true') / count(*)::numeric as pct_valid,
 count(*) filter (where json_meta->'isValid' = 'false') as n_invalid,
 count(*) filter (where json_meta->'isValid' = 'false') / count(*)::numeric as pct_invalid,
-count(*) filter (where json_meta->>'class' = 'Swagger') as n_swagger,
-count(*) filter (where json_meta->'isValid' = 'true' and json_meta->>'class' = 'Swagger') as n_valid_swagger,
-count(*) filter (where json_meta->'isValid' = 'true' and json_meta->>'class' = 'Swagger') / count(*) filter (where json_meta->>'class' = 'Swagger')::numeric as pct_valid_swagger,
-count(*) filter (where json_meta->>'class' = 'OpenApi') as n_openapi,
-count(*) filter (where json_meta->'isValid' = 'true' and json_meta->>'class' = 'OpenApi') as n_valid_openapi,
-count(*) filter (where json_meta->'isValid' = 'true' and json_meta->>'class' = 'OpenApi') / count(*) filter (where json_meta->>'class' = 'OpenApi')::numeric as pct_valid_openapi,
+count(*) filter (where json_meta->>'class' = 'OpenAPI2') as n_openapi2,
+count(*) filter (where json_meta->'isValid' = 'true' and json_meta->>'class' = 'OpenAPI2') as n_valid_openapi2,
+count(*) filter (where json_meta->'isValid' = 'true' and json_meta->>'class' = 'OpenAPI2') / count(*) filter (where json_meta->>'class' = 'OpenAPI2')::numeric as pct_valid_openapi2,
+count(*) filter (where json_meta->>'class' = 'OpenAPI3') as n_openapi3,
+count(*) filter (where json_meta->'isValid' = 'true' and json_meta->>'class' = 'OpenAPI3') as n_valid_openapi3,
+count(*) filter (where json_meta->'isValid' = 'true' and json_meta->>'class' = 'OpenAPI3') / count(*) filter (where json_meta->>'class' = 'OpenAPI3')::numeric as pct_valid_openapi3,
 count(*) filter (where json_meta->'isValid' is null) as n_unknown
 from vw_oas_resource
 "
@@ -42,13 +42,13 @@ df = dbGetQuery(conn, query)
 ```
 
 - Out of `r format_count(df$n[1])` entries, `r format_count(df$n_valid[1])` (`r format_pct(df$pct_valid[1])`%) are valid and `r format_count(df$n_invalid[1])` (`r format_pct(df$pct_invalid[1])`%) are invalid
-- `r format_count(df$n_valid_swagger[1])` out of the `r format_count(df$n_swagger[1])` OpenAPI v2.x entries are valid (`r format_pct(df$pct_valid_swagger[1])`%)
-- `r format_count(df$n_valid_openapi[1])` out of the `r format_count(df$n_openapi[1])` OpenAPI v3.x entries are valid (`r format_pct(df$pct_valid_openapi[1])`%)
+- `r format_count(df$n_valid_openapi2[1])` out of the `r format_count(df$n_openapi2[1])` OpenAPI2 entries are valid (`r format_pct(df$pct_valid_openapi2[1])`%)
+- `r format_count(df$n_valid_openapi3[1])` out of the `r format_count(df$n_openapi3[1])` OpenAPI3 entries are valid (`r format_pct(df$pct_valid_openapi3[1])`%)
 
 ```{r oas_validity_charts, echo=FALSE, include = TRUE}
 category = c(rep('Valid',3), rep('Invalid',3))
-version = rep( c("All", "Swagger", "OpenAPI"), 2)
-percentage = c(df$pct_valid[1], df$pct_valid_swagger[1], df$pct_valid_openapi[1], 1-df$pct_valid[1], 1-df$pct_valid_swagger[1], 1-df$pct_valid_openapi[1])
+version = rep( c("All", "OpenAPI2", "OpenAPI3"), 2)
+percentage = c(df$pct_valid[1], df$pct_valid_openapi2[1], df$pct_valid_openapi3[1], 1-df$pct_valid[1], 1-df$pct_valid_openapi2[1], 1-df$pct_valid_openapi3[1])
 data = data.frame(category, version, percentage)
 ggplot(data, aes(fill=version, y=percentage, x=category)) + geom_bar(position="dodge", stat="identity")
 ```

@@ -20,7 +20,7 @@ source("utils.R", local = knitr::knit_global())
 
 # Overview
  
-The `servers` property in OpenAPI provide connectivity information to target server(s) for the API. It replaces the `host`, `basePath` and `schemes` properties used in OpenAPI 2.
+The `servers` property in OpenAPI provide connectivity information to target server(s) for the API. It replaces the `host`, `basePath` and `schemes` properties used in OpenAPI2.
 This differences between both versions add a bit to the complexity of the analysis. Note that more server entries may appears in the 3.x versions as the version 2.x was essentially limited to a single server entry (with multiple protocols). Version 3.x also introduced server variables which may obfuscate values for the host and other components of the URL.
 
 # Findings
@@ -34,8 +34,6 @@ This differences between both versions add a bit to the complexity of the analys
 
 ```{r, child=c('oas_servers_hosts.section.Rmd')}
 ```
-
-*@TODO: compute API level statistics (localhost vs DNS vs mixed)*
 
 ## What are the most commonly used top level domains for APIs?
 

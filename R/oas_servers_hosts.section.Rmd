@@ -15,9 +15,9 @@ select
 	sum(is_https) as n_https,
 	sum(is_https)  / count(*)::numeric as pct_https
 	from (
-		select uri, 'Swagger' as class, is_localhost, is_dnshost, is_relative, 0 as is_templatehost, is_http, Is_https from vw_oas_resource_host
+		select uri, 'OpenAPI2' as class, is_localhost, is_dnshost, is_relative, 0 as is_templatehost, is_http, Is_https from vw_oas_resource_host
 		union
-		select uri, 'OpenApi' as class, is_localhost, is_dnshost, is_relative, is_templatehost, is_http, Is_https from vw_oas_resource_servers
+		select uri, 'OpenAPI3' as class, is_localhost, is_dnshost, is_relative, is_templatehost, is_http, Is_https from vw_oas_resource_servers
 	) as t1
 "
 df = dbGetQuery(conn, query)

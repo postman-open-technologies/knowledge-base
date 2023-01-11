@@ -8,12 +8,12 @@ count(*) filter (where json_data->'basePath' is not null) / count(*)::numeric as
 count(*) filter (where json_data->'schemes' is not null) as n_has_schemes,
 count(*) filter (where json_data->'schemes' is not null) / count(*)::numeric as pct_has_schemes
 from vw_oas_resource
-where json_meta->'isValid' = 'true' and class='Swagger'
+where json_meta->'isValid' = 'true' and class='OpenAPI2'
 "
 df = dbGetQuery(conn, query)
 ```
 
-- Out of `r format_count(df$n_valid[1])` valid OpenAPI version 2.x specifications, `r format_count_and_pct(df$n_has_host[1], df$pct_has_host[1])` have a `host` property, 
+- Out of `r format_count(df$n_valid[1])` valid OpenAPI2 specifications, `r format_count_and_pct(df$n_has_host[1], df$pct_has_host[1])` have a `host` property, 
 `r format_count_and_pct(df$n_has_basepath[1], df$pct_has_basepath[1])` have a `basePath` property,
 and `r format_count_and_pct(df$n_has_schemes[1], df$pct_has_schemes[1])` have a `schemes` property. 
 
@@ -27,9 +27,9 @@ avg(jsonb_array_length(json_data->'servers')) filter (where json_data->'servers'
 min(jsonb_array_length(json_data->'servers')) filter (where json_data->'servers' is not null) as min_servers,
 max(jsonb_array_length(json_data->'servers')) filter (where json_data->'servers' is not null) as max_servers
 from vw_oas_resource
-where json_meta->'isValid' = 'true' and class='OpenApi'
+where json_meta->'isValid' = 'true' and class='OpenAPI3'
 "
 df = dbGetQuery(conn, query)
 ```
 
-- Out of `r format_count(df$n_valid[1])` valid OpenAPI version 3.x specifications, `r format_count_and_pct(df$n_has_servers[1], df$pct_has_servers[1])` have a `servers` property, with an average of `r format(round(df$avg_server[1],1))` server/entry, and a range of `r format_count(df$min_servers[1])`-`r format_count(df$max_servers[1])`. 
+- Out of `r format_count(df$n_valid[1])` valid OpenAPI3 specifications, `r format_count_and_pct(df$n_has_servers[1], df$pct_has_servers[1])` have a `servers` property, with an average of `r format(round(df$avg_server[1],1))` server/entry, and a range of `r format_count(df$min_servers[1])`-`r format_count(df$max_servers[1])`. 

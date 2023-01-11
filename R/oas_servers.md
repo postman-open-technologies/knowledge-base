@@ -26,7 +26,7 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 
 The `servers` property in OpenAPI provide connectivity information to
 target server(s) for the API. It replaces the `host`, `basePath` and
-`schemes` properties used in OpenAPI 2. This differences between both
+`schemes` properties used in OpenAPI2. This differences between both
 versions add a bit to the complexity of the analysis. Note that more
 server entries may appears in the 3.x versions as the version 2.x was
 essentially limited to a single server entry (with multiple protocols).
@@ -37,23 +37,21 @@ for the host and other components of the URL.
 
 ## How is the server property used in APIs?
 
-- Out of 4,630 valid OpenAPI version 2.x specifications, 3,419 (73.8%)
-  have a `host` property, 3,395 (73.3%) have a `basePath` property, and
-  3,740 (80.8%) have a `schemes` property.
+- Out of 4,630 valid OpenAPI2 specifications, 3,416 (73.8%) have a
+  `host` property, 3,395 (73.3%) have a `basePath` property, and 3,740
+  (80.8%) have a `schemes` property.
 
-- Out of 7,486 valid OpenAPI version 3.x specifications, 6,046 (80.8%)
-  have a `servers` property, with an average of 1.3 server/entry, and a
-  range of 0-13.
+- Out of 7,487 valid OpenAPI3 specifications, 6,047 (80.8%) have a
+  `servers` property, with an average of 1.3 server/entry, and a range
+  of 0-13.
 
 ## How often do APIs use localhost vs domain based servers?
 
-- Out of the 10,942 host/servers entries (across all APIs), 1,848
-  (16.9%) contain localhost or 127.0.0.1, 6,439 (58.8%) use a DNS host,
-  and 533 (4.9%) use a variable template (3.x only). 1,290 (11.8%) use a
+- Out of the 10,943 host/servers entries (across all APIs), 1,848
+  (16.9%) contain localhost or 127.0.0.1, 6,437 (58.8%) use a DNS host,
+  and 533 (4.9%) use a variable template (3.x only). 1,293 (11.8%) use a
   relative path (no server specified).
-- 4,053 (37%) use an http protocol, and 6,353 (58.1%) https.
-
-*@TODO: compute API level statistics (localhost vs DNS vs mixed)*
+- 4,055 (37.1%) use an http protocol, and 6,353 (58.1%) https.
 
 ## What are the most commonly used top level domains for APIs?
 
@@ -63,7 +61,7 @@ comprehensive list.
 
 | Rank | Domain              | \#APIs |
 |------|---------------------|--------|
-| 1    | swaggerhub.com      | 616    |
+| 1    | swaggerhub.com      | 617    |
 | 2    | azure.com           | 357    |
 | 3    | swagger.io          | 337    |
 | 4    | herokuapp.com       | 220    |

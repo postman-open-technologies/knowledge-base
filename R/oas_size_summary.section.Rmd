@@ -5,20 +5,20 @@ select
 	avg(json_data_size )/1024 as avg_size,
 	min(json_data_size )/1024 as min_size,
 	max(json_data_size )/1024 as max_size,
-	count(*) filter (where class='Swagger') as n_swagger,
-	avg(json_data_size) filter (where class='Swagger')/1024  as avg_size_swagger,
-	min(json_data_size) filter (where class='Swagger')/1024  as min_size_swagger,
-	max(json_data_size) filter (where class='Swagger')/1024  as max_size_swagger,
-	avg(json_data_size) filter (where class='OpenApi')/1024  as avg_size_openapi,
-	min(json_data_size) filter (where class='OpenApi')/1024  as min_size_openapi,
-	max(json_data_size) filter (where class='OpenApi')/1024  as max_size_openapi
+	count(*) filter (where class='OpenAPI2') as n_openapi2,
+	avg(json_data_size) filter (where class='OpenAPI2')/1024  as avg_size_openapi2,
+	min(json_data_size) filter (where class='OpenAPI2')/1024  as min_size_openapi2,
+	max(json_data_size) filter (where class='OpenAPI2')/1024  as max_size_openapi2,
+	avg(json_data_size) filter (where class='OpenAPI3')/1024  as avg_size_openapi3,
+	min(json_data_size) filter (where class='OpenAPI3')/1024  as min_size_openapi3,
+	max(json_data_size) filter (where class='OpenAPI3')/1024  as max_size_openapi3
 from vw_oas_resource 
 where json_meta->'isValid' = 'true'
 "
 df = dbGetQuery(conn, query)
 ```
 
-- Based on `r format_count(df$n_valid[1])` valid API specifications, the average JSON size is `r format(round(df$avg_size[1],1), big.mark = ",")`Kb, ranging from < 1Kb to `r format(round(df$max_size_swagger[1],1), big.mark = ",")`Kb.
-- No significant difference is observed between version 2 (`r format(round(df$avg_size[1],1), big.mark = ",")`Kb) and 3 (`r format(round(df$avg_size_openapi[1],1), big.mark = ",")`Kb)
+- Based on `r format_count(df$n_valid[1])` valid API specifications, the average JSON size is `r format(round(df$avg_size[1],1), big.mark = ",")`Kb, ranging from < 1Kb to `r format(round(df$max_size[1],1), big.mark = ",")`Kb.
+- No significant difference is observed between version 2 (`r format(round(df$avg_size_openapi2[1],1), big.mark = ",")`Kb) and 3 (`r format(round(df$avg_size_openapi3[1],1), big.mark = ",")`Kb)
 
 

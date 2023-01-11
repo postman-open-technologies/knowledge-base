@@ -112,16 +112,16 @@ from
 (
 select uri, count(*) as count
   from (
-	select uri, jsonb_object_keys(json_data->'components'->'schemas') as keys from vw_oas_resource where (json_meta->'isValid')::boolean and class = 'OpenApi'
+	select uri, jsonb_object_keys(json_data->'components'->'schemas') as keys from vw_oas_resource where (json_meta->'isValid')::boolean and class = 'OpenAPI3'
 	union
-	select uri, jsonb_object_keys(json_data->'definitions') as keys from vw_oas_resource where (json_meta->'isValid')::boolean and class = 'Swagger'
+	select uri, jsonb_object_keys(json_data->'definitions') as keys from vw_oas_resource where (json_meta->'isValid')::boolean and class = 'OpenAPI2'
   ) as t1 group by 1
 ) as t1
 "
 df = dbGetQuery(conn, query)
 ```
 
-- The average number of JSON objects defined locally under /definitions (Swagger) or /components/schema (OpenAPI) is `r format(round(df$avg[1],1), big.mark = ",")`, ranging from `r format_count(df$min[1])` to `r format_count(df$max[1])`.
+- The average number of JSON objects defined locally under /definitions (OpenAPI2) or /components/schema (OpenAPI3) is `r format(round(df$avg[1],1), big.mark = ",")`, ranging from `r format_count(df$min[1])` to `r format_count(df$max[1])`.
 - Out of the `r format_count(df$n[1])` APIs, `r format_count_and_pct(df$n_01_to_05[1], df$pct_01_to_05[1])` have 1-5 entries, `r format_count_and_pct(df$n_06_to_10[1], df$pct_06_to_10[1])` have 6-10 entries, `r format_count_and_pct(df$n_11_to_20[1], df$pct_11_to_20[1])` have 11-20 entries, `r format_count_and_pct(df$n_21_to_50[1], df$pct_21_to_50[1])` have 21-50 entries, and `r format_count_and_pct(df$n_over_50[1], df$pct_over_50[1])` have over 50 entries.
 
 
@@ -176,7 +176,7 @@ GNU/GPL (`r format_pct(df[df$license == 'GNU',]$pct)`%).
 
 ### How are the security related properties used in APIs?
 
-<sup>*Note that in OpenAPI versions 3, `securityDefinitions` was renamed to `securitySchemes` and moved inside `components`, and the `type: basic` was replaced with `type: http` with `scheme: basic`.*</sup>
+<sup>*Note that in OpenAPI3, `securityDefinitions` was renamed to `securitySchemes` and moved inside `components`, and the `type: basic` was replaced with `type: http` with `scheme: basic`.*</sup>
 
 ```{r oas_security_summary_query, eval=TRUE, echo=FALSE}
 query = "
@@ -196,7 +196,7 @@ count(*) filter (where json_data->'security' is not null) / count(*)::numeric as
 count(*) filter (where json_data->'securityDefinitions' is not null) as n_has_securitydefinitions,
 count(*) filter (where json_data->'securityDefinitions' is not null) / count(*)::numeric as pct_has_securitydefinitions
 from vw_oas_resource
-where json_meta->'isValid' = 'true' and class = 'Swagger'
+where json_meta->'isValid' = 'true' and class = 'OpenAPI2'
 "
 df_v2a = dbGetQuery(conn, query)
 
@@ -215,7 +215,7 @@ count(*) filter (where json_data->'security' is not null) / count(*)::numeric as
 count(*) filter (where json_data->'components'->'securitySchemes' is not null) as n_has_securityschemes,
 count(*) filter (where json_data->'components'->'securitySchemes' is not null) / count(*)::numeric as pct_has_securityschemes
 from vw_oas_resource
-where json_meta->'isValid' = 'true' and class = 'OpenApi'
+where json_meta->'isValid' = 'true' and class = 'OpenAPI3'
 "
 df_v3a = dbGetQuery(conn, query)
 
@@ -231,13 +231,13 @@ df_v3b = dbGetQuery(conn, query)
 
 - Out of `r format_count(df$n[1])` valid APIs, `r format_count_and_pct(df$n_has_security[1], df$pct_has_security[1])` have a `security` property.
 
-- For Swagger (v2.x), out of the `r format_count(df_v2a$n[1])` valid APIs, `r format_count_and_pct(df_v2a$n_has_securitydefinitions[1], df_v2a$pct_has_securitydefinitions)` have a `securityDefinitions` property.
+- For OpenAPI2, out of the `r format_count(df_v2a$n[1])` valid APIs, `r format_count_and_pct(df_v2a$n_has_securitydefinitions[1], df_v2a$pct_has_securitydefinitions)` have a `securityDefinitions` property.
 The `type` is distributed as 
 `r format_count_and_pct(df_v2b$n[1], df_v2b$pct[1])` `r df_v2b$type[1]`, 
 `r format_count_and_pct(df_v2b$n[2], df_v2b$pct[2])` `r df_v2b$type[2]`, 
 and `r format_count_and_pct(df_v2b$n[3], df_v2b$pct[3])` `r df_v2b$type[3]`.
 
-- For OpenAPI (v3.x), out of the `r format_count(df_v3a$n[1])` valid APIs, `r format_count_and_pct(df_v3a$n_has_securityschemes[1], df_v3a$pct_has_securityschemes)` have a `components/securitySchemes` property.
+- For OpenAPI3, out of the `r format_count(df_v3a$n[1])` valid APIs, `r format_count_and_pct(df_v3a$n_has_securityschemes[1], df_v3a$pct_has_securityschemes)` have a `components/securitySchemes` property.
 The `type` is distributed as 
 `r format_count_and_pct(df_v3b[df_v3b$type == 'apiKey' & !is.na(df_v3b$type),]$n, df_v3b[df_v3b$type == 'apiKey' & !is.na(df_v3b$type),]$pct)` apiKey, 
 `r format_count_and_pct(df_v3b[df_v3b$type == 'http' & !is.na(df_v3b$type),]$n, df_v3b[df_v3b$type == 'http' & !is.na(df_v3b$type),]$pct)` http, 
