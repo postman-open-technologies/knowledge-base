@@ -1,6 +1,6 @@
 OAS Servers Analysis: Top Level Domains
 ================
-<sup>Last updated: 2023-01-10</sup>
+<sup>Last updated: 2023-01-11</sup>
 
 <sup>*DISCLAIMER: the results and findings below are preliminary and
 have not been fully validated or peer reviewed. Use with care. Do not
@@ -15,7 +15,7 @@ List of top level domains used by at least 5 APIs
 
 | Rank | Domain                | \#APIs |
 |------|-----------------------|--------|
-| 1    | swaggerhub.com        | 616    |
+| 1    | swaggerhub.com        | 617    |
 | 2    | azure.com             | 357    |
 | 3    | swagger.io            | 337    |
 | 4    | herokuapp.com         | 220    |
@@ -47,15 +47,15 @@ List of top level domains used by at least 5 APIs
 | 30   | trade.gov             | 25     |
 | 31   | openbankproject.com   | 24     |
 | 32   | wso2.com              | 24     |
-| 33   | stoplight.io          | 23     |
-| 34   | apigee.net            | 22     |
-| 35   | deutschebahn.com      | 22     |
-| 36   | egovernments.org      | 22     |
-| 37   | bc.ca                 | 21     |
-| 38   | com.au                | 20     |
-| 39   | co.uk                 | 20     |
-| 40   | gov.uk                | 20     |
-| 41   | api.net               | 19     |
+| 33   | deutschebahn.com      | 23     |
+| 34   | stoplight.io          | 23     |
+| 35   | apigee.net            | 22     |
+| 36   | bc.ca                 | 21     |
+| 37   | com.au                | 20     |
+| 38   | co.uk                 | 20     |
+| 39   | gov.uk                | 20     |
+| 40   | api.net               | 19     |
+| 41   | egovernments.org      | 19     |
 | 42   | fantasydata.net       | 19     |
 | 43   | nytimes.com           | 19     |
 | 44   | api.com               | 18     |
