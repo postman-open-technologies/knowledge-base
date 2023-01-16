@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+box-sizing: border-box;
+min-width: 200px;
+max-width: 980px;
+margin: 0 auto;
+padding: 45px;
+padding-top: 0px;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="oas-servers-analysis-top-level-domains">OAS Servers Analysis:
+Top Level Domains</h1>
+<p><sup>Last updated: 2023-01-16</sup></p>
+<p><sup><em>DISCLAIMER: the results and findings below are preliminary
+and have not been fully validated or peer reviewed. Use with care. Do
+not quote or disseminate.</em></sup></p>
+<p><sup><a href="oas_servers.md">Back to analysis</a> | <a href="https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Aservers">View
+issues related to oas:servers</a></sup></p>
+<h2 id="top-level-domains">Top level domains</h2>
+<p>List of top level domains used by at least 5 APIs</p>
+<table>
+<thead>
+<tr class="header">
+<th>Rank</th>
+<th>Domain</th>
+<th>#APIs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>swaggerhub.com</td>
+<td>617</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>azure.com</td>
+<td>357</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>swagger.io</td>
+<td>337</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>herokuapp.com</td>
+<td>220</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>example.com</td>
+<td>191</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>googleapis.com</td>
+<td>138</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>openweathermap.org</td>
+<td>101</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>microsoft.com</td>
+<td>92</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>azurestack.external</td>
+<td>82</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>epa.gov</td>
+<td>63</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>wordnik.com</td>
+<td>62</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>amadeus.com</td>
+<td>60</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>adyen.com</td>
+<td>57</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>amazonaws.com</td>
+<td>55</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>amazon.com</td>
+<td>54</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>apitore.com</td>
+<td>44</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>azurewebsites.net</td>
+<td>44</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>org.uk</td>
+<td>43</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>elements.com</td>
+<td>35</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>example.xyz</td>
+<td>35</td>
+</tr>
+<tr class="odd">
+<td>21</td>
+<td>appspot.com</td>
+<td>34</td>
+</tr>
+<tr class="even">
+<td>22</td>
+<td>cloud.goog</td>
+<td>33</td>
+</tr>
+<tr class="odd">
+<td>23</td>
+<td>quora.io</td>
+<td>33</td>
+</tr>
+<tr class="even">
+<td>24</td>
+<td>azure.local</td>
+<td>29</td>
+</tr>
+<tr class="odd">
+<td>25</td>
+<td>apis.guru</td>
+<td>28</td>
+</tr>
+<tr class="even">
+<td>26</td>
+<td>sap.com</td>
+<td>28</td>
+</tr>
+<tr class="odd">
+<td>27</td>
+<td>ebay.com</td>
+<td>27</td>
+</tr>
+<tr class="even">
+<td>28</td>
+<td>rapidapi.com</td>
+<td>26</td>
+</tr>
+<tr class="odd">
+<td>29</td>
+<td>ac.nz</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td>30</td>
+<td>trade.gov</td>
+<td>25</td>
+</tr>
+<tr class="odd">
+<td>31</td>
+<td>openbankproject.com</td>
+<td>24</td>
+</tr>
+<tr class="even">
+<td>32</td>
+<td>wso2.com</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>33</td>
+<td>deutschebahn.com</td>
+<td>23</td>
+</tr>
+<tr class="even">
+<td>34</td>
+<td>stoplight.io</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>35</td>
+<td>apigee.net</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td>36</td>
+<td>bc.ca</td>
+<td>21</td>
+</tr>
+<tr class="odd">
+<td>37</td>
+<td>com.au</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>38</td>
+<td>co.uk</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>39</td>
+<td>gov.uk</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>40</td>
+<td>api.net</td>
+<td>19</td>
+</tr>
+<tr class="odd">
+<td>41</td>
+<td>egovernments.org</td>
+<td>19</td>
+</tr>
+<tr class="even">
+<td>42</td>
+<td>fantasydata.net</td>
+<td>19</td>
+</tr>
+<tr class="odd">
+<td>43</td>
+<td>nytimes.com</td>
+<td>19</td>
+</tr>
+<tr class="even">
+<td>44</td>
+<td>api.com</td>
+<td>18</td>
+</tr>
+<tr class="odd">
+<td>45</td>
+<td>cosmos.network</td>
+<td>18</td>
+</tr>
+<tr class="even">
+<td>46</td>
+<td>sportsdata.io</td>
+<td>17</td>
+</tr>
+<tr class="odd">
+<td>47</td>
+<td>governify.io</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<td>48</td>
+<td>gov.in</td>
+<td>16</td>
+</tr>
+<tr class="odd">
+<td>49</td>
+<td>server.test</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>50</td>
+<td>sentient.io</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td>51</td>
+<td>spotify.com</td>
+<td>14</td>
+</tr>
+<tr class="even">
+<td>52</td>
+<td>aramark.net</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>53</td>
+<td>concursolutions.com</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td>54</td>
+<td>example.org</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>55</td>
+<td>bbc.com</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>56</td>
+<td>bigoven.com</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>57</td>
+<td>bikewise.org</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>58</td>
+<td>gov.au</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>59</td>
+<td>ncats.io</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>60</td>
+<td>netdata.io</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>61</td>
+<td>brapi.org</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>62</td>
+<td>canada.ca</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td>63</td>
+<td>govt.nz</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>64</td>
+<td>hollaex.com</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td>65</td>
+<td>vtextracking.com</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>66</td>
+<td>wmata.com</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td>67</td>
+<td>aminocom.com</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>68</td>
+<td>clever.com</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>69</td>
+<td>strava.com</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>70</td>
+<td>zalando.com</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>71</td>
+<td>1forge.com</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>72</td>
+<td>adafruit.com</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>73</td>
+<td>arrivy.com</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>74</td>
+<td>bankit.dk</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>75</td>
+<td>com.br</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>76</td>
+<td>github.com</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>77</td>
+<td>github.io</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>78</td>
+<td>httpbin.org</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>79</td>
+<td>iii.org</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>80</td>
+<td>mastercard.com</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>81</td>
+<td>nhs.uk</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>82</td>
+<td>omdbapi.com</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>83</td>
+<td>samsara.com</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>84</td>
+<td>twilio.com</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>85</td>
+<td>va.gov</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>86</td>
+<td>apigee.com</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>87</td>
+<td>betty.app</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>88</td>
+<td>is.com</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>89</td>
+<td>italia.it</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>90</td>
+<td>lufthansa.com</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>91</td>
+<td>mashape.com</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>92</td>
+<td>o2.cz</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>93</td>
+<td>sample.com</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>94</td>
+<td>simplekart.com</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>95</td>
+<td>alchemy.com</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>96</td>
+<td>benz.com</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>97</td>
+<td>cloudfunctions.net</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>98</td>
+<td>codas.com</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>99</td>
+<td>example.io</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>100</td>
+<td>gettyimages.com</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>101</td>
+<td>letmc.com</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>102</td>
+<td>naviplancentral.com</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>103</td>
+<td>opentlc.com</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>104</td>
+<td>telefonica.com</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>105</td>
+<td>temenos.com</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>106</td>
+<td>ups.com</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>107</td>
+<td>acnhapi.com</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>108</td>
+<td>ainize.ai</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>109</td>
+<td>data.gov</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>110</td>
+<td>datumbox.com</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>111</td>
+<td>dolby.com</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>112</td>
+<td>foursquare.com</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>113</td>
+<td>getsandbox.com</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>114</td>
+<td>nrel.gov</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>115</td>
+<td>openapi.io</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>116</td>
+<td>server.com</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>117</td>
+<td>tomtom.com</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>118</td>
+<td>twitter.com</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>119</td>
+<td>xero.com</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>120</td>
+<td>adopta.agency</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>121</td>
+<td>anchore.local</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>122</td>
+<td>apicast.io</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>123</td>
+<td>apimatic.io</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>124</td>
+<td>apis.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>125</td>
+<td>appcelerator.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>126</td>
+<td>appveyor.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>127</td>
+<td>brex.io</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>128</td>
+<td>chompthis.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>129</td>
+<td>cobiscorp.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>130</td>
+<td>deepl.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>131</td>
+<td>domain.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>132</td>
+<td>domainsdb.info</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>133</td>
+<td>evetech.net</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>134</td>
+<td>flickr.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>135</td>
+<td>githubusercontent.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>136</td>
+<td>gitlab.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>137</td>
+<td>haloapi.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>138</td>
+<td>hel.fi</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>139</td>
+<td>icons8.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>140</td>
+<td>kalshi.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>141</td>
+<td>m3o.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>142</td>
+<td>mapmyindia.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>143</td>
+<td>monitored.equipment</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>144</td>
+<td>ns.nl</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>145</td>
+<td>orphadata.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>146</td>
+<td>paylocity.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>147</td>
+<td>redhat.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>148</td>
+<td>run.app</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>149</td>
+<td>solutions.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>150</td>
+<td>storecove.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>151</td>
+<td>tastylog.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>152</td>
+<td>twinehealth.com</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>153</td>
+<td>whapi.com</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>154</td>
+<td>worldmodelers.com</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+box-sizing: border-box;
+min-width: 200px;
+max-width: 980px;
+margin: 0 auto;
+padding: 45px;
+padding-top: 0px;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="oas-validity">OAS Validity</h1>
+<p><sup>Last updated: 2023-01-16</sup></p>
+<ul>
+<li><a href="#findings" id="toc-findings">Findings</a>
+<ul>
+<li><a href="#how-many-valid-openapis-do-we-have" id="toc-how-many-valid-openapis-do-we-have"><em>How many valid OpenAPIs
+do we have?</em></a></li>
+<li><a href="#which-top-level-paths-of-api-specifications-are-the-source-of-validation-errors" id="toc-which-top-level-paths-of-api-specifications-are-the-source-of-validation-errors"><em>Which
+top level paths of API specifications are the source of validation
+errors?</em></a></li>
+</ul></li>
+<li><a href="#methodology" id="toc-methodology">Methodology</a></li>
+</ul>
+<p><sup><em>DISCLAIMER: the results and findings below are preliminary
+and have not been fully validated or peer reviewed. Use with care. Do
+not quote or disseminate.</em></sup></p>
+<p><sup><a href="oas_summary.md">Back to summary</a> | <a href="https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Avalidity">View
+related issues</a></sup></p>
+<h1 id="findings">Findings</h1>
+<h2 id="how-many-valid-openapis-do-we-have"><em>How many valid OpenAPIs
+do we have?</em></h2>
+<ul>
+<li>Out of 15,674 entries, 12,117 (77.3%) are valid and 3,557 (22.7%)
+are invalid</li>
+<li>4,630 out of the 5,934 OpenAPI2 entries are valid (78%)</li>
+<li>7,487 out of the 9,740 OpenAPI3 entries are valid (76.9%)</li>
+</ul>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<h2 id="which-top-level-paths-of-api-specifications-are-the-source-of-validation-errors"><em>Which
+top level paths of API specifications are the source of validation
+errors?</em></h2>
+<p><sup>See <a href="oas_validity_errors.md">source of errors</a> for
+details and more in-depth analysis around validation issues.<sup></p>
+<ul>
+<li>A total of 58,501 validation errors are found across 3,557 invalid
+APIs</li>
+<li>Looking at the <em>error</em> counts, 46,246 (79.1%) are found under
+<code>paths</code>. This is followed by 5,088 (8.7%) under
+<code>components</code>, 4,355 (7.4%) under <code>definitions</code>,
+1,152 (2%) under <code>root</code>, and 599 (1%) under
+<code>info</code></li>
+<li>Looking at the <em>API</em> counts, 2,163 (39.3%)have at least one
+error under <code>paths</code>. This is followed by 949 (17.3%) under
+<code>root</code>, 774 (14.1%) under <code>components</code>, 490 (8.9%)
+under <code>info</code>, and 307 (5.6%) under
+<code>definitions</code></li>
+<li>Keep in mind the <code>definitions</code> property is only used by
+OpenAPI 2.x and <code>components</code> by OpenAPI 3.x (as v2
+<code>definitions</code> became <code>components/schema</code> in
+v3)</li>
+<li><code>root</code> in the above findings mean an error at the highest
+level of the API specification (not under a property path)</li>
+</ul>
+<h1 id="methodology">Methodology</h1>
+<p>Results are based on the count of the <code>isValid</code> boolean
+property in the resource metadata. This flag is set by the
+<code>kb_oas_validation.py</code> script, which uses the JSON schemas
+published under the <a href="https://github.com/OAI/OpenAPI-Specification/tree/main/schemas">OAI
+GitHub project</a>. Validation is performed by the Python <a href="https://github.com/python-jsonschema/jsonschema">jsonschema</a>
+package. Validation errors are saved in a local file for further
+analysis.</p>
+
+</body>
+</html>
