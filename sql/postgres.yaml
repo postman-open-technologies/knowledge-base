@@ -1,0 +1,83 @@
+queries:
+- oas_file_size:
+  description: Statistics on the average size of the OpenAPI JSON files
+  output: Banded count of APIs by size in Kb
+  scope: oas
+  topics:
+  - size
+  statement: select 
+    bucket, 
+    case 
+      when bucket=0 then '<1'
+      when bucket=1 then '1-5'
+      when bucket=2 then '6-10'
+      when bucket=3 then '11-20'
+      when bucket=4 then '21-50'
+      when bucket=5 then '51-100'
+      when bucket=6 then '102-250'
+      when bucket=7 then '>250'
+      end as label,
+      count(*) as count
+    from (
+    select uri, width_bucket(json_data_size/1024, array[1,6,11,21,51,101,251]) as bucket
+      from vw_oas_resource 
+      where json_meta->'isValid' = 'true'	
+    ) as t1
+    group by 1 order by bucket
+  parameters:
+  - collection
+  - class
+  schema:
+  - bucket:
+    description: the count bucket (band)
+    type: string
+  - label:
+    description: the bucket code label
+    type: string
+  - count:
+    description: the API count
+    type: int
+- oas_paths_count:
+  description: Statistics on the number of paths
+  output: Banded count of paths by API
+  scope: oas
+  topics:
+  - paths
+  statement: select 
+    bucket, 
+    case 
+      when bucket=0 then '0'
+      when bucket=1 then '1-5'
+      when bucket=2 then '6-10'
+      when bucket=3 then '11-20'
+      when bucket=4 then '21-50'
+      when bucket=5 then '50+'
+    end as label,
+    count(*)
+    from (
+    select uri, count(*) as count , 
+      width_bucket(count(*), array[1,6,11,21,51]) as bucket
+      from (
+        select uri, jsonb_object_keys(json_data->'paths') as keys
+        from vw_oas_resource
+        where (json_meta->'isValid')::boolean
+      ) as t1 group by 1 
+    ) as t2
+    group by 1,2 order by bucket
+  parameters:
+  - collection
+  - class
+  schema:
+  - bucket:
+    description: the count bucket (band)
+    type: string
+  - label:
+    description: the bucket code label
+    type: string
+  - count:
+    description: the API count
+    type: int
+
+
+
+
