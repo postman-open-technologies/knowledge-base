@@ -1,6 +1,6 @@
 OAS Servers Analysis
 ================
-<sup>Last updated: 2023-01-18</sup>
+<sup>Last updated: 2023-01-19</sup>
 
 - <a href="#overview" id="toc-overview">Overview</a>
 - <a href="#findings" id="toc-findings">Findings</a>
@@ -37,21 +37,21 @@ for the host and other components of the URL.
 
 ## How is the server property used in APIs?
 
-- Out of 4,630 valid OpenAPI2 specifications, 3,416 (73.8%) have a
-  `host` property, 3,395 (73.3%) have a `basePath` property, and 3,740
-  (80.8%) have a `schemes` property.
+- Out of 5,204 valid OpenAPI2 specifications, 3,846 (73.9%) have a
+  `host` property, 3,789 (72.8%) have a `basePath` property, and 4,156
+  (79.9%) have a `schemes` property.
 
-- Out of 7,487 valid OpenAPI3 specifications, 6,047 (80.8%) have a
+- Out of 8,083 valid OpenAPI3 specifications, 6,482 (80.2%) have a
   `servers` property, with an average of 1.3 server/entry, and a range
   of 0-13.
 
 ## How often do APIs use localhost vs domain based servers?
 
-- Out of the 10,943 host/servers entries (across all APIs), 1,848
-  (16.9%) contain localhost or 127.0.0.1, 6,437 (58.8%) use a DNS host,
-  and 533 (4.9%) use a variable template (3.x only). 1,293 (11.8%) use a
+- Out of the 11,899 host/servers entries (across all APIs), 1,956
+  (16.4%) contain localhost or 127.0.0.1, 6,966 (58.5%) use a DNS host,
+  and 609 (5.1%) use a variable template (3.x only). 1,390 (11.7%) use a
   relative path (no server specified).
-- 4,055 (37.1%) use an http protocol, and 6,353 (58.1%) https.
+- 4,409 (37.1%) use an http protocol, and 6,831 (57.4%) https.
 
 ## What are the most commonly used top level domains for APIs?
 
@@ -61,16 +61,16 @@ comprehensive list.
 
 | Rank | Domain              | \#APIs |
 |------|---------------------|--------|
-| 1    | swaggerhub.com      | 617    |
-| 2    | azure.com           | 357    |
-| 3    | swagger.io          | 337    |
-| 4    | herokuapp.com       | 220    |
-| 5    | example.com         | 191    |
-| 6    | googleapis.com      | 138    |
-| 7    | openweathermap.org  | 101    |
-| 8    | microsoft.com       | 92     |
-| 9    | azurestack.external | 82     |
-| 10   | epa.gov             | 63     |
+| 1    | swaggerhub.com      | 650    |
+| 2    | azure.com           | 391    |
+| 3    | swagger.io          | 388    |
+| 4    | herokuapp.com       | 246    |
+| 5    | example.com         | 196    |
+| 6    | googleapis.com      | 146    |
+| 7    | openweathermap.org  | 102    |
+| 8    | azurestack.external | 96     |
+| 9    | microsoft.com       | 93     |
+| 10   | wordnik.com         | 71     |
 
 # Methodology
 

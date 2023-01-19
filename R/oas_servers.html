@@ -602,7 +602,7 @@ padding-top: 0px;
 <body>
 
 <h1 id="oas-servers-analysis">OAS Servers Analysis</h1>
-<p><sup>Last updated: 2023-01-18</sup></p>
+<p><sup>Last updated: 2023-01-19</sup></p>
 <ul>
 <li><a href="#overview" id="toc-overview">Overview</a></li>
 <li><a href="#findings" id="toc-findings">Findings</a>
@@ -635,22 +635,22 @@ and other components of the URL.</p>
 <h2 id="how-is-the-server-property-used-in-apis">How is the server
 property used in APIs?</h2>
 <ul>
-<li><p>Out of 4,630 valid OpenAPI2 specifications, 3,416 (73.8%) have a
-<code>host</code> property, 3,395 (73.3%) have a <code>basePath</code>
-property, and 3,740 (80.8%) have a <code>schemes</code>
+<li><p>Out of 5,204 valid OpenAPI2 specifications, 3,846 (73.9%) have a
+<code>host</code> property, 3,789 (72.8%) have a <code>basePath</code>
+property, and 4,156 (79.9%) have a <code>schemes</code>
 property.</p></li>
-<li><p>Out of 7,487 valid OpenAPI3 specifications, 6,047 (80.8%) have a
+<li><p>Out of 8,083 valid OpenAPI3 specifications, 6,482 (80.2%) have a
 <code>servers</code> property, with an average of 1.3 server/entry, and
 a range of 0-13.</p></li>
 </ul>
 <h2 id="how-often-do-apis-use-localhost-vs-domain-based-servers">How
 often do APIs use localhost vs domain based servers?</h2>
 <ul>
-<li>Out of the 10,943 host/servers entries (across all APIs), 1,848
-(16.9%) contain localhost or 127.0.0.1, 6,437 (58.8%) use a DNS host,
-and 533 (4.9%) use a variable template (3.x only). 1,293 (11.8%) use a
+<li>Out of the 11,899 host/servers entries (across all APIs), 1,956
+(16.4%) contain localhost or 127.0.0.1, 6,966 (58.5%) use a DNS host,
+and 609 (5.1%) use a variable template (3.x only). 1,390 (11.7%) use a
 relative path (no server specified).</li>
-<li>4,055 (37.1%) use an http protocol, and 6,353 (58.1%) https.</li>
+<li>4,409 (37.1%) use an http protocol, and 6,831 (57.4%) https.</li>
 </ul>
 <h2 id="what-are-the-most-commonly-used-top-level-domains-for-apis">What
 are the most commonly used top level domains for APIs?</h2>
@@ -669,52 +669,52 @@ for a more comprehensive list.</p>
 <tr class="odd">
 <td>1</td>
 <td>swaggerhub.com</td>
-<td>617</td>
+<td>650</td>
 </tr>
 <tr class="even">
 <td>2</td>
 <td>azure.com</td>
-<td>357</td>
+<td>391</td>
 </tr>
 <tr class="odd">
 <td>3</td>
 <td>swagger.io</td>
-<td>337</td>
+<td>388</td>
 </tr>
 <tr class="even">
 <td>4</td>
 <td>herokuapp.com</td>
-<td>220</td>
+<td>246</td>
 </tr>
 <tr class="odd">
 <td>5</td>
 <td>example.com</td>
-<td>191</td>
+<td>196</td>
 </tr>
 <tr class="even">
 <td>6</td>
 <td>googleapis.com</td>
-<td>138</td>
+<td>146</td>
 </tr>
 <tr class="odd">
 <td>7</td>
 <td>openweathermap.org</td>
-<td>101</td>
+<td>102</td>
 </tr>
 <tr class="even">
 <td>8</td>
-<td>microsoft.com</td>
-<td>92</td>
+<td>azurestack.external</td>
+<td>96</td>
 </tr>
 <tr class="odd">
 <td>9</td>
-<td>azurestack.external</td>
-<td>82</td>
+<td>microsoft.com</td>
+<td>93</td>
 </tr>
 <tr class="even">
 <td>10</td>
-<td>epa.gov</td>
-<td>63</td>
+<td>wordnik.com</td>
+<td>71</td>
 </tr>
 </tbody>
 </table>
