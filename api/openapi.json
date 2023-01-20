@@ -5,7 +5,8 @@
     "title": "Postman Open Technologies Knowledge Base API",
     "description": "This is the API that lets you access the information available on the Knowledge Base.\n\nPlease refer to the [contributing instructions](CONTRIBUTING.md) for information on how to install the API server and run it.",
     "license": {
-      "name": "MIT"
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
   "servers": [
