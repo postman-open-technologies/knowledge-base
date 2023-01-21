@@ -1,6 +1,6 @@
 OAS Servers Analysis
 ================
-<sup>Last updated: 2023-01-20</sup>
+<sup>Last updated: 2023-01-21</sup>
 
 - <a href="#overview" id="toc-overview">Overview</a>
 - <a href="#findings" id="toc-findings">Findings</a>
@@ -37,21 +37,21 @@ for the host and other components of the URL.
 
 ## How is the server property used in APIs?
 
-- Out of 5,204 valid OpenAPI2 specifications, 3,846 (73.9%) have a
-  `host` property, 3,789 (72.8%) have a `basePath` property, and 4,156
-  (79.9%) have a `schemes` property.
+- Out of 6,500 valid OpenAPI2 specifications, 4,930 (75.8%) have a
+  `host` property, 4,789 (73.7%) have a `basePath` property, and 5,217
+  (80.3%) have a `schemes` property.
 
-- Out of 8,083 valid OpenAPI3 specifications, 6,482 (80.2%) have a
-  `servers` property, with an average of 1.3 server/entry, and a range
+- Out of 14,220 valid OpenAPI3 specifications, 11,902 (83.7%) have a
+  `servers` property, with an average of 1.2 server/entry, and a range
   of 0-13.
 
 ## How often do APIs use localhost vs domain based servers?
 
-- Out of the 11,899 host/servers entries (across all APIs), 1,956
-  (16.4%) contain localhost or 127.0.0.1, 6,966 (58.5%) use a DNS host,
-  and 609 (5.1%) use a variable template (3.x only). 1,390 (11.7%) use a
+- Out of the 18,613 host/servers entries (across all APIs), 4,619
+  (24.8%) contain localhost or 127.0.0.1, 10,495 (56.4%) use a DNS host,
+  and 733 (3.9%) use a variable template (3.x only). 1,578 (8.5%) use a
   relative path (no server specified).
-- 4,409 (37.1%) use an http protocol, and 6,831 (57.4%) https.
+- 5,924 (31.8%) use an http protocol, and 9,920 (53.3%) https.
 
 ## What are the most commonly used top level domains for APIs?
 
@@ -59,18 +59,18 @@ The following 10 top level domains are the most commonly used in our
 APIs collection. See [top level domains](oas_servers_tld.md) for a more
 comprehensive list.
 
-| Rank | Domain              | \#APIs |
-|------|---------------------|--------|
-| 1    | swaggerhub.com      | 650    |
-| 2    | azure.com           | 391    |
-| 3    | swagger.io          | 388    |
-| 4    | herokuapp.com       | 246    |
-| 5    | example.com         | 196    |
-| 6    | googleapis.com      | 146    |
-| 7    | openweathermap.org  | 102    |
-| 8    | azurestack.external | 96     |
-| 9    | microsoft.com       | 93     |
-| 10   | wordnik.com         | 71     |
+| Rank | Domain         | \#APIs |
+|------|----------------|--------|
+| 1    | swagger.io     | 1024   |
+| 2    | swaggerhub.com | 949    |
+| 3    | pstmn.io       | 529    |
+| 4    | azure.com      | 394    |
+| 5    | herokuapp.com  | 276    |
+| 6    | example.com    | 214    |
+| 7    | breakable.com  | 156    |
+| 8    | googleapis.com | 152    |
+| 9    | amazonaws.com  | 145    |
+| 10   | amazon.com     | 142    |
 
 # Methodology
 
