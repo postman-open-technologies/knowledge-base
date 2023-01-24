@@ -11,5 +11,13 @@ The initial focus the knowledge base is around the Open API specifications versi
 
 Our platform has however been designed to be generic and capable of handling various types of resources. We expect to shortly start exploring other specifications such as AsyncAPI, gRPC, GraphQL, Postman collections, Spectral rules, and more.
 
-## Support
-If you'd like to get involved you can submit questions via the issues for this repository, or visit the [Open Technologies Knowledge Base workspace](https://postman.postman.co/workspace/Postman-Open-Technologies---Kno~9ae364c1-2c5a-4e9a-9d1a-ea8c78ad80f0/overview) to work with the different collections we have attempting to answer these questions.
+## Get Involved
+We are using the following channels to manage the work around the knowledge base. Find the channel that works for you, and feel free to get involved.
+
+- [Open Technologies Knowledge Base workspace](https://postman.postman.co/workspace/Postman-Open-Technologies---Kno~9ae364c1-2c5a-4e9a-9d1a-ea8c78ad80f0/overview) - We are building out a series of APis to help us access this data via REST and GraphQL APIs.
+- [Open Questions Being Answered via Work](https://github.com/postman-open-technologies/knowledge-base/issues?q=is%3Aissue+is%3Aopen+label%3Aquestion) - These are the open questions we are working on, prioritizing them based upon which ones are most interesting.
+- [Tasks that Need Accomplished](https://github.com/postman-open-technologies/knowledge-base/issues?q=is%3Aissue+is%3Aopen+label%3Atasks) - These are some of the open tasks of the different things happening around this project, helping share the load.
+- [Wiki Documentation for the Project](https://github.com/postman-open-technologies/knowledge-base/wiki) - We are working to document everything in motion using the GitHub Wiki, so if there is anything missing, feel free to start a discussion or open an issue.
+- [Active Discussions Occurring](https://github.com/postman-open-technologies/knowledge-base/discussions) - All of the conversations around these questions and findings will be happening via the GItHub discussion board.
+
+This work is happening out in the open to encourage the community to ask quesitons and help power this work, expanding the knoeldge we extract from APIs.
