@@ -37,7 +37,7 @@ app.use(function(err, req, res, next) {
     status: err.status,
     title: err.message,
     details: err.details,
-    instance: err.instance,
+    instance: err.instance || req.originalUrl,
     type: `${baseURI}/${err.constructor.name}`
   });
 });
