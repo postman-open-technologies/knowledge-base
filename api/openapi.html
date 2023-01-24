@@ -1,0 +1,896 @@
+<html><head><meta charset="UTF-8"><title>Postman Open Technologies Knowledge Base API v0.1.0</title></head><body><!-- Generator: Widdershins v4.0.1 -->
+<h1 id="postman-open-technologies-knowledge-base-api">Postman Open Technologies Knowledge Base API v0.1.0</h1>
+<blockquote>
+<p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
+</blockquote>
+<p>This is the API that lets you access the information available on the Knowledge Base.</p>
+<p>Please refer to the <a href="CONTRIBUTING.md">contributing instructions</a> for information on how to install the API server and run it.</p>
+<p>Base URLs:</p>
+<ul>
+<li><a href="http://localhost:3000">http://localhost:3000</a></li>
+</ul>
+<p>License: <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a></p>
+<h1 id="postman-open-technologies-knowledge-base-api-openapi">openapi</h1>
+<h2>getOpenAPI</h2>
+<p><a id="opIdgetOpenAPI"></a></p>
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="nohighlight example"><code><span class="hljs-meta">#</span><span class="bash"> You can also use wget</span>
+curl -X GET http://localhost:3000/ \
+  -H 'Accept: application/json'
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://localhost:3000/</span> HTTP/1.1
+<span class="hljs-attribute">Host</span>: localhost:3000
+<span class="hljs-attribute">Accept</span>: application/json
+
+</code></pre>
+<pre class="nohighlight example"><code>
+<span class="hljs-keyword">const</span> headers = {
+  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
+};
+
+fetch(<span class="hljs-string">'http://localhost:3000/'</span>,
+{
+  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+
+  <span class="hljs-attr">headers</span>: headers
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
+    <span class="hljs-keyword">return</span> res.json();
+}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(body);
+});
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
+
+headers = {
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
+}
+
+result = RestClient.get <span class="hljs-string">'http://localhost:3000/'</span>,
+  <span class="hljs-symbol">params:</span> {
+  }, <span class="hljs-symbol">headers:</span> headers
+
+p JSON.parse(result)
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">import</span> requests
+headers = {
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
+}
+
+r = requests.get(<span class="hljs-string">'http://localhost:3000/'</span>, headers = headers)
+
+print(r.json())
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>,
+);
+
+$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
+
+<span class="hljs-comment">// Define array of request body.</span>
+$request_body = <span class="hljs-keyword">array</span>();
+
+<span class="hljs-keyword">try</span> {
+    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://localhost:3000/'</span>, <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">'headers'</span> =&gt; $headers,
+        <span class="hljs-string">'json'</span> =&gt; $request_body,
+       )
+    );
+    print_r($response-&gt;getBody()-&gt;getContents());
+ }
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+    <span class="hljs-comment">// handle exception or api errors.</span>
+    print_r($e-&gt;getMessage());
+ }
+
+ <span class="hljs-comment">// ...</span>
+
+</code></pre>
+<pre class="nohighlight example"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"http://localhost:3000/"</span>);
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod(<span class="hljs-string">"GET"</span>);
+<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
+BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
+    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
+<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+       <span class="hljs-string">"bytes"</span>
+       <span class="hljs-string">"net/http"</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+
+    headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
+        <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/json"</span>},
+    }
+
+    data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
+    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"http://localhost:3000/"</span>, data)
+    req.Header = headers
+
+    client := &amp;http.Client{}
+    resp, err := client.Do(req)
+    <span class="hljs-comment">// ...</span>
+}
+
+</code></pre>
+<p><code>GET /</code></p>
+<p><em>Retrieve the OpenAPI definition</em></p>
+<blockquote>
+<p>Example responses</p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<pre class="nohighlight example"><code>{}
+</code></pre>
+<h3 id="getopenapi-responses">Responses</h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>The OpenAPI definition</td>
+<td>Inline</td>
+</tr>
+<tr>
+<td>default</td>
+<td>Default</td>
+<td>Error</td>
+<td><a href="#schemaproblemdetailserror">ProblemDetailsError</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="getopenapi-responseschema">Response Schema</h3>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h1 id="postman-open-technologies-knowledge-base-api-questions">questions</h1>
+<h2>listQuestion</h2>
+<p><a id="opIdlistQuestion"></a></p>
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="nohighlight example"><code><span class="hljs-meta">#</span><span class="bash"> You can also use wget</span>
+curl -X GET http://localhost:3000/questions \
+  -H 'Accept: application/json'
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://localhost:3000/questions</span> HTTP/1.1
+<span class="hljs-attribute">Host</span>: localhost:3000
+<span class="hljs-attribute">Accept</span>: application/json
+
+</code></pre>
+<pre class="nohighlight example"><code>
+<span class="hljs-keyword">const</span> headers = {
+  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
+};
+
+fetch(<span class="hljs-string">'http://localhost:3000/questions'</span>,
+{
+  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+
+  <span class="hljs-attr">headers</span>: headers
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
+    <span class="hljs-keyword">return</span> res.json();
+}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(body);
+});
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
+
+headers = {
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
+}
+
+result = RestClient.get <span class="hljs-string">'http://localhost:3000/questions'</span>,
+  <span class="hljs-symbol">params:</span> {
+  }, <span class="hljs-symbol">headers:</span> headers
+
+p JSON.parse(result)
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">import</span> requests
+headers = {
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
+}
+
+r = requests.get(<span class="hljs-string">'http://localhost:3000/questions'</span>, headers = headers)
+
+print(r.json())
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>,
+);
+
+$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
+
+<span class="hljs-comment">// Define array of request body.</span>
+$request_body = <span class="hljs-keyword">array</span>();
+
+<span class="hljs-keyword">try</span> {
+    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://localhost:3000/questions'</span>, <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">'headers'</span> =&gt; $headers,
+        <span class="hljs-string">'json'</span> =&gt; $request_body,
+       )
+    );
+    print_r($response-&gt;getBody()-&gt;getContents());
+ }
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+    <span class="hljs-comment">// handle exception or api errors.</span>
+    print_r($e-&gt;getMessage());
+ }
+
+ <span class="hljs-comment">// ...</span>
+
+</code></pre>
+<pre class="nohighlight example"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"http://localhost:3000/questions"</span>);
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod(<span class="hljs-string">"GET"</span>);
+<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
+BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
+    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
+<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+       <span class="hljs-string">"bytes"</span>
+       <span class="hljs-string">"net/http"</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+
+    headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
+        <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/json"</span>},
+    }
+
+    data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
+    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"http://localhost:3000/questions"</span>, data)
+    req.Header = headers
+
+    client := &amp;http.Client{}
+    resp, err := client.Do(req)
+    <span class="hljs-comment">// ...</span>
+}
+
+</code></pre>
+<p><code>GET /questions</code></p>
+<p><em>List all available questions</em></p>
+<blockquote>
+<p>Example responses</p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<pre class="nohighlight example"><code>[
+  {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"output"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"scope"</span>: <span class="hljs-string">"string"</span>
+  }
+]
+</code></pre>
+<h3 id="listquestion-responses">Responses</h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>A list of available questions</td>
+<td><a href="#schemaquestions">Questions</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>Default</td>
+<td>Error</td>
+<td><a href="#schemaproblemdetailserror">ProblemDetailsError</a></td>
+</tr>
+</tbody>
+</table>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h1 id="postman-open-technologies-knowledge-base-api-question">question</h1>
+<h2>getQuestion</h2>
+<p><a id="opIdgetQuestion"></a></p>
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="nohighlight example"><code><span class="hljs-meta">#</span><span class="bash"> You can also use wget</span>
+curl -X GET http://localhost:3000/questions/{questionId} \
+  -H 'Accept: application/json'
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://localhost:3000/questions/{questionId}</span> HTTP/1.1
+<span class="hljs-attribute">Host</span>: localhost:3000
+<span class="hljs-attribute">Accept</span>: application/json
+
+</code></pre>
+<pre class="nohighlight example"><code>
+<span class="hljs-keyword">const</span> headers = {
+  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
+};
+
+fetch(<span class="hljs-string">'http://localhost:3000/questions/{questionId}'</span>,
+{
+  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+
+  <span class="hljs-attr">headers</span>: headers
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
+    <span class="hljs-keyword">return</span> res.json();
+}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(body);
+});
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
+
+headers = {
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
+}
+
+result = RestClient.get <span class="hljs-string">'http://localhost:3000/questions/{questionId}'</span>,
+  <span class="hljs-symbol">params:</span> {
+  }, <span class="hljs-symbol">headers:</span> headers
+
+p JSON.parse(result)
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">import</span> requests
+headers = {
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
+}
+
+r = requests.get(<span class="hljs-string">'http://localhost:3000/questions/{questionId}'</span>, headers = headers)
+
+print(r.json())
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>,
+);
+
+$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
+
+<span class="hljs-comment">// Define array of request body.</span>
+$request_body = <span class="hljs-keyword">array</span>();
+
+<span class="hljs-keyword">try</span> {
+    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://localhost:3000/questions/{questionId}'</span>, <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">'headers'</span> =&gt; $headers,
+        <span class="hljs-string">'json'</span> =&gt; $request_body,
+       )
+    );
+    print_r($response-&gt;getBody()-&gt;getContents());
+ }
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+    <span class="hljs-comment">// handle exception or api errors.</span>
+    print_r($e-&gt;getMessage());
+ }
+
+ <span class="hljs-comment">// ...</span>
+
+</code></pre>
+<pre class="nohighlight example"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"http://localhost:3000/questions/{questionId}"</span>);
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod(<span class="hljs-string">"GET"</span>);
+<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
+BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
+    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
+<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+       <span class="hljs-string">"bytes"</span>
+       <span class="hljs-string">"net/http"</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+
+    headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
+        <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/json"</span>},
+    }
+
+    data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
+    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"http://localhost:3000/questions/{questionId}"</span>, data)
+    req.Header = headers
+
+    client := &amp;http.Client{}
+    resp, err := client.Do(req)
+    <span class="hljs-comment">// ...</span>
+}
+
+</code></pre>
+<p><code>GET /questions/{questionId}</code></p>
+<p><em>Retrieve a specific question identified by questionId</em></p>
+<h3 id="getquestion-parameters">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>questionId</td>
+<td>path</td>
+<td>string</td>
+<td>true</td>
+<td>The ID of the question to retrieve</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Example responses</p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<pre class="nohighlight example"><code>{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"output"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"scope"</span>: <span class="hljs-string">"string"</span>
+}
+</code></pre>
+<h3 id="getquestion-responses">Responses</h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>Details of a question</td>
+<td><a href="#schemaquestion">Question</a></td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Question not found</td>
+<td><a href="#schemaproblemdetailserror">ProblemDetailsError</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>Default</td>
+<td>Error</td>
+<td><a href="#schemaproblemdetailserror">ProblemDetailsError</a></td>
+</tr>
+</tbody>
+</table>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h1 id="postman-open-technologies-knowledge-base-api-monitoring">monitoring</h1>
+<h2>knockknock</h2>
+<p><a id="opIdknockknock"></a></p>
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="nohighlight example"><code><span class="hljs-meta">#</span><span class="bash"> You can also use wget</span>
+curl -X GET http://localhost:3000/knockknock \
+  -H 'Accept: application/json'
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://localhost:3000/knockknock</span> HTTP/1.1
+<span class="hljs-attribute">Host</span>: localhost:3000
+<span class="hljs-attribute">Accept</span>: application/json
+
+</code></pre>
+<pre class="nohighlight example"><code>
+<span class="hljs-keyword">const</span> headers = {
+  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
+};
+
+fetch(<span class="hljs-string">'http://localhost:3000/knockknock'</span>,
+{
+  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+
+  <span class="hljs-attr">headers</span>: headers
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
+    <span class="hljs-keyword">return</span> res.json();
+}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(body);
+});
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
+
+headers = {
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
+}
+
+result = RestClient.get <span class="hljs-string">'http://localhost:3000/knockknock'</span>,
+  <span class="hljs-symbol">params:</span> {
+  }, <span class="hljs-symbol">headers:</span> headers
+
+p JSON.parse(result)
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">import</span> requests
+headers = {
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
+}
+
+r = requests.get(<span class="hljs-string">'http://localhost:3000/knockknock'</span>, headers = headers)
+
+print(r.json())
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>,
+);
+
+$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
+
+<span class="hljs-comment">// Define array of request body.</span>
+$request_body = <span class="hljs-keyword">array</span>();
+
+<span class="hljs-keyword">try</span> {
+    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://localhost:3000/knockknock'</span>, <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">'headers'</span> =&gt; $headers,
+        <span class="hljs-string">'json'</span> =&gt; $request_body,
+       )
+    );
+    print_r($response-&gt;getBody()-&gt;getContents());
+ }
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+    <span class="hljs-comment">// handle exception or api errors.</span>
+    print_r($e-&gt;getMessage());
+ }
+
+ <span class="hljs-comment">// ...</span>
+
+</code></pre>
+<pre class="nohighlight example"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"http://localhost:3000/knockknock"</span>);
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod(<span class="hljs-string">"GET"</span>);
+<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
+BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
+    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
+<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+       <span class="hljs-string">"bytes"</span>
+       <span class="hljs-string">"net/http"</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+
+    headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
+        <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/json"</span>},
+    }
+
+    data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
+    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"http://localhost:3000/knockknock"</span>, data)
+    req.Header = headers
+
+    client := &amp;http.Client{}
+    resp, err := client.Do(req)
+    <span class="hljs-comment">// ...</span>
+}
+
+</code></pre>
+<p><code>GET /knockknock</code></p>
+<p><em>This path is used to check if the API is running</em></p>
+<blockquote>
+<p>Example responses</p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<pre class="nohighlight example"><code>{
+  <span class="hljs-attr">"response"</span>: <span class="hljs-string">"string"</span>
+}
+</code></pre>
+<h3 id="knockknock-responses">Responses</h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>A static response</td>
+<td><a href="#schemaknockknock">KnockKnock</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>Default</td>
+<td>Error</td>
+<td><a href="#schemaproblemdetailserror">ProblemDetailsError</a></td>
+</tr>
+</tbody>
+</table>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h1>Schemas</h1>
+<h2 id="tocS_Question">Question</h2>
+<!-- backwards compatibility -->
+<a id="schemaquestion"></a>
+<a id="schema_Question"></a>
+<a id="tocSquestion"></a>
+<a id="tocsquestion"></a>
+<pre class="nohighlight example"><code>{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"output"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"scope"</span>: <span class="hljs-string">"string"</span>
+}
+
+</code></pre>
+<h3>Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>output</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tocS_Questions">Questions</h2>
+<!-- backwards compatibility -->
+<a id="schemaquestions"></a>
+<a id="schema_Questions"></a>
+<a id="tocSquestions"></a>
+<a id="tocsquestions"></a>
+<pre class="nohighlight example"><code>[
+  {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"output"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"scope"</span>: <span class="hljs-string">"string"</span>
+  }
+]
+
+</code></pre>
+<h3>Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>anonymous</em></td>
+<td>[<a href="#schemaquestion">Question</a>]</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tocS_ProblemDetailsError">ProblemDetailsError</h2>
+<!-- backwards compatibility -->
+<a id="schemaproblemdetailserror"></a>
+<a id="schema_ProblemDetailsError"></a>
+<a id="tocSproblemdetailserror"></a>
+<a id="tocsproblemdetailserror"></a>
+<pre class="nohighlight example"><code>{
+  <span class="hljs-attr">"status"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"details"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"instance"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+}
+
+</code></pre>
+<h3>Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>status</td>
+<td>integer</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>details</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>instance</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tocS_KnockKnock">KnockKnock</h2>
+<!-- backwards compatibility -->
+<a id="schemaknockknock"></a>
+<a id="schema_KnockKnock"></a>
+<a id="tocSknockknock"></a>
+<a id="tocsknockknock"></a>
+<pre class="nohighlight example"><code>{
+  <span class="hljs-attr">"response"</span>: <span class="hljs-string">"string"</span>
+}
+
+</code></pre>
+<h3>Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>response</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
