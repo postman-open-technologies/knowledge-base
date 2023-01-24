@@ -31,7 +31,7 @@ Base URLs:
 
 * <a href="http://localhost:3000">http://localhost:3000</a>
 
- License: MIT
+License: <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a>
 
 <h1 id="postman-open-technologies-knowledge-base-api-openapi">openapi</h1>
 
