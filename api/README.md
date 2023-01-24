@@ -1,5 +1,5 @@
 ---
-title: Postman Open Technologies Knowledge Base API v0.1.0
+title: Postman Open Technologies Knowledge Base API v0.2.0
 language_tabs:
   - shell: Shell
   - http: HTTP
@@ -19,7 +19,7 @@ headingLevel: 2
 
 <!-- Generator: Widdershins v4.0.1 -->
 
-<h1 id="postman-open-technologies-knowledge-base-api">Postman Open Technologies Knowledge Base API v0.1.0</h1>
+<h1 id="postman-open-technologies-knowledge-base-api">Postman Open Technologies Knowledge Base API v0.2.0</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
