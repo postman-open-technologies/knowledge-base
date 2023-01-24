@@ -2,10 +2,10 @@
 This is a project dedicated to mining and extracting knowledge from across the API universe. There is a wealth of knowledge present in the OpenAPI, Swagger, Postman Collections, Spectral, and other API artifacts available here on GitHub, but also the open web. This is a project to harvest those artifacts and begin making sense of them.
 
 ## Purpose
-To establish a framework for harvesting, ingesting, storing, querying, and publishing findings from across OpenAPI, Swagger, AsyncAPI, JSON Schema, and Postman Colleciton artifacts harvested from GitHub, the Postman Network, and the open web. 
+To establish a framework for harvesting, ingesting, storing, querying, and publishing findings from across OpenAPI, Swagger, AsyncAPI, JSON Schema, and Postman Collection artifacts harvested from GitHub, the Postman Network, and the open web. 
 
 ## Research and Findings
-The initial focus the knowledge base is around the Open API specifications version 2 and 3. Consult our OAS Summary report for information on current research topics, questions, findings, and documentation. These reports are automatically updated on a daily base.
+The initial focus of the knowledge base is around the Open API specifications version 2 and 3. Consult our OAS Summary report for information on current research topics, questions, findings, and documentation. These reports are automatically updated on a daily basis.
 
 - [OpenAPI Summary & Findings](https://github.com/postman-open-technologies/knowledge-base/blob/main/R/oas_summary.md)
 
@@ -20,4 +20,4 @@ We are using the following channels to manage the work around the knowledge base
 - [Wiki Documentation](https://github.com/postman-open-technologies/knowledge-base/wiki) - We are working to document everything in motion using the GitHub Wiki, so if there is anything missing, feel free to start a discussion or open an issue.
 - [Active Discussions](https://github.com/postman-open-technologies/knowledge-base/discussions) - All of the conversations around these questions and findings will be happening via the GItHub discussion board.
 
-This work is happening out in the open to encourage the community to ask quesitons and help power this work, expanding the knoeldge we extract from APIs.
+This work is happening out in the open to encourage the community to ask questions and help power this work, expanding the knowledge we extract from APIs.
