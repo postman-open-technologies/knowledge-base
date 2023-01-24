@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "0.1.0",
+    "version": "0.2.0",
     "title": "Postman Open Technologies Knowledge Base API",
     "description": "This is the API that lets you access the information available on the Knowledge Base.\n\nPlease refer to the [contributing instructions](CONTRIBUTING.md) for information on how to install the API server and run it.",
     "license": {
