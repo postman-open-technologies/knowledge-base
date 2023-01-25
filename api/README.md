@@ -31,6 +31,7 @@ Base URLs:
 
 * <a href="http://localhost:3000">http://localhost:3000</a>
 
+Email: <a href="mailto:open@postman.com">Postman Open Technologies</a> Web: <a href="https://www.postman.com/open-tech/">Postman Open Technologies</a> 
 License: <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a>
 
 <h1 id="postman-open-technologies-knowledge-base-api-openapi">openapi</h1>
