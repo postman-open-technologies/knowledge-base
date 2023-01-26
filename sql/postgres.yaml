@@ -77,7 +77,103 @@ queries:
   - count:
     description: the API count
     type: int
+- oas_paths_properties:
+  description: Statistics on path properties
+  output: Frequency and percentage of properties per path
+  scope: oas
+  topics:
+  - paths
+  - operations
+  statement: select jsonb_object_keys(value) as property, count(*) as n, count(*) / sum(count(*)) over()) as pct
+    from vw_oas_resource_paths paths
+    where jsonb_typeof(value) = 'object'
+    group by 1 order by 2 desc
+  parameters:
+  - collection
+  - class
+  schema:
+  - property
+    description: property name
+    type: string
+  - n:
+    description: count
+    type: int
+  - count:
+    description: percentage
+    type: number
+- oas_paths_operations:
+  description: Statistics on path operations
+  output: Frequency and percentage of operations per path
+  scope: oas
+  topics:
+  - paths
+  - operations
+  statement: select operation, count(*) as n, count(*) / sum(count(*)) over() as pct
+    from vw_oas_resource_paths_operations oper
+    join vw_oas_resource res on oper.uri = res.uri
+    group by 1 order by 2 desc
+  parameters:
+  - collection
+  - class
+  schema:
+  - operation
+    description: operation name
+    type: string
+  - n:
+    description: count
+    type: int
+  - count:
+    description: percentage
+    type: number
+- oas_paths_responses:
+  description: Statistics on path responses across all operations
+  output: Frequency and percentage of response codes per path
+  scope: oas
+  topics:
+  - paths
+  - operations
+  - responses
+  statement: select response, count(*) as n, count(*) / sum(count(*)) over() as pct
+    from vw_oas_resource_paths_operations_responses
+    group by 1 order by 2 desc, 1
+  parameters:
+  - collection
+  - class
+  schema:
+  - response
+    description: response code or value
+    type: string
+  - n:
+    description: count
+    type: int
+  - count:
+    description: percentage
+    type: number
 
-
-
-
+- oas_paths_operations_reponses:
+  description: Statistics on path operations responses
+  output: Frequency and percentage of responses per path operation
+  scope: oas
+  topics:
+  - paths
+  - operations
+  - responses
+  statement: select operation, response, count(*) as n, count(*) / sum(count(*)) over(partition by operation) as pct
+    from vw_oas_resource_paths_operations_responses
+    group by 1,2 order by operation, pct desc
+  parameters:
+  - collection
+  - class
+  schema:
+  - operation
+    description: operation name
+    type: string
+  - response
+    description: response code or value
+    type: string
+  - n:
+    description: count
+    type: int
+  - count:
+    description: percentage
+    type: number
