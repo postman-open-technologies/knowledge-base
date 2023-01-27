@@ -36,11 +36,25 @@ group by 1 order by 2 desc
 df_operations = dbGetQuery(conn, query)
 ```
 
+Operations under paths are distributed as follows:
 
-The distribution of operations under paths is as follows:
+```{r oas_paths_operations, include = TRUE, out.width="90%"}
+df_operations$operation <- factor(df_operations$operation, levels = df_operations$operation)
+ggplot(df_operations, aes(x = operation, y = n)) +
+  geom_bar(stat = "identity") +
+  geom_text( aes(label = sprintf("%.1f%%",pct*100), vjust = -0.3) ) +
+  ggtitle( "Distribution of operations under paths") +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
+  xlab("Operation") +
+  ylab("Count")
+```
+
+<details>
+<summary>Table: Counts and percentages of operations under paths</summary>
 ```{r, eval=TRUE, echo=FALSE, results='asis'}
 kable(df_operations)
 ```
+</details>
 
 ## Responses
 

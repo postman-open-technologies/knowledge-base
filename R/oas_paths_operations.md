@@ -34,7 +34,14 @@ other properties under `paths`.
 
 ## Operations
 
-The distribution of operations under paths is as follows:
+Operations under paths are distributed as follows:
+
+<img src="oas_paths_operations_files/figure-gfm/oas_paths_operations-1.png" width="90%" />
+
+<details>
+<summary>
+Table: Counts and percentages of operations under paths
+</summary>
 
 | operation |      n |       pct |
 |:----------|-------:|----------:|
@@ -45,6 +52,8 @@ The distribution of operations under paths is as follows:
 | patch     |   7933 | 0.0246711 |
 | options   |    711 | 0.0022112 |
 | head      |    334 | 0.0010387 |
+
+</details>
 
 ## Responses
 
