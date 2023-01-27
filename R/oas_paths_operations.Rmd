@@ -36,6 +36,7 @@ group by 1 order by 2 desc
 df_operations = dbGetQuery(conn, query)
 ```
 
+
 The distribution of operations under paths is as follows:
 ```{r, eval=TRUE, echo=FALSE, results='asis'}
 kable(df_operations)
@@ -47,6 +48,23 @@ kable(df_operations)
 ```
 - A number of unassigned, / invalid codes and extensions were found. See table below for details.
 - No significant variations were observed across specification versions (2.x vs 3.x) or collections
+
+```{r, eval=TRUE }
+df_responses_top10 = df_responses[1:10,]
+df_responses_other = df_responses[11:nrow(df_responses),] %>% summarize(response='other',n=sum(n), pct=sum(pct))
+df_responses_stacked = rbind(df_responses_top10, df_responses_other)
+```
+
+```{r oas_paths_responses, include = TRUE, out.width="90%"}
+df_responses_stacked$response <- factor(df_responses_stacked$response, levels = df_responses_stacked$response)
+ggplot(df_responses_stacked, aes(x = response, y = n)) +
+  geom_bar(stat = "identity") +
+  geom_text( aes(label = sprintf("%.1f%%",pct*100), vjust = -0.3) ) +
+  ggtitle( "Top 10 responses across all operations") +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
+  xlab("Response code or value") +
+  ylab("Count of responses")
+```
 
 <details>
 <summary>Table: Counts and percentages of responses under paths (across all operations)</summary>
@@ -88,7 +106,7 @@ ggplot(df_operations_responses_stacked, aes(x = response, y = n)) +
   ggtitle( sprintf("Top 10 responses per %s operation",toupper(operation)) ) +
   theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
   xlab("Response code or value") +
-  ylab("Count responses")
+  ylab("Count of responses")
 ```
 
 <details>
@@ -122,7 +140,7 @@ ggplot(df_operations_responses_stacked, aes(x = response, y = n)) +
   ggtitle( sprintf("Top 10 responses per %s operation",toupper(operation)) ) +
   theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
   xlab("Response code or value") +
-  ylab("Count responses")
+  ylab("Count of responses")
 ```
 
 <details>
@@ -156,7 +174,7 @@ ggplot(df_operations_responses_stacked, aes(x = response, y = n)) +
   ggtitle( sprintf("Top 10 responses per %s operation", toupper(operation)) ) +
   theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
   xlab("Response code or value") +
-  ylab("Count responses")
+  ylab("Count of responses")
 ```
 
 <details>
@@ -190,7 +208,7 @@ ggplot(df_operations_responses_stacked, aes(x = response, y = n)) +
   ggtitle( sprintf("Top 10 responses per %s operation",toupper(operation)) ) +
   theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
   xlab("Response code or value") +
-  ylab("Count responses")
+  ylab("Count of responses")
 ```
 
 <details>
@@ -224,7 +242,7 @@ ggplot(df_operations_responses_stacked, aes(x = response, y = n)) +
   ggtitle( sprintf("Top 10 responses per %s operation",toupper(operation)) ) +
   theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
   xlab("Response code or value") +
-  ylab("Count responses")
+  ylab("Count of responses")
 ```
 
 <details>
@@ -258,7 +276,7 @@ ggplot(df_operations_responses_stacked, aes(x = response, y = n)) +
   ggtitle( sprintf("Top 10 responses per %s operation",toupper(operation)) ) +
   theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
   xlab("Response code or value") +
-  ylab("Count responses")
+  ylab("Count of responses")
 ```
 
 <details>
@@ -293,7 +311,7 @@ ggplot(df_operations_responses_stacked, aes(x = response, y = n)) +
   ggtitle( sprintf("Top 10 responses per %s operation",toupper(operation)) ) +
   theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
   xlab("Response code or value") +
-  ylab("Count responses")
+  ylab("Count of responses")
 ```
 
 <details>
@@ -307,6 +325,6 @@ kable(df_operations_responses_subset, row.names=FALSE)
 *This operation is excluded from the analysis as it has, sadly, not been found so far in any API.*
 
 # Methodology
-The above statistics are derived from multiple database views querying the OpenAPI JSON under the /paths/<path>/<operation>/<responses>.
+The above statistics are derived from multiple database views querying the OpenAPI JSON under the `/paths/<path>/<operation>/<responses>`.
 
 

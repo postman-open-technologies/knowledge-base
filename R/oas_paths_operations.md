@@ -56,6 +56,8 @@ The distribution of operations under paths is as follows:
 - No significant variations were observed across specification versions
   (2.x vs 3.x) or collections
 
+<img src="oas_paths_operations_files/figure-gfm/oas_paths_responses-1.png" width="90%" />
+
 <details>
 <summary>
 Table: Counts and percentages of responses under paths (across all
@@ -921,4 +923,4 @@ found so far in any API.*
 # Methodology
 
 The above statistics are derived from multiple database views querying
-the OpenAPI JSON under the /paths/<path>/<operation>/<responses>.
+the OpenAPI JSON under the `/paths/<path>/<operation>/<responses>`.
