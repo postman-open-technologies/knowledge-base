@@ -138,4 +138,9 @@ was replaced with `type: http` with `scheme: basic`.*</sup>
 
 ### What is the breakdown of status codes in the OpenAPIs responses?
 
-*This research topic will be initiated shortly*
+<sup>See [paths operations analysis](oas_paths_operations.md) for
+further details.<sup>
+
+- Across all 838,923 responses, the most common codes or values are
+  `200` 273,583 (32.6%), `400` 93,576 (11.2%), `404` 85,087 (10.1%),
+  `401` 76,533 (9.1%), and `403` 61,990 (7.4%)

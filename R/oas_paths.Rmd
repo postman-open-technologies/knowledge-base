@@ -76,9 +76,10 @@ group by 1 order by 2 desc
 df = dbGetQuery(conn, query)
 ```
 
-- Out of `r sum(df$n)` properties under paths, the most used are ``r df$property[1]`` `r format_count_and_pct(df$n[1], df$pct[1])`, ``r df$property[2]`` `r format_count_and_pct(df$n[2], df$pct[2])`, ``r df$property[3]`` `r format_count_and_pct(df$n[3], df$pct[3])`, ``r df$property[4]`` `r format_count_and_pct(df$n[4], df$pct[4])`, and ``r df$property[5]`` `r format_count_and_pct(df$n[5], df$pct[5])`. Beyond standard properties, numerous extensions were found. See table below for details.
+- Out of `r format_count(sum(df$n))` properties under paths, the most commonly used are ``r df$property[1]`` `r format_count_and_pct(df$n[1], df$pct[1])`, ``r df$property[2]`` `r format_count_and_pct(df$n[2], df$pct[2])`, ``r df$property[3]`` `r format_count_and_pct(df$n[3], df$pct[3])`, ``r df$property[4]`` `r format_count_and_pct(df$n[4], df$pct[4])`, and ``r df$property[5]`` `r format_count_and_pct(df$n[5], df$pct[5])`. 
+- Beyond standard properties, numerous extensions were found. See table below for details.
 - No significant variations were observed across specification versions (2.x vs 3.x) or collections
-- Consult the [operations](oas_paths_operations.md) and [results](oas_paths_operations_results.md) reports for more in-depth analysis at the operations level.
+- Consult the [operations report](oas_paths_operations.md) for more in-depth analysis.q
 
 <details>
 <summary>Table: Counts and percentages of properties under paths</summary>
@@ -86,7 +87,6 @@ df = dbGetQuery(conn, query)
 kable(df)
 ```
 </details>
-
 
 
 # Methodology

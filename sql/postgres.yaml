@@ -149,7 +149,6 @@ queries:
   - count:
     description: percentage
     type: number
-
 - oas_paths_operations_reponses:
   description: Statistics on path operations responses
   output: Frequency and percentage of responses per path operation

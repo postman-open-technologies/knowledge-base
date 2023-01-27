@@ -1,0 +1,312 @@
+---
+title: "OAS Paths Operations & Responses"
+date: "<sup>Last updated: `r format(Sys.time(), '%Y-%m-%d')`</sup>"
+output:
+  github_document:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+require('knitr')
+require('tidyverse')
+knitr::opts_chunk$set(echo = FALSE)
+source("db_connection.R", local = knitr::knit_global())
+source("utils.R", local = knitr::knit_global())
+```
+
+```{r, child=c('header.section.Rmd')}
+```
+
+<sup>[Back to summary](oas_summary.md) | [View related issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Aoperations)</sup>
+
+This document explores questions around OpenAPI paths operations ('get','put', 'post', 'delete', 'options', 'head', 'patch', ' trace') and responses. Note that trace was added in OpenAPI3. See our related [paths analysis](oas_paths.md) report for higher level findings and other properties under `paths`.
+
+# Findings
+
+## Operations
+
+```{r, eval=TRUE }
+query = "
+select operation, count(*) as n, count(*) / sum(count(*)) over() as pct
+from vw_oas_resource_paths_operations oper
+join vw_oas_resource res on oper.uri = res.uri
+group by 1 order by 2 desc
+"
+df_operations = dbGetQuery(conn, query)
+```
+
+The distribution of operations under paths is as follows:
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+kable(df_operations)
+```
+
+## Responses
+
+```{r, child=c('oas_paths_operations_responses_summary.section.Rmd')}
+```
+- A number of unassigned, / invalid codes and extensions were found. See table below for details.
+- No significant variations were observed across specification versions (2.x vs 3.x) or collections
+
+<details>
+<summary>Table: Counts and percentages of responses under paths (across all operations)</summary>
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+kable(df_responses)
+```
+</details>
+
+## Operations Responses
+```{r, eval=TRUE }
+query = "
+select operation, response, count(*) as n, count(*) / sum(count(*)) over(partition by operation) as pct
+from vw_oas_resource_paths_operations_responses
+group by 1,2 order by operation, pct desc
+"
+df_operations_responses = dbGetQuery(conn, query)
+```
+
+### GET
+```{r, eval=TRUE }
+operation = 'get'
+rank = which(df_operations$operation == operation)
+df_operations_responses_subset = df_operations_responses[df_operations_responses$operation == operation, -1]
+```
+- `r toupper(operation)` is the #`r rank` ranked operation
+- Across the `r format_count(sum(df_operations_responses_subset$n))` responses for `r toupper(operation)`, the most common responses  are ``r df_operations_responses_subset$response[1]`` `r format_count_and_pct(df_operations_responses_subset$n[1], df_operations_responses_subset$pct[1])`, ``r df_operations_responses_subset$response[2]`` `r format_count_and_pct(df_operations_responses_subset$n[2], df_operations_responses_subset$pct[2])`, ``r df_operations_responses_subset$response[3]`` `r format_count_and_pct(df_operations_responses_subset$n[3], df_operations_responses_subset$pct[3])`, ``r df_operations_responses_subset$response[4]`` `r format_count_and_pct(df_operations_responses_subset$n[4], df_operations_responses_subset$pct[4])`, and ``r df_operations_responses_subset$response[5]`` `r format_count_and_pct(df_operations_responses_subset$n[5], df_operations_responses_subset$pct[5])`
+
+```{r, eval=TRUE }
+df_operations_responses_top10 = df_operations_responses_subset[1:10,]
+df_operations_responses_other = df_operations_responses_subset[11:nrow(df_operations_responses_subset),] %>% summarize(response='other',n=sum(n),pct=sum(pct))
+df_operations_responses_stacked = rbind(df_operations_responses_top10, df_operations_responses_other)
+```
+
+```{r oas_paths_operations_responses_get, include = TRUE, out.width="90%"}
+df_operations_responses_stacked$response <- factor(df_operations_responses_stacked$response, levels = df_operations_responses_stacked$response)
+ggplot(df_operations_responses_stacked, aes(x = response, y = n)) +
+  geom_bar(stat = "identity") +
+  geom_text( aes(label = sprintf("%.1f%%",pct*100), vjust = -0.3) ) +
+  ggtitle( sprintf("Top 10 responses per %s operation",toupper(operation)) ) +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
+  xlab("Response code or value") +
+  ylab("Count responses")
+```
+
+<details>
+<summary>Table: Counts and percentages of responses for the `r toupper(operation)` operation</summary>
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+kable(df_operations_responses_subset, row.names=FALSE)
+```
+</details>
+
+### PUT
+
+```{r, eval=TRUE }
+operation = 'put'
+rank = which(df_operations$operation == operation)
+df_operations_responses_subset = df_operations_responses[df_operations_responses$operation == operation, -1]
+```
+- `r toupper(operation)` is the #`r rank` ranked operation
+- Across the `r format_count(sum(df_operations_responses_subset$n))` responses for `r toupper(operation)`, the most common responses  are ``r df_operations_responses_subset$response[1]`` `r format_count_and_pct(df_operations_responses_subset$n[1], df_operations_responses_subset$pct[1])`, ``r df_operations_responses_subset$response[2]`` `r format_count_and_pct(df_operations_responses_subset$n[2], df_operations_responses_subset$pct[2])`, ``r df_operations_responses_subset$response[3]`` `r format_count_and_pct(df_operations_responses_subset$n[3], df_operations_responses_subset$pct[3])`, ``r df_operations_responses_subset$response[4]`` `r format_count_and_pct(df_operations_responses_subset$n[4], df_operations_responses_subset$pct[4])`, and ``r df_operations_responses_subset$response[5]`` `r format_count_and_pct(df_operations_responses_subset$n[5], df_operations_responses_subset$pct[5])`
+
+```{r, eval=TRUE }
+df_operations_responses_top10 = df_operations_responses_subset[1:10,]
+df_operations_responses_other = df_operations_responses_subset[11:nrow(df_operations_responses_subset),] %>% summarize(response='other',n=sum(n),pct=sum(pct))
+df_operations_responses_stacked = rbind(df_operations_responses_top10, df_operations_responses_other)
+```
+
+```{r oas_paths_operations_responses_put, include = TRUE, out.width="90%"}
+df_operations_responses_stacked$response <- factor(df_operations_responses_stacked$response, levels = df_operations_responses_stacked$response)
+ggplot(df_operations_responses_stacked, aes(x = response, y = n)) +
+  geom_bar(stat = "identity") +
+  geom_text( aes(label = sprintf("%.1f%%",pct*100), vjust = -0.3) ) +
+  ggtitle( sprintf("Top 10 responses per %s operation",toupper(operation)) ) +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
+  xlab("Response code or value") +
+  ylab("Count responses")
+```
+
+<details>
+<summary>Table: Counts and percentages of responses for the `r toupper(operation)` operation</summary>
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+kable(df_operations_responses_subset, row.names=FALSE)
+```
+</details>
+
+### POST
+
+```{r, eval=TRUE }
+operation = 'post'
+rank = which(df_operations$operation == operation)
+df_operations_responses_subset = df_operations_responses[df_operations_responses$operation == operation, -1]
+```
+- `r toupper(operation)` is the #`r rank` ranked operation
+- Across the `r format_count(sum(df_operations_responses_subset$n))` responses for `r toupper(operation)`, the most common responses  are ``r df_operations_responses_subset$response[1]`` `r format_count_and_pct(df_operations_responses_subset$n[1], df_operations_responses_subset$pct[1])`, ``r df_operations_responses_subset$response[2]`` `r format_count_and_pct(df_operations_responses_subset$n[2], df_operations_responses_subset$pct[2])`, ``r df_operations_responses_subset$response[3]`` `r format_count_and_pct(df_operations_responses_subset$n[3], df_operations_responses_subset$pct[3])`, ``r df_operations_responses_subset$response[4]`` `r format_count_and_pct(df_operations_responses_subset$n[4], df_operations_responses_subset$pct[4])`, and ``r df_operations_responses_subset$response[5]`` `r format_count_and_pct(df_operations_responses_subset$n[5], df_operations_responses_subset$pct[5])`
+
+```{r, eval=TRUE }
+df_operations_responses_top10 = df_operations_responses_subset[1:10,]
+df_operations_responses_other = df_operations_responses_subset[11:nrow(df_operations_responses_subset),] %>% summarize(response='other',n=sum(n),pct=sum(pct))
+df_operations_responses_stacked = rbind(df_operations_responses_top10, df_operations_responses_other)
+```
+
+```{r oas_paths_operations_responses_post, include = TRUE, out.width="90%"}
+df_operations_responses_stacked$response <- factor(df_operations_responses_stacked$response, levels = df_operations_responses_stacked$response)
+ggplot(df_operations_responses_stacked, aes(x = response, y = n)) +
+  geom_bar(stat = "identity") +
+  geom_text( aes(label = sprintf("%.1f%%",pct*100), vjust = -0.3) ) +
+  ggtitle( sprintf("Top 10 responses per %s operation", toupper(operation)) ) +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
+  xlab("Response code or value") +
+  ylab("Count responses")
+```
+
+<details>
+<summary>Table: Counts and percentages of responses for the `r toupper(operation)` operation</summary>
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+kable(df_operations_responses_subset, row.names=FALSE)
+```
+</details>
+
+### DELETE
+
+```{r, eval=TRUE }
+operation = 'delete'
+rank = which(df_operations$operation == operation)
+df_operations_responses_subset = df_operations_responses[df_operations_responses$operation == operation, -1]
+```
+- `r toupper(operation)` is the #`r rank` ranked operation
+- Across the `r format_count(sum(df_operations_responses_subset$n))` responses for `r toupper(operation)`, the most common responses  are ``r df_operations_responses_subset$response[1]`` `r format_count_and_pct(df_operations_responses_subset$n[1], df_operations_responses_subset$pct[1])`, ``r df_operations_responses_subset$response[2]`` `r format_count_and_pct(df_operations_responses_subset$n[2], df_operations_responses_subset$pct[2])`, ``r df_operations_responses_subset$response[3]`` `r format_count_and_pct(df_operations_responses_subset$n[3], df_operations_responses_subset$pct[3])`, ``r df_operations_responses_subset$response[4]`` `r format_count_and_pct(df_operations_responses_subset$n[4], df_operations_responses_subset$pct[4])`, and ``r df_operations_responses_subset$response[5]`` `r format_count_and_pct(df_operations_responses_subset$n[5], df_operations_responses_subset$pct[5])`
+
+```{r, eval=TRUE }
+df_operations_responses_top10 = df_operations_responses_subset[1:10,]
+df_operations_responses_other = df_operations_responses_subset[11:nrow(df_operations_responses_subset),] %>% summarize(response='other',n=sum(n),pct=sum(pct))
+df_operations_responses_stacked = rbind(df_operations_responses_top10, df_operations_responses_other)
+```
+
+```{r oas_paths_operations_responses_delete, include = TRUE, out.width="90%"}
+df_operations_responses_stacked$response <- factor(df_operations_responses_stacked$response, levels = df_operations_responses_stacked$response)
+ggplot(df_operations_responses_stacked, aes(x = response, y = n)) +
+  geom_bar(stat = "identity") +
+  geom_text( aes(label = sprintf("%.1f%%",pct*100), vjust = -0.3) ) +
+  ggtitle( sprintf("Top 10 responses per %s operation",toupper(operation)) ) +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
+  xlab("Response code or value") +
+  ylab("Count responses")
+```
+
+<details>
+<summary>Table: Counts and percentages of responses for the `r toupper(operation)` operation</summary>
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+kable(df_operations_responses_subset, row.names=FALSE)
+```
+</details>
+
+### OPTIONS
+
+```{r, eval=TRUE }
+operation = 'options'
+rank = which(df_operations$operation == operation)
+df_operations_responses_subset = df_operations_responses[df_operations_responses$operation == operation, -1]
+```
+- `r toupper(operation)` is the #`r rank` ranked operation
+- Across the `r format_count(sum(df_operations_responses_subset$n))` responses for `r toupper(operation)`, the most common responses  are ``r df_operations_responses_subset$response[1]`` `r format_count_and_pct(df_operations_responses_subset$n[1], df_operations_responses_subset$pct[1])`, ``r df_operations_responses_subset$response[2]`` `r format_count_and_pct(df_operations_responses_subset$n[2], df_operations_responses_subset$pct[2])`, ``r df_operations_responses_subset$response[3]`` `r format_count_and_pct(df_operations_responses_subset$n[3], df_operations_responses_subset$pct[3])`, ``r df_operations_responses_subset$response[4]`` `r format_count_and_pct(df_operations_responses_subset$n[4], df_operations_responses_subset$pct[4])`, and ``r df_operations_responses_subset$response[5]`` `r format_count_and_pct(df_operations_responses_subset$n[5], df_operations_responses_subset$pct[5])`
+
+```{r, eval=TRUE }
+df_operations_responses_top10 = df_operations_responses_subset[1:10,]
+df_operations_responses_other = df_operations_responses_subset[11:nrow(df_operations_responses_subset),] %>% summarize(response='other',n=sum(n),pct=sum(pct))
+df_operations_responses_stacked = rbind(df_operations_responses_top10, df_operations_responses_other)
+```
+
+```{r oas_paths_operations_responses_options, include = TRUE, out.width="90%"}
+df_operations_responses_stacked$response <- factor(df_operations_responses_stacked$response, levels = df_operations_responses_stacked$response)
+ggplot(df_operations_responses_stacked, aes(x = response, y = n)) +
+  geom_bar(stat = "identity") +
+  geom_text( aes(label = sprintf("%.1f%%",pct*100), vjust = -0.3) ) +
+  ggtitle( sprintf("Top 10 responses per %s operation",toupper(operation)) ) +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
+  xlab("Response code or value") +
+  ylab("Count responses")
+```
+
+<details>
+<summary>Table: Counts and percentages of responses for the `r toupper(operation)` operation</summary>
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+kable(df_operations_responses_subset, row.names=FALSE)
+```
+</details>
+
+### HEAD
+
+```{r, eval=TRUE }
+operation = 'head'
+rank = which(df_operations$operation == operation)
+df_operations_responses_subset = df_operations_responses[df_operations_responses$operation == operation, -1]
+```
+- `r toupper(operation)` is the #`r rank` ranked operation
+- Across the `r format_count(sum(df_operations_responses_subset$n))` responses for `r toupper(operation)`, the most common responses  are ``r df_operations_responses_subset$response[1]`` `r format_count_and_pct(df_operations_responses_subset$n[1], df_operations_responses_subset$pct[1])`, ``r df_operations_responses_subset$response[2]`` `r format_count_and_pct(df_operations_responses_subset$n[2], df_operations_responses_subset$pct[2])`, ``r df_operations_responses_subset$response[3]`` `r format_count_and_pct(df_operations_responses_subset$n[3], df_operations_responses_subset$pct[3])`, ``r df_operations_responses_subset$response[4]`` `r format_count_and_pct(df_operations_responses_subset$n[4], df_operations_responses_subset$pct[4])`, and ``r df_operations_responses_subset$response[5]`` `r format_count_and_pct(df_operations_responses_subset$n[5], df_operations_responses_subset$pct[5])`
+
+```{r, eval=TRUE }
+df_operations_responses_top10 = df_operations_responses_subset[1:10,]
+df_operations_responses_other = df_operations_responses_subset[11:nrow(df_operations_responses_subset),] %>% summarize(response='other',n=sum(n),pct=sum(pct))
+df_operations_responses_stacked = rbind(df_operations_responses_top10, df_operations_responses_other)
+```
+
+```{r oas_paths_operations_responses_head, include = TRUE, out.width="90%"}
+df_operations_responses_stacked$response <- factor(df_operations_responses_stacked$response, levels = df_operations_responses_stacked$response)
+ggplot(df_operations_responses_stacked, aes(x = response, y = n)) +
+  geom_bar(stat = "identity") +
+  geom_text( aes(label = sprintf("%.1f%%",pct*100), vjust = -0.3) ) +
+  ggtitle( sprintf("Top 10 responses per %s operation",toupper(operation)) ) +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
+  xlab("Response code or value") +
+  ylab("Count responses")
+```
+
+<details>
+<summary>Table: Counts and percentages of responses for the `r toupper(operation)` operation</summary>
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+kable(df_operations_responses_subset, row.names=FALSE)
+```
+</details>
+
+
+### PATCH
+
+```{r, eval=TRUE }
+operation = 'patch'
+rank = which(df_operations$operation == operation)
+df_operations_responses_subset = df_operations_responses[df_operations_responses$operation == operation, -1]
+```
+- `r toupper(operation)` is the #`r rank` ranked operation
+- Across the `r format_count(sum(df_operations_responses_subset$n))` responses for `r toupper(operation)`, the most common responses  are ``r df_operations_responses_subset$response[1]`` `r format_count_and_pct(df_operations_responses_subset$n[1], df_operations_responses_subset$pct[1])`, ``r df_operations_responses_subset$response[2]`` `r format_count_and_pct(df_operations_responses_subset$n[2], df_operations_responses_subset$pct[2])`, ``r df_operations_responses_subset$response[3]`` `r format_count_and_pct(df_operations_responses_subset$n[3], df_operations_responses_subset$pct[3])`, ``r df_operations_responses_subset$response[4]`` `r format_count_and_pct(df_operations_responses_subset$n[4], df_operations_responses_subset$pct[4])`, and ``r df_operations_responses_subset$response[5]`` `r format_count_and_pct(df_operations_responses_subset$n[5], df_operations_responses_subset$pct[5])`
+
+```{r, eval=TRUE }
+df_operations_responses_top10 = df_operations_responses_subset[1:10,]
+df_operations_responses_other = df_operations_responses_subset[11:nrow(df_operations_responses_subset),] %>% summarize(response='other',n=sum(n),pct=sum(pct))
+df_operations_responses_stacked = rbind(df_operations_responses_top10, df_operations_responses_other)
+```
+
+```{r oas_paths_operations_responses_patch, include = TRUE, out.width="90%"}
+df_operations_responses_stacked$response <- factor(df_operations_responses_stacked$response, levels = df_operations_responses_stacked$response)
+ggplot(df_operations_responses_stacked, aes(x = response, y = n)) +
+  geom_bar(stat = "identity") +
+  geom_text( aes(label = sprintf("%.1f%%",pct*100), vjust = -0.3) ) +
+  ggtitle( sprintf("Top 10 responses per %s operation",toupper(operation)) ) +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
+  xlab("Response code or value") +
+  ylab("Count responses")
+```
+
+<details>
+<summary>Table: Counts and percentages of responses for the `r toupper(operation)` operation</summary>
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+kable(df_operations_responses_subset, row.names=FALSE)
+```
+</details>
+
+### TRACE
+*This operation is excluded from the analysis as it has, sadly, not been found so far in any API.*
+
+# Methodology
+The above statistics are derived from multiple database views querying the OpenAPI JSON under the /paths/<path>/<operation>/<responses>.
+
+

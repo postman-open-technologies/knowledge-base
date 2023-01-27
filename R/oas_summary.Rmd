@@ -253,4 +253,8 @@ have a `security` property, it suggest that the security schemes may not always 
 
 ### What is the breakdown of status codes in the OpenAPIs responses?
 
-*This research topic will be initiated shortly*
+<sup>See [paths operations analysis](oas_paths_operations.md) for further details.<sup>
+
+```{r, child=c('oas_paths_operations_responses_summary.section.Rmd')}
+```
+
