@@ -601,352 +601,156 @@ padding-top: 0px;
 
 <body>
 
-<h1 id="oas-validity-source-of-errors">OAS Validity: Source of
-Errors</h1>
+<h1 id="oas-summary">OAS Summary</h1>
 <p><sup>Last updated: 2023-01-28</sup></p>
 <ul>
-<li><a href="#findings" id="toc-findings">Findings</a>
-<ul>
-<li><a href="#which-top-level-paths-of-api-specifications-are-the-source-of-validation-errors" id="toc-which-top-level-paths-of-api-specifications-are-the-source-of-validation-errors"><em>Which
-top level paths of API specifications are the source of validation
-errors?</em></a></li>
-<li><a href="#which-errors-are-found-under-paths" id="toc-which-errors-are-found-under-paths"><em>Which errors are found
-under <code>paths</code>?</em></a></li>
-<li><a href="#which-errors-are-found-under-definitions-and-components" id="toc-which-errors-are-found-under-definitions-and-components"><em>Which
-errors are found under <code>definitions</code> and
-<code>components</code>?</em></a></li>
-<li><a href="#which-errors-are-found-at-the-root-level" id="toc-which-errors-are-found-at-the-root-level"><em>Which errors are
-found at the root level?</em></a></li>
-</ul></li>
-<li><a href="#recommendations" id="toc-recommendations">Recommendations</a></li>
-<li><a href="#methodology" id="toc-methodology">Methodology</a></li>
+<li><a href="#size" id="toc-size">Size</a></li>
+<li><a href="#validity-and-source-of-errors" id="toc-validity-and-source-of-errors">Validity and source of
+errors</a></li>
+<li><a href="#server" id="toc-server">Server</a></li>
+<li><a href="#paths" id="toc-paths">Paths</a></li>
+<li><a href="#json-schema" id="toc-json-schema">JSON Schema</a></li>
+<li><a href="#licensing" id="toc-licensing">Licensing</a></li>
+<li><a href="#security" id="toc-security">Security</a></li>
+<li><a href="#responses" id="toc-responses">Responses</a></li>
 </ul>
 <p><sup><em>DISCLAIMER: the results and findings below are preliminary
 and have not been fully validated or peer reviewed. Use with care. Do
 not quote or disseminate.</em></sup></p>
-<p><sup><a href="oas_validity.md">Back to validity</a> | <a href="https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Avalidity">View
-related issues</a></sup></p>
-<h1 id="findings">Findings</h1>
-<h2 id="which-top-level-paths-of-api-specifications-are-the-source-of-validation-errors"><em>Which
-top level paths of API specifications are the source of validation
-errors?</em></h2>
+<p>This document enumerates the research questions and topics we are
+investigating in the knowledge base around OpenAPI specifications and
+provides a summary of findings. More in-depth analysis is available for
+selected topics.</p>
+<h2 id="size">Size</h2>
+<h3 id="what-is-the-typicaly-size-of-an-api">What is the typicaly size
+of an API?</h3>
+<p><sup>See <a href="oas_size.md">size analysis</a> for further
+details.<sup></p>
 <ul>
-<li>A total of 170,919 validation errors are found across 5,331 invalid
-APIs</li>
-<li>Looking at the <em>error</em> counts, 119,621 (70%) are found under
-<code>paths</code>. This is followed by 35,288 (20.6%) under
-<code>components</code>, 11,800 (6.9%) under <code>definitions</code>,
-1,554 (0.9%) under <code>root</code>, and 901 (0.5%) under
-<code>info</code></li>
-<li>Looking at the <em>API</em> counts, 3,311 (40.3%)have at least one
-error under <code>paths</code>. This is followed by 1,350 (16.4%) under
-<code>components</code>, 1,286 (15.7%) under <code>root</code>, 684
-(8.3%) under <code>info</code>, and 425 (5.2%) under
-<code>definitions</code></li>
-<li>Keep in mind the <code>definitions</code> property is only used by
-OpenAPI 2.x and <code>components</code> by OpenAPI 3.x (as v2
-<code>definitions</code> became <code>components/schema</code> in
-v3)</li>
-<li><code>root</code> in the above findings mean an error at the highest
-level of the API specification (not under a property path)</li>
+<li>Based on 20,720 valid API specifications, the average JSON size is
+36Kb, ranging from &lt; 1Kb to 7,575Kb.</li>
+<li>No significant difference is observed between version 2 (36.8Kb) and
+3 (35.7Kb)</li>
 </ul>
-<details>
-<summary>
-Table: Count of errors by top property
-</summary>
-
-<table>
-<thead>
-<tr class="header">
-<th align="left">path</th>
-<th align="right">n</th>
-<th align="right">pct</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">paths</td>
-<td align="right">119621</td>
-<td align="right">0.6998695</td>
-</tr>
-<tr class="even">
-<td align="left">components</td>
-<td align="right">35288</td>
-<td align="right">0.2064604</td>
-</tr>
-<tr class="odd">
-<td align="left">definitions</td>
-<td align="right">11800</td>
-<td align="right">0.0690386</td>
-</tr>
-<tr class="even">
-<td align="left">root</td>
-<td align="right">1554</td>
-<td align="right">0.0090920</td>
-</tr>
-<tr class="odd">
-<td align="left">info</td>
-<td align="right">901</td>
-<td align="right">0.0052715</td>
-</tr>
-<tr class="even">
-<td align="left">tags</td>
-<td align="right">502</td>
-<td align="right">0.0029371</td>
-</tr>
-<tr class="odd">
-<td align="left">servers</td>
-<td align="right">341</td>
-<td align="right">0.0019951</td>
-</tr>
-<tr class="even">
-<td align="left">securityDefinitions</td>
-<td align="right">187</td>
-<td align="right">0.0010941</td>
-</tr>
-<tr class="odd">
-<td align="left">host</td>
-<td align="right">183</td>
-<td align="right">0.0010707</td>
-</tr>
-<tr class="even">
-<td align="left">basePath</td>
-<td align="right">142</td>
-<td align="right">0.0008308</td>
-</tr>
-<tr class="odd">
-<td align="left">security</td>
-<td align="right">104</td>
-<td align="right">0.0006085</td>
-</tr>
-<tr class="even">
-<td align="left">responses</td>
-<td align="right">76</td>
-<td align="right">0.0004447</td>
-</tr>
-<tr class="odd">
-<td align="left">schemes</td>
-<td align="right">68</td>
-<td align="right">0.0003978</td>
-</tr>
-<tr class="even">
-<td align="left">parameters</td>
-<td align="right">56</td>
-<td align="right">0.0003276</td>
-</tr>
-<tr class="odd">
-<td align="left">produces</td>
-<td align="right">47</td>
-<td align="right">0.0002750</td>
-</tr>
-<tr class="even">
-<td align="left">externalDocs</td>
-<td align="right">26</td>
-<td align="right">0.0001521</td>
-</tr>
-<tr class="odd">
-<td align="left">openapi</td>
-<td align="right">12</td>
-<td align="right">0.0000702</td>
-</tr>
-<tr class="even">
-<td align="left">consumes</td>
-<td align="right">7</td>
-<td align="right">0.0000410</td>
-</tr>
-<tr class="odd">
-<td align="left">swagger</td>
-<td align="right">4</td>
-<td align="right">0.0000234</td>
-</tr>
-</tbody>
-</table>
-</details>
-<details>
-<summary>
-Table: Count of APIs with 1 or more errors by top property
-</summary>
-
-<table>
-<thead>
-<tr class="header">
-<th align="left">path</th>
-<th align="right">n</th>
-<th align="right">pct</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">paths</td>
-<td align="right">3311</td>
-<td align="right">0.4033869</td>
-</tr>
-<tr class="even">
-<td align="left">components</td>
-<td align="right">1350</td>
-<td align="right">0.1644737</td>
-</tr>
-<tr class="odd">
-<td align="left">root</td>
-<td align="right">1286</td>
-<td align="right">0.1566764</td>
-</tr>
-<tr class="even">
-<td align="left">info</td>
-<td align="right">684</td>
-<td align="right">0.0833333</td>
-</tr>
-<tr class="odd">
-<td align="left">definitions</td>
-<td align="right">425</td>
-<td align="right">0.0517788</td>
-</tr>
-<tr class="even">
-<td align="left">servers</td>
-<td align="right">285</td>
-<td align="right">0.0347222</td>
-</tr>
-<tr class="odd">
-<td align="left">host</td>
-<td align="right">183</td>
-<td align="right">0.0222953</td>
-</tr>
-<tr class="even">
-<td align="left">securityDefinitions</td>
-<td align="right">150</td>
-<td align="right">0.0182749</td>
-</tr>
-<tr class="odd">
-<td align="left">basePath</td>
-<td align="right">142</td>
-<td align="right">0.0173002</td>
-</tr>
-<tr class="even">
-<td align="left">security</td>
-<td align="right">102</td>
-<td align="right">0.0124269</td>
-</tr>
-<tr class="odd">
-<td align="left">tags</td>
-<td align="right">92</td>
-<td align="right">0.0112086</td>
-</tr>
-<tr class="even">
-<td align="left">schemes</td>
-<td align="right">65</td>
-<td align="right">0.0079191</td>
-</tr>
-<tr class="odd">
-<td align="left">produces</td>
-<td align="right">47</td>
-<td align="right">0.0057261</td>
-</tr>
-<tr class="even">
-<td align="left">parameters</td>
-<td align="right">24</td>
-<td align="right">0.0029240</td>
-</tr>
-<tr class="odd">
-<td align="left">externalDocs</td>
-<td align="right">20</td>
-<td align="right">0.0024366</td>
-</tr>
-<tr class="even">
-<td align="left">responses</td>
-<td align="right">19</td>
-<td align="right">0.0023148</td>
-</tr>
-<tr class="odd">
-<td align="left">openapi</td>
-<td align="right">12</td>
-<td align="right">0.0014620</td>
-</tr>
-<tr class="even">
-<td align="left">consumes</td>
-<td align="right">7</td>
-<td align="right">0.0008528</td>
-</tr>
-<tr class="odd">
-<td align="left">swagger</td>
-<td align="right">4</td>
-<td align="right">0.0004873</td>
-</tr>
-</tbody>
-</table>
-</details>
-
-<h2 id="which-errors-are-found-under-paths"><em>Which errors are found
-under <code>paths</code>?</em></h2>
-<p>The majority of the API validation issues occur under the
-<code>path</code> property.</p>
-<p>377 errors are found under at the first level (the properties right
-under <code>/paths</code>) ,which represents a small proportion of all
-<code>paths</code> errors (0.2%), but are nonetheless important as they
-hide all underlying content.</p>
-<p>They can be categorized as follows:</p>
+<h2 id="validity-and-source-of-errors">Validity and source of
+errors</h2>
+<h3 id="how-many-valid-openapis-do-we-have">How many valid OpenAPIs do
+we have?</h3>
+<p><sup>See <a href="oas_validity.md">validity analysis</a> for further
+details.<sup></p>
 <ul>
-<li>Regex mismatch: 304 (80.6%). Raised when the property name does not
-start with a / or x-, essentially not matching the JSON schema
-<code>&#39;^/&#39;, &#39;^x-&#39;</code> regular expression. Note that the schema
-validation library aggregates all regex issues under a single error (not
-one per property).</li>
-<li>Not an object: 70 (18.6%). Raised when the <code>paths</code>
-property is not a valid JSON {object}. Examples includes an empty [] or
-populated array, a string, a null value, etc.</li>
-<li>Unevaluated properties: 3 (0.8%). Raise when an invalid property
-name is used in a v3.1 specification.</li>
+<li>Out of 26,051 APIs, 20,720 (79.5%) are valid.</li>
 </ul>
-<details>
-<summary>
-Table: Categorized count of errors under `paths` first level
-</summary>
-
-<table>
-<thead>
-<tr class="header">
-<th align="left">category</th>
-<th align="right">n</th>
-<th align="right">pct</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">REGEX</td>
-<td align="right">304</td>
-<td align="right">0.8063660</td>
-</tr>
-<tr class="even">
-<td align="left">NOTOBJ</td>
-<td align="right">70</td>
-<td align="right">0.1856764</td>
-</tr>
-<tr class="odd">
-<td align="left">UNEVAL</td>
-<td align="right">3</td>
-<td align="right">0.0079576</td>
-</tr>
-</tbody>
-</table>
-</details>
-
-<h2 id="which-errors-are-found-under-definitions-and-components"><em>Which
-errors are found under <code>definitions</code> and
-<code>components</code>?</em></h2>
-<p><em>Analysis in progress</em></p>
-<h2 id="which-errors-are-found-at-the-root-level"><em>Which errors are
-found at the root level?</em></h2>
-<p><em>Analysis in progress</em></p>
-<h1 id="recommendations">Recommendations</h1>
+<h3 id="what-are-the-primary-sources-of-error-in-apis">What are the
+primary sources of error in APIs?</h3>
+<p><em>This research topic will be initiated shortly</em></p>
+<h2 id="server">Server</h2>
+<p><sup>See <a href="oas_servers.md">servers analysis</a> for further
+details.</sup></p>
+<h3 id="how-is-the-server-property-used-in-apis">How is the server
+property used in APIs?</h3>
 <ul>
-<li>t.d.b.</li>
+<li><p>Out of 6,500 valid OpenAPI2 specifications, 4,930 (75.8%) have a
+<code>host</code> property, 4,789 (73.7%) have a <code>basePath</code>
+property, and 5,217 (80.3%) have a <code>schemes</code>
+property.</p></li>
+<li><p>Out of 14,220 valid OpenAPI3 specifications, 11,902 (83.7%) have
+a <code>servers</code> property, with an average of 1.2 server/entry,
+and a range of 0-13.</p></li>
 </ul>
-<h1 id="methodology">Methodology</h1>
-<p>Validation errors reported by the Python <a href="https://github.com/python-jsonschema/jsonschema">jsonschema</a>
-package are stored in JSON format in the database table, with a view
-exposing each issue as a record. The validation metadata provides
-information on the JSON path where the error occured and an error
-message. To classify the nature of the issue, the error messages are
-matched to various categories using regular expressions.</p>
+<h3 id="how-often-do-apis-use-localhost-vs-domain-based-servers">How
+often do APIs use localhost vs domain based servers?</h3>
+<ul>
+<li>Out of the 18,613 host/servers entries (across all APIs), 4,619
+(24.8%) contain localhost or 127.0.0.1, 10,495 (56.4%) use a DNS host,
+and 733 (3.9%) use a variable template (3.x only). 1,578 (8.5%) use a
+relative path (no server specified).</li>
+<li>5,924 (31.8%) use an http protocol, and 9,920 (53.3%) https.</li>
+</ul>
+<h3 id="what-are-the-most-commonly-used-top-level-domains">What are the
+most commonly used top level domains?</h3>
+<ul>
+<li>The top 3 most commonly used top level domains in our API collection
+are swagger.io (1,024), swaggerhub.com (949), and pstmn.io (529).</li>
+</ul>
+<h2 id="paths">Paths</h2>
+<p><sup>See <a href="oas_paths.md">paths analysis</a> for further
+details.</sup></p>
+<h3 id="how-is-the-path-property-used-in-apis">How is the path property
+used in APIs?</h3>
+<ul>
+<li>The average number of path per API is 12.4, ranging from 1 to
+1,550.</li>
+<li>Out of the 20,244 APIs with a path, 12,255 (60.5%) have 1-5 paths,
+2,684 (13.3%) have 6-10 paths, 2,596 (12.8%) have 11-20 paths, 1,813
+(9%) have 21-50 paths, and 896 (0.04426003%) have over 50 paths.</li>
+</ul>
+<h2 id="json-schema">JSON Schema</h2>
+<h3 id="what-is-average-number-of-locally-defined-json-objects-per-api">What
+is average number of locally defined JSON objects per API?</h3>
+<ul>
+<li>The average number of JSON objects defined locally under
+/definitions (OpenAPI2) or /components/schema (OpenAPI3) is 21, ranging
+from 1 to 2,146.</li>
+<li>Out of the 17,883 APIs, 9,005 (50.4%) have 1-5 entries, 2,711
+(15.2%) have 6-10 entries, 2,203 (12.3%) have 11-20 entries, 2,070
+(11.6%) have 21-50 entries, and 1,894 (10.6%) have over 50 entries.</li>
+</ul>
+<h2 id="licensing">Licensing</h2>
+<h3 id="how-is-the-license-property-used-in-apis">How is the license
+property used in APIs?</h3>
+<ul>
+<li>Out of 20,720 valid APIs, 7,578 (36.6%) have a <code>license</code>
+property, with 4,580 (22.1%) providing both the <code>name</code> and
+<code>url</code>.</li>
+<li>Out of the 138 v3.1 APIs with a license, 5 (3.6%) use the
+<code>identifier</code> property (introduced in 3.1).</li>
+</ul>
+<h3 id="what-is-the-breakdown-of-licenses-use-by-the-apis">What is the
+breakdown of licenses use by the APIs?</h3>
+<ul>
+<li>Analysis based on a simple harmonization method looking at terms in
+the license name and url values indicates that 2,666 (35.2%) of the APIs
+use an Apache license.</li>
+<li>Other notable categories include MIT (43.1%), Creative Commons
+(4.9%), GNU/GPL (2.9%).</li>
+<li>10% are categorized as Other.</li>
+</ul>
+<h2 id="security">Security</h2>
+<h3 id="how-are-the-security-related-properties-used-in-apis">How are
+the security related properties used in APIs?</h3>
+<p><sup><em>Note that in OpenAPI3, <code>securityDefinitions</code> was
+renamed to <code>securitySchemes</code> and moved inside
+<code>components</code>, and the <code>type: basic</code> was replaced
+with <code>type: http</code> with
+<code>scheme: basic</code>.</em></sup></p>
+<ul>
+<li><p>Out of 20,720 valid APIs, 6,304 (30.4%) have a
+<code>security</code> property.</p></li>
+<li><p>For OpenAPI2, out of the 6,500 valid APIs, 2,843 (43.7%) have a
+<code>securityDefinitions</code> property. The <code>type</code> is
+distributed as 1,958 (46.9%) apiKey, 1,692 (40.5%) oauth2, and 523
+(12.5%) basic.</p></li>
+<li><p>For OpenAPI3, out of the 14,220 valid APIs, 7,499 (52.7%) have a
+<code>components/securitySchemes</code> property. The <code>type</code>
+is distributed as 2,927 (32.3%) apiKey, 4,612 (50.9%) http, 1,375
+(15.2%) oauth2, 77 (0.8%) openIdConnect, and 77 (0.8%) empty
+value.</p></li>
+<li><p>As only 1,248 (19.2%) of v2.x and 5,056 (35.6%) of v3.x APIs have
+a <code>security</code> property, it suggest that the security schemes
+may not always be used. This requires further investigation.</p></li>
+</ul>
+<h2 id="responses">Responses</h2>
+<h3 id="what-is-the-breakdown-of-status-codes-in-the-openapis-responses">What
+is the breakdown of status codes in the OpenAPIs responses?</h3>
+<p><sup>See <a href="oas_paths_operations.md">paths operations
+analysis</a> for further details.<sup></p>
+<ul>
+<li>Across all 838,923 responses, the most common codes or values are
+<code>200</code> 273,583 (32.6%), <code>400</code> 93,576 (11.2%),
+<code>404</code> 85,087 (10.1%), <code>401</code> 76,533 (9.1%), and
+<code>403</code> 61,990 (7.4%)</li>
+</ul>
 
 </body>
 </html>

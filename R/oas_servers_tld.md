@@ -1,6 +1,6 @@
 OAS Servers Analysis: Top Level Domains
 ================
-<sup>Last updated: 2023-01-27</sup>
+<sup>Last updated: 2023-01-28</sup>
 
 <sup>*DISCLAIMER: the results and findings below are preliminary and
 have not been fully validated or peer reviewed. Use with care. Do not
