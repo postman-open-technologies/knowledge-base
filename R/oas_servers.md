@@ -1,6 +1,6 @@
 OAS Servers Analysis
 ================
-<sup>Last updated: 2023-01-30</sup>
+<sup>Last updated: 2023-01-31</sup>
 
 - <a href="#overview" id="toc-overview">Overview</a>
 - <a href="#findings" id="toc-findings">Findings</a>
@@ -37,21 +37,21 @@ for the host and other components of the URL.
 
 ## How is the server property used in APIs?
 
-- Out of 6,500 valid OpenAPI2 specifications, 4,930 (75.8%) have a
-  `host` property, 4,789 (73.7%) have a `basePath` property, and 5,217
-  (80.3%) have a `schemes` property.
+- Out of 6,896 valid OpenAPI2 specifications, 5,236 (75.9%) have a
+  `host` property, 5,070 (73.5%) have a `basePath` property, and 5,560
+  (80.6%) have a `schemes` property.
 
-- Out of 14,220 valid OpenAPI3 specifications, 11,902 (83.7%) have a
+- Out of 14,607 valid OpenAPI3 specifications, 12,208 (83.6%) have a
   `servers` property, with an average of 1.2 server/entry, and a range
   of 0-13.
 
 ## How often do APIs use localhost vs domain based servers?
 
-- Out of the 18,613 host/servers entries (across all APIs), 4,619
-  (24.8%) contain localhost or 127.0.0.1, 10,495 (56.4%) use a DNS host,
-  and 733 (3.9%) use a variable template (3.x only). 1,578 (8.5%) use a
+- Out of the 19,340 host/servers entries (across all APIs), 4,737
+  (24.5%) contain localhost or 127.0.0.1, 10,951 (56.6%) use a DNS host,
+  and 747 (3.9%) use a variable template (3.x only). 1,655 (8.6%) use a
   relative path (no server specified).
-- 5,924 (31.8%) use an http protocol, and 9,920 (53.3%) https.
+- 6,244 (32.3%) use an http protocol, and 10,338 (53.5%) https.
 
 ## What are the most commonly used top level domains for APIs?
 
@@ -61,16 +61,16 @@ comprehensive list.
 
 | Rank | Domain         | \#APIs |
 |------|----------------|--------|
-| 1    | swagger.io     | 1024   |
-| 2    | swaggerhub.com | 949    |
+| 1    | swagger.io     | 1046   |
+| 2    | swaggerhub.com | 974    |
 | 3    | pstmn.io       | 529    |
-| 4    | azure.com      | 394    |
-| 5    | herokuapp.com  | 276    |
-| 6    | example.com    | 214    |
-| 7    | breakable.com  | 156    |
-| 8    | googleapis.com | 152    |
-| 9    | amazonaws.com  | 145    |
-| 10   | amazon.com     | 142    |
+| 4    | azure.com      | 454    |
+| 5    | herokuapp.com  | 295    |
+| 6    | example.com    | 219    |
+| 7    | googleapis.com | 175    |
+| 8    | amazonaws.com  | 158    |
+| 9    | breakable.com  | 156    |
+| 10   | amazon.com     | 144    |
 
 # Methodology
 

@@ -1,6 +1,6 @@
 OAS Paths Analysis
 ================
-<sup>Last updated: 2023-01-30</sup>
+<sup>Last updated: 2023-01-31</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#how-is-the-path-property-used-in-apis"
@@ -22,18 +22,18 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 
 ## How is the path property used in APIs?
 
-- The average number of path per API is 12.4, ranging from 1 to 1,550.
-- Out of the 20,244 APIs with a path, 12,255 (60.5%) have 1-5 paths,
-  2,684 (13.3%) have 6-10 paths, 2,596 (12.8%) have 11-20 paths, 1,813
-  (9%) have 21-50 paths, and 896 (0.04426003%) have over 50 paths.
+- The average number of path per API is 12.2, ranging from 1 to 1,550.
+- Out of the 21,010 APIs with a path, 12,755 (60.7%) have 1-5 paths,
+  2,787 (13.3%) have 6-10 paths, 2,703 (12.9%) have 11-20 paths, 1,865
+  (8.9%) have 21-50 paths, and 900 (0.04283674%) have over 50 paths.
 
 <img src="oas_paths_files/figure-gfm/oas_paths_buckets_barplot-1.png" width="90%" />
 
 ## Which properties are used under paths?
 
-- Out of 361,612 properties under paths, the most commonly used are
-  `get` 163,339 (45.2%), `post` 90,188 (24.9%), `put` 30,578 (8.5%),
-  `delete` 28,467 (7.9%), and `parameters` 22,339 (6.2%).
+- Out of 368,755 properties under paths, the most commonly used are
+  `get` 166,717 (45.2%), `post` 92,040 (25%), `put` 31,069 (8.4%),
+  `delete` 28,984 (7.9%), and `parameters` 22,641 (6.1%).
 - Beyond standard properties, numerous extensions were found. See table
   below for details.
 - No significant variations were observed across specification versions
@@ -48,88 +48,90 @@ Table: Counts and percentages of properties under paths
 
 | property                               |      n |       pct |
 |:---------------------------------------|-------:|----------:|
-| get                                    | 163339 | 0.4516968 |
-| post                                   |  90188 | 0.2494054 |
-| put                                    |  30578 | 0.0845602 |
-| delete                                 |  28467 | 0.0787225 |
-| parameters                             |  22339 | 0.0617762 |
-| patch                                  |   7933 | 0.0219379 |
-| x-swagger-router-controller            |   6101 | 0.0168717 |
-| \$ref                                  |   4482 | 0.0123945 |
-| description                            |   1776 | 0.0049113 |
-| servers                                |   1180 | 0.0032632 |
-| summary                                |    717 | 0.0019828 |
-| options                                |    711 | 0.0019662 |
-| x-endpoint                             |    687 | 0.0018998 |
-| x-platforms-available                  |    663 | 0.0018335 |
-| head                                   |    334 | 0.0009236 |
-| x-swagger-pipe                         |    293 | 0.0008103 |
-| x-route-enum                           |    291 | 0.0008047 |
-| x-twilio                               |    250 | 0.0006913 |
-| x-api-version                          |    175 | 0.0004839 |
-| x-summary                              |    144 | 0.0003982 |
-| x-linode-cli-command                   |    133 | 0.0003678 |
-| x-default-output-properties            |    129 | 0.0003567 |
-| x-path-type                            |    129 | 0.0003567 |
-| x-description                          |     81 | 0.0002240 |
-| x-restlet                              |     64 | 0.0001770 |
-| x-related-model                        |     45 | 0.0001244 |
-| x-gelato-group                         |     39 | 0.0001079 |
-| x-vault-unauthenticated                |     33 | 0.0000913 |
-| x-modules                              |     25 | 0.0000691 |
-| x-vault-sudo                           |     25 | 0.0000691 |
-| x-controller                           |     25 | 0.0000691 |
-| x-amazon-apigateway-any-method         |     22 | 0.0000608 |
-| trace                                  |     14 | 0.0000387 |
-| x-WM-COMPLETE_PATH                     |     14 | 0.0000387 |
-| x-a127-apply                           |     14 | 0.0000387 |
-| x-ms-notification-content              |     14 | 0.0000387 |
-| x-vault-createSupported                |     11 | 0.0000304 |
-| x-amf-description                      |     11 | 0.0000304 |
-| x-swagger-section-capabilities         |      9 | 0.0000249 |
-| x-eac-ignore                           |      8 | 0.0000221 |
-| x-swagger-section-2fa-bypass-permitted |      7 | 0.0000194 |
-| x-data_classification                  |      7 | 0.0000194 |
-| x-volos-apply                          |      7 | 0.0000194 |
-| x-external                             |      7 | 0.0000194 |
-| x-internal                             |      7 | 0.0000194 |
-| x-controller-interface                 |      6 | 0.0000166 |
-| x-zendesk-owner                        |      6 | 0.0000166 |
-| x-order                                |      6 | 0.0000166 |
-| x-swagger-route-controller             |      5 | 0.0000138 |
-| x-python-connexion-openapi-name        |      4 | 0.0000111 |
-| x-private                              |      4 | 0.0000111 |
-| x-kusk                                 |      4 | 0.0000111 |
-| x-snyk-api-resource                    |      4 | 0.0000111 |
-| x-handler                              |      4 | 0.0000111 |
-| x-vertx-event-bus                      |      3 | 0.0000083 |
-| x-exegesis-controller                  |      2 | 0.0000055 |
-| x-amzn-api-sandbox                     |      2 | 0.0000055 |
-| x-annotation-meta-data                 |      2 | 0.0000055 |
-| x-annotation-experimental              |      2 | 0.0000055 |
-| x-oba-custom                           |      2 | 0.0000055 |
-| x-annotation-clearanceLevel            |      2 | 0.0000055 |
-| x-annotation-counting                  |      2 | 0.0000055 |
-| x-db-table-name                        |      2 | 0.0000055 |
-| x-style-validator-ignored              |      2 | 0.0000055 |
-| x-wso2-production-endpoints            |      2 | 0.0000055 |
-| x-wso2-sandbox-endpoints               |      2 | 0.0000055 |
-| x-wso2-disable-security                |      1 | 0.0000028 |
-| x-temp                                 |      1 | 0.0000028 |
-| x-DNB-Name                             |      1 | 0.0000028 |
-| x-wso2-request-interceptor             |      1 | 0.0000028 |
-| x-swagstar                             |      1 | 0.0000028 |
-| x-openapi-router-controller            |      1 | 0.0000028 |
-| x-test                                 |      1 | 0.0000028 |
-| x-bank                                 |      1 | 0.0000028 |
-| x-route-filters                        |      1 | 0.0000028 |
-| x-kong-plugin-key-auth                 |      1 | 0.0000028 |
-| x-DNB-ID                               |      1 | 0.0000028 |
-| x-a127-authorizations                  |      1 | 0.0000028 |
-| x-zally-ignore                         |      1 | 0.0000028 |
-| x-oad-type                             |      1 | 0.0000028 |
-| x-comment                              |      1 | 0.0000028 |
-| x-volos-authorizations                 |      1 | 0.0000028 |
+| get                                    | 166717 | 0.4521078 |
+| post                                   |  92040 | 0.2495966 |
+| put                                    |  31069 | 0.0842538 |
+| delete                                 |  28984 | 0.0785996 |
+| parameters                             |  22641 | 0.0613985 |
+| patch                                  |   8111 | 0.0219956 |
+| x-swagger-router-controller            |   6250 | 0.0169489 |
+| \$ref                                  |   4596 | 0.0124636 |
+| description                            |   1800 | 0.0048813 |
+| servers                                |   1242 | 0.0033681 |
+| options                                |    742 | 0.0020122 |
+| summary                                |    731 | 0.0019823 |
+| x-endpoint                             |    687 | 0.0018630 |
+| x-platforms-available                  |    663 | 0.0017979 |
+| head                                   |    341 | 0.0009247 |
+| x-swagger-pipe                         |    294 | 0.0007973 |
+| x-route-enum                           |    291 | 0.0007891 |
+| x-twilio                               |    250 | 0.0006780 |
+| x-api-version                          |    175 | 0.0004746 |
+| x-summary                              |    146 | 0.0003959 |
+| x-linode-cli-command                   |    133 | 0.0003607 |
+| x-path-type                            |    129 | 0.0003498 |
+| x-default-output-properties            |    129 | 0.0003498 |
+| x-description                          |     81 | 0.0002197 |
+| x-restlet                              |     67 | 0.0001817 |
+| x-related-model                        |     45 | 0.0001220 |
+| x-gelato-group                         |     39 | 0.0001058 |
+| x-vault-unauthenticated                |     34 | 0.0000922 |
+| x-amazon-apigateway-any-method         |     29 | 0.0000786 |
+| x-controller                           |     25 | 0.0000678 |
+| x-modules                              |     25 | 0.0000678 |
+| x-vault-sudo                           |     25 | 0.0000678 |
+| trace                                  |     15 | 0.0000407 |
+| x-ms-notification-content              |     15 | 0.0000407 |
+| x-WM-COMPLETE_PATH                     |     14 | 0.0000380 |
+| x-a127-apply                           |     14 | 0.0000380 |
+| x-amf-description                      |     11 | 0.0000298 |
+| x-vault-createSupported                |     11 | 0.0000298 |
+| x-swagger-section-capabilities         |      9 | 0.0000244 |
+| x-eac-ignore                           |      8 | 0.0000217 |
+| x-external                             |      7 | 0.0000190 |
+| x-swagger-section-2fa-bypass-permitted |      7 | 0.0000190 |
+| x-internal                             |      7 | 0.0000190 |
+| x-data_classification                  |      7 | 0.0000190 |
+| x-volos-apply                          |      7 | 0.0000190 |
+| x-order                                |      6 | 0.0000163 |
+| x-last-modified                        |      6 | 0.0000163 |
+| x-zendesk-owner                        |      6 | 0.0000163 |
+| x-controller-interface                 |      6 | 0.0000163 |
+| x-swagger-route-controller             |      5 | 0.0000136 |
+| x-handler                              |      4 | 0.0000108 |
+| x-private                              |      4 | 0.0000108 |
+| x-python-connexion-openapi-name        |      4 | 0.0000108 |
+| x-kusk                                 |      4 | 0.0000108 |
+| x-snyk-api-resource                    |      4 | 0.0000108 |
+| x-vertx-event-bus                      |      3 | 0.0000081 |
+| x-annotation-counting                  |      2 | 0.0000054 |
+| x-style-validator-ignored              |      2 | 0.0000054 |
+| x-annotation-clearanceLevel            |      2 | 0.0000054 |
+| x-wso2-sandbox-endpoints               |      2 | 0.0000054 |
+| x-amzn-api-sandbox                     |      2 | 0.0000054 |
+| x-annotation-meta-data                 |      2 | 0.0000054 |
+| x-wso2-production-endpoints            |      2 | 0.0000054 |
+| x-db-table-name                        |      2 | 0.0000054 |
+| x-vendor-method                        |      2 | 0.0000054 |
+| x-oba-custom                           |      2 | 0.0000054 |
+| x-annotation-experimental              |      2 | 0.0000054 |
+| x-exegesis-controller                  |      2 | 0.0000054 |
+| x-oad-type                             |      1 | 0.0000027 |
+| x-DNB-Name                             |      1 | 0.0000027 |
+| x-comment                              |      1 | 0.0000027 |
+| x-swagstar                             |      1 | 0.0000027 |
+| x-temp                                 |      1 | 0.0000027 |
+| x-test                                 |      1 | 0.0000027 |
+| x-openapi-router-controller            |      1 | 0.0000027 |
+| x-wso2-request-interceptor             |      1 | 0.0000027 |
+| x-a127-authorizations                  |      1 | 0.0000027 |
+| x-zally-ignore                         |      1 | 0.0000027 |
+| x-wso2-disable-security                |      1 | 0.0000027 |
+| x-bank                                 |      1 | 0.0000027 |
+| x-route-filters                        |      1 | 0.0000027 |
+| x-volos-authorizations                 |      1 | 0.0000027 |
+| x-kong-plugin-key-auth                 |      1 | 0.0000027 |
+| x-DNB-ID                               |      1 | 0.0000027 |
 
 </details>
 
