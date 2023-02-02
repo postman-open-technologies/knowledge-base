@@ -1,1 +1,1 @@
-extends: ["@stoplight/spectral-oas"]
+extends: spectral:oas
