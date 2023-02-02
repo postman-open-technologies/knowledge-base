@@ -12,7 +12,8 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "doc": "widdershins openapi.json -o README.md && widdershins --html openapi.json -o openapi.html",
-    "version-sot": "version-sot -d openapi.json"
+    "version-sot": "version-sot -d openapi.json",
+    "oas-lint": "spectral lint openapi.json"
   },
   "dependencies": {
     "debug": "^4.3.4",
@@ -20,6 +21,7 @@
     "http-errors": "^2.0.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
+    "spectral": "^0.0.0",
     "yaml": "^2.2.1"
   },
   "devDependencies": {
