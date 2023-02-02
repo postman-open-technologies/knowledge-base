@@ -11,7 +11,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "doc": "widdershins openapi.json -o README.md && widdershins --html openapi.json -o openapi.html"
+    "doc": "widdershins openapi.json -o README.md && widdershins --html openapi.json -o openapi.html",
+    "version-sot": "version-sot -d openapi.json"
   },
   "dependencies": {
     "debug": "^4.3.4",
@@ -24,6 +25,7 @@
     "yaml": "^2.2.1"
   },
   "devDependencies": {
+    "version-sot": "^0.1.1",
     "widdershins": "^4.0.1"
   }
 }
