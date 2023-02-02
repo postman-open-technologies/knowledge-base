@@ -80,7 +80,7 @@ classes:
       A proxy MUST forward 1xx responses unless the proxy itself requested the generation of the 1xx response. For example, if a proxy adds an "Expect: 100-continue" header field when it forwards a request, then it need not forward the corresponding 100 (Continue) response(s)  
     codes:
       100:
-        reason-phrase: Continue
+        reasonPhrase: Continue
         description: >-
           The 100 (Continue) status code indicates that the initial part of a request has been received and has not yet been rejected by the server. The server intends to send a final response after the request has been fully received and acted upon.
 
@@ -92,7 +92,7 @@ classes:
           - title: RFC9110, Section 15.2.1
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-100-continue
       101:
-        reason-phrase: Switching Protocols
+        reasonPhrase: Switching Protocols
         description: >-
           The 101 (Switching Protocols) status code indicates that the server understands and is willing to comply with the client's request, via the Upgrade header field (Section 7.8), for a change in the application protocol being used on this connection. The server MUST generate an Upgrade header field in the response that indicates which protocol(s) will be in effect after this response.
 
@@ -102,7 +102,7 @@ classes:
           - title: RFC9110, Section 15.2.2
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-101-switching-protocols
       102:
-        reason-phrase: Processing
+        reasonPhrase: Processing
         description: >-
           The 102 (Processing) status code is an interim response used to inform the client that the server has accepted the complete request, but has not yet completed it.  This status code SHOULD only be sent when the server has a reasonable expectation that the request will take significant time to complete. As guidance, if a method is taking longer than 20 seconds (a reasonable, but arbitrary value) to process the server SHOULD return a 102 (Processing) response. The server MUST send a final response after the request has been completed.
           
@@ -112,7 +112,7 @@ classes:
           - title: RFC2518
             url: https://www.rfc-editor.org/rfc/rfc2518.html#page-59
       103:
-        reason-phrase: Early Hints
+        reasonPhrase: Early Hints
         description: >-
           The 103 (Early Hints) informational status code indicates to the client that the server is likely to send a final response with the header fields included in the informational response.
         isIana: true
@@ -129,7 +129,7 @@ classes:
       The 2xx (Successful) class of status code indicates that the client's request was successfully received, understood, and accepted
     codes:
       200:
-        reason-phrase: OK
+        reasonPhrase: OK
         description: >-
           The 200 (OK) status code indicates that the request has succeeded. The content sent in a 200 response depends on the request method. For the methods defined by this specification, the intended meaning of the content can be summarized as:
 
@@ -152,7 +152,7 @@ classes:
           - title: RFC9110, Section 15.3.1
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-200-ok
       201:
-        reason-phrase: Created
+        reasonPhrase: Created
         description: >-
           The 201 (Created) status code indicates that the request has been fulfilled and has resulted in one or more new resources being created. The primary resource created by the request is identified by either a Location header field in the response or, if no Location header field is received, by the target URI.
 
@@ -162,7 +162,7 @@ classes:
           - title: RFC9110, Section 15.3.2
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-201-created
       202:
-        reason-phrase: Accepted
+        reasonPhrase: Accepted
         description: >-
           The 202 (Accepted) status code indicates that the request has been accepted for processing, but the processing has not been completed. The request might or might not eventually be acted upon, as it might be disallowed when processing actually takes place. There is no facility in HTTP for re-sending a status code from an asynchronous operation.
 
@@ -172,7 +172,7 @@ classes:
           - title: RFC9110, Section 15.3.3
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-202-accepted
       203:
-        reason-phrase: Non-Authoritative Information
+        reasonPhrase: Non-Authoritative Information
         description: >-
           The 203 (Non-Authoritative Information) status code indicates that the request was successful but the enclosed content has been modified from that of the origin server's 200 (OK) response by a transforming proxy (Section 7.7). This status code allows the proxy to notify recipients when a transformation has been applied, since that knowledge might impact later decisions regarding the content. For example, future cache validation requests for the content might only be applicable along the same request path (through the same proxies).
 
@@ -182,7 +182,7 @@ classes:
           - title: RFC9110, Section 15.3.4
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-203-non-authoritative-infor
       204:
-        reason-phrase: No Content
+        reasonPhrase: No Content
         description: >-
           The 204 (No Content) status code indicates that the server has successfully fulfilled the request and that there is no additional content to send in the response content. Metadata in the response header fields refer to the target resource and its selected representation after the requested action was applied.
 
@@ -200,7 +200,7 @@ classes:
           - title: RFC9110, Section 15.3.5
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-204-no-content
       205:
-        reason-phrase: Reset Content
+        reasonPhrase: Reset Content
         description: >-
           The 205 (Reset Content) status code indicates that the server has fulfilled the request and desires that the user agent reset the "document view", which caused the request to be sent, to its original state as received from the origin server.
 
@@ -212,7 +212,7 @@ classes:
           - title: RFC9110, Section 15.3.6
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-205-reset-content
       206:
-        reason-phrase: Partial Content
+        reasonPhrase: Partial Content
         description: >-
           The 206 (Partial Content) status code indicates that the server is successfully fulfilling a range request for the target resource by transferring one or more parts of the selected representation.
 
@@ -234,7 +234,7 @@ classes:
           - title: RFC9110, Section 15.3.7
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-206-partial-content
       207:
-        reason-phrase: Multi-Status
+        reasonPhrase: Multi-Status
         description: >-
           The 207 (Multi-Status) status code provides status for multiple independent operations (see RFC4918 Section 13 for more information).
         isIana: true
@@ -242,7 +242,7 @@ classes:
           - title: RFC4918
             url: https://www.rfc-editor.org/rfc/rfc4918.html#section-13
       208:
-        reason-phrase: Already Reported
+        reasonPhrase: Already Reported
         description: >-
           The 208 (Already Reported) status code can be used inside a DAV: propstat response element to avoid enumerating the internal members of multiple bindings to the same collection repeatedly.  For each binding to a collection inside the request's scope, only one will be reported with a 200 status, while subsequent DAV:response elements for all other bindings will use the 208 status, and no DAV:response elements for their descendants are included.
 
@@ -256,7 +256,7 @@ classes:
           - title: RFC5842
             url: https://www.rfc-editor.org/rfc/rfc5842.html#page-31
       226:
-        reason-phrase: IM Used
+        reasonPhrase: IM Used
         description: >-
           The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.  The actual current instance might not be available except by combining this response with other previous or future responses, as appropriate for the specific instance-manipulation(s).  If so, the headers of the resulting instance are the result of combining the headers from the status-226 response and the other instances, following the rules in section 13.5.3 of the HTTP/1.1 specification [10].
 
@@ -289,7 +289,7 @@ classes:
           Note: In HTTP/1.0, the status codes 301 (Moved Permanently) and 302 (Found) were originally defined as method-preserving ([HTTP/1.0], Section 9.3) to match their implementation at CERN; 303 (See Other) was defined for a redirection that changed its method to GET. However, early user agents split on whether to redirect POST requests as POST (according to then-current specification) or as GET (the safer alternative when redirected to a different site). Prevailing practice eventually converged on changing the method to GET. 307 (Temporary Redirect) and 308 (Permanent Redirect) [RFC7538] were later added to unambiguously indicate method-preserving redirects, and status codes 301 and 302 have been adjusted to allow a POST request to be redirected as GET.
     codes:
       300:
-        reason-phrase: Multiple Choices
+        reasonPhrase: Multiple Choices
         description: >-
           The 300 (Multiple Choices) status code indicates that the target resource has more than one representation, each with its own more specific identifier, and information about the alternatives is being provided so that the user (or user agent) can select a preferred representation by redirecting its request to one or more of those identifiers. In other words, the server desires that the user agent engage in reactive negotiation to select the most appropriate representation(s) for its needs (Section 12).
 
@@ -305,7 +305,7 @@ classes:
           - title: RFC9110, Section 15.4.1
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-300-multiple-choices
       301:
-        reason-phrase: Moved Permanently
+        reasonPhrase: Moved Permanently
         description: >-
           The 301 (Moved Permanently) status code indicates that the target resource has been assigned a new permanent URI and any future references to this resource ought to use one of the enclosed URIs. The server is suggesting that a user agent with link-editing capability can permanently replace references to the target URI with one of the new references sent by the server. However, this suggestion is usually ignored unless the user agent is actively editing references (e.g., engaged in authoring content), the connection is secured, and the origin server is a trusted authority for the content being edited.
 
@@ -319,7 +319,7 @@ classes:
           - title: RFC9110, Section 15.4.2
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-301-moved-permanently
       302:
-        reason-phrase: Found
+        reasonPhrase: Found
         description: >-
           The 302 (Found) status code indicates that the target resource resides temporarily under a different URI. Since the redirection might be altered on occasion, the client ought to continue to use the target URI for future requests.
 
@@ -331,7 +331,7 @@ classes:
           - title: RFC9110, Section 15.4.3
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-302-found
       303:
-        reason-phrase: See Other
+        reasonPhrase: See Other
         description: >-
           The 303 (See Other) status code indicates that the server is redirecting the user agent to a different resource, as indicated by a URI in the Location header field, which is intended to provide an indirect response to the original request. A user agent can perform a retrieval request targeting that URI (a GET or HEAD request if using HTTP), which might also be redirected, and present the eventual result as an answer to the original request. Note that the new URI in the Location header field is not considered equivalent to the target URI.
 
@@ -345,7 +345,7 @@ classes:
           - title: RFC9110, Section 15.4.4
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-303-see-other
       304:
-        reason-phrase: Not Modified
+        reasonPhrase: Not Modified
         description: >-
           The 304 (Not Modified) status code indicates that a conditional GET or HEAD request has been received and would have resulted in a 200 (OK) response if it were not for the fact that the condition evaluated to false. In other words, there is no need for the server to transfer a representation of the target resource because the request indicates that the client, which made the request conditional, already has a valid representation; the server is therefore redirecting the client to make use of that stored representation as if it were the content of a 200 (OK) response.
 
@@ -363,7 +363,7 @@ classes:
           - title: RFC9110, Section 15.4.5
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-304-not-modified
       305:
-        reason-phrase: Use Proxy
+        reasonPhrase: Use Proxy
         description: >-
           The 305 (Use Proxy) status code was defined in a previous version of this specification and is now deprecated (Appendix B of [RFC7231]).
         isDeprecated: true
@@ -372,7 +372,7 @@ classes:
           - title: RFC9110, Section 15.4.6
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-305-use-proxy
       306:
-        reason-phrase: (Unused)
+        reasonPhrase: (Unused)
         description: >-
           The 306 status code was defined in a previous version of this specification, is no longer used, and the code is reserved.
         isDeprecated: true
@@ -381,7 +381,7 @@ classes:
           - title: RFC9110, Section 15.4.7
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-306-unused
       307:
-        reason-phrase: Temporary Redirect
+        reasonPhrase: Temporary Redirect
         description: >-
           The 307 (Temporary Redirect) status code indicates that the target resource resides temporarily under a different URI and the user agent MUST NOT change the request method if it performs an automatic redirection to that URI. Since the redirection can change over time, the client ought to continue using the original target URI for future requests.
 
@@ -391,7 +391,7 @@ classes:
           - title: RFC9110, Section 15.4.2
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-307-temporary-redirect
       308:
-        reason-phrase:  Permanent Redirect
+        reasonPhrase:  Permanent Redirect
         description: >-
           The 308 (Permanent Redirect) status code indicates that the target resource has been assigned a new permanent URI and any future references to this resource ought to use one of the enclosed URIs. The server is suggesting that a user agent with link-editing capability can permanently replace references to the target URI with one of the new references sent by the server. However, this suggestion is usually ignored unless the user agent is actively editing references (e.g., engaged in authoring content), the connection is secured, and the origin server is a trusted authority for the content being edited.
 
@@ -414,7 +414,7 @@ classes:
       The 4xx (Client Error) class of status code indicates that the client seems to have erred. Except when responding to a HEAD request, the server SHOULD send a representation containing an explanation of the error situation, and whether it is a temporary or permanent condition. These status codes are applicable to any request method. User agents SHOULD display any included representation to the user.
     codes:
       400:
-        reason-phrase: Bad Request
+        reasonPhrase: Bad Request
         description: >-
           The 400 (Bad Request) status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
         isIana: true
@@ -422,7 +422,7 @@ classes:
           - title: RFC9110, Section 15.5.1
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-400-bad-request
       401:
-        reason-phrase: Unauthorized
+        reasonPhrase: Unauthorized
         description: >-
           The 401 (Unauthorized) status code indicates that the request has not been applied because it lacks valid authentication credentials for the target resource. The server generating a 401 response MUST send a WWW-Authenticate header field (Section 11.6.1) containing at least one challenge applicable to the target resource.
 
@@ -432,7 +432,7 @@ classes:
           - title: RFC9110, Section 15.5.2
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-401-unauthorized
       402:
-        reason-phrase: Payment Required
+        reasonPhrase: Payment Required
         description: >-
           The 402 (Payment Required) status code is reserved for future use.
         isIana: true
@@ -440,7 +440,7 @@ classes:
           - title: RFC9110, Section 15.5.3
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-402-payment-required
       403:
-        reason-phrase: Forbidden
+        reasonPhrase: Forbidden
         description: >-
           The 403 (Forbidden) status code indicates that the server understood the request but refuses to fulfill it. A server that wishes to make public why the request has been forbidden can describe that reason in the response content (if any).
 
@@ -452,7 +452,7 @@ classes:
           - title: RFC9110, Section 15.5.4
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-403-forbidden
       404:
-        reason-phrase: Not Found
+        reasonPhrase: Not Found
         description: >-
           The 404 (Not Found) status code indicates that the origin server did not find a current representation for the target resource or is not willing to disclose that one exists. A 404 status code does not indicate whether this lack of representation is temporary or permanent; the 410 (Gone) status code is preferred over 404 if the origin server knows, presumably through some configurable means, that the condition is likely to be permanent.
 
@@ -462,7 +462,7 @@ classes:
           - title: RFC9110, Section 15.5.5
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-404-not-found
       405:
-        reason-phrase: Method Not Allowed
+        reasonPhrase: Method Not Allowed
         description: >-
           The 405 (Method Not Allowed) status code indicates that the method received in the request-line is known by the origin server but not supported by the target resource. The origin server MUST generate an Allow header field in a 405 response containing a list of the target resource's currently supported methods.
 
@@ -472,7 +472,7 @@ classes:
           - title: RFC9110, Section 15.5.6
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-405-method-not-allowed
       406:
-        reason-phrase: Not Acceptable
+        reasonPhrase: Not Acceptable
         description: >-
           The 406 (Not Acceptable) status code indicates that the target resource does not have a current representation that would be acceptable to the user agent, according to the proactive negotiation header fields received in the request (Section 12.1), and the server is unwilling to supply a default representation.
 
@@ -482,7 +482,7 @@ classes:
           - title: RFC9110, Section 15.5.7
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-406-not-acceptable
       407:
-        reason-phrase: Proxy Authentication Required
+        reasonPhrase: Proxy Authentication Required
         description: >-
           The 407 (Proxy Authentication Required) status code is similar to 401 (Unauthorized), but it indicates that the client needs to authenticate itself in order to use a proxy for this request. The proxy MUST send a Proxy-Authenticate header field (Section 11.7.1) containing a challenge applicable to that proxy for the request. The client MAY repeat the request with a new or replaced Proxy-Authorization header field (Section 11.7.2).
         isIana: true
@@ -490,7 +490,7 @@ classes:
           - title: RFC9110, Section 15.5.8
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-407-proxy-authentication-re
       408:
-        reason-phrase: Request Timeout
+        reasonPhrase: Request Timeout
         description: >-
           The 408 (Request Timeout) status code indicates that the server did not receive a complete request message within the time that it was prepared to wait.
 
@@ -500,7 +500,7 @@ classes:
           - title: RFC9110, Section 15.5.9
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-408-request-timeout
       409:
-        reason-phrase: Conflict
+        reasonPhrase: Conflict
         description: >-
           The 409 (Conflict) status code indicates that the request could not be completed due to a conflict with the current state of the target resource. This code is used in situations where the user might be able to resolve the conflict and resubmit the request. The server SHOULD generate content that includes enough information for a user to recognize the source of the conflict.
 
@@ -510,7 +510,7 @@ classes:
           - title: RFC9110, Section 15.5.10
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-409-conflict
       410:
-        reason-phrase: Gone
+        reasonPhrase: Gone
         description: >-
           The 410 (Gone) status code indicates that access to the target resource is no longer available at the origin server and that this condition is likely to be permanent. If the origin server does not know, or has no facility to determine, whether or not the condition is permanent, the status code 404 (Not Found) ought to be used instead.
 
@@ -522,7 +522,7 @@ classes:
           - title: RFC9110, Section 15.5.11
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-410-gone
       411:
-        reason-phrase: Length Required
+        reasonPhrase: Length Required
         description: >-
           The 411 (Length Required) status code indicates that the server refuses to accept the request without a defined Content-Length (Section 8.6). The client MAY repeat the request if it adds a valid Content-Length header field containing the length of the request content.
         isIana: true
@@ -530,7 +530,7 @@ classes:
           - title: RFC9110, Section 15.5.12
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-411-length-required
       412:
-        reason-phrase: Precondition Failed
+        reasonPhrase: Precondition Failed
         description: >-
           The 412 (Precondition Failed) status code indicates that one or more conditions given in the request header fields evaluated to false when tested on the server (Section 13). This response status code allows the client to place preconditions on the current resource state (its current representations and metadata) and, thus, prevent the request method from being applied if the target resource is in an unexpected state.
         isIana: true
@@ -538,7 +538,7 @@ classes:
           - title: RFC9110, Section 15.5.13
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-412-precondition-failed
       413:
-        reason-phrase: Request Entity Too Large
+        reasonPhrase: Request Entity Too Large
         description: >-
           The 413 (Content Too Large) status code indicates that the server is refusing to process a request because the request content is larger than the server is willing or able to process. The server MAY terminate the request, if the protocol version in use allows it; otherwise, the server MAY close the connection.
 
@@ -548,7 +548,7 @@ classes:
           - title: RFC9110, Section 15.5.14
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-413-content-too-large
       414:
-        reason-phrase: Request-URI Too Long
+        reasonPhrase: Request-URI Too Long
         description: >-
           The 414 (URI Too Long) status code indicates that the server is refusing to service the request because the target URI is longer than the server is willing to interpret. This rare condition is only likely to occur when a client has improperly converted a POST request to a GET request with long query information, when the client has descended into an infinite loop of redirection (e.g., a redirected URI prefix that points to a suffix of itself) or when the server is under attack by a client attempting to exploit potential security holes.
 
@@ -558,7 +558,7 @@ classes:
           - title: RFC9110, Section 15.5.15
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-414-uri-too-long
       415:
-        reason-phrase: Unsupported Media Type
+        reasonPhrase: Unsupported Media Type
         description: >-
           The 415 (Unsupported Media Type) status code indicates that the origin server is refusing to service the request because the content is in a format not supported by this method on the target resource.
 
@@ -572,7 +572,7 @@ classes:
           - title: RFC9110, Section 15.5.16
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-415-unsupported-media-type
       416:
-        reason-phrase: Requested Range Not Satisfiable
+        reasonPhrase: Requested Range Not Satisfiable
         description: >-
           The 415 (Unsupported Media Type) status code indicates that the origin server is refusing to service the request because the content is in a format not supported by this method on the target resource.
 
@@ -594,7 +594,7 @@ classes:
           - title: RFC9110, Section 15.5.17
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-416-range-not-satisfiable
       417:
-        reason-phrase: Expectation Failed
+        reasonPhrase: Expectation Failed
         description: >-
           The 417 (Expectation Failed) status code indicates that the expectation given in the request's Expect header field (Section 10.1.1) could not be met by at least one of the inbound servers.
         isIana: true
@@ -602,7 +602,7 @@ classes:
           - title: RFC9110, Section 15.5.18
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-417-expectation-failed
       418:
-        reason-phrase: (Unused)
+        reasonPhrase: (Unused)
         description: >-
           [RFC2324] was an April 1 RFC that lampooned the various ways HTTP was abused; one such abuse was the definition of an application-specific 418 status code, which has been deployed as a joke often enough for the code to be unusable for any future use.
 
@@ -612,7 +612,7 @@ classes:
           - title: RFC9110, Section 15.5.19
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-418-unused
       421:
-        reason-phrase: Expectation Failed
+        reasonPhrase: Expectation Failed
         description: >-
           The 421 (Misdirected Request) status code indicates that the request was directed at a server that is unable or unwilling to produce an authoritative response for the target URI. An origin server (or gateway acting on behalf of the origin server) sends 421 to reject a target URI that does not match an origin for which the server has been configured (Section 4.3.1) or does not match the connection context over which the request was received (Section 7.4).
 
@@ -624,7 +624,7 @@ classes:
           - title: RFC9110, Section 15.5.20
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-421-misdirected-request
       422:
-        reason-phrase: Unprocessable Content
+        reasonPhrase: Unprocessable Content
         description: >-
           The 422 (Unprocessable Content) status code indicates that the server understands the content type of the request content (hence a 415 (Unsupported Media Type) status code is inappropriate), and the syntax of the request content is correct, but it was unable to process the contained instructions. For example, this status code can be sent if an XML request content contains well-formed (i.e., syntactically correct), but semantically erroneous XML instructions.
         isIana: true
@@ -632,7 +632,7 @@ classes:
           - title: RFC9110, Section 15.5.21
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-422-unprocessable-content
       426:
-        reason-phrase: Expectation Failed
+        reasonPhrase: Expectation Failed
         description: >-
           The 426 (Upgrade Required) status code indicates that the server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol. The server MUST send an Upgrade header field in a 426 response to indicate the required protocol(s) (Section 7.8).
 
@@ -650,7 +650,7 @@ classes:
           - title: RFC9110, Section 15.5.22
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-426-upgrade-required
       428:
-        reason-phrase: Precondition Required
+        reasonPhrase: Precondition Required
         description: >-
           The 428 status code indicates that the origin server requires the request to be conditional.
 
@@ -677,7 +677,7 @@ classes:
           - title: RFC6585
             url: https://www.rfc-editor.org/rfc/rfc6585.html#page-2
       429:
-        reason-phrase: Too Many Requests
+        reasonPhrase: Too Many Requests
         description: >-
           The 429 status code indicates that the user has sent too many requests in a given amount of time ("rate limiting").
 
@@ -708,7 +708,7 @@ classes:
           - title: RFC6585
             url: https://www.rfc-editor.org/rfc/rfc6585.html#page-3
       431:
-        reason-phrase: Request Header Fields Too Large
+        reasonPhrase: Request Header Fields Too Large
         description: >-
           The 431 status code indicates that the server is unwilling to process the request because its header fields are too large.  The request MAY be resubmitted after reducing the size of the request header fields.
 
@@ -735,7 +735,7 @@ classes:
           - title: RFC6585
             url: https://www.rfc-editor.org/rfc/rfc6585.html#page-3
       451:
-        reason-phrase: Unavailable For Legal Reasons
+        reasonPhrase: Unavailable For Legal Reasons
         description: >-
           This status code indicates that the server is denying access to the resource as a consequence of a legal demand.
 
@@ -777,7 +777,7 @@ classes:
       The 5xx (Server Error) class of status code indicates that the server is aware that it has erred or is incapable of performing the requested method. Except when responding to a HEAD request, the server SHOULD send a representation containing an explanation of the error situation, and whether it is a temporary or permanent condition. A user agent SHOULD display any included representation to the user. These status codes are applicable to any request method.
     codes:
       500:
-        reason-phrase: Internal Server Error
+        reasonPhrase: Internal Server Error
         description: >-
           The 500 (Internal Server Error) status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.
         isIana: true
@@ -785,7 +785,7 @@ classes:
           - title: RFC9110, Section 15.6.1
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-500-internal-server-error
       501:
-        reason-phrase: Not Implemented
+        reasonPhrase: Not Implemented
         description: >-
           The 501 (Not Implemented) status code indicates that the server does not support the functionality required to fulfill the request. This is the appropriate response when the server does not recognize the request method and is not capable of supporting it for any resource.
 
@@ -795,7 +795,7 @@ classes:
           - title: RFC9110, Section 15.6.2
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-501-not-implemented
       502:
-        reason-phrase: Bad Gateway
+        reasonPhrase: Bad Gateway
         description: >-
           The 501 (Not Implemented) status code indicates that the server does not support the functionality required to fulfill the request. This is the appropriate response when the server does not recognize the request method and is not capable of supporting it for any resource.
 
@@ -805,7 +805,7 @@ classes:
           - title: RFC9110, Section 15.6.3
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-502-bad-gateway
       503:
-        reason-phrase: Service Unavailable
+        reasonPhrase: Service Unavailable
         description: >-
           The 503 (Service Unavailable) status code indicates that the server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay. The server MAY send a Retry-After header field (Section 10.2.3) to suggest an appropriate amount of time for the client to wait before retrying the request.
 
@@ -815,7 +815,7 @@ classes:
           - title: RFC9110, Section 15.6.4
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-503-service-unavailable
       504:
-        reason-phrase: Gateway Time-out
+        reasonPhrase: Gateway Time-out
         description: >-
           The 504 (Gateway Timeout) status code indicates that the server, while acting as a gateway or proxy, did not receive a timely response from an upstream server it needed to access in order to complete the request.
         isIana: true
@@ -823,7 +823,7 @@ classes:
           - title: RFC9110, Section 15.6.5
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-504-gateway-timeout
       505:
-        reason-phrase: HTTP Version Not Supported
+        reasonPhrase: HTTP Version Not Supported
         description: >-
           The 505 (HTTP Version Not Supported) status code indicates that the server does not support, or refuses to support, the major version of HTTP that was used in the request message. The server is indicating that it is unable or unwilling to complete the request using the same major version as the client, as described in Section 2.5, other than with this error message. The server SHOULD generate a representation for the 505 response that describes why that version is not supported and what other protocols are supported by that server.
         isIana: true
@@ -831,7 +831,7 @@ classes:
           - title: RFC9110, Section 15.6.6
             url: https://www.rfc-editor.org/rfc/rfc9110.html#name-505-http-version-not-suppor
       506:
-        reason-phrase: Variant Also Negotiates
+        reasonPhrase: Variant Also Negotiates
         description: >-
           The 506 status code indicates that the server has an internal configuration error: the chosen variant resource is configured to engage in transparent content negotiation itself, and is therefore not a proper end point in the negotiation process.
         isIana: true
@@ -839,7 +839,7 @@ classes:
           - title: RFC2295
             url: https://www.rfc-editor.org/rfc/rfc2295.html#page-25
       507:
-        reason-phrase: Insufficient Storage
+        reasonPhrase: Insufficient Storage
         description: >-
           The 507 (Insufficient Storage) status code means the method could not be performed on the resource because the server is unable to store the representation needed to successfully complete the request.  This condition is considered to be temporary.  If the request that received this status code was the result of a user action, the request MUST NOT be repeated until it is requested by a separate user action.
         isIana: true
@@ -847,7 +847,7 @@ classes:
           - title: RFC4918
             url: https://www.rfc-editor.org/rfc/rfc4918.html#page-79
       508:
-        reason-phrase: Loop Detected
+        reasonPhrase: Loop Detected
         description: >-
           The 508 (Loop Detected) status code indicates that the server terminated an operation because it encountered an infinite loop while processing a request with "Depth: infinity".  This status indicates that the entire operation failed.
         isIana: true
@@ -855,7 +855,7 @@ classes:
           - title: RFC5842
             url: https://www.rfc-editor.org/rfc/rfc5842.html#page-34
       510:
-        reason-phrase: Not Extended (OBSOLETED)
+        reasonPhrase: Not Extended (OBSOLETED)
         description: >-
           The policy for accessing the resource has not been met in the request.  The server should send back all the information necessary for the client to issue an extended request. It is outside the scope of this specification to specify how the extensions inform the client.
 
@@ -868,7 +868,7 @@ classes:
           - title: Status change of HTTP experiments to Historic
             url: https://datatracker.ietf.org/doc/status-change-http-experiments-to-historic/
       511:
-        reason-phrase: Network Authentication Required
+        reasonPhrase: Network Authentication Required
         description: >-
           The 511 status code indicates that the client needs to authenticate to gain network access.
 
