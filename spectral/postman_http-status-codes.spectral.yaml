@@ -1,0 +1,63 @@
+description: |
+  Finders based on IANA HTTP status code registry to detect use of 
+  unassigned, unused or invalid HTTP status codes.
+  The regexes used in `http-status-codes-unassigned` and `http-status-codes-unused`
+  have been generated from the registry XML data.
+documentationUrl: https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
+
+aliases:
+  ResponsesObject:
+    description: All Responses objects
+    targets:
+      - formats:
+          - oas2
+          - oas3
+        given: 
+          - "$..responses"
+  HttpStatus:
+    - "#ResponsesObject.*~"
+
+rules:
+  http-status-codes-unassigned:
+    description: Unassigned HTTP status code.
+    message: The {{property}} HTTP status code is not assigned according to IANA registry.
+    given:
+      - "#HttpStatus"
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      - function: pattern
+        functionOptions:
+          # regex generated based on https://www.iana.org/assignments/http-status-codes/http-status-codes.xml
+          notMatch: (?:10[4-9]|1[1-9][0-9])|(?:209|21[0-9]|22[0-5])|(?:22[7-9]|2[3-9][0-9])|(?:309|3[1-9][0-9])|(?:419|420)|427|430|(?:43[2-9]|44[0-9]|450)|(?:45[2-9]|4[6-9][0-9])|509|(?:51[2-9]|5[2-9][0-9])
+
+  http-status-codes-unused:
+    description: Unused or obsolete HTTP status code.
+    message: The {{property}} HTTP status code is unused or obsolete according to IANA registry.
+    given:
+      - "#HttpStatus"
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      - function: pattern
+        functionOptions:
+          # regex generated based on https://www.iana.org/assignments/http-status-codes/http-status-codes.xml
+          notMatch: 306|418|510
+
+  http-status-codes-invalid:
+    description: HTTP status code not belonging not [1-5]XX, default or an x-tension.
+    message: "{{property}} is not a valid HTTP status (100-599), the 'default' wildcard or an extension."
+    given:
+      - "#HttpStatus"
+    severity: error
+    formats:
+      - oas2
+      - oas3
+    then:
+      - function: pattern
+        functionOptions:
+          match: '[1-5]..|default|^x-'

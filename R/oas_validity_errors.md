@@ -1,6 +1,6 @@
 OAS Validity: Source of Errors
 ================
-<sup>Last updated: 2023-01-26</sup>
+<sup>Last updated: 2023-02-02</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a
@@ -32,15 +32,15 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 
 ## *Which top level paths of API specifications are the source of validation errors?*
 
-- A total of 170,919 validation errors are found across 5,331 invalid
+- A total of 174,826 validation errors are found across 5,635 invalid
   APIs
-- Looking at the *error* counts, 119,621 (70%) are found under `paths`.
-  This is followed by 35,288 (20.6%) under `components`, 11,800 (6.9%)
-  under `definitions`, 1,554 (0.9%) under `root`, and 901 (0.5%) under
-  `info`
-- Looking at the *API* counts, 3,311 (40.3%)have at least one error
-  under `paths`. This is followed by 1,350 (16.4%) under `components`,
-  1,286 (15.7%) under `root`, 684 (8.3%) under `info`, and 425 (5.2%)
+- Looking at the *error* counts, 123,041 (70.4%) are found under
+  `paths`. This is followed by 35,498 (20.3%) under `components`, 11,846
+  (6.8%) under `definitions`, 1,641 (0.9%) under `root`, and 955 (0.5%)
+  under `info`
+- Looking at the *API* counts, 3,510 (40.4%)have at least one error
+  under `paths`. This is followed by 1,405 (16.2%) under `components`,
+  1,360 (15.6%) under `root`, 731 (8.4%) under `info`, and 461 (5.3%)
   under `definitions`
 - Keep in mind the `definitions` property is only used by OpenAPI 2.x
   and `components` by OpenAPI 3.x (as v2 `definitions` became
@@ -55,25 +55,25 @@ Table: Count of errors by top property
 
 | path                |      n |       pct |
 |:--------------------|-------:|----------:|
-| paths               | 119621 | 0.6998695 |
-| components          |  35288 | 0.2064604 |
-| definitions         |  11800 | 0.0690386 |
-| root                |   1554 | 0.0090920 |
-| info                |    901 | 0.0052715 |
-| tags                |    502 | 0.0029371 |
-| servers             |    341 | 0.0019951 |
-| securityDefinitions |    187 | 0.0010941 |
-| host                |    183 | 0.0010707 |
-| basePath            |    142 | 0.0008308 |
-| security            |    104 | 0.0006085 |
-| responses           |     76 | 0.0004447 |
-| schemes             |     68 | 0.0003978 |
-| parameters          |     56 | 0.0003276 |
-| produces            |     47 | 0.0002750 |
-| externalDocs        |     26 | 0.0001521 |
-| openapi             |     12 | 0.0000702 |
-| consumes            |      7 | 0.0000410 |
-| swagger             |      4 | 0.0000234 |
+| paths               | 123041 | 0.7037912 |
+| components          |  35498 | 0.2030476 |
+| definitions         |  11846 | 0.0677588 |
+| root                |   1641 | 0.0093865 |
+| info                |    955 | 0.0054626 |
+| tags                |    513 | 0.0029343 |
+| servers             |    365 | 0.0020878 |
+| host                |    194 | 0.0011097 |
+| securityDefinitions |    193 | 0.0011040 |
+| basePath            |    166 | 0.0009495 |
+| security            |    109 | 0.0006235 |
+| responses           |     76 | 0.0004347 |
+| schemes             |     72 | 0.0004118 |
+| parameters          |     60 | 0.0003432 |
+| produces            |     47 | 0.0002688 |
+| externalDocs        |     26 | 0.0001487 |
+| openapi             |     13 | 0.0000744 |
+| consumes            |      7 | 0.0000400 |
+| swagger             |      4 | 0.0000229 |
 
 </details>
 <details>
@@ -83,25 +83,25 @@ Table: Count of APIs with 1 or more errors by top property
 
 | path                |    n |       pct |
 |:--------------------|-----:|----------:|
-| paths               | 3311 | 0.4033869 |
-| components          | 1350 | 0.1644737 |
-| root                | 1286 | 0.1566764 |
-| info                |  684 | 0.0833333 |
-| definitions         |  425 | 0.0517788 |
-| servers             |  285 | 0.0347222 |
-| host                |  183 | 0.0222953 |
-| securityDefinitions |  150 | 0.0182749 |
-| basePath            |  142 | 0.0173002 |
-| security            |  102 | 0.0124269 |
-| tags                |   92 | 0.0112086 |
-| schemes             |   65 | 0.0079191 |
-| produces            |   47 | 0.0057261 |
-| parameters          |   24 | 0.0029240 |
-| externalDocs        |   20 | 0.0024366 |
-| responses           |   19 | 0.0023148 |
-| openapi             |   12 | 0.0014620 |
-| consumes            |    7 | 0.0008528 |
-| swagger             |    4 | 0.0004873 |
+| paths               | 3510 | 0.4036339 |
+| components          | 1405 | 0.1615685 |
+| root                | 1360 | 0.1563937 |
+| info                |  731 | 0.0840616 |
+| definitions         |  461 | 0.0530129 |
+| servers             |  307 | 0.0353036 |
+| host                |  194 | 0.0223091 |
+| basePath            |  166 | 0.0190892 |
+| securityDefinitions |  156 | 0.0179393 |
+| security            |  107 | 0.0123045 |
+| tags                |   95 | 0.0109246 |
+| schemes             |   69 | 0.0079347 |
+| produces            |   47 | 0.0054048 |
+| parameters          |   25 | 0.0028749 |
+| externalDocs        |   20 | 0.0022999 |
+| responses           |   19 | 0.0021849 |
+| openapi             |   13 | 0.0014949 |
+| consumes            |    7 | 0.0008050 |
+| swagger             |    4 | 0.0004600 |
 
 </details>
 
@@ -110,23 +110,23 @@ Table: Count of APIs with 1 or more errors by top property
 The majority of the API validation issues occur under the `path`
 property.
 
-377 errors are found under at the first level (the properties right
+398 errors are found under at the first level (the properties right
 under `/paths`) ,which represents a small proportion of all `paths`
 errors (0.2%), but are nonetheless important as they hide all underlying
 content.
 
 They can be categorized as follows:
 
-- Regex mismatch: 304 (80.6%). Raised when the property name does not
+- Regex mismatch: 319 (80.2%). Raised when the property name does not
   start with a / or x-, essentially not matching the JSON schema
   `'^/', '^x-'` regular expression. Note that the schema validation
   library aggregates all regex issues under a single error (not one per
   property).
-- Not an object: 70 (18.6%). Raised when the `paths` property is not a
+- Not an object: 75 (18.8%). Raised when the `paths` property is not a
   valid JSON {object}. Examples includes an empty \[\] or populated
   array, a string, a null value, etc.
-- Unevaluated properties: 3 (0.8%). Raise when an invalid property name
-  is used in a v3.1 specification.
+- Unevaluated properties: 4 (1%). Raise when an invalid property name is
+  used in a v3.1 specification.
 
 <details>
 <summary>
@@ -135,9 +135,9 @@ Table: Categorized count of errors under `paths` first level
 
 | category |   n |       pct |
 |:---------|----:|----------:|
-| REGEX    | 304 | 0.8063660 |
-| NOTOBJ   |  70 | 0.1856764 |
-| UNEVAL   |   3 | 0.0079576 |
+| REGEX    | 319 | 0.8015075 |
+| NOTOBJ   |  75 | 0.1884422 |
+| UNEVAL   |   4 | 0.0100503 |
 
 </details>
 

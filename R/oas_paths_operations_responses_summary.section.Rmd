@@ -1,0 +1,10 @@
+```{r, eval=TRUE }
+query = "
+select response, count(*) as n, count(*) / sum(count(*)) over() as pct
+from vw_oas_resource_paths_operations_responses
+group by 1 order by 2 desc, 1
+"
+df_responses = dbGetQuery(conn, query)
+```
+
+- Across all `r format_count(sum(df_responses$n))` responses, the most common codes or values are ``r df_responses$response[1]`` `r format_count_and_pct(df_responses$n[1], df_responses$pct[1])`, ``r df_responses$response[2]`` `r format_count_and_pct(df_responses$n[2], df_responses$pct[2])`, ``r df_responses$response[3]`` `r format_count_and_pct(df_responses$n[3], df_responses$pct[3])`, ``r df_responses$response[4]`` `r format_count_and_pct(df_responses$n[4], df_responses$pct[4])`, and ``r df_responses$response[5]`` `r format_count_and_pct(df_responses$n[5], df_responses$pct[5])`

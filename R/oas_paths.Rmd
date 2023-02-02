@@ -8,6 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+require('knitr')
 knitr::opts_chunk$set(echo = FALSE)
 source("db_connection.R", local = knitr::knit_global())
 source("utils.R", local = knitr::knit_global())
@@ -25,7 +26,7 @@ library("ggplot2")
 ```{r oas_paths_summary, child=c('oas_paths_summary.section.Rmd')}
 ```
 
-```{r oas_paths_buckets_query, eval=TRUE }
+```{r, eval=TRUE }
 query = "
 select 
 	bucket, 
@@ -62,6 +63,31 @@ ggplot(df, aes(x = label, y = count)) +
   xlab("Count of 'paths' entries") +
   ylab("Count of APIs")
 ```
+
+## Which properties are used under paths?
+
+```{r, eval=TRUE }
+query = "
+select jsonb_object_keys(value) as property, count(*) as n, count(*) / sum(count(*)) over() as pct
+from vw_oas_resource_paths paths
+where jsonb_typeof(value) = 'object'
+group by 1 order by 2 desc
+"
+df = dbGetQuery(conn, query)
+```
+
+- Out of `r format_count(sum(df$n))` properties under paths, the most commonly used are ``r df$property[1]`` `r format_count_and_pct(df$n[1], df$pct[1])`, ``r df$property[2]`` `r format_count_and_pct(df$n[2], df$pct[2])`, ``r df$property[3]`` `r format_count_and_pct(df$n[3], df$pct[3])`, ``r df$property[4]`` `r format_count_and_pct(df$n[4], df$pct[4])`, and ``r df$property[5]`` `r format_count_and_pct(df$n[5], df$pct[5])`. 
+- Beyond standard properties, numerous extensions were found. See table below for details.
+- No significant variations were observed across specification versions (2.x vs 3.x) or collections
+- Consult the [operations report](oas_paths_operations.md) for more in-depth analysis.q
+
+<details>
+<summary>Table: Counts and percentages of properties under paths</summary>
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+kable(df)
+```
+</details>
+
 
 # Methodology
 

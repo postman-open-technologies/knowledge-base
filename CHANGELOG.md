@@ -2,6 +2,8 @@
 Summary of significant changes and events below (in reverse chronological order). 
 
 ## 2023-01
+- oas:operations: created report for path operations and responses
+- oas:paths: added section on path properties
 - sql: seeded yaml file with Postgres queries
 - wiki: seeded wiki pages for home, file system, harvesting, infrastructure, and postgres
 - docs:removed documentation directory and moved to wiki
