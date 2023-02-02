@@ -1,0 +1,890 @@
+# References:
+
+# Inspired by https://github.com/radioactivehamster/http-status-codes
+# Resources:
+# - https://stackoverflow.com/questions/3790454/how-do-i-break-a-string-in-yaml-over-multiple-lines
+#
+---
+name: HTTP Status Codes
+description: >-
+  The status code of a response is a three-digit integer code that describes the result of the request and the semantics of the response, including whether the request was successful and what content is enclosed (if any). All valid status codes are within the range of 100 to 599, inclusive.
+
+  The first digit of the status code defines the class of response. The last two digits do not have any categorization role. There are five values for the first digit:
+  - 1xx (Informational): The request was received, continuing process
+  - 2xx (Successful): The request was successfully received, understood, and accepted
+  - 3xx (Redirection): Further action needs to be taken in order to complete the request
+  - 4xx (Client Error): The request contains bad syntax or cannot be fulfilled
+  - 5xx (Server Error): The server failed to fulfill an apparently valid request
+
+  The status code of a response is a three-digit integer code that describes the result of the request and the semantics of the response, including whether the request was successful and what content is enclosed (if any). All valid status codes are within the range of 100 to 599, inclusive.
+
+  The first digit of the status code defines the class of response. The last two digits do not have any categorization role. There are five values for the first digit:
+
+  HTTP status codes are extensible. A client is not required to understand the meaning of all registered status codes, though such understanding is obviously desirable. However, a client MUST understand the class of any status code, as indicated by the first digit, and treat an unrecognized status code as being equivalent to the x00 status code of that class.
+
+  For example, if a client receives an unrecognized status code of 471, it can see from the first digit that there was something wrong with its request and treat the response as if it had received a 400 (Bad Request) status code. The response message will usually contain a representation that explains the status.
+
+  Values outside the range 100..599 are invalid. Implementations often use three-digit integer values outside of that range (i.e., 600..999) for internal communication of non-HTTP status (e.g., library errors). A client that receives a response with an invalid status code SHOULD process the response as if it had a 5xx (Server Error) status code.
+
+  A single request can have multiple associated responses: zero or more "interim" (non-final) responses with status codes in the "informational" (1xx) range, followed by exactly one "final" response with a status code in one of the other ranges.
+overview: >-
+  The status codes listed below are defined in this specification. The reason phrases listed here are only recommendations -- they can be replaced by local equivalents or left out altogether without affecting the protocol.
+
+  Responses with status codes that are defined as heuristically cacheable (e.g., 200, 203, 204, 206, 300, 301, 308, 404, 405, 410, 414, and 501 in this specification) can be reused by a cache with heuristic expiration unless otherwise indicated by the method definition or explicit cache controls [CACHING]; all other status codes are not heuristically cacheable.
+
+  Additional status codes, outside the scope of this specification, have been specified for use in HTTP. All such status codes ought to be registered within the "Hypertext Transfer Protocol (HTTP) Status Code Registry", as described in Section 16.2.
+references:
+  - id: IANA
+    title: IANA Hypertext Transfer Protocol (HTTP) Status Code Registry
+    url: https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
+  - id: RFC9110
+    title: RFC 9110 HTTP Semantics
+    url: https://www.rfc-editor.org/rfc/rfc9110.html
+  - id: RFC2518
+    title: RFC 2518 HTTP Extensions for Distributed Authoring -- WEBDAV
+    url: https://www.rfc-editor.org/rfc/rfc2518
+  - id: RFC8297
+    title: RFC 8297 An HTTP Status Code for Indicating Hints
+    url: https://www.rfc-editor.org/rfc/rfc8297.html
+  - id: RFC4918
+    title: RFC 4918 HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)
+    url: https://www.rfc-editor.org/rfc/rfc4918.html
+  - id: RFC5842
+    title: RFC 5842 Binding Extensions to Web Distributed Authoring and Versioning (WebDAV)
+    url: https://www.rfc-editor.org/rfc/rfc5842.html
+  - id: RFC3229
+    title: RFC 3229 Delta encoding in HTTP
+    url: https://www.rfc-editor.org/rfc/rfc3229.html
+  - id: RFC6585
+    title: RFC 6585 Additional HTTP Status Codes
+    url: https://www.rfc-editor.org/rfc/rfc6585.html
+  - id: RFC2995
+    title: RFC 2295 Transparent Content Negotiation in HTTP
+    url: https://www.rfc-editor.org/rfc/rfc2295.html
+  - id: RFC2774
+  - title: RFC 2774 An HTTP Extension Framework
+    url: https://www.rfc-editor.org/rfc/rfc2774.html
+  - id: WikipediaCodes
+    title: Wikipedia List of HTTP status codes
+    url: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#Unofficial_codes
+classes:
+  1xx:
+    class: Informational
+    synopsis: Request received, continuing process
+    description: >-
+      The 1xx (Informational) class of status code indicates an interim response for communicating connection status or request progress prior to completing the requested action and sending a final response. Since HTTP/1.0 did not define any 1xx status codes, a server MUST NOT send a 1xx response to an HTTP/1.0 client.
+
+      A 1xx response is terminated by the end of the header section; it cannot contain content or trailers.
+
+      A client MUST be able to parse one or more 1xx responses received prior to a final response, even if the client does not expect one. A user agent MAY ignore unexpected 1xx responses.
+
+      A proxy MUST forward 1xx responses unless the proxy itself requested the generation of the 1xx response. For example, if a proxy adds an "Expect: 100-continue" header field when it forwards a request, then it need not forward the corresponding 100 (Continue) response(s)  
+    codes:
+      100:
+        reason-phrase: Continue
+        description: >-
+          The 100 (Continue) status code indicates that the initial part of a request has been received and has not yet been rejected by the server. The server intends to send a final response after the request has been fully received and acted upon.
+
+          When the request contains an Expect header field that includes a 100-continue expectation, the 100 response indicates that the server wishes to receive the request content, as described in Section 10.1.1. The client ought to continue sending the request and discard the 100 response.
+
+          If the request did not contain an Expect header field containing the 100-continue expectation, the client can simply discard this interim response.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.2.1
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-100-continue
+      101:
+        reason-phrase: Switching Protocols
+        description: >-
+          The 101 (Switching Protocols) status code indicates that the server understands and is willing to comply with the client's request, via the Upgrade header field (Section 7.8), for a change in the application protocol being used on this connection. The server MUST generate an Upgrade header field in the response that indicates which protocol(s) will be in effect after this response.
+
+          It is assumed that the server will only agree to switch protocols when it is advantageous to do so. For example, switching to a newer version of HTTP might be advantageous over older versions, and switching to a real-time, synchronous protocol might be advantageous when delivering resources that use such features.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.2.2
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-101-switching-protocols
+      102:
+        reason-phrase: Processing
+        description: >-
+          The 102 (Processing) status code is an interim response used to inform the client that the server has accepted the complete request, but has not yet completed it.  This status code SHOULD only be sent when the server has a reasonable expectation that the request will take significant time to complete. As guidance, if a method is taking longer than 20 seconds (a reasonable, but arbitrary value) to process the server SHOULD return a 102 (Processing) response. The server MUST send a final response after the request has been completed.
+          
+          Methods can potentially take a long period of time to process, especially methods that support the Depth header.  In such cases the client may time-out the connection while waiting for a response. To prevent this the server may return a 102 (Processing) status code to indicate to the client that the server is still processing the method.
+        isIana: true
+        references:
+          - title: RFC2518
+            url: https://www.rfc-editor.org/rfc/rfc2518.html#page-59
+      103:
+        reason-phrase: Early Hints
+        description: >-
+          The 103 (Early Hints) informational status code indicates to the client that the server is likely to send a final response with the header fields included in the informational response.
+        isIana: true
+        references:
+          - title: RFC8297
+            url: https://www.rfc-editor.org/rfc/rfc8297.html#page-3
+    references:
+      - title: RFC9110, Section 15.2
+        url: https://www.rfc-editor.org/rfc/rfc9110.html#name-informational-1xx
+  2xx:
+    class: Success
+    synopsis: The action was successfully received, understood, and accepted
+    description: >-
+      The 2xx (Successful) class of status code indicates that the client's request was successfully received, understood, and accepted
+    codes:
+      200:
+        reason-phrase: OK
+        description: >-
+          The 200 (OK) status code indicates that the request has succeeded. The content sent in a 200 response depends on the request method. For the methods defined by this specification, the intended meaning of the content can be summarized as:
+
+          GET:	the target resource
+          HEAD:	the target resource, like GET, but without transferring the representation data
+          POST:	the status of, or results obtained from, the action
+          PUT, DELETE:	the status of the action
+          OPTIONS:	communication options for the target resource
+          TRACE:	the request message as received by the server returning the trace
+
+          Aside from responses to CONNECT, a 200 response is expected to contain message content unless the message framing explicitly indicates that the content has zero length. If some aspect of the request indicates a preference for no content upon success, the origin server ought to send a 204 (No Content) response instead. For CONNECT, there is no content because the successful result is a tunnel, which begins immediately after the 200 response header section.
+
+          A 200 response is heuristically cacheable; i.e., unless otherwise indicated by the method definition or explicit cache controls (see Section 4.2.2 of [CACHING]).
+
+          In 200 responses to GET or HEAD, an origin server SHOULD send any available validator fields (Section 8.8) for the selected representation, with both a strong entity tag and a Last-Modified date being preferred.
+
+          In 200 responses to state-changing methods, any validator fields (Section 8.8) sent in the response convey the current validators for the new representation formed as a result of successfully applying the request semantics. Note that the PUT method (Section 9.3.4) has additional requirements that might preclude sending such validators.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.3.1
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-200-ok
+      201:
+        reason-phrase: Created
+        description: >-
+          The 201 (Created) status code indicates that the request has been fulfilled and has resulted in one or more new resources being created. The primary resource created by the request is identified by either a Location header field in the response or, if no Location header field is received, by the target URI.
+
+          The 201 response content typically describes and links to the resource(s) created. Any validator fields (Section 8.8) sent in the response convey the current validators for a new representation created by the request. Note that the PUT method (Section 9.3.4) has additional requirements that might preclude sending such validators.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.3.2
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-201-created
+      202:
+        reason-phrase: Accepted
+        description: >-
+          The 202 (Accepted) status code indicates that the request has been accepted for processing, but the processing has not been completed. The request might or might not eventually be acted upon, as it might be disallowed when processing actually takes place. There is no facility in HTTP for re-sending a status code from an asynchronous operation.
+
+          The 202 response is intentionally noncommittal. Its purpose is to allow a server to accept a request for some other process (perhaps a batch-oriented process that is only run once per day) without requiring that the user agent's connection to the server persist until the process is completed. The representation sent with this response ought to describe the request's current status and point to (or embed) a status monitor that can provide the user with an estimate of when the request will be fulfilled.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.3.3
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-202-accepted
+      203:
+        reason-phrase: Non-Authoritative Information
+        description: >-
+          The 203 (Non-Authoritative Information) status code indicates that the request was successful but the enclosed content has been modified from that of the origin server's 200 (OK) response by a transforming proxy (Section 7.7). This status code allows the proxy to notify recipients when a transformation has been applied, since that knowledge might impact later decisions regarding the content. For example, future cache validation requests for the content might only be applicable along the same request path (through the same proxies).
+
+          A 203 response is heuristically cacheable; i.e., unless otherwise indicated by the method definition or explicit cache controls (see Section 4.2.2 of [CACHING]).
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.3.4
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-203-non-authoritative-infor
+      204:
+        reason-phrase: No Content
+        description: >-
+          The 204 (No Content) status code indicates that the server has successfully fulfilled the request and that there is no additional content to send in the response content. Metadata in the response header fields refer to the target resource and its selected representation after the requested action was applied.
+
+          For example, if a 204 status code is received in response to a PUT request and the response contains an ETag field, then the PUT was successful and the ETag field value contains the entity tag for the new representation of that target resource.
+
+          The 204 response allows a server to indicate that the action has been successfully applied to the target resource, while implying that the user agent does not need to traverse away from its current "document view" (if any). The server assumes that the user agent will provide some indication of the success to its user, in accord with its own interface, and apply any new or updated metadata in the response to its active representation.
+
+          For example, a 204 status code is commonly used with document editing interfaces corresponding to a "save" action, such that the document being saved remains available to the user for editing. It is also frequently used with interfaces that expect automated data transfers to be prevalent, such as within distributed version control systems.
+
+          A 204 response is terminated by the end of the header section; it cannot contain content or trailers.
+
+          A 204 response is heuristically cacheable; i.e., unless otherwise indicated by the method definition or explicit cache controls (see Section 4.2.2 of [CACHING]).
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.3.5
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-204-no-content
+      205:
+        reason-phrase: Reset Content
+        description: >-
+          The 205 (Reset Content) status code indicates that the server has fulfilled the request and desires that the user agent reset the "document view", which caused the request to be sent, to its original state as received from the origin server.
+
+          This response is intended to support a common data entry use case where the user receives content that supports data entry (a form, notepad, canvas, etc.), enters or manipulates data in that space, causes the entered data to be submitted in a request, and then the data entry mechanism is reset for the next entry so that the user can easily initiate another input action.
+
+          Since the 205 status code implies that no additional content will be provided, a server MUST NOT generate content in a 205 response.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.3.6
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-205-reset-content
+      206:
+        reason-phrase: Partial Content
+        description: >-
+          The 206 (Partial Content) status code indicates that the server is successfully fulfilling a range request for the target resource by transferring one or more parts of the selected representation.
+
+          A server that supports range requests (Section 14) will usually attempt to satisfy all of the requested ranges, since sending less data will likely result in another client request for the remainder. However, a server might want to send only a subset of the data requested for reasons of its own, such as temporary unavailability, cache efficiency, load balancing, etc. Since a 206 response is self-descriptive, the client can still understand a response that only partially satisfies its range request.
+
+          A client MUST inspect a 206 response's Content-Type and Content-Range field(s) to determine what parts are enclosed and whether additional requests are needed.
+
+          A server that generates a 206 response MUST generate the following header fields, in addition to those required in the subsections below, if the field would have been sent in a 200 (OK) response to the same request: Date, Cache-Control, ETag, Expires, Content-Location, and Vary.
+
+          A Content-Length header field present in a 206 response indicates the number of octets in the content of this message, which is usually not the complete length of the selected representation. Each Content-Range header field includes information about the selected representation's complete length.
+
+          A sender that generates a 206 response to a request with an If-Range header field SHOULD NOT generate other representation header fields beyond those required because the client already has a prior response containing those header fields. Otherwise, a sender MUST generate all of the representation header fields that would have been sent in a 200 (OK) response to the same request.
+
+          A 206 response is heuristically cacheable; i.e., unless otherwise indicated by explicit cache controls (see Section 4.2.2 of [CACHING]).
+
+          See RFC for further details on Single Part, Multiple Parts, and Combining Parts
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.3.7
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-206-partial-content
+      207:
+        reason-phrase: Multi-Status
+        description: >-
+          The 207 (Multi-Status) status code provides status for multiple independent operations (see RFC4918 Section 13 for more information).
+        isIana: true
+        references:
+          - title: RFC4918
+            url: https://www.rfc-editor.org/rfc/rfc4918.html#section-13
+      208:
+        reason-phrase: Already Reported
+        description: >-
+          The 208 (Already Reported) status code can be used inside a DAV: propstat response element to avoid enumerating the internal members of multiple bindings to the same collection repeatedly.  For each binding to a collection inside the request's scope, only one will be reported with a 200 status, while subsequent DAV:response elements for all other bindings will use the 208 status, and no DAV:response elements for their descendants are included.
+
+          Note that the 208 status will only occur for "Depth: infinity" requests, and that it is of particular importance when the multiple collection bindings cause a bind loop as discussed in Section 2.2.
+
+          A client can request the DAV:resource-id property in a PROPFIND request to guarantee that they can accurately reconstruct the binding structure of a collection with multiple bindings to a single resource.
+
+          For backward compatibility with clients not aware of the 208 status code appearing in multistatus response bodies, it SHOULD NOT be used unless the client has signaled support for this specification using the "DAV" request header (see Section 8.2).  Instead, a 508 status should be returned when a binding loop is discovered.  This allows the server to return the 508 as the top-level return status, if it discovers it before it started the response, or in the middle of a multistatus, if it discovers it in the middle of streaming out a multistatus response.
+        isIana: true
+        references:
+          - title: RFC5842
+            url: https://www.rfc-editor.org/rfc/rfc5842.html#page-31
+      226:
+        reason-phrase: IM Used
+        description: >-
+          The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.  The actual current instance might not be available except by combining this response with other previous or future responses, as appropriate for the specific instance-manipulation(s).  If so, the headers of the resulting instance are the result of combining the headers from the status-226 response and the other instances, following the rules in section 13.5.3 of the HTTP/1.1 specification [10].
+
+          The request MUST have included an A-IM header field listing at least one instance-manipulation.  The response MUST include an Etag header field giving the entity tag of the current instance.
+
+          A response received with a status code of 226 MAY be stored by a cache and used in reply to a subsequent request, subject to the HTTP expiration mechanism and any Cache-Control headers, and to the requirements in section 10.6.
+
+          A response received with a status code of 226 MAY be used by a cache, in conjunction with a cache entry for the base instance, to create a cache entry for the current instance.
+        isIana: true
+        references:
+          - title: RFC3229
+            url: https://www.rfc-editor.org/rfc/rfc3229.html#page-31
+    references:
+      - title: RFC9110, Section 15.3
+        url: https://www.rfc-editor.org/rfc/rfc9110.html#name-successful-2xx
+  3xx:
+    class: Redirection
+    synopsis: Further action must be taken in order to complete the request
+    description: >-
+      The 3xx (Redirection) class of status code indicates that further action needs to be taken by the user agent in order to fulfill the request. There are several types of redirects:
+
+        1. Redirects that indicate this resource might be available at a different URI, as provided by the Location header field, as in the status codes 301 (Moved Permanently), 302 (Found), 307 (Temporary Redirect), and 308 (Permanent Redirect).
+
+        2. Redirection that offers a choice among matching resources capable of representing this resource, as in the 300 (Multiple Choices) status code.
+
+        3. Redirection to a different resource, identified by the Location header field, that can represent an indirect response to the request, as in the 303 (See Other) status code.
+
+        4. Redirection to a previously stored result, as in the 304 (Not Modified) status code.
+
+          Note: In HTTP/1.0, the status codes 301 (Moved Permanently) and 302 (Found) were originally defined as method-preserving ([HTTP/1.0], Section 9.3) to match their implementation at CERN; 303 (See Other) was defined for a redirection that changed its method to GET. However, early user agents split on whether to redirect POST requests as POST (according to then-current specification) or as GET (the safer alternative when redirected to a different site). Prevailing practice eventually converged on changing the method to GET. 307 (Temporary Redirect) and 308 (Permanent Redirect) [RFC7538] were later added to unambiguously indicate method-preserving redirects, and status codes 301 and 302 have been adjusted to allow a POST request to be redirected as GET.
+    codes:
+      300:
+        reason-phrase: Multiple Choices
+        description: >-
+          The 300 (Multiple Choices) status code indicates that the target resource has more than one representation, each with its own more specific identifier, and information about the alternatives is being provided so that the user (or user agent) can select a preferred representation by redirecting its request to one or more of those identifiers. In other words, the server desires that the user agent engage in reactive negotiation to select the most appropriate representation(s) for its needs (Section 12).
+
+          If the server has a preferred choice, the server SHOULD generate a Location header field containing a preferred choice's URI reference. The user agent MAY use the Location field value for automatic redirection.
+
+          For request methods other than HEAD, the server SHOULD generate content in the 300 response containing a list of representation metadata and URI reference(s) from which the user or user agent can choose the one most preferred. The user agent MAY make a selection from that list automatically if it understands the provided media type. A specific format for automatic selection is not defined by this specification because HTTP tries to remain orthogonal to the definition of its content. In practice, the representation is provided in some easily parsed format believed to be acceptable to the user agent, as determined by shared design or content negotiation, or in some commonly accepted hypertext format.
+
+          A 300 response is heuristically cacheable; i.e., unless otherwise indicated by the method definition or explicit cache controls (see Section 4.2.2 of [CACHING]).
+
+            Note: The original proposal for the 300 status code defined the URI header field as providing a list of alternative representations, such that it would be usable for 200, 300, and 406 responses and be transferred in responses to the HEAD method. However, lack of deployment and disagreement over syntax led to both URI and Alternates (a subsequent proposal) being dropped from this specification. It is possible to communicate the list as a Link header field value [RFC8288] whose members have a relationship of "alternate", though deployment is a chicken-and-egg problem.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.4.1
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-300-multiple-choices
+      301:
+        reason-phrase: Moved Permanently
+        description: >-
+          The 301 (Moved Permanently) status code indicates that the target resource has been assigned a new permanent URI and any future references to this resource ought to use one of the enclosed URIs. The server is suggesting that a user agent with link-editing capability can permanently replace references to the target URI with one of the new references sent by the server. However, this suggestion is usually ignored unless the user agent is actively editing references (e.g., engaged in authoring content), the connection is secured, and the origin server is a trusted authority for the content being edited.
+
+          The server SHOULD generate a Location header field in the response containing a preferred URI reference for the new permanent URI. The user agent MAY use the Location field value for automatic redirection. The server's response content usually contains a short hypertext note with a hyperlink to the new URI(s).
+
+            Note: For historical reasons, a user agent MAY change the request method from POST to GET for the subsequent request. If this behavior is undesired, the 308 (Permanent Redirect) status code can be used instead.
+
+          A 301 response is heuristically cacheable; i.e., unless otherwise indicated by the method definition or explicit cache controls (see Section 4.2.2 of [CACHING]).
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.4.2
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-301-moved-permanently
+      302:
+        reason-phrase: Found
+        description: >-
+          The 302 (Found) status code indicates that the target resource resides temporarily under a different URI. Since the redirection might be altered on occasion, the client ought to continue to use the target URI for future requests.
+
+          The server SHOULD generate a Location header field in the response containing a URI reference for the different URI. The user agent MAY use the Location field value for automatic redirection. The server's response content usually contains a short hypertext note with a hyperlink to the different URI(s).
+
+            Note: For historical reasons, a user agent MAY change the request method from POST to GET for the subsequent request. If this behavior is undesired, the 307 (Temporary Redirect) status code can be used instead.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.4.3
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-302-found
+      303:
+        reason-phrase: See Other
+        description: >-
+          The 303 (See Other) status code indicates that the server is redirecting the user agent to a different resource, as indicated by a URI in the Location header field, which is intended to provide an indirect response to the original request. A user agent can perform a retrieval request targeting that URI (a GET or HEAD request if using HTTP), which might also be redirected, and present the eventual result as an answer to the original request. Note that the new URI in the Location header field is not considered equivalent to the target URI.
+
+          This status code is applicable to any HTTP method. It is primarily used to allow the output of a POST action to redirect the user agent to a different resource, since doing so provides the information corresponding to the POST response as a resource that can be separately identified, bookmarked, and cached.
+
+          A 303 response to a GET request indicates that the origin server does not have a representation of the target resource that can be transferred by the server over HTTP. However, the Location field value refers to a resource that is descriptive of the target resource, such that making a retrieval request on that other resource might result in a representation that is useful to recipients without implying that it represents the original target resource. Note that answers to the questions of what can be represented, what representations are adequate, and what might be a useful description are outside the scope of HTTP.
+
+          Except for responses to a HEAD request, the representation of a 303 response ought to contain a short hypertext note with a hyperlink to the same URI reference provided in the Location header field.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.4.4
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-303-see-other
+      304:
+        reason-phrase: Not Modified
+        description: >-
+          The 304 (Not Modified) status code indicates that a conditional GET or HEAD request has been received and would have resulted in a 200 (OK) response if it were not for the fact that the condition evaluated to false. In other words, there is no need for the server to transfer a representation of the target resource because the request indicates that the client, which made the request conditional, already has a valid representation; the server is therefore redirecting the client to make use of that stored representation as if it were the content of a 200 (OK) response.
+
+          The server generating a 304 response MUST generate any of the following header fields that would have been sent in a 200 (OK) response to the same request:
+          - Content-Location, Date, ETag, and Vary
+          - Cache-Control and Expires (see [CACHING])
+
+          Since the goal of a 304 response is to minimize information transfer when the recipient already has one or more cached representations, a sender SHOULD NOT generate representation metadata other than the above listed fields unless said metadata exists for the purpose of guiding cache updates (e.g., Last-Modified might be useful if the response does not have an ETag field).
+
+          Requirements on a cache that receives a 304 response are defined in Section 4.3.4 of [CACHING]. If the conditional request originated with an outbound client, such as a user agent with its own cache sending a conditional GET to a shared proxy, then the proxy SHOULD forward the 304 response to that client.
+
+          A 304 response is terminated by the end of the header section; it cannot contain content or trailers.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.4.5
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-304-not-modified
+      305:
+        reason-phrase: Use Proxy
+        description: >-
+          The 305 (Use Proxy) status code was defined in a previous version of this specification and is now deprecated (Appendix B of [RFC7231]).
+        isDeprecated: true
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.4.6
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-305-use-proxy
+      306:
+        reason-phrase: (Unused)
+        description: >-
+          The 306 status code was defined in a previous version of this specification, is no longer used, and the code is reserved.
+        isDeprecated: true
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.4.7
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-306-unused
+      307:
+        reason-phrase: Temporary Redirect
+        description: >-
+          The 307 (Temporary Redirect) status code indicates that the target resource resides temporarily under a different URI and the user agent MUST NOT change the request method if it performs an automatic redirection to that URI. Since the redirection can change over time, the client ought to continue using the original target URI for future requests.
+
+          The server SHOULD generate a Location header field in the response containing a URI reference for the different URI. The user agent MAY use the Location field value for automatic redirection. The server's response content usually contains a short hypertext note with a hyperlink to the different URI(s).
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.4.2
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-307-temporary-redirect
+      308:
+        reason-phrase:  Permanent Redirect
+        description: >-
+          The 308 (Permanent Redirect) status code indicates that the target resource has been assigned a new permanent URI and any future references to this resource ought to use one of the enclosed URIs. The server is suggesting that a user agent with link-editing capability can permanently replace references to the target URI with one of the new references sent by the server. However, this suggestion is usually ignored unless the user agent is actively editing references (e.g., engaged in authoring content), the connection is secured, and the origin server is a trusted authority for the content being edited.
+
+          The server SHOULD generate a Location header field in the response containing a preferred URI reference for the new permanent URI. The user agent MAY use the Location field value for automatic redirection. The server's response content usually contains a short hypertext note with a hyperlink to the new URI(s).
+
+          A 308 response is heuristically cacheable; i.e., unless otherwise indicated by the method definition or explicit cache controls (see Section 4.2.2 of [CACHING]).
+
+            Note: This status code is much younger (June 2014) than its sibling codes and thus might not be recognized everywhere. See Section 4 of [RFC7538] for deployment considerations.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.4.9
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-308-permanent-redirect
+    references:
+      - title: RFC9110, Section 15.4
+        url: https://www.rfc-editor.org/rfc/rfc9110.html#name-redirection-3xx
+  4xx:
+    class: Client Error
+    synopsis: The request contains bad syntax or cannot be fulfilled
+    description: >-
+      The 4xx (Client Error) class of status code indicates that the client seems to have erred. Except when responding to a HEAD request, the server SHOULD send a representation containing an explanation of the error situation, and whether it is a temporary or permanent condition. These status codes are applicable to any request method. User agents SHOULD display any included representation to the user.
+    codes:
+      400:
+        reason-phrase: Bad Request
+        description: >-
+          The 400 (Bad Request) status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.1
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-400-bad-request
+      401:
+        reason-phrase: Unauthorized
+        description: >-
+          The 401 (Unauthorized) status code indicates that the request has not been applied because it lacks valid authentication credentials for the target resource. The server generating a 401 response MUST send a WWW-Authenticate header field (Section 11.6.1) containing at least one challenge applicable to the target resource.
+
+          If the request included authentication credentials, then the 401 response indicates that authorization has been refused for those credentials. The user agent MAY repeat the request with a new or replaced Authorization header field (Section 11.6.2). If the 401 response contains the same challenge as the prior response, and the user agent has already attempted authentication at least once, then the user agent SHOULD present the enclosed representation to the user, since it usually contains relevant diagnostic information.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.2
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-401-unauthorized
+      402:
+        reason-phrase: Payment Required
+        description: >-
+          The 402 (Payment Required) status code is reserved for future use.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.3
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-402-payment-required
+      403:
+        reason-phrase: Forbidden
+        description: >-
+          The 403 (Forbidden) status code indicates that the server understood the request but refuses to fulfill it. A server that wishes to make public why the request has been forbidden can describe that reason in the response content (if any).
+
+          If authentication credentials were provided in the request, the server considers them insufficient to grant access. The client SHOULD NOT automatically repeat the request with the same credentials. The client MAY repeat the request with new or different credentials. However, a request might be forbidden for reasons unrelated to the credentials.
+
+          An origin server that wishes to "hide" the current existence of a forbidden target resource MAY instead respond with a status code of 404 (Not Found).
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.4
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-403-forbidden
+      404:
+        reason-phrase: Not Found
+        description: >-
+          The 404 (Not Found) status code indicates that the origin server did not find a current representation for the target resource or is not willing to disclose that one exists. A 404 status code does not indicate whether this lack of representation is temporary or permanent; the 410 (Gone) status code is preferred over 404 if the origin server knows, presumably through some configurable means, that the condition is likely to be permanent.
+
+          A 404 response is heuristically cacheable; i.e., unless otherwise indicated by the method definition or explicit cache controls (see Section 4.2.2 of [CACHING]).
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.5
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-404-not-found
+      405:
+        reason-phrase: Method Not Allowed
+        description: >-
+          The 405 (Method Not Allowed) status code indicates that the method received in the request-line is known by the origin server but not supported by the target resource. The origin server MUST generate an Allow header field in a 405 response containing a list of the target resource's currently supported methods.
+
+          A 405 response is heuristically cacheable; i.e., unless otherwise indicated by the method definition or explicit cache controls (see Section 4.2.2 of [CACHING]).
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.6
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-405-method-not-allowed
+      406:
+        reason-phrase: Not Acceptable
+        description: >-
+          The 406 (Not Acceptable) status code indicates that the target resource does not have a current representation that would be acceptable to the user agent, according to the proactive negotiation header fields received in the request (Section 12.1), and the server is unwilling to supply a default representation.
+
+          The server SHOULD generate content containing a list of available representation characteristics and corresponding resource identifiers from which the user or user agent can choose the one most appropriate. A user agent MAY automatically select the most appropriate choice from that list. However, this specification does not define any standard for such automatic selection, as described in Section 15.4.1.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.7
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-406-not-acceptable
+      407:
+        reason-phrase: Proxy Authentication Required
+        description: >-
+          The 407 (Proxy Authentication Required) status code is similar to 401 (Unauthorized), but it indicates that the client needs to authenticate itself in order to use a proxy for this request. The proxy MUST send a Proxy-Authenticate header field (Section 11.7.1) containing a challenge applicable to that proxy for the request. The client MAY repeat the request with a new or replaced Proxy-Authorization header field (Section 11.7.2).
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.8
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-407-proxy-authentication-re
+      408:
+        reason-phrase: Request Timeout
+        description: >-
+          The 408 (Request Timeout) status code indicates that the server did not receive a complete request message within the time that it was prepared to wait.
+
+          If the client has an outstanding request in transit, it MAY repeat that request. If the current connection is not usable (e.g., as it would be in HTTP/1.1 because request delimitation is lost), a new connection will be used.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.9
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-408-request-timeout
+      409:
+        reason-phrase: Conflict
+        description: >-
+          The 409 (Conflict) status code indicates that the request could not be completed due to a conflict with the current state of the target resource. This code is used in situations where the user might be able to resolve the conflict and resubmit the request. The server SHOULD generate content that includes enough information for a user to recognize the source of the conflict.
+
+          Conflicts are most likely to occur in response to a PUT request. For example, if versioning were being used and the representation being PUT included changes to a resource that conflict with those made by an earlier (third-party) request, the origin server might use a 409 response to indicate that it can't complete the request. In this case, the response representation would likely contain information useful for merging the differences based on the revision history.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.10
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-409-conflict
+      410:
+        reason-phrase: Gone
+        description: >-
+          The 410 (Gone) status code indicates that access to the target resource is no longer available at the origin server and that this condition is likely to be permanent. If the origin server does not know, or has no facility to determine, whether or not the condition is permanent, the status code 404 (Not Found) ought to be used instead.
+
+          The 410 response is primarily intended to assist the task of web maintenance by notifying the recipient that the resource is intentionally unavailable and that the server owners desire that remote links to that resource be removed. Such an event is common for limited-time, promotional services and for resources belonging to individuals no longer associated with the origin server's site. It is not necessary to mark all permanently unavailable resources as "gone" or to keep the mark for any length of time -- that is left to the discretion of the server owner.
+
+          A 410 response is heuristically cacheable; i.e., unless otherwise indicated by the method definition or explicit cache controls (see Section 4.2.2 of [CACHING]).
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.11
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-410-gone
+      411:
+        reason-phrase: Length Required
+        description: >-
+          The 411 (Length Required) status code indicates that the server refuses to accept the request without a defined Content-Length (Section 8.6). The client MAY repeat the request if it adds a valid Content-Length header field containing the length of the request content.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.12
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-411-length-required
+      412:
+        reason-phrase: Precondition Failed
+        description: >-
+          The 412 (Precondition Failed) status code indicates that one or more conditions given in the request header fields evaluated to false when tested on the server (Section 13). This response status code allows the client to place preconditions on the current resource state (its current representations and metadata) and, thus, prevent the request method from being applied if the target resource is in an unexpected state.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.13
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-412-precondition-failed
+      413:
+        reason-phrase: Request Entity Too Large
+        description: >-
+          The 413 (Content Too Large) status code indicates that the server is refusing to process a request because the request content is larger than the server is willing or able to process. The server MAY terminate the request, if the protocol version in use allows it; otherwise, the server MAY close the connection.
+
+          If the condition is temporary, the server SHOULD generate a Retry-After header field to indicate that it is temporary and after what time the client MAY try again.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.14
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-413-content-too-large
+      414:
+        reason-phrase: Request-URI Too Long
+        description: >-
+          The 414 (URI Too Long) status code indicates that the server is refusing to service the request because the target URI is longer than the server is willing to interpret. This rare condition is only likely to occur when a client has improperly converted a POST request to a GET request with long query information, when the client has descended into an infinite loop of redirection (e.g., a redirected URI prefix that points to a suffix of itself) or when the server is under attack by a client attempting to exploit potential security holes.
+
+          A 414 response is heuristically cacheable; i.e., unless otherwise indicated by the method definition or explicit cache controls (see Section 4.2.2 of [CACHING]).
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.15
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-414-uri-too-long
+      415:
+        reason-phrase: Unsupported Media Type
+        description: >-
+          The 415 (Unsupported Media Type) status code indicates that the origin server is refusing to service the request because the content is in a format not supported by this method on the target resource.
+
+          The format problem might be due to the request's indicated Content-Type or Content-Encoding, or as a result of inspecting the data directly.
+
+          If the problem was caused by an unsupported content coding, the Accept-Encoding response header field (Section 12.5.3) ought to be used to indicate which (if any) content codings would have been accepted in the request.
+
+          On the other hand, if the cause was an unsupported media type, the Accept response header field (Section 12.5.1) can be used to indicate which media types would have been accepted in the request.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.16
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-415-unsupported-media-type
+      416:
+        reason-phrase: Requested Range Not Satisfiable
+        description: >-
+          The 415 (Unsupported Media Type) status code indicates that the origin server is refusing to service the request because the content is in a format not supported by this method on the target resource.
+
+          The format problem might be due to the request's indicated Content-Type or Content-Encoding, or as a result of inspecting the data directly.
+
+          If the problem was caused by an unsupported content coding, the Accept-Encoding response header field (Section 12.5.3) ought to be used to indicate which (if any) content codings would have been accepted in the request.
+
+          On the other hand, if the cause was an unsupported media type, the Accept response header field (Section 12.5.1) can be used to indicate which media types would have been accepted in the request.
+
+          For example:
+
+            HTTP/1.1 416 Range Not Satisfiable
+            Date: Fri, 20 Jan 2012 15:41:54 GMT
+            Content-Range: bytes */47022
+      
+          Note: Because servers are free to ignore Range, many implementations will respond with the entire selected representation in a 200 (OK) response. That is partly because most clients are prepared to receive a 200 (OK) to complete the task (albeit less efficiently) and partly because clients might not stop making an invalid range request until they have received a complete representation. Thus, clients cannot depend on receiving a 416 (Range Not Satisfiable) response even when it is most appropriate.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.17
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-416-range-not-satisfiable
+      417:
+        reason-phrase: Expectation Failed
+        description: >-
+          The 417 (Expectation Failed) status code indicates that the expectation given in the request's Expect header field (Section 10.1.1) could not be met by at least one of the inbound servers.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.18
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-417-expectation-failed
+      418:
+        reason-phrase: (Unused)
+        description: >-
+          [RFC2324] was an April 1 RFC that lampooned the various ways HTTP was abused; one such abuse was the definition of an application-specific 418 status code, which has been deployed as a joke often enough for the code to be unusable for any future use.
+
+          Therefore, the 418 status code is reserved in the IANA HTTP Status Code Registry. This indicates that the status code cannot be assigned to other applications currently. If future circumstances require its use (e.g., exhaustion of 4NN status codes), it can be re-assigned to another use.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.19
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-418-unused
+      421:
+        reason-phrase: Expectation Failed
+        description: >-
+          The 421 (Misdirected Request) status code indicates that the request was directed at a server that is unable or unwilling to produce an authoritative response for the target URI. An origin server (or gateway acting on behalf of the origin server) sends 421 to reject a target URI that does not match an origin for which the server has been configured (Section 4.3.1) or does not match the connection context over which the request was received (Section 7.4).
+
+          A client that receives a 421 (Misdirected Request) response MAY retry the request, whether or not the request method is idempotent, over a different connection, such as a fresh connection specific to the target resource's origin, or via an alternative service [ALTSVC].
+
+          A proxy MUST NOT generate a 421 response.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.20
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-421-misdirected-request
+      422:
+        reason-phrase: Unprocessable Content
+        description: >-
+          The 422 (Unprocessable Content) status code indicates that the server understands the content type of the request content (hence a 415 (Unsupported Media Type) status code is inappropriate), and the syntax of the request content is correct, but it was unable to process the contained instructions. For example, this status code can be sent if an XML request content contains well-formed (i.e., syntactically correct), but semantically erroneous XML instructions.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.21
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-422-unprocessable-content
+      426:
+        reason-phrase: Expectation Failed
+        description: >-
+          The 426 (Upgrade Required) status code indicates that the server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol. The server MUST send an Upgrade header field in a 426 response to indicate the required protocol(s) (Section 7.8).
+
+          Example:
+
+          HTTP/1.1 426 Upgrade Required
+          Upgrade: HTTP/3.0
+          Connection: Upgrade
+          Content-Length: 53
+          Content-Type: text/plain
+
+          This service requires use of the HTTP/3.0 protocol.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.5.22
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-426-upgrade-required
+      428:
+        reason-phrase: Precondition Required
+        description: >-
+          The 428 status code indicates that the origin server requires the request to be conditional.
+
+          Its typical use is to avoid the "lost update" problem, where a client GETs a resource's state, modifies it, and PUTs it back to the server, when meanwhile a third party has modified the state on the server, leading to a conflict.  By requiring requests to be conditional, the server can assure that clients are working with the correct copies.
+
+          Responses using this status code SHOULD explain how to resubmit the request successfully.  For example:
+
+          HTTP/1.1 428 Precondition Required
+          Content-Type: text/html
+          <html>
+              <head>
+                <title>Precondition Required</title>
+              </head>
+              <body>
+                <h1>Precondition Required</h1>
+                <p>This request is required to be conditional;
+                try using "If-Match".</p>
+              </body>
+          </html>
+
+          Responses with the 428 status code MUST NOT be stored by a cache.
+        isIana: true
+        references:
+          - title: RFC6585
+            url: https://www.rfc-editor.org/rfc/rfc6585.html#page-2
+      429:
+        reason-phrase: Too Many Requests
+        description: >-
+          The 429 status code indicates that the user has sent too many requests in a given amount of time ("rate limiting").
+
+          The response representations SHOULD include details explaining the condition, and MAY include a Retry-After header indicating how long to wait before making a new request.
+
+          For example:
+
+          HTTP/1.1 429 Too Many Requests
+          Content-Type: text/html
+          Retry-After: 3600
+
+          <html>
+              <head>
+                <title>Too Many Requests</title>
+              </head>
+              <body>
+                <h1>Too Many Requests</h1>
+                <p>I only allow 50 requests per hour to this Web site per
+                    logged in user.  Try again soon.</p>
+              </body>
+          </html>
+
+          Note that this specification does not define how the origin server identifies the user, nor how it counts requests. For example, an origin server that is limiting request rates can do so based upon counts of requests on a per-resource basis, across the entire server, or even among a set of servers.  Likewise, it might identify the user by its authentication credentials, or a stateful cookie.
+
+          Responses with the 429 status code MUST NOT be stored by a cache.
+        isIana: true
+        references:
+          - title: RFC6585
+            url: https://www.rfc-editor.org/rfc/rfc6585.html#page-3
+      431:
+        reason-phrase: Request Header Fields Too Large
+        description: >-
+          The 431 status code indicates that the server is unwilling to process the request because its header fields are too large.  The request MAY be resubmitted after reducing the size of the request header fields.
+
+          It can be used both when the set of request header fields in total is too large, and when a single header field is at fault.  In the latter case, the response representation SHOULD specify which header field was too large.
+
+          For example:
+
+          HTTP/1.1 431 Request Header Fields Too Large
+          Content-Type: text/html
+
+          <html>
+              <head>
+                <title>Request Header Fields Too Large</title>
+              </head>
+              <body>
+                <h1>Request Header Fields Too Large</h1>
+                <p>The "Example" header was too large.</p>
+              </body>
+          </html>
+
+          Responses with the 431 status code MUST NOT be stored by a cache.
+        isIana: true
+        references:
+          - title: RFC6585
+            url: https://www.rfc-editor.org/rfc/rfc6585.html#page-3
+      451:
+        reason-phrase: Unavailable For Legal Reasons
+        description: >-
+          This status code indicates that the server is denying access to the resource as a consequence of a legal demand.
+
+          The server in question might not be an origin server.  This type of legal demand typically most directly affects the operations of ISPs and search engines.
+
+          Responses using this status code SHOULD include an explanation, in the response body, of the details of the legal demand: the party making it, the applicable legislation or regulation, and what classes of person and resource it applies to.  For example:
+
+          HTTP/1.1 451 Unavailable For Legal Reasons
+          Link: <https://spqr.example.org/legislatione>; rel="blocked-by"
+          Content-Type: text/html
+
+          <html>
+            <head><title>Unavailable For Legal Reasons</title></head>
+            <body>
+            <h1>Unavailable For Legal Reasons</h1>
+            <p>This request may not be serviced in the Roman Province
+            of Judea due to the Lex Julia Majestatis, which disallows
+            access to resources hosted on servers deemed to be
+            operated by the People's Front of Judea.</p>
+            </body>
+          </html>
+
+          The use of the 451 status code implies neither the existence nor nonexistence of the resource named in the request.  That is to say, it is possible that if the legal demands were removed, a request for the resource still might not succeed.
+
+          Note that in many cases clients can still access the denied resource by using technical countermeasures such as a VPN or the Tor network.
+
+          A 451 response is cacheable by default, i.e., unless otherwise indicated by the method definition or explicit cache controls; see [RFC7234].
+        isIana: true
+        references:
+          - title: RFC7725
+            url: https://www.rfc-editor.org/rfc/rfc7725.html#page-2
+    references:
+      - title: RFC9110, Section 15.5
+        url: https://www.rfc-editor.org/rfc/rfc9110.html#name-client-error-4xx
+  5xx:
+    class: Server Error
+    synopsis: The server failed to fulfill an apparently valid request
+    description: >-
+      The 5xx (Server Error) class of status code indicates that the server is aware that it has erred or is incapable of performing the requested method. Except when responding to a HEAD request, the server SHOULD send a representation containing an explanation of the error situation, and whether it is a temporary or permanent condition. A user agent SHOULD display any included representation to the user. These status codes are applicable to any request method.
+    codes:
+      500:
+        reason-phrase: Internal Server Error
+        description: >-
+          The 500 (Internal Server Error) status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.6.1
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-500-internal-server-error
+      501:
+        reason-phrase: Not Implemented
+        description: >-
+          The 501 (Not Implemented) status code indicates that the server does not support the functionality required to fulfill the request. This is the appropriate response when the server does not recognize the request method and is not capable of supporting it for any resource.
+
+          A 501 response is heuristically cacheable; i.e., unless otherwise indicated by the method definition or explicit cache controls (see Section 4.2.2 of [CACHING]).
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.6.2
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-501-not-implemented
+      502:
+        reason-phrase: Bad Gateway
+        description: >-
+          The 501 (Not Implemented) status code indicates that the server does not support the functionality required to fulfill the request. This is the appropriate response when the server does not recognize the request method and is not capable of supporting it for any resource.
+
+          A 501 response is heuristically cacheable; i.e., unless otherwise indicated by the method definition or explicit cache controls (see Section 4.2.2 of [CACHING]).
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.6.3
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-502-bad-gateway
+      503:
+        reason-phrase: Service Unavailable
+        description: >-
+          The 503 (Service Unavailable) status code indicates that the server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay. The server MAY send a Retry-After header field (Section 10.2.3) to suggest an appropriate amount of time for the client to wait before retrying the request.
+
+          Note: The existence of the 503 status code does not imply that a server has to use it when becoming overloaded. Some servers might simply refuse the connection.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.6.4
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-503-service-unavailable
+      504:
+        reason-phrase: Gateway Time-out
+        description: >-
+          The 504 (Gateway Timeout) status code indicates that the server, while acting as a gateway or proxy, did not receive a timely response from an upstream server it needed to access in order to complete the request.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.6.5
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-504-gateway-timeout
+      505:
+        reason-phrase: HTTP Version Not Supported
+        description: >-
+          The 505 (HTTP Version Not Supported) status code indicates that the server does not support, or refuses to support, the major version of HTTP that was used in the request message. The server is indicating that it is unable or unwilling to complete the request using the same major version as the client, as described in Section 2.5, other than with this error message. The server SHOULD generate a representation for the 505 response that describes why that version is not supported and what other protocols are supported by that server.
+        isIana: true
+        references:
+          - title: RFC9110, Section 15.6.6
+            url: https://www.rfc-editor.org/rfc/rfc9110.html#name-505-http-version-not-suppor
+      506:
+        reason-phrase: Variant Also Negotiates
+        description: >-
+          The 506 status code indicates that the server has an internal configuration error: the chosen variant resource is configured to engage in transparent content negotiation itself, and is therefore not a proper end point in the negotiation process.
+        isIana: true
+        references:
+          - title: RFC2295
+            url: https://www.rfc-editor.org/rfc/rfc2295.html#page-25
+      507:
+        reason-phrase: Insufficient Storage
+        description: >-
+          The 507 (Insufficient Storage) status code means the method could not be performed on the resource because the server is unable to store the representation needed to successfully complete the request.  This condition is considered to be temporary.  If the request that received this status code was the result of a user action, the request MUST NOT be repeated until it is requested by a separate user action.
+        isIana: true
+        references:
+          - title: RFC4918
+            url: https://www.rfc-editor.org/rfc/rfc4918.html#page-79
+      508:
+        reason-phrase: Loop Detected
+        description: >-
+          The 508 (Loop Detected) status code indicates that the server terminated an operation because it encountered an infinite loop while processing a request with "Depth: infinity".  This status indicates that the entire operation failed.
+        isIana: true
+        references:
+          - title: RFC5842
+            url: https://www.rfc-editor.org/rfc/rfc5842.html#page-34
+      510:
+        reason-phrase: Not Extended (OBSOLETED)
+        description: >-
+          The policy for accessing the resource has not been met in the request.  The server should send back all the information necessary for the client to issue an extended request. It is outside the scope of this specification to specify how the extensions inform the client.
+
+          If the 510 response contains information about extensions that were not present in the initial request then the client MAY repeat the request if it has reason to believe it can fulfill the extension policy by modifying the request according to the information provided in the 510 response. Otherwise the client MAY present any entity included in the 510 response to the user, since that entity may include relevant diagnostic information.
+        isDeprecated: true
+        isIana: true
+        references:
+          - title: RFC2774
+            url: https://www.rfc-editor.org/rfc/rfc2774.html#page-11
+          - title: Status change of HTTP experiments to Historic
+            url: https://datatracker.ietf.org/doc/status-change-http-experiments-to-historic/
+      511:
+        reason-phrase: Network Authentication Required
+        description: >-
+          The 511 status code indicates that the client needs to authenticate to gain network access.
+
+          The response representation SHOULD contain a link to a resource that  allows the user to submit credentials (e.g., with an HTML form).
+
+          Note that the 511 response SHOULD NOT contain a challenge or the  login interface itself, because browsers would show the login interface as being associated with the originally requested URL,  which may cause confusion.
+
+          The 511 status SHOULD NOT be generated by origin servers; it is intended for use by intercepting proxies that are interposed as a means of controlling access to the network.
+
+          Responses with the 511 status code MUST NOT be stored by a cache.
+        isIana: true
+        references:
+          - title: RFC6585
+            url: https://www.rfc-editor.org/rfc/rfc6585.html#page-4
+    references:
+      - title: RFC9110, Section 15.6
+        url: https://www.rfc-editor.org/rfc/rfc9110.html#name-server-error-5xx
+
