@@ -1,6 +1,6 @@
 OAS Paths Operations & Responses
 ================
-<sup>Last updated: 2023-02-02</sup>
+<sup>Last updated: 2023-02-03</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#operations" id="toc-operations">Operations</a>
@@ -268,9 +268,9 @@ operations)
 ### GET
 
 - GET is the \#1 ranked operation
-- Across the 414,507 responses for GET, the most common responses are
-  `200` 160,671 (38.8%), `404` 44,509 (10.7%), `400` 40,860 (9.9%),
-  `401` 35,942 (8.7%), and `500` 31,073 (7.5%)
+- Across the 414,507 responses for GET, the most common values are `200`
+  160,671 (38.8%), `404` 44,509 (10.7%), `400` 40,860 (9.9%), `401`
+  35,942 (8.7%), and `500` 31,073 (7.5%)
 
 <img src="oas_paths_operations_files/figure-gfm/oas_paths_operations_responses_get-1.png" width="90%" />
 
@@ -427,9 +427,9 @@ Table: Counts and percentages of responses for the GET operation
 ### PUT
 
 - PUT is the \#3 ranked operation
-- Across the 97,715 responses for PUT, the most common responses are
-  `200` 25,904 (26.5%), `400` 13,494 (13.8%), `404` 11,866 (12.1%),
-  `401` 9,888 (10.1%), and `403` 8,322 (8.5%)
+- Across the 97,715 responses for PUT, the most common values are `200`
+  25,904 (26.5%), `400` 13,494 (13.8%), `404` 11,866 (12.1%), `401`
+  9,888 (10.1%), and `403` 8,322 (8.5%)
 
 <img src="oas_paths_operations_files/figure-gfm/oas_paths_operations_responses_put-1.png" width="90%" />
 
@@ -521,7 +521,7 @@ Table: Counts and percentages of responses for the PUT operation
 ### POST
 
 - POST is the \#2 ranked operation
-- Across the 239,541 responses for POST, the most common responses are
+- Across the 239,541 responses for POST, the most common values are
   `200` 67,999 (28.4%), `400` 29,367 (12.3%), `401` 21,675 (9%), `500`
   18,377 (7.7%), and `201` 18,345 (7.7%)
 
@@ -696,7 +696,7 @@ Table: Counts and percentages of responses for the POST operation
 ### DELETE
 
 - DELETE is the \#4 ranked operation
-- Across the 75,490 responses for DELETE, the most common responses are
+- Across the 75,490 responses for DELETE, the most common values are
   `200` 17,174 (22.8%), `404` 10,264 (13.6%), `204` 10,220 (13.5%),
   `400` 8,837 (11.7%), and `401` 7,067 (9.4%)
 
@@ -785,7 +785,7 @@ Table: Counts and percentages of responses for the DELETE operation
 ### OPTIONS
 
 - OPTIONS is the \#6 ranked operation
-- Across the 1,128 responses for OPTIONS, the most common responses are
+- Across the 1,128 responses for OPTIONS, the most common values are
   `200` 697 (61.8%), `204` 106 (9.4%), `401` 100 (8.9%), `403` 96
   (8.5%), and `500` 33 (2.9%)
 
@@ -816,7 +816,7 @@ Table: Counts and percentages of responses for the OPTIONS operation
 ### HEAD
 
 - HEAD is the \#7 ranked operation
-- Across the 805 responses for HEAD, the most common responses are `200`
+- Across the 805 responses for HEAD, the most common values are `200`
   268 (33.3%), `401` 106 (13.2%), `403` 82 (10.2%), `204` 81 (10.1%),
   and `default` 76 (9.4%)
 
@@ -859,7 +859,7 @@ Table: Counts and percentages of responses for the HEAD operation
 ### PATCH
 
 - PATCH is the \#5 ranked operation
-- Across the 25,758 responses for PATCH, the most common responses are
+- Across the 25,758 responses for PATCH, the most common values are
   `200` 6,934 (26.9%), `404` 3,002 (11.7%), `401` 2,818 (10.9%), `400`
   2,578 (10%), and `403` 2,291 (8.9%)
 
