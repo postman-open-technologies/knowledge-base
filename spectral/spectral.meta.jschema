@@ -28,18 +28,22 @@
             "type": "string",
             "description": "An ISO 8601 date/time"
         },
-        "urn": {
-            "type": "string",
-            "description": "The resource's URN"
-        },
         "url": {
             "type": "string",
-            "description": "A URL poiting to the spectral ruleset. Can be a relative/absolute file:// pat or a http(s):// link "
+            "description": "A URL "
+        },
+        "urn": {
+            "type": "string",
+            "description": "A URN"
+        },
+        "link": {
+            "type": "string",
+            "description": "A link pointing to the spectral ruleset. Can be a relative/absolute path a http(s):// URL "
         },
         "resource": {
             "type": "object",
             "properties": {
-                "urn": {"$ref": "#/$defs/urn"},
+                "urn": {"$ref": "#/$defs/urn", "description": "The resource's URL"},
                 "provenance": {"$ref": "#/$defs/provenance"}
             },
             "required": ["urn"]
@@ -62,7 +66,7 @@
                 {"$ref": "#/$defs/resource"}
             ],
             "properties": {
-                "url": {"$ref": "#/$defs/url"},
+                "link": {"$ref": "#/$defs/link"},
                 "rules": {
                     "type": "array",
                     "items": {"$ref": "#/$defs/rule"}

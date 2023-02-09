@@ -1,7 +1,21 @@
 version:
-    number: 1.0.0
+  number: 1.0.0
 provenance:
-    author: Arnaud Lauret, Postman Open Technologies
+  author: Arnaud Lauret, Postman Open Technologies
 ruleset:
-    url: file:///http-status-codes.spectral.yaml
-    urn: postman:SpectralRuleset:http-status-codes:v1.0.0
+  link: http-status-codes.spectral.yaml
+  urn: postman:SpectralRuleset:http-status-codes:v1.0.0
+profile:
+  profiledAt: '2023-02-09T14:09:23.701231'
+  fingerprint: jfpv1$sha256$a6864c52b65f1799fbbd69f82569a5f208239b3213b37c57472cd70713407477
+  urn: postman:SpetralRuleset:a6864c52b65f1799fbbd69f82569a5f208239b3213b37c57472cd70713407477
+  rules:
+    postman:SpectralRule:http-status-codes:unassigned:v1:
+      fingerprint: jfpv1$sha256$bae3b9b5fb229c7e944f109bc950cf47d6f42ea779d3e08b94b90ea792df9ef4
+      urn: postman:SpetralRule:bae3b9b5fb229c7e944f109bc950cf47d6f42ea779d3e08b94b90ea792df9ef4
+    postman:SpectralRule:http-status-codes:unused:v1:
+      fingerprint: jfpv1$sha256$dfe7ccf7087fee7233a8e673205e10f58b1a1eeef55d864cbbab265043708b90
+      urn: postman:SpetralRule:dfe7ccf7087fee7233a8e673205e10f58b1a1eeef55d864cbbab265043708b90
+    postman:SpectralRule:http-status-codes:invalid:v1:
+      fingerprint: jfpv1$sha256$8e906dd63f8a10794a0cfd5f300e24c7cbba4fc58df09a724d41ed15ca35d367
+      urn: postman:SpetralRule:8e906dd63f8a10794a0cfd5f300e24c7cbba4fc58df09a724d41ed15ca35d367
