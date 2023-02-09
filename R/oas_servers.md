@@ -1,6 +1,6 @@
 OAS Servers Analysis
 ================
-<sup>Last updated: 2023-02-08</sup>
+<sup>Last updated: 2023-02-09</sup>
 
 - <a href="#overview" id="toc-overview">Overview</a>
 - <a href="#findings" id="toc-findings">Findings</a>
@@ -37,21 +37,21 @@ for the host and other components of the URL.
 
 ## How is the server property used in APIs?
 
-- Out of 7,345 valid OpenAPI2 specifications, 5,552 (75.6%) have a
-  `host` property, 5,366 (73.1%) have a `basePath` property, and 5,919
+- Out of 7,399 valid OpenAPI2 specifications, 5,589 (75.5%) have a
+  `host` property, 5,405 (73.1%) have a `basePath` property, and 5,960
   (80.6%) have a `schemes` property.
 
-- Out of 15,018 valid OpenAPI3 specifications, 12,543 (83.5%) have a
+- Out of 15,072 valid OpenAPI3 specifications, 12,590 (83.5%) have a
   `servers` property, with an average of 1.2 server/entry, and a range
   of 0-13.
 
 ## How often do APIs use localhost vs domain based servers?
 
-- Out of the 20,098 host/servers entries (across all APIs), 4,846
-  (24.1%) contain localhost or 127.0.0.1, 11,407 (56.8%) use a DNS host,
-  and 766 (3.8%) use a variable template (3.x only). 1,755 (8.7%) use a
+- Out of the 20,204 host/servers entries (across all APIs), 4,863
+  (24.1%) contain localhost or 127.0.0.1, 11,464 (56.7%) use a DNS host,
+  and 771 (3.8%) use a variable template (3.x only). 1,772 (8.8%) use a
   relative path (no server specified).
-- 6,556 (32.6%) use an http protocol, and 10,764 (53.6%) https.
+- 6,605 (32.7%) use an http protocol, and 10,812 (53.5%) https.
 
 ## What are the most commonly used top level domains for APIs?
 
@@ -61,15 +61,15 @@ comprehensive list.
 
 | Rank | Domain         | \#APIs |
 |------|----------------|--------|
-| 1    | swagger.io     | 1082   |
-| 2    | swaggerhub.com | 997    |
+| 1    | swagger.io     | 1087   |
+| 2    | swaggerhub.com | 999    |
 | 3    | pstmn.io       | 529    |
-| 4    | azure.com      | 514    |
-| 5    | herokuapp.com  | 312    |
+| 4    | azure.com      | 521    |
+| 5    | herokuapp.com  | 315    |
 | 6    | example.com    | 223    |
-| 7    | googleapis.com | 181    |
+| 7    | googleapis.com | 183    |
 | 8    | amazonaws.com  | 167    |
-| 9    | amazon.com     | 158    |
+| 9    | amazon.com     | 160    |
 | 10   | breakable.com  | 156    |
 
 # Methodology
