@@ -4,7 +4,6 @@ description: |
   The regexes used in `http-status-codes-unassigned` and `http-status-codes-unused`
   have been generated from the registry XML data.
 documentationUrl: https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
-
 aliases:
   ResponsesObject:
     description: All Responses objects
@@ -18,7 +17,7 @@ aliases:
     - "#ResponsesObject.*~"
 
 rules:
-  http-status-codes-unassigned:
+  postman:SpectralRule:http-status-codes:unassigned:v1:
     description: Unassigned HTTP status code.
     message: The {{property}} HTTP status code is not assigned according to IANA registry.
     given:
@@ -33,7 +32,7 @@ rules:
           # regex generated based on https://www.iana.org/assignments/http-status-codes/http-status-codes.xml
           notMatch: (?:10[4-9]|1[1-9][0-9])|(?:209|21[0-9]|22[0-5])|(?:22[7-9]|2[3-9][0-9])|(?:309|3[1-9][0-9])|(?:419|420)|427|430|(?:43[2-9]|44[0-9]|450)|(?:45[2-9]|4[6-9][0-9])|509|(?:51[2-9]|5[2-9][0-9])
 
-  http-status-codes-unused:
+  postman:SpectralRule:http-status-codes:unused:v1:
     description: Unused or obsolete HTTP status code.
     message: The {{property}} HTTP status code is unused or obsolete according to IANA registry.
     given:
@@ -48,7 +47,7 @@ rules:
           # regex generated based on https://www.iana.org/assignments/http-status-codes/http-status-codes.xml
           notMatch: 306|418|510
 
-  http-status-codes-invalid:
+  postman:SpectralRule:http-status-codes:invalid:v1:
     description: HTTP status code not belonging not [1-5]XX, default or an x-tension.
     message: "{{property}} is not a valid HTTP status (100-599), the 'default' wildcard or an extension."
     given:

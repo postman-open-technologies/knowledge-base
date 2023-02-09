@@ -63,9 +63,13 @@ references:
   - id: RFC2774
   - title: RFC 2774 An HTTP Extension Framework
     url: https://www.rfc-editor.org/rfc/rfc2774.html
+  - id: WebConcepts
+    title: WebConcepts HTTP Status Codes
+    url: https://webconcepts.info/concepts/http-status-code/
   - id: WikipediaCodes
     title: Wikipedia List of HTTP status codes
     url: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#Unofficial_codes
+    
 classes:
   1xx:
     class: Informational

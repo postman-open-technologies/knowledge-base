@@ -1,0 +1,7 @@
+version:
+    number: 1.0.0
+provenance:
+    author: Arnaud Lauret, Postman Open Technologies
+ruleset:
+    url: file:///http-status-codes.spectral.yaml
+    urn: postman:SpectralRuleset:http-status-codes:v1.0.0

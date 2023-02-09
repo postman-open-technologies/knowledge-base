@@ -1,0 +1,88 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema#",
+    "$id": "postman:jsonschema:opentech-kb-spetral-ruleset:v1",
+    "title": "Spectral ruleset metadata",
+    "description": "Describes a ruleset",
+    "type": "object",
+    "properties": {
+        "version": {"$ref": "#/$defs/version"},   
+        "spectralVersion": {"$ref": "#/$defs/ruleset"}, 
+        "ruleset":  {"$ref": "#/$defs/ruleset"},
+        "provenance": {"$ref": "#/$defs/provenance"}   
+    },
+    "required": ["provenance", "ruleset", "version"],
+    "$defs": {
+        "provenance": {
+            "type": "object",
+            "description": "The resource's provenance",
+            "properties": {
+                "author": {"type": "string"},
+                "source": {"type": "string"},
+                "url": {"$ref": "#/$defs/url"},
+                "harvestedBy": {"type": "string"},
+                "harvestedAt": {"$ref": "#/$defs/timestamp"},
+                "udpatedAt": {"$ref": "#/$defs/timestamp"}
+            }
+        },
+        "timestamp": {
+            "type": "string",
+            "description": "An ISO 8601 date/time"
+        },
+        "urn": {
+            "type": "string",
+            "description": "The resource's URN"
+        },
+        "url": {
+            "type": "string",
+            "description": "A URL poiting to the spectral ruleset. Can be a relative/absolute file:// pat or a http(s):// link "
+        },
+        "resource": {
+            "type": "object",
+            "properties": {
+                "urn": {"$ref": "#/$defs/urn"},
+                "provenance": {"$ref": "#/$defs/provenance"}
+            },
+            "required": ["urn"]
+        },
+        "rule": {
+            "type": "object",
+            "allOf": [
+                {"$ref": "#/$defs/resource"}
+            ],
+            "properties": {
+                "ruleId": {
+                    "type": "string",
+                    "description":"The identifier of the rule withing the ruleset"
+                }
+            }
+        },
+        "ruleset": {
+            "type": "object",
+            "allOf": [
+                {"$ref": "#/$defs/resource"}
+            ],
+            "properties": {
+                "url": {"$ref": "#/$defs/url"},
+                "rules": {
+                    "type": "array",
+                    "items": {"$ref": "#/$defs/rule"}
+                }
+            },
+            "required": [ "url", "urn"]
+        },
+        "spectralVersion": {
+            "type": "string",
+            "enum": ["6"]
+        },
+        "version": {
+            "type": "object",
+            "properties": {
+                "number": {"type": "string"},
+                "date": {"type": "string", "description": "An ISO 8601 date"},
+                "rationale": {"type": "string", "description": "The reason this version was created, if applicable"},
+                "changes": {"type": "string", "description": "What has changed in this version, if applicable"}
+            },
+            "required": [ "number"]
+        }
+    }
+}
