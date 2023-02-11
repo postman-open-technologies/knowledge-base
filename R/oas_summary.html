@@ -602,7 +602,7 @@ padding-top: 0px;
 <body>
 
 <h1 id="oas-summary">OAS Summary</h1>
-<p><sup>Last updated: 2023-02-10</sup></p>
+<p><sup>Last updated: 2023-02-11</sup></p>
 <ul>
 <li><a href="#size" id="toc-size">Size</a></li>
 <li><a href="#validity-and-source-of-errors" id="toc-validity-and-source-of-errors">Validity and source of
@@ -627,10 +627,10 @@ of an API?</h3>
 <p><sup>See <a href="oas_size.md">size analysis</a> for further
 details.<sup></p>
 <ul>
-<li>Based on 22,540 valid API specifications, the average JSON size is
-34.2Kb, ranging from &lt; 1Kb to 7,575Kb.</li>
-<li>No significant difference is observed between version 2 (33.8Kb) and
-3 (34.4Kb)</li>
+<li>Based on 22,642 valid API specifications, the average JSON size is
+34.1Kb, ranging from &lt; 1Kb to 7,575Kb.</li>
+<li>No significant difference is observed between version 2 (33.6Kb) and
+3 (34.3Kb)</li>
 </ul>
 <h2 id="validity-and-source-of-errors">Validity and source of
 errors</h2>
@@ -639,7 +639,7 @@ we have?</h3>
 <p><sup>See <a href="oas_validity.md">validity analysis</a> for further
 details.<sup></p>
 <ul>
-<li>Out of 28,598 APIs, 22,540 (78.8%) are valid.</li>
+<li>Out of 28,745 APIs, 22,642 (78.8%) are valid.</li>
 </ul>
 <h3 id="what-are-the-primary-sources-of-error-in-apis">What are the
 primary sources of error in APIs?</h3>
@@ -650,28 +650,29 @@ details.</sup></p>
 <h3 id="how-is-the-server-property-used-in-apis">How is the server
 property used in APIs?</h3>
 <ul>
-<li><p>Out of 7,434 valid OpenAPI2 specifications, 5,613 (75.5%) have a
-<code>host</code> property, 5,429 (73%) have a <code>basePath</code>
-property, and 5,984 (80.5%) have a <code>schemes</code>
+<li><p>Out of 7,489 valid OpenAPI2 specifications, 5,658 (75.6%) have a
+<code>host</code> property, 5,460 (72.9%) have a <code>basePath</code>
+property, and 6,030 (80.5%) have a <code>schemes</code>
 property.</p></li>
-<li><p>Out of 15,106 valid OpenAPI3 specifications, 12,613 (83.5%) have
+<li><p>Out of 15,153 valid OpenAPI3 specifications, 12,651 (83.5%) have
 a <code>servers</code> property, with an average of 1.2 server/entry,
 and a range of 0-13.</p></li>
 </ul>
 <h3 id="how-often-do-apis-use-localhost-vs-domain-based-servers">How
 often do APIs use localhost vs domain based servers?</h3>
 <ul>
-<li>Out of the 20,263 host/servers entries (across all APIs), 4,873
-(24%) contain localhost or 127.0.0.1, 11,497 (56.7%) use a DNS host, and
-774 (3.8%) use a variable template (3.x only). 1,781 (8.8%) use a
+<li>Out of the 20,351 host/servers entries (across all APIs), 4,881
+(24%) contain localhost or 127.0.0.1, 11,558 (56.8%) use a DNS host, and
+776 (3.8%) use a variable template (3.x only). 1,789 (8.8%) use a
 relative path (no server specified).</li>
-<li>6,627 (32.7%) use an http protocol, and 10,838 (53.5%) https.</li>
+<li>6,659 (32.7%) use an http protocol, and 10,890 (53.5%) https.</li>
 </ul>
 <h3 id="what-are-the-most-commonly-used-top-level-domains">What are the
 most commonly used top level domains?</h3>
 <ul>
 <li>The top 3 most commonly used top level domains in our API collection
-are swagger.io (1,090), swaggerhub.com (999), and pstmn.io (529).</li>
+are swagger.io (1,092), swaggerhub.com (1,002), and azure.com
+(536).</li>
 </ul>
 <h2 id="paths">Paths</h2>
 <p><sup>See <a href="oas_paths.md">paths analysis</a> for further
@@ -681,9 +682,9 @@ used in APIs?</h3>
 <ul>
 <li>The average number of path per API is 11.9, ranging from 1 to
 1,550.</li>
-<li>Out of the 22,018 APIs with a path, 13,415 (60.9%) have 1-5 paths,
-2,952 (13.4%) have 6-10 paths, 2,841 (12.9%) have 11-20 paths, 1,905
-(8.7%) have 21-50 paths, and 905 (0.04110273%) have over 50 paths.</li>
+<li>Out of the 22,119 APIs with a path, 13,491 (61%) have 1-5 paths,
+2,961 (13.4%) have 6-10 paths, 2,854 (12.9%) have 11-20 paths, 1,908
+(8.6%) have 21-50 paths, and 905 (0.04091505%) have over 50 paths.</li>
 </ul>
 <h2 id="json-schema">JSON Schema</h2>
 <h3 id="what-is-average-number-of-locally-defined-json-objects-per-api">What
@@ -692,29 +693,29 @@ is average number of locally defined JSON objects per API?</h3>
 <li>The average number of JSON objects defined locally under
 /definitions (OpenAPI2) or /components/schema (OpenAPI3) is 20.2,
 ranging from 1 to 2,146.</li>
-<li>Out of the 19,386 APIs, 9,676 (49.9%) have 1-5 entries, 2,990
-(15.4%) have 6-10 entries, 2,502 (12.9%) have 11-20 entries, 2,289
-(11.8%) have 21-50 entries, and 1,929 (10%) have over 50 entries.</li>
+<li>Out of the 19,470 APIs, 9,719 (49.9%) have 1-5 entries, 3,012
+(15.5%) have 6-10 entries, 2,510 (12.9%) have 11-20 entries, 2,298
+(11.8%) have 21-50 entries, and 1,931 (9.9%) have over 50 entries.</li>
 </ul>
 <h2 id="licensing">Licensing</h2>
 <h3 id="how-is-the-license-property-used-in-apis">How is the license
 property used in APIs?</h3>
 <ul>
-<li>Out of 22,540 valid APIs, 8,212 (36.4%) have a <code>license</code>
-property, with 5,171 (22.9%) providing both the <code>name</code> and
+<li>Out of 22,642 valid APIs, 8,243 (36.4%) have a <code>license</code>
+property, with 5,201 (23%) providing both the <code>name</code> and
 <code>url</code>.</li>
-<li>Out of the 146 v3.1 APIs with a license, 5 (3.4%) use the
+<li>Out of the 147 v3.1 APIs with a license, 5 (3.4%) use the
 <code>identifier</code> property (introduced in 3.1).</li>
 </ul>
 <h3 id="what-is-the-breakdown-of-licenses-use-by-the-apis">What is the
 breakdown of licenses use by the APIs?</h3>
 <ul>
 <li>Analysis based on a simple harmonization method looking at terms in
-the license name and url values indicates that 3,050 (37.1%) of the APIs
+the license name and url values indicates that 3,070 (37.2%) of the APIs
 use an Apache license.</li>
-<li>Other notable categories include MIT (40.7%), Creative Commons
+<li>Other notable categories include MIT (40.6%), Creative Commons
 (5.3%), GNU/GPL (2.8%).</li>
-<li>10.4% are categorized as Other.</li>
+<li>10.3% are categorized as Other.</li>
 </ul>
 <h2 id="security">Security</h2>
 <h3 id="how-are-the-security-related-properties-used-in-apis">How are
@@ -725,18 +726,18 @@ renamed to <code>securitySchemes</code> and moved inside
 with <code>type: http</code> with
 <code>scheme: basic</code>.</em></sup></p>
 <ul>
-<li><p>Out of 22,540 valid APIs, 6,647 (29.5%) have a
+<li><p>Out of 22,642 valid APIs, 6,669 (29.5%) have a
 <code>security</code> property.</p></li>
-<li><p>For OpenAPI2, out of the 7,434 valid APIs, 3,224 (43.4%) have a
+<li><p>For OpenAPI2, out of the 7,489 valid APIs, 3,247 (43.4%) have a
 <code>securityDefinitions</code> property. The <code>type</code> is
-distributed as 2,113 (45.7%) apiKey, 1,919 (41.5%) oauth2, and 588
+distributed as 2,118 (45.6%) apiKey, 1,935 (41.7%) oauth2, and 590
 (12.7%) basic.</p></li>
-<li><p>For OpenAPI3, out of the 15,106 valid APIs, 7,830 (51.8%) have a
+<li><p>For OpenAPI3, out of the 15,153 valid APIs, 7,849 (51.8%) have a
 <code>components/securitySchemes</code> property. The <code>type</code>
-is distributed as 3,092 (32.6%) apiKey, 4,748 (50.1%) http, 1,480
-(15.6%) oauth2, 77 (0.8%) openIdConnect, and 77 (0.8%) empty
+is distributed as 3,102 (32.7%) apiKey, 4,756 (50.1%) http, 1,487
+(15.7%) oauth2, 77 (0.8%) openIdConnect, and 77 (0.8%) empty
 value.</p></li>
-<li><p>As only 1,445 (19.4%) of v2.x and 5,202 (34.4%) of v3.x APIs have
+<li><p>As only 1,459 (19.5%) of v2.x and 5,210 (34.4%) of v3.x APIs have
 a <code>security</code> property, it suggest that the security schemes
 may not always be used. This requires further investigation.</p></li>
 </ul>
@@ -746,10 +747,10 @@ is the breakdown of status codes in the OpenAPIs responses?</h3>
 <p><sup>See <a href="oas_paths_operations.md">paths operations
 analysis</a> for further details.<sup></p>
 <ul>
-<li>Across all 871,361 responses, the most common codes or values are
-<code>200</code> 285,825 (32.8%), <code>400</code> 96,868 (11.1%),
-<code>404</code> 88,211 (10.1%), <code>401</code> 78,641 (9%), and
-<code>500</code> 64,367 (7.4%)</li>
+<li>Across all 872,917 responses, the most common codes or values are
+<code>200</code> 286,395 (32.8%), <code>400</code> 97,017 (11.1%),
+<code>404</code> 88,328 (10.1%), <code>401</code> 78,776 (9%), and
+<code>500</code> 64,447 (7.4%)</li>
 </ul>
 
 </body>

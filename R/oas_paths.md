@@ -1,6 +1,6 @@
 OAS Paths Analysis
 ================
-<sup>Last updated: 2023-02-10</sup>
+<sup>Last updated: 2023-02-11</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#how-is-the-path-property-used-in-apis"
@@ -23,17 +23,17 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 ## How is the path property used in APIs?
 
 - The average number of path per API is 11.9, ranging from 1 to 1,550.
-- Out of the 22,018 APIs with a path, 13,415 (60.9%) have 1-5 paths,
-  2,952 (13.4%) have 6-10 paths, 2,841 (12.9%) have 11-20 paths, 1,905
-  (8.7%) have 21-50 paths, and 905 (0.04110273%) have over 50 paths.
+- Out of the 22,119 APIs with a path, 13,491 (61%) have 1-5 paths, 2,961
+  (13.4%) have 6-10 paths, 2,854 (12.9%) have 11-20 paths, 1,908 (8.6%)
+  have 21-50 paths, and 905 (0.04091505%) have over 50 paths.
 
 <img src="oas_paths_files/figure-gfm/oas_paths_buckets_barplot-1.png" width="90%" />
 
 ## Which properties are used under paths?
 
-- Out of 377,473 properties under paths, the most commonly used are
-  `get` 170,783 (45.2%), `post` 94,260 (25%), `put` 31,718 (8.4%),
-  `delete` 29,683 (7.9%), and `parameters` 22,935 (6.1%).
+- Out of 378,167 properties under paths, the most commonly used are
+  `get` 171,114 (45.2%), `post` 94,466 (25%), `put` 31,782 (8.4%),
+  `delete` 29,736 (7.9%), and `parameters` 22,958 (6.1%).
 - Beyond standard properties, numerous extensions were found. See table
   below for details.
 - No significant variations were observed across specification versions
@@ -48,43 +48,43 @@ Table: Counts and percentages of properties under paths
 
 | property                               |      n |       pct |
 |:---------------------------------------|-------:|----------:|
-| get                                    | 170783 | 0.4524377 |
-| post                                   |  94260 | 0.2497132 |
-| put                                    |  31718 | 0.0840272 |
-| delete                                 |  29683 | 0.0786361 |
-| parameters                             |  22935 | 0.0607593 |
-| patch                                  |   8312 | 0.0220201 |
-| x-swagger-router-controller            |   6402 | 0.0169602 |
-| \$ref                                  |   4757 | 0.0126022 |
-| description                            |   1848 | 0.0048957 |
-| servers                                |   1349 | 0.0035738 |
-| options                                |    773 | 0.0020478 |
-| summary                                |    764 | 0.0020240 |
-| x-endpoint                             |    687 | 0.0018200 |
-| x-platforms-available                  |    663 | 0.0017564 |
-| head                                   |    351 | 0.0009299 |
-| x-swagger-pipe                         |    299 | 0.0007921 |
-| x-route-enum                           |    291 | 0.0007709 |
-| x-twilio                               |    272 | 0.0007206 |
-| x-api-version                          |    175 | 0.0004636 |
-| x-summary                              |    146 | 0.0003868 |
-| x-linode-cli-command                   |    133 | 0.0003523 |
-| x-default-output-properties            |    129 | 0.0003417 |
-| x-path-type                            |    129 | 0.0003417 |
-| x-description                          |     81 | 0.0002146 |
-| x-restlet                              |     67 | 0.0001775 |
-| x-related-model                        |     45 | 0.0001192 |
-| x-gelato-group                         |     39 | 0.0001033 |
-| x-amazon-apigateway-any-method         |     35 | 0.0000927 |
-| x-vault-unauthenticated                |     35 | 0.0000927 |
-| x-vault-sudo                           |     25 | 0.0000662 |
-| x-modules                              |     25 | 0.0000662 |
-| x-controller                           |     25 | 0.0000662 |
-| x-ms-notification-content              |     20 | 0.0000530 |
-| trace                                  |     16 | 0.0000424 |
-| x-WM-COMPLETE_PATH                     |     14 | 0.0000371 |
-| x-a127-apply                           |     14 | 0.0000371 |
-| x-amf-description                      |     12 | 0.0000318 |
+| get                                    | 171114 | 0.4524826 |
+| post                                   |  94466 | 0.2497997 |
+| put                                    |  31782 | 0.0840422 |
+| delete                                 |  29736 | 0.0786319 |
+| parameters                             |  22958 | 0.0607086 |
+| patch                                  |   8323 | 0.0220088 |
+| x-swagger-router-controller            |   6403 | 0.0169317 |
+| \$ref                                  |   4757 | 0.0125791 |
+| description                            |   1850 | 0.0048920 |
+| servers                                |   1349 | 0.0035672 |
+| options                                |    774 | 0.0020467 |
+| summary                                |    770 | 0.0020361 |
+| x-endpoint                             |    687 | 0.0018167 |
+| x-platforms-available                  |    663 | 0.0017532 |
+| head                                   |    352 | 0.0009308 |
+| x-swagger-pipe                         |    298 | 0.0007880 |
+| x-route-enum                           |    291 | 0.0007695 |
+| x-twilio                               |    272 | 0.0007193 |
+| x-api-version                          |    175 | 0.0004628 |
+| x-summary                              |    146 | 0.0003861 |
+| x-linode-cli-command                   |    133 | 0.0003517 |
+| x-path-type                            |    129 | 0.0003411 |
+| x-default-output-properties            |    129 | 0.0003411 |
+| x-description                          |     81 | 0.0002142 |
+| x-restlet                              |     67 | 0.0001772 |
+| x-related-model                        |     45 | 0.0001190 |
+| x-gelato-group                         |     39 | 0.0001031 |
+| x-amazon-apigateway-any-method         |     35 | 0.0000926 |
+| x-vault-unauthenticated                |     35 | 0.0000926 |
+| x-vault-sudo                           |     25 | 0.0000661 |
+| x-modules                              |     25 | 0.0000661 |
+| x-controller                           |     25 | 0.0000661 |
+| x-ms-notification-content              |     16 | 0.0000423 |
+| trace                                  |     16 | 0.0000423 |
+| x-a127-apply                           |     14 | 0.0000370 |
+| x-WM-COMPLETE_PATH                     |     14 | 0.0000370 |
+| x-amf-description                      |     12 | 0.0000317 |
 | x-vault-createSupported                |     11 | 0.0000291 |
 | x-swagger-section-capabilities         |      9 | 0.0000238 |
 | x-eac-ignore                           |      8 | 0.0000212 |

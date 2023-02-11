@@ -1,6 +1,6 @@
 OAS Servers Analysis
 ================
-<sup>Last updated: 2023-02-10</sup>
+<sup>Last updated: 2023-02-11</sup>
 
 - <a href="#overview" id="toc-overview">Overview</a>
 - <a href="#findings" id="toc-findings">Findings</a>
@@ -37,21 +37,21 @@ for the host and other components of the URL.
 
 ## How is the server property used in APIs?
 
-- Out of 7,434 valid OpenAPI2 specifications, 5,613 (75.5%) have a
-  `host` property, 5,429 (73%) have a `basePath` property, and 5,984
+- Out of 7,489 valid OpenAPI2 specifications, 5,658 (75.6%) have a
+  `host` property, 5,460 (72.9%) have a `basePath` property, and 6,030
   (80.5%) have a `schemes` property.
 
-- Out of 15,106 valid OpenAPI3 specifications, 12,613 (83.5%) have a
+- Out of 15,153 valid OpenAPI3 specifications, 12,651 (83.5%) have a
   `servers` property, with an average of 1.2 server/entry, and a range
   of 0-13.
 
 ## How often do APIs use localhost vs domain based servers?
 
-- Out of the 20,263 host/servers entries (across all APIs), 4,873 (24%)
-  contain localhost or 127.0.0.1, 11,497 (56.7%) use a DNS host, and 774
-  (3.8%) use a variable template (3.x only). 1,781 (8.8%) use a relative
+- Out of the 20,351 host/servers entries (across all APIs), 4,881 (24%)
+  contain localhost or 127.0.0.1, 11,558 (56.8%) use a DNS host, and 776
+  (3.8%) use a variable template (3.x only). 1,789 (8.8%) use a relative
   path (no server specified).
-- 6,627 (32.7%) use an http protocol, and 10,838 (53.5%) https.
+- 6,659 (32.7%) use an http protocol, and 10,890 (53.5%) https.
 
 ## What are the most commonly used top level domains for APIs?
 
@@ -61,15 +61,15 @@ comprehensive list.
 
 | Rank | Domain         | \#APIs |
 |------|----------------|--------|
-| 1    | swagger.io     | 1090   |
-| 2    | swaggerhub.com | 999    |
-| 3    | pstmn.io       | 529    |
-| 4    | azure.com      | 525    |
-| 5    | herokuapp.com  | 317    |
-| 6    | example.com    | 223    |
-| 7    | googleapis.com | 184    |
-| 8    | amazonaws.com  | 167    |
-| 9    | amazon.com     | 160    |
+| 1    | swagger.io     | 1092   |
+| 2    | swaggerhub.com | 1002   |
+| 3    | azure.com      | 536    |
+| 4    | pstmn.io       | 529    |
+| 5    | herokuapp.com  | 318    |
+| 6    | example.com    | 224    |
+| 7    | googleapis.com | 186    |
+| 8    | amazonaws.com  | 168    |
+| 9    | amazon.com     | 163    |
 | 10   | breakable.com  | 156    |
 
 # Methodology
