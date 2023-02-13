@@ -92,7 +92,7 @@ queries:
   - collection
   - class
   schema:
-  - property
+  - property:
     description: property name
     type: string
   - n:
@@ -116,7 +116,7 @@ queries:
   - collection
   - class
   schema:
-  - operation
+  - operation:
     description: operation name
     type: string
   - n:
@@ -140,7 +140,7 @@ queries:
   - collection
   - class
   schema:
-  - response
+  - response:
     description: response code or value
     type: string
   - n:
@@ -164,10 +164,10 @@ queries:
   - collection
   - class
   schema:
-  - operation
+  - operation:
     description: operation name
     type: string
-  - response
+  - response:
     description: response code or value
     type: string
   - n:
