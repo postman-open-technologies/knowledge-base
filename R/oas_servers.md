@@ -1,6 +1,6 @@
 OAS Servers Analysis
 ================
-<sup>Last updated: 2023-02-12</sup>
+<sup>Last updated: 2023-02-13</sup>
 
 - <a href="#overview" id="toc-overview">Overview</a>
 - <a href="#findings" id="toc-findings">Findings</a>
@@ -37,21 +37,21 @@ for the host and other components of the URL.
 
 ## How is the server property used in APIs?
 
-- Out of 7,538 valid OpenAPI2 specifications, 5,696 (75.6%) have a
-  `host` property, 5,489 (72.8%) have a `basePath` property, and 6,073
+- Out of 7,553 valid OpenAPI2 specifications, 5,709 (75.6%) have a
+  `host` property, 5,499 (72.8%) have a `basePath` property, and 6,087
   (80.6%) have a `schemes` property.
 
-- Out of 15,193 valid OpenAPI3 specifications, 12,683 (83.5%) have a
+- Out of 15,198 valid OpenAPI3 specifications, 12,688 (83.5%) have a
   `servers` property, with an average of 1.2 server/entry, and a range
   of 0-13.
 
 ## How often do APIs use localhost vs domain based servers?
 
-- Out of the 20,431 host/servers entries (across all APIs), 4,885
-  (23.9%) contain localhost or 127.0.0.1, 11,619 (56.9%) use a DNS host,
-  and 776 (3.8%) use a variable template (3.x only). 1,798 (8.8%) use a
+- Out of the 20,451 host/servers entries (across all APIs), 4,887
+  (23.9%) contain localhost or 127.0.0.1, 11,631 (56.9%) use a DNS host,
+  and 777 (3.8%) use a variable template (3.x only). 1,799 (8.8%) use a
   relative path (no server specified).
-- 6,686 (32.7%) use an http protocol, and 10,941 (53.6%) https.
+- 6,694 (32.7%) use an http protocol, and 10,953 (53.6%) https.
 
 ## What are the most commonly used top level domains for APIs?
 
@@ -63,11 +63,11 @@ comprehensive list.
 |------|----------------|--------|
 | 1    | swagger.io     | 1098   |
 | 2    | swaggerhub.com | 1005   |
-| 3    | azure.com      | 548    |
+| 3    | azure.com      | 551    |
 | 4    | pstmn.io       | 529    |
-| 5    | herokuapp.com  | 318    |
+| 5    | herokuapp.com  | 320    |
 | 6    | example.com    | 224    |
-| 7    | googleapis.com | 187    |
+| 7    | googleapis.com | 188    |
 | 8    | amazonaws.com  | 168    |
 | 9    | amazon.com     | 163    |
 | 10   | breakable.com  | 156    |

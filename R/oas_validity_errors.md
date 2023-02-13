@@ -1,6 +1,6 @@
 OAS Validity: Source of Errors
 ================
-<sup>Last updated: 2023-02-12</sup>
+<sup>Last updated: 2023-02-13</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a
@@ -32,15 +32,15 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 
 ## *Which top level paths of API specifications are the source of validation errors?*
 
-- A total of 183,750 validation errors are found across 6,152 invalid
+- A total of 183,684 validation errors are found across 6,158 invalid
   APIs
-- Looking at the *error* counts, 129,892 (70.7%) are found under
-  `paths`. This is followed by 36,110 (19.7%) under `components`, 12,880
-  (7%) under `definitions`, 1,803 (1%) under `root`, and 1,062 (0.6%)
+- Looking at the *error* counts, 129,849 (70.7%) are found under
+  `paths`. This is followed by 36,112 (19.7%) under `components`, 12,851
+  (7%) under `definitions`, 1,804 (1%) under `root`, and 1,063 (0.6%)
   under `info`
-- Looking at the *API* counts, 3,862 (40.4%)have at least one error
-  under `paths`. This is followed by 1,520 (15.9%) under `components`,
-  1,482 (15.5%) under `root`, 811 (8.5%) under `info`, and 511 (5.3%)
+- Looking at the *API* counts, 3,865 (40.4%)have at least one error
+  under `paths`. This is followed by 1,521 (15.9%) under `components`,
+  1,483 (15.5%) under `root`, 812 (8.5%) under `info`, and 511 (5.3%)
   under `definitions`
 - Keep in mind the `definitions` property is only used by OpenAPI 2.x
   and `components` by OpenAPI 3.x (as v2 `definitions` became
@@ -55,24 +55,24 @@ Table: Count of errors by top property
 
 | path                |      n |       pct |
 |:--------------------|-------:|----------:|
-| paths               | 129892 | 0.7068952 |
-| components          |  36110 | 0.1965170 |
-| definitions         |  12880 | 0.0700952 |
-| root                |   1803 | 0.0098122 |
-| info                |   1062 | 0.0057796 |
-| tags                |    523 | 0.0028463 |
-| servers             |    412 | 0.0022422 |
-| host                |    212 | 0.0011537 |
-| securityDefinitions |    205 | 0.0011156 |
-| basePath            |    200 | 0.0010884 |
-| security            |    125 | 0.0006803 |
-| responses           |     76 | 0.0004136 |
-| schemes             |     74 | 0.0004027 |
-| parameters          |     69 | 0.0003755 |
-| produces            |     53 | 0.0002884 |
-| externalDocs        |     27 | 0.0001469 |
-| openapi             |     15 | 0.0000816 |
-| consumes            |      8 | 0.0000435 |
+| paths               | 129849 | 0.7069151 |
+| components          |  36112 | 0.1965985 |
+| definitions         |  12851 | 0.0699625 |
+| root                |   1804 | 0.0098212 |
+| info                |   1063 | 0.0057871 |
+| tags                |    523 | 0.0028473 |
+| servers             |    412 | 0.0022430 |
+| host                |    212 | 0.0011542 |
+| securityDefinitions |    206 | 0.0011215 |
+| basePath            |    201 | 0.0010943 |
+| security            |    125 | 0.0006805 |
+| responses           |     76 | 0.0004138 |
+| schemes             |     74 | 0.0004029 |
+| parameters          |     69 | 0.0003756 |
+| produces            |     53 | 0.0002885 |
+| externalDocs        |     27 | 0.0001470 |
+| openapi             |     15 | 0.0000817 |
+| consumes            |      8 | 0.0000436 |
 | swagger             |      4 | 0.0000218 |
 
 </details>
@@ -83,25 +83,25 @@ Table: Count of APIs with 1 or more errors by top property
 
 | path                |    n |       pct |
 |:--------------------|-----:|----------:|
-| paths               | 3862 | 0.4036371 |
-| components          | 1520 | 0.1588629 |
-| root                | 1482 | 0.1548913 |
-| info                |  811 | 0.0847617 |
-| definitions         |  511 | 0.0534072 |
-| servers             |  354 | 0.0369983 |
-| host                |  212 | 0.0221572 |
-| basePath            |  200 | 0.0209030 |
-| securityDefinitions |  166 | 0.0173495 |
-| security            |  123 | 0.0128554 |
-| tags                |  104 | 0.0108696 |
-| schemes             |   71 | 0.0074206 |
-| produces            |   53 | 0.0055393 |
-| parameters          |   32 | 0.0033445 |
-| externalDocs        |   21 | 0.0021948 |
-| responses           |   19 | 0.0019858 |
-| openapi             |   15 | 0.0015677 |
-| consumes            |    8 | 0.0008361 |
-| swagger             |    4 | 0.0004181 |
+| paths               | 3865 | 0.4036132 |
+| components          | 1521 | 0.1588346 |
+| root                | 1483 | 0.1548663 |
+| info                |  812 | 0.0847953 |
+| definitions         |  511 | 0.0533626 |
+| servers             |  354 | 0.0369674 |
+| host                |  212 | 0.0221387 |
+| basePath            |  201 | 0.0209900 |
+| securityDefinitions |  167 | 0.0174394 |
+| security            |  123 | 0.0128446 |
+| tags                |  104 | 0.0108605 |
+| schemes             |   71 | 0.0074144 |
+| produces            |   53 | 0.0055347 |
+| parameters          |   32 | 0.0033417 |
+| externalDocs        |   21 | 0.0021930 |
+| responses           |   19 | 0.0019841 |
+| openapi             |   15 | 0.0015664 |
+| consumes            |    8 | 0.0008354 |
+| swagger             |    4 | 0.0004177 |
 
 </details>
 

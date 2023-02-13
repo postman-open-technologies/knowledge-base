@@ -1,6 +1,6 @@
 OAS Servers Analysis: Top Level Domains
 ================
-<sup>Last updated: 2023-02-12</sup>
+<sup>Last updated: 2023-02-13</sup>
 
 <sup>*DISCLAIMER: the results and findings below are preliminary and
 have not been fully validated or peer reviewed. Use with care. Do not
@@ -17,11 +17,11 @@ List of top level domains used by at least 5 APIs
 |------|-----------------------|--------|
 | 1    | swagger.io            | 1098   |
 | 2    | swaggerhub.com        | 1005   |
-| 3    | azure.com             | 548    |
+| 3    | azure.com             | 551    |
 | 4    | pstmn.io              | 529    |
-| 5    | herokuapp.com         | 318    |
+| 5    | herokuapp.com         | 320    |
 | 6    | example.com           | 224    |
-| 7    | googleapis.com        | 187    |
+| 7    | googleapis.com        | 188    |
 | 8    | amazonaws.com         | 168    |
 | 9    | amazon.com            | 163    |
 | 10   | breakable.com         | 156    |
@@ -39,9 +39,9 @@ List of top level domains used by at least 5 APIs
 | 22   | apitore.com           | 53     |
 | 23   | org.uk                | 51     |
 | 24   | sap.com               | 43     |
-| 25   | microbilt.com         | 41     |
-| 26   | appspot.com           | 40     |
-| 27   | elements.com          | 40     |
+| 25   | elements.com          | 41     |
+| 26   | microbilt.com         | 41     |
+| 27   | appspot.com           | 40     |
 | 28   | cloud.goog            | 38     |
 | 29   | api.com               | 37     |
 | 30   | rapidapi.com          | 37     |
@@ -50,8 +50,8 @@ List of top level domains used by at least 5 APIs
 | 33   | cameramanager.com     | 36     |
 | 34   | sportradar.com        | 36     |
 | 35   | example.xyz           | 35     |
-| 36   | postman.com           | 35     |
-| 37   | FoodOrderingApp.io    | 34     |
+| 36   | FoodOrderingApp.io    | 35     |
+| 37   | postman.com           | 35     |
 | 38   | tmrwplatform.com      | 34     |
 | 39   | ac.nz                 | 33     |
 | 40   | quora.io              | 33     |
@@ -75,7 +75,7 @@ List of top level domains used by at least 5 APIs
 | 58   | deutschebahn.com      | 23     |
 | 59   | concursolutions.com   | 22     |
 | 60   | simplekart.com        | 22     |
-| 61   | temenos.com           | 21     |
+| 61   | temenos.com           | 22     |
 | 62   | example.io            | 20     |
 | 63   | mastercard.com        | 20     |
 | 64   | server.com            | 20     |
@@ -111,21 +111,21 @@ List of top level domains used by at least 5 APIs
 | 94   | criteo.com            | 12     |
 | 95   | va.gov                | 12     |
 | 96   | vtextracking.com      | 12     |
-| 97   | canada.ca             | 11     |
-| 98   | clever.com            | 11     |
-| 99   | dimelo.com            | 11     |
-| 100  | ecommerceapi.uk       | 11     |
-| 101  | govt.nz               | 11     |
-| 102  | hollaex.com           | 11     |
-| 103  | interzoid.com         | 11     |
-| 104  | lufthansa.com         | 11     |
-| 105  | m3o.com               | 11     |
-| 106  | mashape.com           | 11     |
-| 107  | o2.cz                 | 11     |
-| 108  | samsara.com           | 11     |
-| 109  | Swagger.io            | 11     |
-| 110  | wmata.com             | 11     |
-| 111  | bclaws.ca             | 10     |
+| 97   | bclaws.ca             | 11     |
+| 98   | canada.ca             | 11     |
+| 99   | clever.com            | 11     |
+| 100  | dimelo.com            | 11     |
+| 101  | ecommerceapi.uk       | 11     |
+| 102  | govt.nz               | 11     |
+| 103  | hollaex.com           | 11     |
+| 104  | interzoid.com         | 11     |
+| 105  | lufthansa.com         | 11     |
+| 106  | m3o.com               | 11     |
+| 107  | mashape.com           | 11     |
+| 108  | o2.cz                 | 11     |
+| 109  | samsara.com           | 11     |
+| 110  | Swagger.io            | 11     |
+| 111  | wmata.com             | 11     |
 | 112  | cloudmersive.com      | 10     |
 | 113  | iii.org               | 10     |
 | 114  | omdbapi.com           | 10     |

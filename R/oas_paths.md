@@ -1,6 +1,6 @@
 OAS Paths Analysis
 ================
-<sup>Last updated: 2023-02-12</sup>
+<sup>Last updated: 2023-02-13</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#how-is-the-path-property-used-in-apis"
@@ -23,17 +23,17 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 ## How is the path property used in APIs?
 
 - The average number of path per API is 11.9, ranging from 1 to 1,550.
-- Out of the 22,206 APIs with a path, 13,550 (61%) have 1-5 paths, 2,974
-  (13.4%) have 6-10 paths, 2,865 (12.9%) have 11-20 paths, 1,911 (8.6%)
-  have 21-50 paths, and 906 (0.04079978%) have over 50 paths.
+- Out of the 22,225 APIs with a path, 13,559 (61%) have 1-5 paths, 2,979
+  (13.4%) have 6-10 paths, 2,869 (12.9%) have 11-20 paths, 1,912 (8.6%)
+  have 21-50 paths, and 906 (0.0407649%) have over 50 paths.
 
 <img src="oas_paths_files/figure-gfm/oas_paths_buckets_barplot-1.png" width="90%" />
 
 ## Which properties are used under paths?
 
-- Out of 378,901 properties under paths, the most commonly used are
-  `get` 171,533 (45.3%), `post` 94,620 (25%), `put` 31,832 (8.4%),
-  `delete` 29,793 (7.9%), and `parameters` 22,975 (6.1%).
+- Out of 379,133 properties under paths, the most commonly used are
+  `get` 171,650 (45.3%), `post` 94,659 (25%), `put` 31,861 (8.4%),
+  `delete` 29,823 (7.9%), and `parameters` 22,976 (6.1%).
 - Beyond standard properties, numerous extensions were found. See table
   below for details.
 - No significant variations were observed across specification versions
@@ -48,38 +48,38 @@ Table: Counts and percentages of properties under paths
 
 | property                               |      n |       pct |
 |:---------------------------------------|-------:|----------:|
-| get                                    | 171533 | 0.4527119 |
-| post                                   |  94620 | 0.2497222 |
-| put                                    |  31832 | 0.0840114 |
-| delete                                 |  29793 | 0.0786300 |
-| parameters                             |  22975 | 0.0606359 |
-| patch                                  |   8341 | 0.0220137 |
-| x-swagger-router-controller            |   6408 | 0.0169121 |
-| \$ref                                  |   4757 | 0.0125547 |
-| description                            |   1851 | 0.0048852 |
-| servers                                |   1351 | 0.0035656 |
-| options                                |    775 | 0.0020454 |
-| summary                                |    770 | 0.0020322 |
-| x-endpoint                             |    687 | 0.0018131 |
-| x-platforms-available                  |    663 | 0.0017498 |
-| head                                   |    352 | 0.0009290 |
-| x-swagger-pipe                         |    298 | 0.0007865 |
-| x-route-enum                           |    291 | 0.0007680 |
-| x-twilio                               |    272 | 0.0007179 |
-| x-api-version                          |    175 | 0.0004619 |
-| x-summary                              |    146 | 0.0003853 |
-| x-linode-cli-command                   |    133 | 0.0003510 |
-| x-default-output-properties            |    129 | 0.0003405 |
-| x-path-type                            |    129 | 0.0003405 |
-| x-description                          |     81 | 0.0002138 |
-| x-restlet                              |     67 | 0.0001768 |
-| x-related-model                        |     45 | 0.0001188 |
+| get                                    | 171650 | 0.4527435 |
+| post                                   |  94659 | 0.2496723 |
+| put                                    |  31861 | 0.0840365 |
+| delete                                 |  29823 | 0.0786611 |
+| parameters                             |  22976 | 0.0606014 |
+| patch                                  |   8352 | 0.0220292 |
+| x-swagger-router-controller            |   6413 | 0.0169149 |
+| \$ref                                  |   4757 | 0.0125470 |
+| description                            |   1851 | 0.0048822 |
+| servers                                |   1351 | 0.0035634 |
+| options                                |    775 | 0.0020441 |
+| summary                                |    770 | 0.0020309 |
+| x-endpoint                             |    687 | 0.0018120 |
+| x-platforms-available                  |    663 | 0.0017487 |
+| head                                   |    352 | 0.0009284 |
+| x-swagger-pipe                         |    298 | 0.0007860 |
+| x-route-enum                           |    291 | 0.0007675 |
+| x-twilio                               |    272 | 0.0007174 |
+| x-api-version                          |    175 | 0.0004616 |
+| x-summary                              |    146 | 0.0003851 |
+| x-linode-cli-command                   |    133 | 0.0003508 |
+| x-default-output-properties            |    129 | 0.0003402 |
+| x-path-type                            |    129 | 0.0003402 |
+| x-description                          |     81 | 0.0002136 |
+| x-restlet                              |     67 | 0.0001767 |
+| x-related-model                        |     45 | 0.0001187 |
 | x-gelato-group                         |     39 | 0.0001029 |
 | x-vault-unauthenticated                |     36 | 0.0000950 |
-| x-amazon-apigateway-any-method         |     35 | 0.0000924 |
-| x-vault-sudo                           |     25 | 0.0000660 |
-| x-modules                              |     25 | 0.0000660 |
-| x-controller                           |     25 | 0.0000660 |
+| x-amazon-apigateway-any-method         |     35 | 0.0000923 |
+| x-vault-sudo                           |     25 | 0.0000659 |
+| x-modules                              |     25 | 0.0000659 |
+| x-controller                           |     25 | 0.0000659 |
 | trace                                  |     16 | 0.0000422 |
 | x-ms-notification-content              |     15 | 0.0000396 |
 | x-a127-apply                           |     14 | 0.0000369 |
@@ -87,7 +87,7 @@ Table: Counts and percentages of properties under paths
 | x-amf-description                      |     12 | 0.0000317 |
 | x-vault-createSupported                |     11 | 0.0000290 |
 | x-snyk-api-version                     |     10 | 0.0000264 |
-| x-swagger-section-capabilities         |      9 | 0.0000238 |
+| x-swagger-section-capabilities         |      9 | 0.0000237 |
 | x-eac-ignore                           |      8 | 0.0000211 |
 | x-internal                             |      7 | 0.0000185 |
 | x-data_classification                  |      7 | 0.0000185 |
