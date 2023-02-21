@@ -1,6 +1,6 @@
 OAS Paths Analysis
 ================
-<sup>Last updated: 2023-02-20</sup>
+<sup>Last updated: 2023-02-21</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#how-is-the-path-property-used-in-apis"
@@ -23,17 +23,17 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 ## How is the path property used in APIs?
 
 - The average number of path per API is 11.9, ranging from 1 to 1,550.
-- Out of the 22,225 APIs with a path, 13,559 (61%) have 1-5 paths, 2,979
+- Out of the 22,230 APIs with a path, 13,562 (61%) have 1-5 paths, 2,981
   (13.4%) have 6-10 paths, 2,869 (12.9%) have 11-20 paths, 1,912 (8.6%)
-  have 21-50 paths, and 906 (0.0407649%) have over 50 paths.
+  have 21-50 paths, and 906 (0.04075574%) have over 50 paths.
 
 <img src="oas_paths_files/figure-gfm/oas_paths_buckets_barplot-1.png" width="90%" />
 
 ## Which properties are used under paths?
 
-- Out of 379,133 properties under paths, the most commonly used are
-  `get` 171,650 (45.3%), `post` 94,659 (25%), `put` 31,861 (8.4%),
-  `delete` 29,823 (7.9%), and `parameters` 22,976 (6.1%).
+- Out of 379,165 properties under paths, the most commonly used are
+  `get` 171,665 (45.3%), `post` 94,668 (25%), `put` 31,867 (8.4%),
+  `delete` 29,825 (7.9%), and `parameters` 22,976 (6.1%).
 - Beyond standard properties, numerous extensions were found. See table
   below for details.
 - No significant variations were observed across specification versions
@@ -48,25 +48,25 @@ Table: Counts and percentages of properties under paths
 
 | property                               |      n |       pct |
 |:---------------------------------------|-------:|----------:|
-| get                                    | 171650 | 0.4527435 |
-| post                                   |  94659 | 0.2496723 |
-| put                                    |  31861 | 0.0840365 |
-| delete                                 |  29823 | 0.0786611 |
-| parameters                             |  22976 | 0.0606014 |
-| patch                                  |   8352 | 0.0220292 |
-| x-swagger-router-controller            |   6413 | 0.0169149 |
-| \$ref                                  |   4757 | 0.0125470 |
-| description                            |   1851 | 0.0048822 |
-| servers                                |   1351 | 0.0035634 |
-| options                                |    775 | 0.0020441 |
-| summary                                |    770 | 0.0020309 |
-| x-endpoint                             |    687 | 0.0018120 |
-| x-platforms-available                  |    663 | 0.0017487 |
+| get                                    | 171665 | 0.4527448 |
+| post                                   |  94668 | 0.2496749 |
+| put                                    |  31867 | 0.0840452 |
+| delete                                 |  29825 | 0.0786597 |
+| parameters                             |  22976 | 0.0605963 |
+| patch                                  |   8352 | 0.0220273 |
+| x-swagger-router-controller            |   6413 | 0.0169135 |
+| \$ref                                  |   4757 | 0.0125460 |
+| description                            |   1851 | 0.0048818 |
+| servers                                |   1351 | 0.0035631 |
+| options                                |    775 | 0.0020440 |
+| summary                                |    770 | 0.0020308 |
+| x-endpoint                             |    687 | 0.0018119 |
+| x-platforms-available                  |    663 | 0.0017486 |
 | head                                   |    352 | 0.0009284 |
-| x-swagger-pipe                         |    298 | 0.0007860 |
+| x-swagger-pipe                         |    298 | 0.0007859 |
 | x-route-enum                           |    291 | 0.0007675 |
 | x-twilio                               |    272 | 0.0007174 |
-| x-api-version                          |    175 | 0.0004616 |
+| x-api-version                          |    175 | 0.0004615 |
 | x-summary                              |    146 | 0.0003851 |
 | x-linode-cli-command                   |    133 | 0.0003508 |
 | x-default-output-properties            |    129 | 0.0003402 |
@@ -75,7 +75,7 @@ Table: Counts and percentages of properties under paths
 | x-restlet                              |     67 | 0.0001767 |
 | x-related-model                        |     45 | 0.0001187 |
 | x-gelato-group                         |     39 | 0.0001029 |
-| x-vault-unauthenticated                |     36 | 0.0000950 |
+| x-vault-unauthenticated                |     36 | 0.0000949 |
 | x-amazon-apigateway-any-method         |     35 | 0.0000923 |
 | x-vault-sudo                           |     25 | 0.0000659 |
 | x-modules                              |     25 | 0.0000659 |
@@ -84,7 +84,7 @@ Table: Counts and percentages of properties under paths
 | x-ms-notification-content              |     15 | 0.0000396 |
 | x-a127-apply                           |     14 | 0.0000369 |
 | x-WM-COMPLETE_PATH                     |     14 | 0.0000369 |
-| x-amf-description                      |     12 | 0.0000317 |
+| x-amf-description                      |     12 | 0.0000316 |
 | x-vault-createSupported                |     11 | 0.0000290 |
 | x-snyk-api-version                     |     10 | 0.0000264 |
 | x-swagger-section-capabilities         |      9 | 0.0000237 |
@@ -101,10 +101,10 @@ Table: Counts and percentages of properties under paths
 | x-last-modified                        |      6 | 0.0000158 |
 | x-swagger-route-controller             |      5 | 0.0000132 |
 | x-vendor-method                        |      5 | 0.0000132 |
-| x-private                              |      4 | 0.0000106 |
-| x-python-connexion-openapi-name        |      4 | 0.0000106 |
-| x-handler                              |      4 | 0.0000106 |
-| x-kusk                                 |      4 | 0.0000106 |
+| x-private                              |      4 | 0.0000105 |
+| x-python-connexion-openapi-name        |      4 | 0.0000105 |
+| x-handler                              |      4 | 0.0000105 |
+| x-kusk                                 |      4 | 0.0000105 |
 | x-vertx-event-bus                      |      3 | 0.0000079 |
 | x-oba-custom                           |      2 | 0.0000053 |
 | x-annotation-counting                  |      2 | 0.0000053 |
