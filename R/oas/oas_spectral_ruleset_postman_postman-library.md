@@ -9,9 +9,6 @@ quote or disseminate.*</sup>
 <sup>[Back to spectral](oas_spectral.md) \| [View related
 issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Aspectral)</sup>
 
-    ## Warning in readLines(con, warn = readLines.warn): incomplete final line found on
-    ## '../../spectral/postman/postman-library.spectral.yaml'
-
 ### Overview
 
 Source code for this ruleset can be found at
@@ -24,42 +21,35 @@ Source code for this ruleset can be found at
 Spectral rule error rates for <u>schema validated APIs</u>. See below
 for details and more granular analysis for each rule.
 
-| rule                                                                                                                                                                                                         | All<br/>(22,756) | OpenAPI2<br/>(7,555) | OpenAPI3<br/>(15,201) |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------:|:--------------------:|:---------------------:|
-| [info-contact](#info-contact)<br/><sup>Ensures that all APIs have contact information.</sup>                                                                                                                 |  14,812 (65.1%)  |    4,399 (58.2%)     |    10,413 (68.5%)     |
-| [info-contact-email](#info-contact-email)<br/><sup>Ensures that all APIs have contact email.</sup>                                                                                                           |   2,097 (9.2%)   |     975 (12.9%)      |     1,122 (7.4%)      |
-| [info-contact-email-or-url](#info-contact-email-or-url)<br/><sup>Ensures that all APIs have contact URL or email.</sup>                                                                                      |   1,161 (5.1%)   |      558 (7.4%)      |       603 (4%)        |
-| [info-contact-name](#info-contact-name)<br/><sup>Ensures that all APIs have contact name.</sup>                                                                                                              |  3,147 (13.8%)   |    1,367 (18.1%)     |     1,780 (11.7%)     |
-| [info-contact-url](#info-contact-url)<br/><sup>Ensures that all APIs have contact URL.</sup>                                                                                                                 |   4,333 (19%)    |    1,884 (24.9%)     |     2,449 (16.1%)     |
-| [info-description](#info-description)<br/><sup>Ensures that all OpenAPIs have a information description.</sup>                                                                                               |  7,428 (32.6%)   |     1,433 (19%)      |     5,995 (39.4%)     |
-| [info-license](#info-license)<br/><sup>Ensures that all OpenAPIs have a information object license.</sup>                                                                                                    |  14,348 (63.1%)  |    5,098 (67.5%)     |     9,250 (60.9%)     |
-| [info-license-url](#info-license-url)<br/><sup>Ensures that all OpenAPIs have a information object license url.</sup>                                                                                        |  3,056 (13.4%)   |      220 (2.9%)      |     2,836 (18.7%)     |
-| [info-terms-of-service](#info-terms-of-service)<br/><sup>Ensures that all OpenAPIs have a information object terms of service.</sup>                                                                         |  19,034 (83.6%)  |    5,799 (76.8%)     |    13,235 (87.1%)     |
-| [invalid-ref](#invalid-ref)<br/><sup></sup>                                                                                                                                                                  |   1,893 (8.3%)   |     784 (10.4%)      |     1,109 (7.3%)      |
-| [no-response-body-on-204](#no-response-body-on-204)<br/><sup>Ensures that no 204 No Content response has a body.</sup>                                                                                       |    393 (1.7%)    |      88 (1.2%)       |       305 (2%)        |
-| [no-trailing-slash-on-paths](#no-trailing-slash-on-paths)<br/><sup>Ensures that there are no trailing slashes on paths.</sup>                                                                                |    1,357 (6%)    |      563 (7.5%)      |      794 (5.2%)       |
-| [operations-description](#operations-description)<br/><sup>Ensures that each of the operations have a description.</sup>                                                                                     |  12,225 (53.7%)  |    3,406 (45.1%)     |      8,819 (58%)      |
-| [operations-status-code-2xx](#operations-status-code-2xx)<br/><sup>Ensures that each of the operations returns at least a 2xx HTTP status code.</sup>                                                        |   1,562 (6.9%)   |      903 (12%)       |      659 (4.3%)       |
-| [operations-status-code-5xx](#operations-status-code-5xx)<br/><sup>Ensures that each of the operations returns at least a 5xx HTTP status code.</sup>                                                        |  18,178 (79.9%)  |    6,054 (80.1%)     |    12,124 (79.8%)     |
-| [operations-summary](#operations-summary)<br/><sup>Ensures that each of the operations for an API have a summary.</sup>                                                                                      |   6,138 (27%)    |    2,630 (34.8%)     |     3,508 (23.1%)     |
-| [operations-summary-period-none](#operations-summary-period-none)<br/><sup>Ensures that each of the operations summaries do not have an ending period.</sup>                                                 |   2,960 (13%)    |    1,197 (15.8%)     |     1,763 (11.6%)     |
-| [parameters-description](#parameters-description)<br/><sup>Ensures that that all parameters have a descriptions.</sup>                                                                                       |  7,224 (31.7%)   |    3,104 (41.1%)     |     4,120 (27.1%)     |
-| [parameters-examples-any](#parameters-examples-any)<br/><sup>Ensures that that all parameters have a examples.</sup>                                                                                         |  12,040 (52.9%)  |        0 (0%)        |    12,040 (79.2%)     |
-| [parser](#parser)<br/><sup></sup>                                                                                                                                                                            |    39 (0.2%)     |      31 (0.4%)       |       8 (0.1%)        |
-| [request-bodies-examples-any](#request-bodies-examples-any)<br/><sup>Ensures that a example is always present for each request body (schema.example for Swagger 2, examples or example for OpenAPI 3).</sup> |  11,691 (51.4%)  |    4,560 (60.4%)     |     7,131 (46.9%)     |
-| [request-body-on-patch](#request-body-on-patch)<br/><sup>Ensures that PATCH methods have request bodies.</sup>                                                                                               |    370 (1.6%)    |      163 (2.2%)      |      207 (1.4%)       |
-| [request-body-on-post](#request-body-on-post)<br/><sup>Ensures that POST methods have request bodies.</sup>                                                                                                  |  3,586 (15.8%)   |    1,498 (19.8%)     |     2,088 (13.7%)     |
-| [request-body-on-put](#request-body-on-put)<br/><sup>Ensures that PUT methods have request bodies.</sup>                                                                                                     |   1,299 (5.7%)   |      620 (8.2%)      |      679 (4.5%)       |
-| [responses-examples-any](#responses-examples-any)<br/><sup>Ensuring all responses have examples (OpenAPI 3, Swagger 2) or example (OpenAPI 3) defined.</sup>                                                 |  19,942 (87.6%)  |    7,212 (95.5%)     |    12,730 (83.7%)     |
-| [reusable-schema-description](#reusable-schema-description)<br/><sup>Ensure all reusable schema should have a description.</sup>                                                                             |  17,552 (77.1%)  |    5,719 (75.7%)     |    11,833 (77.8%)     |
-| [schema-properties-define-array-boundaries](#schema-properties-define-array-boundaries)<br/><sup>Requires that arrays have their minimum and maximum boundaries defined.</sup>                               |  14,442 (63.5%)  |     5,818 (77%)      |     8,624 (56.7%)     |
-| [schema-properties-descriptions](#schema-properties-descriptions)<br/><sup>Ensure that all schemas properties should have a description.</sup>                                                               |  18,746 (82.4%)  |    5,962 (78.9%)     |    12,784 (84.1%)     |
-| [schema-reference-reusable](#schema-reference-reusable)<br/><sup>Ensures all schema properties use a \$ref contain a \$ref targeting a reusable schema                                                       |                  |                      |                       |
-
-defined in definitions (Swagger 2) or components.schema (OpenAPI 3)
-</sup>\|17,200 (75.6%)\|4,071 (53.9%)\|13,129 (86.4%)\|
-\|[unrecognized-format](#unrecognized-format)<br/><sup></sup>\|0 (0%)\|0
-(0%)\|0 (0%)\|
+| rule                                                                                                                                                                                                                             | All<br/>(22,756) | OpenAPI2<br/>(7,555) | OpenAPI3<br/>(15,201) |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------:|:--------------------:|:---------------------:|
+| [info-contact](#info-contact)<br/><sup>Ensures that all APIs have contact information.</sup>                                                                                                                                     |  14,812 (65.1%)  |    4,399 (58.2%)     |    10,413 (68.5%)     |
+| [info-contact-email](#info-contact-email)<br/><sup>Ensures that all APIs have contact email.</sup>                                                                                                                               |   2,097 (9.2%)   |     975 (12.9%)      |     1,122 (7.4%)      |
+| [info-contact-email-or-url](#info-contact-email-or-url)<br/><sup>Ensures that all APIs have contact URL or email.</sup>                                                                                                          |   1,161 (5.1%)   |      558 (7.4%)      |       603 (4%)        |
+| [info-contact-name](#info-contact-name)<br/><sup>Ensures that all APIs have contact name.</sup>                                                                                                                                  |  3,147 (13.8%)   |    1,367 (18.1%)     |     1,780 (11.7%)     |
+| [info-contact-url](#info-contact-url)<br/><sup>Ensures that all APIs have contact URL.</sup>                                                                                                                                     |   4,333 (19%)    |    1,884 (24.9%)     |     2,449 (16.1%)     |
+| [info-description](#info-description)<br/><sup>Ensures that all OpenAPIs have a information description.</sup>                                                                                                                   |  7,428 (32.6%)   |     1,433 (19%)      |     5,995 (39.4%)     |
+| [info-license](#info-license)<br/><sup>Ensures that all OpenAPIs have a information object license.</sup>                                                                                                                        |  14,348 (63.1%)  |    5,098 (67.5%)     |     9,250 (60.9%)     |
+| [info-license-url](#info-license-url)<br/><sup>Ensures that all OpenAPIs have a information object license url.</sup>                                                                                                            |  3,056 (13.4%)   |      220 (2.9%)      |     2,836 (18.7%)     |
+| [info-terms-of-service](#info-terms-of-service)<br/><sup>Ensures that all OpenAPIs have a information object terms of service.</sup>                                                                                             |  19,034 (83.6%)  |    5,799 (76.8%)     |    13,235 (87.1%)     |
+| [no-response-body-on-204](#no-response-body-on-204)<br/><sup>Ensures that no 204 No Content response has a body.</sup>                                                                                                           |    393 (1.7%)    |      88 (1.2%)       |       305 (2%)        |
+| [no-trailing-slash-on-paths](#no-trailing-slash-on-paths)<br/><sup>Ensures that there are no trailing slashes on paths.</sup>                                                                                                    |    1,357 (6%)    |      563 (7.5%)      |      794 (5.2%)       |
+| [operations-description](#operations-description)<br/><sup>Ensures that each of the operations have a description.</sup>                                                                                                         |  12,225 (53.7%)  |    3,406 (45.1%)     |      8,819 (58%)      |
+| [operations-status-code-2xx](#operations-status-code-2xx)<br/><sup>Ensures that each of the operations returns at least a 2xx HTTP status code.</sup>                                                                            |   1,562 (6.9%)   |      903 (12%)       |      659 (4.3%)       |
+| [operations-status-code-5xx](#operations-status-code-5xx)<br/><sup>Ensures that each of the operations returns at least a 5xx HTTP status code.</sup>                                                                            |  18,178 (79.9%)  |    6,054 (80.1%)     |    12,124 (79.8%)     |
+| [operations-summary](#operations-summary)<br/><sup>Ensures that each of the operations for an API have a summary.</sup>                                                                                                          |   6,138 (27%)    |    2,630 (34.8%)     |     3,508 (23.1%)     |
+| [operations-summary-period-none](#operations-summary-period-none)<br/><sup>Ensures that each of the operations summaries do not have an ending period.</sup>                                                                     |   2,960 (13%)    |    1,197 (15.8%)     |     1,763 (11.6%)     |
+| [parameters-description](#parameters-description)<br/><sup>Ensures that that all parameters have a descriptions.</sup>                                                                                                           |  7,224 (31.7%)   |    3,104 (41.1%)     |     4,120 (27.1%)     |
+| [parameters-examples-any](#parameters-examples-any)<br/><sup>Ensures that that all parameters have a examples.</sup>                                                                                                             |  12,040 (52.9%)  |        0 (0%)        |    12,040 (79.2%)     |
+| [request-bodies-examples-any](#request-bodies-examples-any)<br/><sup>Ensures that a example is always present for each request body (schema.example for Swagger 2, examples or example for OpenAPI 3).</sup>                     |  11,691 (51.4%)  |    4,560 (60.4%)     |     7,131 (46.9%)     |
+| [request-body-on-patch](#request-body-on-patch)<br/><sup>Ensures that PATCH methods have request bodies.</sup>                                                                                                                   |    370 (1.6%)    |      163 (2.2%)      |      207 (1.4%)       |
+| [request-body-on-post](#request-body-on-post)<br/><sup>Ensures that POST methods have request bodies.</sup>                                                                                                                      |  3,586 (15.8%)   |    1,498 (19.8%)     |     2,088 (13.7%)     |
+| [request-body-on-put](#request-body-on-put)<br/><sup>Ensures that PUT methods have request bodies.</sup>                                                                                                                         |   1,299 (5.7%)   |      620 (8.2%)      |      679 (4.5%)       |
+| [responses-examples-any](#responses-examples-any)<br/><sup>Ensuring all responses have examples (OpenAPI 3, Swagger 2) or example (OpenAPI 3) defined.</sup>                                                                     |  19,942 (87.6%)  |    7,212 (95.5%)     |    12,730 (83.7%)     |
+| [reusable-schema-description](#reusable-schema-description)<br/><sup>Ensure all reusable schema should have a description.</sup>                                                                                                 |  17,552 (77.1%)  |    5,719 (75.7%)     |    11,833 (77.8%)     |
+| [schema-properties-define-array-boundaries](#schema-properties-define-array-boundaries)<br/><sup>Requires that arrays have their minimum and maximum boundaries defined.</sup>                                                   |  14,442 (63.5%)  |     5,818 (77%)      |     8,624 (56.7%)     |
+| [schema-properties-descriptions](#schema-properties-descriptions)<br/><sup>Ensure that all schemas properties should have a description.</sup>                                                                                   |  18,746 (82.4%)  |    5,962 (78.9%)     |    12,784 (84.1%)     |
+| [schema-reference-reusable](#schema-reference-reusable)<br/><sup>Ensures all schema properties use a \$ref contain a \$ref targeting a reusable schema defined in definitions (Swagger 2) or components.schema (OpenAPI 3)</sup> |  17,200 (75.6%)  |    4,071 (53.9%)     |    13,129 (86.4%)     |
 
 <a id="info-contact"></a>
 
@@ -1206,14 +1196,14 @@ Data Table
 
 |     | attachment_type                  | code                    | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:------------------------|:--------------|:---------|:---------|-------:|------:|
-| 81  | spectral/postman/postman-library | no-response-body-on-204 | kin           | OpenAPI3 | true     |    214 |   578 |
-| 82  | spectral/postman/postman-library | no-response-body-on-204 | kin           | OpenAPI3 | false    |    112 |   684 |
-| 83  | spectral/postman/postman-library | no-response-body-on-204 | postman_apis  | OpenAPI3 | true     |     91 |   587 |
-| 84  | spectral/postman/postman-library | no-response-body-on-204 | kin           | OpenAPI2 | true     |     71 |   159 |
-| 85  | spectral/postman/postman-library | no-response-body-on-204 | postman_apis  | OpenAPI3 | false    |     45 |   623 |
-| 86  | spectral/postman/postman-library | no-response-body-on-204 | kin           | OpenAPI2 | false    |     33 |   129 |
-| 87  | spectral/postman/postman-library | no-response-body-on-204 | postman_apis  | OpenAPI2 | false    |     28 |   861 |
-| 88  | spectral/postman/postman-library | no-response-body-on-204 | postman_apis  | OpenAPI2 | true     |     17 |    60 |
+| 73  | spectral/postman/postman-library | no-response-body-on-204 | kin           | OpenAPI3 | true     |    214 |   578 |
+| 74  | spectral/postman/postman-library | no-response-body-on-204 | kin           | OpenAPI3 | false    |    112 |   684 |
+| 75  | spectral/postman/postman-library | no-response-body-on-204 | postman_apis  | OpenAPI3 | true     |     91 |   587 |
+| 76  | spectral/postman/postman-library | no-response-body-on-204 | kin           | OpenAPI2 | true     |     71 |   159 |
+| 77  | spectral/postman/postman-library | no-response-body-on-204 | postman_apis  | OpenAPI3 | false    |     45 |   623 |
+| 78  | spectral/postman/postman-library | no-response-body-on-204 | kin           | OpenAPI2 | false    |     33 |   129 |
+| 79  | spectral/postman/postman-library | no-response-body-on-204 | postman_apis  | OpenAPI2 | false    |     28 |   861 |
+| 80  | spectral/postman/postman-library | no-response-body-on-204 | postman_apis  | OpenAPI2 | true     |     17 |    60 |
 
 </details>
 
@@ -1322,14 +1312,14 @@ Data Table
 
 |     | attachment_type                  | code                       | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:---------------------------|:--------------|:---------|:---------|-------:|------:|
-| 89  | spectral/postman/postman-library | no-trailing-slash-on-paths | kin           | OpenAPI3 | true     |    576 |  2972 |
-| 90  | spectral/postman/postman-library | no-trailing-slash-on-paths | kin           | OpenAPI2 | true     |    384 |  3063 |
-| 91  | spectral/postman/postman-library | no-trailing-slash-on-paths | kin           | OpenAPI3 | false    |    237 |  1486 |
-| 92  | spectral/postman/postman-library | no-trailing-slash-on-paths | postman_apis  | OpenAPI3 | true     |    218 |  1067 |
-| 93  | spectral/postman/postman-library | no-trailing-slash-on-paths | postman_apis  | OpenAPI2 | true     |    179 |  2401 |
-| 94  | spectral/postman/postman-library | no-trailing-slash-on-paths | kin           | OpenAPI2 | false    |    175 |   943 |
-| 95  | spectral/postman/postman-library | no-trailing-slash-on-paths | postman_apis  | OpenAPI3 | false    |     88 |   823 |
-| 96  | spectral/postman/postman-library | no-trailing-slash-on-paths | postman_apis  | OpenAPI2 | false    |     43 |   461 |
+| 81  | spectral/postman/postman-library | no-trailing-slash-on-paths | kin           | OpenAPI3 | true     |    576 |  2972 |
+| 82  | spectral/postman/postman-library | no-trailing-slash-on-paths | kin           | OpenAPI2 | true     |    384 |  3063 |
+| 83  | spectral/postman/postman-library | no-trailing-slash-on-paths | kin           | OpenAPI3 | false    |    237 |  1486 |
+| 84  | spectral/postman/postman-library | no-trailing-slash-on-paths | postman_apis  | OpenAPI3 | true     |    218 |  1067 |
+| 85  | spectral/postman/postman-library | no-trailing-slash-on-paths | postman_apis  | OpenAPI2 | true     |    179 |  2401 |
+| 86  | spectral/postman/postman-library | no-trailing-slash-on-paths | kin           | OpenAPI2 | false    |    175 |   943 |
+| 87  | spectral/postman/postman-library | no-trailing-slash-on-paths | postman_apis  | OpenAPI3 | false    |     88 |   823 |
+| 88  | spectral/postman/postman-library | no-trailing-slash-on-paths | postman_apis  | OpenAPI2 | false    |     43 |   461 |
 
 </details>
 
@@ -1437,14 +1427,14 @@ Data Table
 
 |     | attachment_type                  | code                   | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:-----------------------|:--------------|:---------|:---------|-------:|------:|
-| 97  | spectral/postman/postman-library | operations-description | postman_apis  | OpenAPI3 | true     |   4766 | 41717 |
-| 98  | spectral/postman/postman-library | operations-description | kin           | OpenAPI3 | true     |   4053 | 42801 |
-| 99  | spectral/postman/postman-library | operations-description | kin           | OpenAPI2 | true     |   2715 | 29404 |
-| 100 | spectral/postman/postman-library | operations-description | kin           | OpenAPI3 | false    |   1239 | 18941 |
-| 101 | spectral/postman/postman-library | operations-description | kin           | OpenAPI2 | false    |    857 | 12389 |
-| 102 | spectral/postman/postman-library | operations-description | postman_apis  | OpenAPI2 | true     |    691 | 22833 |
-| 103 | spectral/postman/postman-library | operations-description | postman_apis  | OpenAPI3 | false    |    351 | 10602 |
-| 104 | spectral/postman/postman-library | operations-description | postman_apis  | OpenAPI2 | false    |    192 | 30461 |
+| 89  | spectral/postman/postman-library | operations-description | postman_apis  | OpenAPI3 | true     |   4766 | 41717 |
+| 90  | spectral/postman/postman-library | operations-description | kin           | OpenAPI3 | true     |   4053 | 42801 |
+| 91  | spectral/postman/postman-library | operations-description | kin           | OpenAPI2 | true     |   2715 | 29404 |
+| 92  | spectral/postman/postman-library | operations-description | kin           | OpenAPI3 | false    |   1239 | 18941 |
+| 93  | spectral/postman/postman-library | operations-description | kin           | OpenAPI2 | false    |    857 | 12389 |
+| 94  | spectral/postman/postman-library | operations-description | postman_apis  | OpenAPI2 | true     |    691 | 22833 |
+| 95  | spectral/postman/postman-library | operations-description | postman_apis  | OpenAPI3 | false    |    351 | 10602 |
+| 96  | spectral/postman/postman-library | operations-description | postman_apis  | OpenAPI2 | false    |    192 | 30461 |
 
 </details>
 
@@ -1589,14 +1579,14 @@ Data Table
 
 |     | attachment_type                  | code                       | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:---------------------------|:--------------|:---------|:---------|-------:|------:|
-| 105 | spectral/postman/postman-library | operations-status-code-2xx | kin           | OpenAPI2 | true     |    690 |  4638 |
-| 106 | spectral/postman/postman-library | operations-status-code-2xx | kin           | OpenAPI3 | true     |    518 |  7913 |
-| 107 | spectral/postman/postman-library | operations-status-code-2xx | kin           | OpenAPI2 | false    |    249 |  2250 |
-| 108 | spectral/postman/postman-library | operations-status-code-2xx | postman_apis  | OpenAPI2 | true     |    213 |  2341 |
-| 109 | spectral/postman/postman-library | operations-status-code-2xx | kin           | OpenAPI3 | false    |    194 |  2223 |
-| 110 | spectral/postman/postman-library | operations-status-code-2xx | postman_apis  | OpenAPI3 | true     |    141 |  2288 |
-| 111 | spectral/postman/postman-library | operations-status-code-2xx | postman_apis  | OpenAPI3 | false    |     57 |  1610 |
-| 112 | spectral/postman/postman-library | operations-status-code-2xx | postman_apis  | OpenAPI2 | false    |     33 |  2395 |
+| 97  | spectral/postman/postman-library | operations-status-code-2xx | kin           | OpenAPI2 | true     |    690 |  4638 |
+| 98  | spectral/postman/postman-library | operations-status-code-2xx | kin           | OpenAPI3 | true     |    518 |  7913 |
+| 99  | spectral/postman/postman-library | operations-status-code-2xx | kin           | OpenAPI2 | false    |    249 |  2250 |
+| 100 | spectral/postman/postman-library | operations-status-code-2xx | postman_apis  | OpenAPI2 | true     |    213 |  2341 |
+| 101 | spectral/postman/postman-library | operations-status-code-2xx | kin           | OpenAPI3 | false    |    194 |  2223 |
+| 102 | spectral/postman/postman-library | operations-status-code-2xx | postman_apis  | OpenAPI3 | true     |    141 |  2288 |
+| 103 | spectral/postman/postman-library | operations-status-code-2xx | postman_apis  | OpenAPI3 | false    |     57 |  1610 |
+| 104 | spectral/postman/postman-library | operations-status-code-2xx | postman_apis  | OpenAPI2 | false    |     33 |  2395 |
 
 </details>
 
@@ -1741,14 +1731,14 @@ Data Table
 
 |     | attachment_type                  | code                       | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:---------------------------|:--------------|:---------|:---------|-------:|------:|
-| 113 | spectral/postman/postman-library | operations-status-code-5xx | kin           | OpenAPI3 | true     |   6862 | 92670 |
-| 114 | spectral/postman/postman-library | operations-status-code-5xx | postman_apis  | OpenAPI3 | true     |   5262 | 74496 |
-| 115 | spectral/postman/postman-library | operations-status-code-5xx | kin           | OpenAPI2 | true     |   5103 | 62371 |
-| 116 | spectral/postman/postman-library | operations-status-code-5xx | kin           | OpenAPI3 | false    |   1918 | 30642 |
-| 117 | spectral/postman/postman-library | operations-status-code-5xx | kin           | OpenAPI2 | false    |   1332 | 23309 |
-| 118 | spectral/postman/postman-library | operations-status-code-5xx | postman_apis  | OpenAPI2 | true     |    951 | 38957 |
-| 119 | spectral/postman/postman-library | operations-status-code-5xx | postman_apis  | OpenAPI3 | false    |    406 | 24565 |
-| 120 | spectral/postman/postman-library | operations-status-code-5xx | postman_apis  | OpenAPI2 | false    |    356 | 46348 |
+| 105 | spectral/postman/postman-library | operations-status-code-5xx | kin           | OpenAPI3 | true     |   6862 | 92670 |
+| 106 | spectral/postman/postman-library | operations-status-code-5xx | postman_apis  | OpenAPI3 | true     |   5262 | 74496 |
+| 107 | spectral/postman/postman-library | operations-status-code-5xx | kin           | OpenAPI2 | true     |   5103 | 62371 |
+| 108 | spectral/postman/postman-library | operations-status-code-5xx | kin           | OpenAPI3 | false    |   1918 | 30642 |
+| 109 | spectral/postman/postman-library | operations-status-code-5xx | kin           | OpenAPI2 | false    |   1332 | 23309 |
+| 110 | spectral/postman/postman-library | operations-status-code-5xx | postman_apis  | OpenAPI2 | true     |    951 | 38957 |
+| 111 | spectral/postman/postman-library | operations-status-code-5xx | postman_apis  | OpenAPI3 | false    |    406 | 24565 |
+| 112 | spectral/postman/postman-library | operations-status-code-5xx | postman_apis  | OpenAPI2 | false    |    356 | 46348 |
 
 </details>
 
@@ -1856,14 +1846,14 @@ Data Table
 
 |     | attachment_type                  | code               | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:-------------------|:--------------|:---------|:---------|-------:|------:|
-| 121 | spectral/postman/postman-library | operations-summary | kin           | OpenAPI3 | true     |   2796 | 37507 |
-| 122 | spectral/postman/postman-library | operations-summary | kin           | OpenAPI2 | true     |   2181 | 22241 |
-| 123 | spectral/postman/postman-library | operations-summary | postman_apis  | OpenAPI3 | true     |    712 | 26490 |
-| 124 | spectral/postman/postman-library | operations-summary | kin           | OpenAPI3 | false    |    647 | 14663 |
-| 125 | spectral/postman/postman-library | operations-summary | kin           | OpenAPI2 | false    |    548 |  8173 |
-| 126 | spectral/postman/postman-library | operations-summary | postman_apis  | OpenAPI2 | true     |    449 | 14333 |
-| 127 | spectral/postman/postman-library | operations-summary | postman_apis  | OpenAPI3 | false    |    134 |  5647 |
-| 128 | spectral/postman/postman-library | operations-summary | postman_apis  | OpenAPI2 | false    |     94 | 14060 |
+| 113 | spectral/postman/postman-library | operations-summary | kin           | OpenAPI3 | true     |   2796 | 37507 |
+| 114 | spectral/postman/postman-library | operations-summary | kin           | OpenAPI2 | true     |   2181 | 22241 |
+| 115 | spectral/postman/postman-library | operations-summary | postman_apis  | OpenAPI3 | true     |    712 | 26490 |
+| 116 | spectral/postman/postman-library | operations-summary | kin           | OpenAPI3 | false    |    647 | 14663 |
+| 117 | spectral/postman/postman-library | operations-summary | kin           | OpenAPI2 | false    |    548 |  8173 |
+| 118 | spectral/postman/postman-library | operations-summary | postman_apis  | OpenAPI2 | true     |    449 | 14333 |
+| 119 | spectral/postman/postman-library | operations-summary | postman_apis  | OpenAPI3 | false    |    134 |  5647 |
+| 120 | spectral/postman/postman-library | operations-summary | postman_apis  | OpenAPI2 | false    |     94 | 14060 |
 
 </details>
 
@@ -1973,14 +1963,14 @@ Data Table
 
 |     | attachment_type                  | code                           | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:-------------------------------|:--------------|:---------|:---------|-------:|------:|
-| 129 | spectral/postman/postman-library | operations-summary-period-none | kin           | OpenAPI3 | true     |   1384 | 11784 |
-| 130 | spectral/postman/postman-library | operations-summary-period-none | kin           | OpenAPI2 | true     |   1006 |  9189 |
-| 131 | spectral/postman/postman-library | operations-summary-period-none | kin           | OpenAPI3 | false    |    401 |  3201 |
-| 132 | spectral/postman/postman-library | operations-summary-period-none | postman_apis  | OpenAPI3 | true     |    379 |  3610 |
-| 133 | spectral/postman/postman-library | operations-summary-period-none | kin           | OpenAPI2 | false    |    244 |  3299 |
-| 134 | spectral/postman/postman-library | operations-summary-period-none | postman_apis  | OpenAPI2 | true     |    191 |  3063 |
-| 135 | spectral/postman/postman-library | operations-summary-period-none | postman_apis  | OpenAPI3 | false    |    137 |  2676 |
-| 136 | spectral/postman/postman-library | operations-summary-period-none | postman_apis  | OpenAPI2 | false    |    105 |  1895 |
+| 121 | spectral/postman/postman-library | operations-summary-period-none | kin           | OpenAPI3 | true     |   1384 | 11784 |
+| 122 | spectral/postman/postman-library | operations-summary-period-none | kin           | OpenAPI2 | true     |   1006 |  9189 |
+| 123 | spectral/postman/postman-library | operations-summary-period-none | kin           | OpenAPI3 | false    |    401 |  3201 |
+| 124 | spectral/postman/postman-library | operations-summary-period-none | postman_apis  | OpenAPI3 | true     |    379 |  3610 |
+| 125 | spectral/postman/postman-library | operations-summary-period-none | kin           | OpenAPI2 | false    |    244 |  3299 |
+| 126 | spectral/postman/postman-library | operations-summary-period-none | postman_apis  | OpenAPI2 | true     |    191 |  3063 |
+| 127 | spectral/postman/postman-library | operations-summary-period-none | postman_apis  | OpenAPI3 | false    |    137 |  2676 |
+| 128 | spectral/postman/postman-library | operations-summary-period-none | postman_apis  | OpenAPI2 | false    |    105 |  1895 |
 
 </details>
 
@@ -2090,14 +2080,14 @@ Data Table
 
 |     | attachment_type                  | code                   | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:-----------------------|:--------------|:---------|:---------|-------:|------:|
-| 137 | spectral/postman/postman-library | parameters-description | kin           | OpenAPI3 | true     |   2739 | 43446 |
-| 138 | spectral/postman/postman-library | parameters-description | kin           | OpenAPI2 | true     |   2421 | 30575 |
-| 139 | spectral/postman/postman-library | parameters-description | postman_apis  | OpenAPI3 | true     |   1381 | 52693 |
-| 140 | spectral/postman/postman-library | parameters-description | kin           | OpenAPI3 | false    |    816 | 17311 |
-| 141 | spectral/postman/postman-library | parameters-description | postman_apis  | OpenAPI2 | true     |    683 | 43862 |
-| 142 | spectral/postman/postman-library | parameters-description | kin           | OpenAPI2 | false    |    637 | 14162 |
-| 143 | spectral/postman/postman-library | parameters-description | postman_apis  | OpenAPI3 | false    |    394 | 32240 |
-| 144 | spectral/postman/postman-library | parameters-description | postman_apis  | OpenAPI2 | false    |    210 | 55832 |
+| 129 | spectral/postman/postman-library | parameters-description | kin           | OpenAPI3 | true     |   2739 | 43446 |
+| 130 | spectral/postman/postman-library | parameters-description | kin           | OpenAPI2 | true     |   2421 | 30575 |
+| 131 | spectral/postman/postman-library | parameters-description | postman_apis  | OpenAPI3 | true     |   1381 | 52693 |
+| 132 | spectral/postman/postman-library | parameters-description | kin           | OpenAPI3 | false    |    816 | 17311 |
+| 133 | spectral/postman/postman-library | parameters-description | postman_apis  | OpenAPI2 | true     |    683 | 43862 |
+| 134 | spectral/postman/postman-library | parameters-description | kin           | OpenAPI2 | false    |    637 | 14162 |
+| 135 | spectral/postman/postman-library | parameters-description | postman_apis  | OpenAPI3 | false    |    394 | 32240 |
+| 136 | spectral/postman/postman-library | parameters-description | postman_apis  | OpenAPI2 | false    |    210 | 55832 |
 
 </details>
 
@@ -2208,12 +2198,12 @@ Data Table
 
 |     | attachment_type                  | code                    | collection_id | class    | is_valid | n_apis |  n_err |
 |:----|:---------------------------------|:------------------------|:--------------|:---------|:---------|-------:|-------:|
-| 145 | spectral/postman/postman-library | parameters-examples-any | kin           | OpenAPI3 | true     |   6351 | 152796 |
-| 146 | spectral/postman/postman-library | parameters-examples-any | postman_apis  | OpenAPI3 | true     |   5689 | 146360 |
-| 147 | spectral/postman/postman-library | parameters-examples-any | kin           | OpenAPI3 | false    |   1748 |  49453 |
-| 148 | spectral/postman/postman-library | parameters-examples-any | postman_apis  | OpenAPI3 | false    |    775 |  94919 |
-| 149 | spectral/postman/postman-library | parameters-examples-any | kin           | OpenAPI2 | false    |      7 |     85 |
-| 150 | spectral/postman/postman-library | parameters-examples-any | postman_apis  | OpenAPI2 | false    |      4 |   1723 |
+| 137 | spectral/postman/postman-library | parameters-examples-any | kin           | OpenAPI3 | true     |   6351 | 152796 |
+| 138 | spectral/postman/postman-library | parameters-examples-any | postman_apis  | OpenAPI3 | true     |   5689 | 146360 |
+| 139 | spectral/postman/postman-library | parameters-examples-any | kin           | OpenAPI3 | false    |   1748 |  49453 |
+| 140 | spectral/postman/postman-library | parameters-examples-any | postman_apis  | OpenAPI3 | false    |    775 |  94919 |
+| 141 | spectral/postman/postman-library | parameters-examples-any | kin           | OpenAPI2 | false    |      7 |     85 |
+| 142 | spectral/postman/postman-library | parameters-examples-any | postman_apis  | OpenAPI2 | false    |      4 |   1723 |
 
 </details>
 
@@ -2327,14 +2317,14 @@ Data Table
 
 |     | attachment_type                  | code                        | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:----------------------------|:--------------|:---------|:---------|-------:|------:|
-| 155 | spectral/postman/postman-library | request-bodies-examples-any | kin           | OpenAPI3 | true     |   5195 | 40703 |
-| 156 | spectral/postman/postman-library | request-bodies-examples-any | kin           | OpenAPI2 | true     |   3576 | 16809 |
-| 157 | spectral/postman/postman-library | request-bodies-examples-any | postman_apis  | OpenAPI3 | true     |   1936 | 44954 |
-| 158 | spectral/postman/postman-library | request-bodies-examples-any | kin           | OpenAPI3 | false    |   1410 | 12667 |
-| 159 | spectral/postman/postman-library | request-bodies-examples-any | postman_apis  | OpenAPI2 | true     |    984 | 12913 |
-| 160 | spectral/postman/postman-library | request-bodies-examples-any | kin           | OpenAPI2 | false    |    797 |  5476 |
-| 161 | spectral/postman/postman-library | request-bodies-examples-any | postman_apis  | OpenAPI3 | false    |    377 | 11221 |
-| 162 | spectral/postman/postman-library | request-bodies-examples-any | postman_apis  | OpenAPI2 | false    |    269 | 16554 |
+| 143 | spectral/postman/postman-library | request-bodies-examples-any | kin           | OpenAPI3 | true     |   5195 | 40703 |
+| 144 | spectral/postman/postman-library | request-bodies-examples-any | kin           | OpenAPI2 | true     |   3576 | 16809 |
+| 145 | spectral/postman/postman-library | request-bodies-examples-any | postman_apis  | OpenAPI3 | true     |   1936 | 44954 |
+| 146 | spectral/postman/postman-library | request-bodies-examples-any | kin           | OpenAPI3 | false    |   1410 | 12667 |
+| 147 | spectral/postman/postman-library | request-bodies-examples-any | postman_apis  | OpenAPI2 | true     |    984 | 12913 |
+| 148 | spectral/postman/postman-library | request-bodies-examples-any | kin           | OpenAPI2 | false    |    797 |  5476 |
+| 149 | spectral/postman/postman-library | request-bodies-examples-any | postman_apis  | OpenAPI3 | false    |    377 | 11221 |
+| 150 | spectral/postman/postman-library | request-bodies-examples-any | postman_apis  | OpenAPI2 | false    |    269 | 16554 |
 
 </details>
 
@@ -2458,14 +2448,14 @@ Data Table
 
 |     | attachment_type                  | code                  | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:----------------------|:--------------|:---------|:---------|-------:|------:|
-| 163 | spectral/postman/postman-library | request-body-on-patch | kin           | OpenAPI3 | false    |    183 |   874 |
-| 164 | spectral/postman/postman-library | request-body-on-patch | kin           | OpenAPI3 | true     |    138 |  1150 |
-| 165 | spectral/postman/postman-library | request-body-on-patch | kin           | OpenAPI2 | true     |    106 |   629 |
-| 166 | spectral/postman/postman-library | request-body-on-patch | postman_apis  | OpenAPI3 | true     |     69 |   547 |
-| 167 | spectral/postman/postman-library | request-body-on-patch | postman_apis  | OpenAPI2 | false    |     64 |   295 |
-| 168 | spectral/postman/postman-library | request-body-on-patch | kin           | OpenAPI2 | false    |     60 |   437 |
-| 169 | spectral/postman/postman-library | request-body-on-patch | postman_apis  | OpenAPI2 | true     |     57 |   281 |
-| 170 | spectral/postman/postman-library | request-body-on-patch | postman_apis  | OpenAPI3 | false    |     54 |  1957 |
+| 151 | spectral/postman/postman-library | request-body-on-patch | kin           | OpenAPI3 | false    |    183 |   874 |
+| 152 | spectral/postman/postman-library | request-body-on-patch | kin           | OpenAPI3 | true     |    138 |  1150 |
+| 153 | spectral/postman/postman-library | request-body-on-patch | kin           | OpenAPI2 | true     |    106 |   629 |
+| 154 | spectral/postman/postman-library | request-body-on-patch | postman_apis  | OpenAPI3 | true     |     69 |   547 |
+| 155 | spectral/postman/postman-library | request-body-on-patch | postman_apis  | OpenAPI2 | false    |     64 |   295 |
+| 156 | spectral/postman/postman-library | request-body-on-patch | kin           | OpenAPI2 | false    |     60 |   437 |
+| 157 | spectral/postman/postman-library | request-body-on-patch | postman_apis  | OpenAPI2 | true     |     57 |   281 |
+| 158 | spectral/postman/postman-library | request-body-on-patch | postman_apis  | OpenAPI3 | false    |     54 |  1957 |
 
 </details>
 
@@ -2589,14 +2579,14 @@ Data Table
 
 |     | attachment_type                  | code                 | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:---------------------|:--------------|:---------|:---------|-------:|------:|
-| 171 | spectral/postman/postman-library | request-body-on-post | kin           | OpenAPI3 | true     |   1503 | 17375 |
-| 172 | spectral/postman/postman-library | request-body-on-post | kin           | OpenAPI2 | true     |   1176 | 13126 |
-| 173 | spectral/postman/postman-library | request-body-on-post | kin           | OpenAPI3 | false    |    736 |  8487 |
-| 174 | spectral/postman/postman-library | request-body-on-post | postman_apis  | OpenAPI3 | true     |    585 | 15060 |
-| 175 | spectral/postman/postman-library | request-body-on-post | kin           | OpenAPI2 | false    |    505 |  6766 |
-| 176 | spectral/postman/postman-library | request-body-on-post | postman_apis  | OpenAPI2 | true     |    322 |  5369 |
-| 177 | spectral/postman/postman-library | request-body-on-post | postman_apis  | OpenAPI3 | false    |    318 | 17464 |
-| 178 | spectral/postman/postman-library | request-body-on-post | postman_apis  | OpenAPI2 | false    |    167 |  7515 |
+| 159 | spectral/postman/postman-library | request-body-on-post | kin           | OpenAPI3 | true     |   1503 | 17375 |
+| 160 | spectral/postman/postman-library | request-body-on-post | kin           | OpenAPI2 | true     |   1176 | 13126 |
+| 161 | spectral/postman/postman-library | request-body-on-post | kin           | OpenAPI3 | false    |    736 |  8487 |
+| 162 | spectral/postman/postman-library | request-body-on-post | postman_apis  | OpenAPI3 | true     |    585 | 15060 |
+| 163 | spectral/postman/postman-library | request-body-on-post | kin           | OpenAPI2 | false    |    505 |  6766 |
+| 164 | spectral/postman/postman-library | request-body-on-post | postman_apis  | OpenAPI2 | true     |    322 |  5369 |
+| 165 | spectral/postman/postman-library | request-body-on-post | postman_apis  | OpenAPI3 | false    |    318 | 17464 |
+| 166 | spectral/postman/postman-library | request-body-on-post | postman_apis  | OpenAPI2 | false    |    167 |  7515 |
 
 </details>
 
@@ -2720,14 +2710,14 @@ Data Table
 
 |     | attachment_type                  | code                | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:--------------------|:--------------|:---------|:---------|-------:|------:|
-| 179 | spectral/postman/postman-library | request-body-on-put | kin           | OpenAPI2 | true     |    491 |  3460 |
-| 180 | spectral/postman/postman-library | request-body-on-put | kin           | OpenAPI3 | true     |    415 |  3462 |
-| 181 | spectral/postman/postman-library | request-body-on-put | kin           | OpenAPI3 | false    |    284 |  2126 |
-| 182 | spectral/postman/postman-library | request-body-on-put | postman_apis  | OpenAPI3 | true     |    264 |  9049 |
-| 183 | spectral/postman/postman-library | request-body-on-put | kin           | OpenAPI2 | false    |    216 |  2212 |
-| 184 | spectral/postman/postman-library | request-body-on-put | postman_apis  | OpenAPI2 | true     |    129 |  1536 |
-| 185 | spectral/postman/postman-library | request-body-on-put | postman_apis  | OpenAPI3 | false    |    116 |  4430 |
-| 186 | spectral/postman/postman-library | request-body-on-put | postman_apis  | OpenAPI2 | false    |     86 |  1460 |
+| 167 | spectral/postman/postman-library | request-body-on-put | kin           | OpenAPI2 | true     |    491 |  3460 |
+| 168 | spectral/postman/postman-library | request-body-on-put | kin           | OpenAPI3 | true     |    415 |  3462 |
+| 169 | spectral/postman/postman-library | request-body-on-put | kin           | OpenAPI3 | false    |    284 |  2126 |
+| 170 | spectral/postman/postman-library | request-body-on-put | postman_apis  | OpenAPI3 | true     |    264 |  9049 |
+| 171 | spectral/postman/postman-library | request-body-on-put | kin           | OpenAPI2 | false    |    216 |  2212 |
+| 172 | spectral/postman/postman-library | request-body-on-put | postman_apis  | OpenAPI2 | true     |    129 |  1536 |
+| 173 | spectral/postman/postman-library | request-body-on-put | postman_apis  | OpenAPI3 | false    |    116 |  4430 |
+| 174 | spectral/postman/postman-library | request-body-on-put | postman_apis  | OpenAPI2 | false    |     86 |  1460 |
 
 </details>
 
@@ -2840,14 +2830,14 @@ Data Table
 
 |     | attachment_type                  | code                   | collection_id | class    | is_valid | n_apis |  n_err |
 |:----|:---------------------------------|:-----------------------|:--------------|:---------|:---------|-------:|-------:|
-| 187 | spectral/postman/postman-library | responses-examples-any | kin           | OpenAPI3 | true     |   6958 | 150579 |
-| 188 | spectral/postman/postman-library | responses-examples-any | kin           | OpenAPI2 | true     |   5943 | 185893 |
-| 189 | spectral/postman/postman-library | responses-examples-any | postman_apis  | OpenAPI3 | true     |   5772 | 137776 |
-| 190 | spectral/postman/postman-library | responses-examples-any | kin           | OpenAPI3 | false    |   1574 |  45043 |
-| 191 | spectral/postman/postman-library | responses-examples-any | kin           | OpenAPI2 | false    |   1466 |  55201 |
-| 192 | spectral/postman/postman-library | responses-examples-any | postman_apis  | OpenAPI2 | true     |   1269 | 126558 |
-| 193 | spectral/postman/postman-library | responses-examples-any | postman_apis  | OpenAPI3 | false    |    379 |  42968 |
-| 194 | spectral/postman/postman-library | responses-examples-any | postman_apis  | OpenAPI2 | false    |    343 | 129028 |
+| 175 | spectral/postman/postman-library | responses-examples-any | kin           | OpenAPI3 | true     |   6958 | 150579 |
+| 176 | spectral/postman/postman-library | responses-examples-any | kin           | OpenAPI2 | true     |   5943 | 185893 |
+| 177 | spectral/postman/postman-library | responses-examples-any | postman_apis  | OpenAPI3 | true     |   5772 | 137776 |
+| 178 | spectral/postman/postman-library | responses-examples-any | kin           | OpenAPI3 | false    |   1574 |  45043 |
+| 179 | spectral/postman/postman-library | responses-examples-any | kin           | OpenAPI2 | false    |   1466 |  55201 |
+| 180 | spectral/postman/postman-library | responses-examples-any | postman_apis  | OpenAPI2 | true     |   1269 | 126558 |
+| 181 | spectral/postman/postman-library | responses-examples-any | postman_apis  | OpenAPI3 | false    |    379 |  42968 |
+| 182 | spectral/postman/postman-library | responses-examples-any | postman_apis  | OpenAPI2 | false    |    343 | 129028 |
 
 </details>
 
@@ -2957,14 +2947,14 @@ Data Table
 
 |     | attachment_type                  | code                        | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:----------------------------|:--------------|:---------|:---------|-------:|------:|
-| 195 | spectral/postman/postman-library | reusable-schema-description | kin           | OpenAPI3 | true     |   6205 | 94858 |
-| 196 | spectral/postman/postman-library | reusable-schema-description | postman_apis  | OpenAPI3 | true     |   5628 | 72180 |
-| 197 | spectral/postman/postman-library | reusable-schema-description | kin           | OpenAPI2 | true     |   4600 | 62745 |
-| 198 | spectral/postman/postman-library | reusable-schema-description | kin           | OpenAPI3 | false    |   1572 | 26196 |
-| 199 | spectral/postman/postman-library | reusable-schema-description | kin           | OpenAPI2 | false    |   1149 | 15730 |
-| 200 | spectral/postman/postman-library | reusable-schema-description | postman_apis  | OpenAPI2 | true     |   1119 | 30722 |
-| 201 | spectral/postman/postman-library | reusable-schema-description | postman_apis  | OpenAPI3 | false    |    704 | 53613 |
-| 202 | spectral/postman/postman-library | reusable-schema-description | postman_apis  | OpenAPI2 | false    |    249 | 25232 |
+| 183 | spectral/postman/postman-library | reusable-schema-description | kin           | OpenAPI3 | true     |   6205 | 94858 |
+| 184 | spectral/postman/postman-library | reusable-schema-description | postman_apis  | OpenAPI3 | true     |   5628 | 72180 |
+| 185 | spectral/postman/postman-library | reusable-schema-description | kin           | OpenAPI2 | true     |   4600 | 62745 |
+| 186 | spectral/postman/postman-library | reusable-schema-description | kin           | OpenAPI3 | false    |   1572 | 26196 |
+| 187 | spectral/postman/postman-library | reusable-schema-description | kin           | OpenAPI2 | false    |   1149 | 15730 |
+| 188 | spectral/postman/postman-library | reusable-schema-description | postman_apis  | OpenAPI2 | true     |   1119 | 30722 |
+| 189 | spectral/postman/postman-library | reusable-schema-description | postman_apis  | OpenAPI3 | false    |    704 | 53613 |
+| 190 | spectral/postman/postman-library | reusable-schema-description | postman_apis  | OpenAPI2 | false    |    249 | 25232 |
 
 </details>
 
@@ -3074,14 +3064,14 @@ Data Table
 
 |     | attachment_type                  | code                                      | collection_id | class    | is_valid | n_apis |  n_err |
 |:----|:---------------------------------|:------------------------------------------|:--------------|:---------|:---------|-------:|-------:|
-| 203 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kin           | OpenAPI3 | true     |   6512 | 103597 |
-| 204 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kin           | OpenAPI2 | true     |   4711 |  64757 |
-| 205 | spectral/postman/postman-library | schema-properties-define-array-boundaries | postman_apis  | OpenAPI3 | true     |   2112 |  83394 |
-| 206 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kin           | OpenAPI3 | false    |   1618 |  28398 |
-| 207 | spectral/postman/postman-library | schema-properties-define-array-boundaries | postman_apis  | OpenAPI2 | true     |   1107 |  35062 |
-| 208 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kin           | OpenAPI2 | false    |   1018 |  15011 |
-| 209 | spectral/postman/postman-library | schema-properties-define-array-boundaries | postman_apis  | OpenAPI3 | false    |    401 |  31341 |
-| 210 | spectral/postman/postman-library | schema-properties-define-array-boundaries | postman_apis  | OpenAPI2 | false    |    311 |  39486 |
+| 191 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kin           | OpenAPI3 | true     |   6512 | 103597 |
+| 192 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kin           | OpenAPI2 | true     |   4711 |  64757 |
+| 193 | spectral/postman/postman-library | schema-properties-define-array-boundaries | postman_apis  | OpenAPI3 | true     |   2112 |  83394 |
+| 194 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kin           | OpenAPI3 | false    |   1618 |  28398 |
+| 195 | spectral/postman/postman-library | schema-properties-define-array-boundaries | postman_apis  | OpenAPI2 | true     |   1107 |  35062 |
+| 196 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kin           | OpenAPI2 | false    |   1018 |  15011 |
+| 197 | spectral/postman/postman-library | schema-properties-define-array-boundaries | postman_apis  | OpenAPI3 | false    |    401 |  31341 |
+| 198 | spectral/postman/postman-library | schema-properties-define-array-boundaries | postman_apis  | OpenAPI2 | false    |    311 |  39486 |
 
 </details>
 
@@ -3189,14 +3179,14 @@ Data Table
 
 |     | attachment_type                  | code                           | collection_id | class    | is_valid | n_apis |  n_err |
 |:----|:---------------------------------|:-------------------------------|:--------------|:---------|:---------|-------:|-------:|
-| 211 | spectral/postman/postman-library | schema-properties-descriptions | kin           | OpenAPI3 | true     |   7042 | 421384 |
-| 212 | spectral/postman/postman-library | schema-properties-descriptions | postman_apis  | OpenAPI3 | true     |   5742 | 776231 |
-| 213 | spectral/postman/postman-library | schema-properties-descriptions | kin           | OpenAPI2 | true     |   4864 | 272481 |
-| 214 | spectral/postman/postman-library | schema-properties-descriptions | kin           | OpenAPI3 | false    |   1972 | 154440 |
-| 215 | spectral/postman/postman-library | schema-properties-descriptions | kin           | OpenAPI2 | false    |   1124 |  76596 |
-| 216 | spectral/postman/postman-library | schema-properties-descriptions | postman_apis  | OpenAPI2 | true     |   1098 | 154394 |
-| 217 | spectral/postman/postman-library | schema-properties-descriptions | postman_apis  | OpenAPI3 | false    |    679 | 149314 |
-| 218 | spectral/postman/postman-library | schema-properties-descriptions | postman_apis  | OpenAPI2 | false    |    278 | 149735 |
+| 199 | spectral/postman/postman-library | schema-properties-descriptions | kin           | OpenAPI3 | true     |   7042 | 421384 |
+| 200 | spectral/postman/postman-library | schema-properties-descriptions | postman_apis  | OpenAPI3 | true     |   5742 | 776231 |
+| 201 | spectral/postman/postman-library | schema-properties-descriptions | kin           | OpenAPI2 | true     |   4864 | 272481 |
+| 202 | spectral/postman/postman-library | schema-properties-descriptions | kin           | OpenAPI3 | false    |   1972 | 154440 |
+| 203 | spectral/postman/postman-library | schema-properties-descriptions | kin           | OpenAPI2 | false    |   1124 |  76596 |
+| 204 | spectral/postman/postman-library | schema-properties-descriptions | postman_apis  | OpenAPI2 | true     |   1098 | 154394 |
+| 205 | spectral/postman/postman-library | schema-properties-descriptions | postman_apis  | OpenAPI3 | false    |    679 | 149314 |
+| 206 | spectral/postman/postman-library | schema-properties-descriptions | postman_apis  | OpenAPI2 | false    |    278 | 149735 |
 
 </details>
 
@@ -3313,13 +3303,13 @@ Data Table
 
 |     | attachment_type                  | code                      | collection_id | class    | is_valid | n_apis |  n_err |
 |:----|:---------------------------------|:--------------------------|:--------------|:---------|:---------|-------:|-------:|
-| 219 | spectral/postman/postman-library | schema-reference-reusable | kin           | OpenAPI3 | true     |   7528 | 230220 |
-| 220 | spectral/postman/postman-library | schema-reference-reusable | postman_apis  | OpenAPI3 | true     |   5601 | 229616 |
-| 221 | spectral/postman/postman-library | schema-reference-reusable | kin           | OpenAPI2 | true     |   3366 |  27858 |
-| 222 | spectral/postman/postman-library | schema-reference-reusable | kin           | OpenAPI3 | false    |   1941 |  70652 |
-| 223 | spectral/postman/postman-library | schema-reference-reusable | kin           | OpenAPI2 | false    |    855 |  13316 |
-| 224 | spectral/postman/postman-library | schema-reference-reusable | postman_apis  | OpenAPI3 | false    |    788 | 114225 |
-| 225 | spectral/postman/postman-library | schema-reference-reusable | postman_apis  | OpenAPI2 | true     |    705 |  17502 |
-| 226 | spectral/postman/postman-library | schema-reference-reusable | postman_apis  | OpenAPI2 | false    |    309 |  42405 |
+| 207 | spectral/postman/postman-library | schema-reference-reusable | kin           | OpenAPI3 | true     |   7528 | 230220 |
+| 208 | spectral/postman/postman-library | schema-reference-reusable | postman_apis  | OpenAPI3 | true     |   5601 | 229616 |
+| 209 | spectral/postman/postman-library | schema-reference-reusable | kin           | OpenAPI2 | true     |   3366 |  27858 |
+| 210 | spectral/postman/postman-library | schema-reference-reusable | kin           | OpenAPI3 | false    |   1941 |  70652 |
+| 211 | spectral/postman/postman-library | schema-reference-reusable | kin           | OpenAPI2 | false    |    855 |  13316 |
+| 212 | spectral/postman/postman-library | schema-reference-reusable | postman_apis  | OpenAPI3 | false    |    788 | 114225 |
+| 213 | spectral/postman/postman-library | schema-reference-reusable | postman_apis  | OpenAPI2 | true     |    705 |  17502 |
+| 214 | spectral/postman/postman-library | schema-reference-reusable | postman_apis  | OpenAPI2 | false    |    309 |  42405 |
 
 </details>
