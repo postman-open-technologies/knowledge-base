@@ -1,0 +1,93 @@
+version:
+  number: 1.0.0
+provenance:
+  author: Arnaud Lauret, Postman Open Technologies
+ruleset:
+  link: postman-library.spectral.yaml
+  urn: postman:SpectralRuleset:postman.postman-library:v1.0.0
+profile:
+  profiledAt: '2023-02-24T16:34:29.755549'
+  fingerprint: jfpv1$sha256$ed2edaf7a90b75dc1c3702a2006b8af38b0e29d66a862b375e65f3fc558a0b58
+  urn: postman:SpetralRuleset:ed2edaf7a90b75dc1c3702a2006b8af38b0e29d66a862b375e65f3fc558a0b58
+  rules:
+    info-contact:
+      fingerprint: jfpv1$sha256$75a046c23dc81997e3a4353c7861c08d54d65ea1c1ed9677460fd6fd364f8579
+      urn: postman:SpetralRule:75a046c23dc81997e3a4353c7861c08d54d65ea1c1ed9677460fd6fd364f8579
+    info-contact-email:
+      fingerprint: jfpv1$sha256$88b1df5de163e2b8d17454020a1fba84c452a35fe6066da0c4610ad6d71895b9
+      urn: postman:SpetralRule:88b1df5de163e2b8d17454020a1fba84c452a35fe6066da0c4610ad6d71895b9
+    info-contact-email-or-url:
+      fingerprint: jfpv1$sha256$d4c8ab042598ed05531b6245cf3eacbf5246fc54130b9c84f84a1a391cc496ba
+      urn: postman:SpetralRule:d4c8ab042598ed05531b6245cf3eacbf5246fc54130b9c84f84a1a391cc496ba
+    info-contact-name:
+      fingerprint: jfpv1$sha256$1b607cb15e1d8ce1d7f30971e88964b149af502dc0f02a5480550e0bbdbd9c77
+      urn: postman:SpetralRule:1b607cb15e1d8ce1d7f30971e88964b149af502dc0f02a5480550e0bbdbd9c77
+    info-contact-url:
+      fingerprint: jfpv1$sha256$5ec920c42a70f46c301e87fb9a40b9fccd86f0434c49483a9f3298ecd15d778b
+      urn: postman:SpetralRule:5ec920c42a70f46c301e87fb9a40b9fccd86f0434c49483a9f3298ecd15d778b
+    info-description:
+      fingerprint: jfpv1$sha256$c730f0f78ad2f599fd8afb8de11cb948923958e8c9ad5b3283806044086a59ce
+      urn: postman:SpetralRule:c730f0f78ad2f599fd8afb8de11cb948923958e8c9ad5b3283806044086a59ce
+    info-license:
+      fingerprint: jfpv1$sha256$1ef1abb0f7aca016e52a229dc3478841b2b6ccadb721c809f29a9bac13adea6a
+      urn: postman:SpetralRule:1ef1abb0f7aca016e52a229dc3478841b2b6ccadb721c809f29a9bac13adea6a
+    info-license-url:
+      fingerprint: jfpv1$sha256$28659c431f2f2eebdd48950efa777930f856b13636027855216f59f70052f9c4
+      urn: postman:SpetralRule:28659c431f2f2eebdd48950efa777930f856b13636027855216f59f70052f9c4
+    info-terms-of-service:
+      fingerprint: jfpv1$sha256$3151ff002addef51e5f613737aabafbf9adeffbfb00551a3f5de9d592c5c7a69
+      urn: postman:SpetralRule:3151ff002addef51e5f613737aabafbf9adeffbfb00551a3f5de9d592c5c7a69
+    no-response-body-on-204:
+      fingerprint: jfpv1$sha256$2d5efaebde3f3220d2666741aaac1f1035d731893eeb8c4f7a0acceb428ff538
+      urn: postman:SpetralRule:2d5efaebde3f3220d2666741aaac1f1035d731893eeb8c4f7a0acceb428ff538
+    no-trailing-slash-on-paths:
+      fingerprint: jfpv1$sha256$bb077c8278fbfae46e795c3eacd1b0ba68b2bdeded2ba46e246f30f376a9b919
+      urn: postman:SpetralRule:bb077c8278fbfae46e795c3eacd1b0ba68b2bdeded2ba46e246f30f376a9b919
+    operations-description:
+      fingerprint: jfpv1$sha256$e6f9ded9814fffa416438ee11cf18752e3d140c667ee9a49d7b14452718db369
+      urn: postman:SpetralRule:e6f9ded9814fffa416438ee11cf18752e3d140c667ee9a49d7b14452718db369
+    operations-status-code-2xx:
+      fingerprint: jfpv1$sha256$f9c9c5aa41418959b3e316af2af1b6633751d84676a47cd689638fffddf40059
+      urn: postman:SpetralRule:f9c9c5aa41418959b3e316af2af1b6633751d84676a47cd689638fffddf40059
+    operations-status-code-5xx:
+      fingerprint: jfpv1$sha256$8f6413cce7ba238411196af8440ae950381a16a811f0449c5900f612ea2c52ce
+      urn: postman:SpetralRule:8f6413cce7ba238411196af8440ae950381a16a811f0449c5900f612ea2c52ce
+    operations-summary:
+      fingerprint: jfpv1$sha256$2183fc20cafdd9c81d6752fee8a282b756c55a093cb430247baf8d4b485a1866
+      urn: postman:SpetralRule:2183fc20cafdd9c81d6752fee8a282b756c55a093cb430247baf8d4b485a1866
+    operations-summary-period-none:
+      fingerprint: jfpv1$sha256$fd63f159bd3ec6c84e047936d461f18b35d6212a5b7bf9a8b9e3c38c8f38212b
+      urn: postman:SpetralRule:fd63f159bd3ec6c84e047936d461f18b35d6212a5b7bf9a8b9e3c38c8f38212b
+    parameters-description:
+      fingerprint: jfpv1$sha256$3572aa274eea7babb09294b3a22e7c0bd733af0408854e2ebb326f357ae384cf
+      urn: postman:SpetralRule:3572aa274eea7babb09294b3a22e7c0bd733af0408854e2ebb326f357ae384cf
+    parameters-examples-any:
+      fingerprint: jfpv1$sha256$5a13783dc4eb185e26a507e36d0dc6e84fb8a4a238276bbcb39dd263f31a048e
+      urn: postman:SpetralRule:5a13783dc4eb185e26a507e36d0dc6e84fb8a4a238276bbcb39dd263f31a048e
+    request-bodies-examples-any:
+      fingerprint: jfpv1$sha256$de8e253d3398cfcbcc65d5399b211355493682530feb9676520fe12d53f6ca57
+      urn: postman:SpetralRule:de8e253d3398cfcbcc65d5399b211355493682530feb9676520fe12d53f6ca57
+    request-body-on-patch:
+      fingerprint: jfpv1$sha256$cc1edaead3ab052b0cb9cb1ea6229bc1de3d1ac9d1e2a4849879743dccb5e0a0
+      urn: postman:SpetralRule:cc1edaead3ab052b0cb9cb1ea6229bc1de3d1ac9d1e2a4849879743dccb5e0a0
+    request-body-on-post:
+      fingerprint: jfpv1$sha256$58c4c7106e4045a7d7383cb753aa11e1fc24c46c38653dbc3df0384e01b582c4
+      urn: postman:SpetralRule:58c4c7106e4045a7d7383cb753aa11e1fc24c46c38653dbc3df0384e01b582c4
+    request-body-on-put:
+      fingerprint: jfpv1$sha256$a87254dc8813820986773f71fa3c9dadfb75a374d64a8dc3e1a69808e37c2d81
+      urn: postman:SpetralRule:a87254dc8813820986773f71fa3c9dadfb75a374d64a8dc3e1a69808e37c2d81
+    responses-examples-any:
+      fingerprint: jfpv1$sha256$ab21daf19a51dd2c679128af7f227422145799af7838671a58df34d456b9313a
+      urn: postman:SpetralRule:ab21daf19a51dd2c679128af7f227422145799af7838671a58df34d456b9313a
+    reusable-schema-description:
+      fingerprint: jfpv1$sha256$35b77fb6b638f468274800990c9d6e6c1e491e6428e7c6c7ed54b5603cf8da4a
+      urn: postman:SpetralRule:35b77fb6b638f468274800990c9d6e6c1e491e6428e7c6c7ed54b5603cf8da4a
+    schema-properties-define-array-boundaries:
+      fingerprint: jfpv1$sha256$6b1b3931ba97c2f1e9bd446b662a7b059a950bb5cb45d6cda51dd2ae41e0ff97
+      urn: postman:SpetralRule:6b1b3931ba97c2f1e9bd446b662a7b059a950bb5cb45d6cda51dd2ae41e0ff97
+    schema-properties-descriptions:
+      fingerprint: jfpv1$sha256$d14aa2b4a6898f7310cc30e0d32d01efd9bf67fbfa6ec32a5e4d3bf0a3278ecc
+      urn: postman:SpetralRule:d14aa2b4a6898f7310cc30e0d32d01efd9bf67fbfa6ec32a5e4d3bf0a3278ecc
+    schema-reference-reusable:
+      fingerprint: jfpv1$sha256$5a77810cab3e85f435fcc00a6035d486b9000b66889c6f76fb0654222d36f1bb
+      urn: postman:SpetralRule:5a77810cab3e85f435fcc00a6035d486b9000b66889c6f76fb0654222d36f1bb

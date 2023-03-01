@@ -48,7 +48,7 @@ rules:
           notMatch: 306|418|510
 
   postman:SpectralRule:http-status-codes:invalid:v1:
-    description: HTTP status code not belonging not [1-5]XX, default or an x-tension.
+    description: HTTP status code not [1-5]XX, default or an x-tension.
     message: "{{property}} is not a valid HTTP status (100-599), the 'default' wildcard or an extension."
     given:
       - "#HttpStatus"

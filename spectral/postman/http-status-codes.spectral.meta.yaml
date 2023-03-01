@@ -6,7 +6,7 @@ ruleset:
   link: http-status-codes.spectral.yaml
   urn: postman:SpectralRuleset:http-status-codes:v1.0.0
 profile:
-  profiledAt: '2023-02-09T14:09:23.701231'
+  profiledAt: '2023-02-13T10:34:28.466759'
   fingerprint: jfpv1$sha256$a6864c52b65f1799fbbd69f82569a5f208239b3213b37c57472cd70713407477
   urn: postman:SpetralRuleset:a6864c52b65f1799fbbd69f82569a5f208239b3213b37c57472cd70713407477
   rules:

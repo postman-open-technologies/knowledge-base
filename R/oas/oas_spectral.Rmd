@@ -1,0 +1,41 @@
+---
+title: "OAS Spectral Rulesets"
+date: "<sup>Last updated: `r format(Sys.time(), '%Y-%m-%d')`</sup>"
+output:
+  github_document:
+    toc: true
+    toc_depth: 2
+params:
+    spectralRoot: '../../spectral'
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+options(knitr.duplicate.label = "allow")
+source("../oas/db_connection.R", local = knitr::knit_global())
+source("../oas/utils.R", local = knitr::knit_global())
+require("yaml")
+```
+
+```{r, child=c('../oas/header.section.Rmd')}
+```
+
+<sup>[Back to summary](oas_summary.md) | [View related issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Aspectral)</sup>
+
+```{r}
+# generate reports
+for (file in list.files(params$spectralRoot, pattern='\\.spectral\\.meta\\.yaml$', recursive = TRUE, include.dirs = FALSE)) {
+  rulesetId = sub(".spectral.meta.yaml", "", file)
+  outfile = paste0('oas_spectral_ruleset_',sub("/","_",rulesetId),".md")
+  rmarkdown::render("oas_spectral_ruleset.template.Rmd", output_file = outfile, params=list("spectralRoot"=params$spectralRoot, "rulesetId"=rulesetId), envir = new.env() )
+}
+```
+
+```{r, include=TRUE, echo=FALSE, results='asis'}
+# generate index
+for (file in list.files(params$spectralRoot, pattern='\\.spectral\\.meta\\.yaml$', recursive = TRUE, include.dirs = FALSE)) {
+  rulesetId = sub(".spectral.meta.yaml", "", file)
+  outfile = paste0('oas_spectral_ruleset_',sub("/","_",rulesetId),".md")
+  cat(paste0("- [",rulesetId,"](",outfile,")\n"))
+}
+```

@@ -7,7 +7,6 @@ import os
 import re
 import yaml
 
-
 def load_json_or_yaml(filepath):
     data = None
     if os.path.isfile(filepath):

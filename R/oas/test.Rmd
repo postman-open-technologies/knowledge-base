@@ -1,0 +1,29 @@
+---
+title: Test
+output:
+  github_document:
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+require('knitr')
+require("yaml")
+knitr::opts_chunk$set(echo = FALSE)
+options(scipen=999)
+source("db_connection.R", local = knitr::knit_global())
+source("utils.R", local = knitr::knit_global())
+```
+
+```{r, eval=TRUE }
+query = "
+select operation, response, count(*) as n, count(*) / sum(count(*)) over(partition by operation) as pct
+from vw_oas_resource_paths_operations_responses
+group by 1,2 order by operation, pct desc
+"
+df_operations_responses = dbGetQuery(conn, query)
+```
+
+ruleset = yaml.load_file('../../spectral/postman/postman-library.spectral.yaml')
+
+

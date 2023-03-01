@@ -1,0 +1,515 @@
+aliases:
+  ResponseContentDefinition:
+    targets:
+      - formats:
+          - oas2
+        given: 
+          - $.paths.*.*.responses.*
+      - formats:
+          - oas3
+        given: 
+          - $.paths.*.*.responses.*.content.*
+
+rules:
+  info-contact:
+    description: Ensures that all APIs have contact information.
+    message: API must have a contact information available.
+    given: $.info
+    severity: error
+    formats:
+      - oas2
+      - oas3
+    then:
+      field: contact
+      function: truthy
+  info-contact-email:
+    description: Ensures that all APIs have contact email.
+    message: API must have a contact email available.
+    given: $.info.contact
+    severity: error
+    formats:
+      - oas2
+      - oas3
+    then:
+      field: email
+      function: truthy
+
+  info-contact-email-or-url:
+    description: Ensures that all APIs have contact URL or email.
+    message: API must have a contact URL or email available.
+    given: $.info.contact
+    severity: error
+    formats:
+      - oas2
+      - oas3
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          anyOf:
+            - required: [url]
+            - required: [email]
+  info-contact-name:
+    description: Ensures that all APIs have contact name.
+    message: API must have a contact name available.
+    given: $.info.contact
+    severity: error
+    formats:
+      - oas2
+      - oas3
+    then:
+      field: name
+      function: truthy
+
+  info-contact-url:
+    description: Ensures that all APIs have contact URL.
+    message: API must have a contact URL available.
+    given: $.info.contact
+    severity: error
+    formats:
+      - oas2
+      - oas3
+    then:
+      field: url
+      function: truthy
+
+  info-description:
+    description: Ensures that all OpenAPIs have a information description.
+    message: The info object should have a description.
+    given: $.info
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      field: description
+      function: truthy
+
+  info-license:
+    description: Ensures that all OpenAPIs have a information object license.
+    message: The info object should have a license.
+    given: $.info
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      field: license
+      function: truthy
+
+  info-license-url:
+    description: Ensures that all OpenAPIs have a information object license url.
+    message: The info object should have a license url.
+    given: $.info.license
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      field: url
+      function: truthy
+
+  info-terms-of-service:
+    description: Ensures that all OpenAPIs have a information object terms of service.
+    message: The info object should have a terms of service.
+    given: $.info
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      field: termsOfService
+      function: truthy
+
+  no-response-body-on-204:
+    description: Ensures that no 204 No Content response has a body.
+    message: A 204 No Content response can't have a body.
+    given: $.paths.*.*.responses.204
+    severity: error
+    formats:
+      - oas2
+      - oas3
+    then:
+      - field: schema # oas 2
+        function: falsy
+      - field: content # oas 3
+        function: falsy
+
+  no-trailing-slash-on-paths:
+    description: Ensures that there are no trailing slashes on paths.
+    message: There should be no trailing slashes on paths.
+    given: $.paths.*~
+    severity: error
+    formats:
+      - oas2
+      - oas3
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: .+\/$
+
+  operations-description:
+    description: Ensures that each of the operations have a description.
+    message: Your operations all need descriptions.
+    given: $.paths.*[get,post,patch,put,delete,options,head,trace]
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      - field: description
+        function: truthy
+
+  operations-status-code-2xx:
+    description: Ensures that each of the operations returns at least a 2xx HTTP status code.
+    message: Operation should return a 2xx HTTP status code
+    given: $.paths.*.*.responses
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      function: schema
+      functionOptions:
+        # List of 2xx from http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
+        schema:
+          $schema: "https://json-schema.org/draft/2020-12/schema"
+          anyOf:
+            - required:
+                - '2XX'
+              properties:
+                '2XX': true
+            - required:
+                - '200'
+              properties:
+                '200': true
+            - required:
+                - '201'
+              properties:
+                '201': true
+            - required:
+                - '202'
+              properties:
+                '202': true
+            - required:
+                - '203'
+              properties:
+                '203': true
+            - required:
+                - '204'
+              properties:
+                '204': true
+            - required:
+                - '205'
+              properties:
+                '205': true
+            - required:
+                - '206'
+              properties:
+                '206': true
+            - required:
+                - '207'
+              properties:
+                '207': true
+            - required:
+                - '208'
+              properties:
+                '208': true
+            - required:
+                - '226'
+              properties:
+                '226': true
+
+
+  operations-status-code-5xx:
+    description: Ensures that each of the operations returns at least a 5xx HTTP status code.
+    message: Operation should return a 5xx HTTP status code
+    given: $.paths.*.*.responses
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      function: schema
+      functionOptions:
+        # List of 2xx from http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
+        schema:
+          $schema: "https://json-schema.org/draft/2020-12/schema"
+          anyOf:
+            - required:
+                - '500'
+              properties:
+                '500': true
+            - required:
+                - '501'
+              properties:
+                '501': true
+            - required:
+                - '502'
+              properties:
+                '502': true
+            - required:
+                - '503'
+              properties:
+                '503': true
+            - required:
+                - '504'
+              properties:
+                '504': true
+            - required:
+                - '505'
+              properties:
+                '505': true
+            - required:
+                - '506'
+              properties:
+                '506': true
+            - required:
+                - '507'
+              properties:
+                '507': true
+            - required:
+                - '508'
+              properties:
+                '508': true
+            - required:
+                - '510'
+              properties:
+                '510': true
+            - required:
+                - '511'
+              properties:
+                '511': true
+
+  operations-summary:
+    description: Ensures that each of the operations for an API have a summary.
+    message: All of your operations need summaries.
+    given: $.paths.*[get,post,patch,put,delete,options,head,trace]
+    severity: error
+    formats:
+      - oas2
+      - oas3
+    then:
+      - field: summary
+        function: truthy
+
+  operations-summary-period-none:
+    description: Ensures that each of the operations summaries do not have an ending period.
+    message: Your operations summaries should not end with a period.
+    given: $.paths.*[get,post,patch,put,delete,options,head,trace]
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      field: summary
+      function: pattern
+      functionOptions:
+        notMatch: \.$
+
+  parameters-description:
+    description: Ensures that that all parameters have a descriptions.
+    message: Your parameters all need descriptions.
+    given: 
+      - $.paths.*.parameters.* # path level parameters
+      - $.paths.*.*.parameters.* # operation level parameters
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      field: description
+      function: truthy
+
+  parameters-examples-any:
+    description: Ensures that that all parameters have a examples.
+    message: Your parameters all need examples.
+    given: 
+      - $.paths.*.parameters.* # path level parameters
+      - $.paths.*.*.parameters.* # operation level parameters
+    severity: warn
+    formats:
+      - oas3
+    then:
+      function: xor
+      functionOptions:
+        properties:
+          - example
+          - examples
+
+  request-bodies-examples-any:
+    description: Ensures that a example is always present for each request body (schema.example for Swagger 2, examples or example for OpenAPI 3).
+    message: All request bodies should have an example present.
+    given: 
+      - $.paths.*.*.parameters[?(@.in == 'body')].schema # v2
+      - $.paths.*.*.requestBody.content.* # v3
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      function: xor
+      functionOptions:
+        properties:
+          - examples
+          - example
+
+  request-body-on-patch:
+    description: Ensures that PATCH methods have request bodies.
+    message: Your PATCH methods should have request bodies.
+    given: $.paths.*.patch
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          $schema: "https://json-schema.org/draft/2020-12/schema"
+          oneOf:
+            - required: [requestBody]
+            - required: [parameters]
+              properties:
+                parameters:
+                  type: array
+                  minItems: 1
+                  contains:
+                    type: object
+                    properties:
+                      in:
+                        type: string
+                        pattern: ^body|formData$
+                    required: [name]
+  request-body-on-post:
+    description: Ensures that POST methods have request bodies.
+    message: Your POST methods should have request bodies.
+    given: $.paths.*.post
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          $schema: "https://json-schema.org/draft/2020-12/schema"
+          oneOf:
+            - required: [requestBody]
+            - required: [parameters]
+              properties:
+                parameters:
+                  type: array
+                  minItems: 1
+                  contains:
+                    type: object
+                    properties:
+                      in:
+                        type: string
+                        pattern: ^body|formData$
+                    required: [name]
+  request-body-on-put:
+    description: Ensures that PUT methods have request bodies.
+    message: Your PUT methods should have request bodies.
+    given: $.paths.*.put
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          $schema: "https://json-schema.org/draft/2020-12/schema"
+          oneOf:
+            - required: [requestBody]
+            - required: [parameters]
+              properties:
+                parameters:
+                  type: array
+                  minItems: 1
+                  contains:
+                    type: object
+                    properties:
+                      in:
+                        type: string
+                        pattern: ^body|formData$
+                    required: [name]
+
+  responses-examples-any:
+    description: Ensuring all responses have examples (OpenAPI 3, Swagger 2) or example (OpenAPI 3) defined.
+    message: All your responses need to have property examples (OpenAPI 3, Swagger 2) or example (OpenAPI 3) defined.
+    given: "#ResponseContentDefinition"
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      function: xor
+      functionOptions:
+        properties:
+          - example
+          - examples
+  reusable-schema-description:
+    description: Ensure all reusable schema should have a description.
+    message: All reusable schema should have descriptions.
+    given: 
+      - $.definitions.*
+      - $.components.schemas.*
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      field: description
+      function: truthy
+
+  schema-properties-define-array-boundaries:
+    description: Requires that arrays have their minimum and maximum boundaries defined.
+    message: Arrays must have minItems and maxItems defined.
+    given:
+      - $..[?(@ != null && @.type=="array")]
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      - field: maxItems
+        function: defined
+      - field: minItems
+        function: defined
+
+  schema-properties-descriptions:
+    description: Ensure that all schemas properties should have a description.
+    message: All schema properties should have descriptions.
+    given: $..properties.*
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      field: description
+      function: truthy
+
+  schema-reference-reusable:
+    description: |
+      Ensures all schema properties use a $ref contain a $ref targeting a reusable schema 
+      defined in definitions (Swagger 2) or components.schema (OpenAPI 3)
+    message: A schema property should have a $ref property referencing a reusable schema 
+    given:
+      - $..schema # TODO: replace by more precise paths, because may 
+                  # target element with name schema which are not the schema we look for
+    resolved: false # Mandatory to avoid $ref being replaced by their value
+    severity: warn
+    formats:
+      - oas2
+      - oas3
+    then:
+      # $ref is present and non empty
+      - field: $ref
+        function: truthy
+      # $ref value is any local or remote reference targeting reusable schema
+      - field: $ref
+        function: pattern
+        functionOptions:
+          match: ^.*#\/(definitions|components\/schemas)\/.*$

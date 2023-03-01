@@ -1,0 +1,107 @@
+---
+title: "OAS Spectral Ruleset `r params$rulesetId`"
+date: "<sup>Last updated: `r format(Sys.time(), '%Y-%m-%d')`</sup>"
+output:
+  github_document:
+    toc: true
+    toc_depth: 2
+params:
+  spectralRoot: '../../spectral'
+  rulesetId: "postman/postman-library"
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+require('knitr')
+require("yaml")
+source("db_connection.R", local = knitr::knit_global())
+source("utils.R", local = knitr::knit_global())
+```
+
+```{r, child=c('header.section.Rmd')}
+```
+
+<sup>[Back to spectral](oas_spectral.md) | [View related issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Aspectral)</sup>
+
+```{r api_query}
+# read metadata
+metadataFile = file.path(params$spectralRoot, paste(params$rulesetId,'spectral.meta.yaml',sep="."))
+metadata = yaml.load_file(metadataFile)
+link = metadata$ruleset$link
+
+# read ruleset
+rulesetFile = file.path(dirname(metadataFile),link)
+ruleset = yaml.load_file(rulesetFile)
+
+# create a data frame with total api count statistics (for computing %)
+query = "
+	select collection_id, class, json_meta->>'isValid' as is_valid, 
+		count(*) as n
+	from vw_oas_resource 
+	group by 1,2,3 order by 1,2,3
+"
+df_api_counts = dbGetQuery(conn, query)
+n_openapi2_apis = sum(df_api_counts[df_api_counts$class=='OpenAPI2',]$n)
+n_valid_openapi2_apis = sum(df_api_counts[df_api_counts$class=='OpenAPI2' & df_api_counts$is_valid=='true',]$n)
+n_openapi3_apis = sum(df_api_counts[df_api_counts$class=='OpenAPI3',]$n)
+n_valid_openapi3_apis = sum(df_api_counts[df_api_counts$class=='OpenAPI3' & df_api_counts$is_valid=='true',]$n)
+n_valid_apis = sum(df_api_counts[df_api_counts$is_valid=='true',]$n)
+n_apis = sum(df_api_counts$n)
+```
+
+
+```{r spectral_query}
+# run spectral query
+attachment_type = paste("spectral",params$rulesetId, sep="/")
+query = sprintf("
+select attachment_type, code, res.collection_id, res.class, res.json_meta->>'isValid' as is_valid, count(distinct err.uri) as n_apis, count(*) as n_err
+from vw_oas_resource_spectral_errors err
+join vw_oas_resource res on err.uri = res.uri
+where attachment_type = '%s'
+  and code not in ('invalid-ref', 'parser','unrecognized-format')
+group by 1,2,3,4,5 order by code, n_apis desc;
+", attachment_type)
+df_spectral = dbGetQuery(conn, query)
+
+collectionIds = unique(df_spectral$collection_id)
+ruleCodes = unique(df_spectral$code)
+```
+
+### Overview
+
+`r ruleset$description`
+
+Source code for this ruleset can be found at https://github.com/postman-open-technologies/knowledge-base/tree/main/spectral
+
+<a id="summary"></a>
+
+### Summary
+
+Spectral rule error rates for <u>schema validated APIs</u>. See below for details and more granular analysis for each rule.
+
+| rule | All`r paste0('<br/>(',format_count(n_valid_apis),')')`| OpenAPI2`r paste0('<br/>(',format_count(n_valid_openapi2_apis),')')` | OpenAPI3`r paste0('<br/>(',format_count(n_valid_openapi3_apis),')')` |
+|------|:---:|:--------:|:--------:|
+```{r rule_summary, include=TRUE, results='asis'}
+for (ruleCode in ruleCodes) {
+  rule = ruleset$rules[ruleCode][[1]]
+  description = rule$description
+  description = gsub("[\r\n]", "", description)
+  severity = rule$severity
+  df_spectral_subset = df_spectral[df_spectral$code==ruleCode,]
+  n_all = sum(df_spectral_subset[df_spectral_subset$is_valid=='true',]$n_apis)
+  n_openapi2 = sum(df_spectral_subset[df_spectral_subset$is_valid=='true' & df_spectral_subset$class=='OpenAPI2',]$n_apis)
+  n_openapi3 = sum(df_spectral_subset[df_spectral_subset$is_valid=='true' & df_spectral_subset$class=='OpenAPI3',]$n_apis)
+  cat(paste0('|[',ruleCode,'](#',ruleCode,')<br/><sup>',description,'</sup>|',format_count_and_pct(n_all, n_all/n_valid_apis),'|',format_count_and_pct(n_openapi2, n_openapi2/n_valid_openapi2_apis),'|',format_count_and_pct(n_openapi3, n_openapi3/n_valid_openapi3_apis),'|','\n'))
+}
+```
+
+```{r rule_details, include=TRUE, echo=FALSE, results='asis'}
+# call template for each rule in the ruleset
+for (ruleCode in names(ruleset$rules) ) {
+  rule = ruleset$rules[ruleCode][[1]]
+  res <- knitr::knit_child('oas_spectral_rule.section.Rmd', quiet = TRUE)
+  cat(res, sep = '\n')
+}
+```
+
+ 

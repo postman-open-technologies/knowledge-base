@@ -1,0 +1,101 @@
+
+
+<a id="`r ruleCode`"></a>
+
+### `r ruleCode` <sup>[🔝](#summary)</sup>
+
+| | |
+|---|---|
+| Description | `r rule$description` |
+| Severity | `r rule$severity` |
+| Message: | `r rule$message` |
+
+<details style="margin-bottom:20px;">
+<summary>Rule Definition</summary>
+```
+`r as.yaml(rule)`
+```
+</details>
+
+
+```{r}
+df_spectral_subset = df_spectral[df_spectral$code==ruleCode,]
+collectionIds = unique(df_spectral_subset$collection_id)
+```
+
+
+```{r}
+RenderCell <- function(api_counts, subset, collectionId, ruleCode, class) {
+  if(!missing(collectionId)) {
+    subset = subset[subset$collection_id == collectionId,]
+    api_counts = api_counts[api_counts$collection_id == collectionId,]
+  }
+  if(!missing(ruleCode)) {
+    subset = subset[subset$code == ruleCode,]
+  }
+  if(!missing(class)) {
+    subset = subset[subset$class == class,]
+    api_counts = api_counts[api_counts$class == class,]
+  }
+  valid = sum(subset[subset$is_valid == 'true',]$n_apis)
+  valid_apis = sum(api_counts[api_counts$is_valid == 'true',]$n)
+  valid_pct = valid / valid_apis
+  invalid = sum(subset[subset$is_valid == 'false',]$n_apis)
+  invalid_apis = sum(api_counts[api_counts$is_valid == 'false',]$n)
+  invalid_pct = invalid / invalid_apis
+  all = valid + invalid
+  all_apis = valid_apis + invalid_apis
+  all_pct = all / all_apis
+  content = ''
+  content = paste0(content,'<small>')
+  content = paste0(content,'valid: ', format_count_and_pct(valid, valid_pct),' / ', format_count(valid_apis),'<br/>')
+  content = paste0(content,'invalid: ',format_count_and_pct(invalid, invalid_pct),' / ', format_count(invalid_apis),'<br/>')
+  content = paste0(content,'all: ', format_count_and_pct(all, all_pct),' / ',format_count(all_apis))
+  content = paste0(content,'</small>')
+  return(content)
+}
+```
+
+#### Statistics
+
+```{r, include=TRUE, results='asis'}
+# table
+cat('<table>',sep='\n')
+# table header
+cat('<tr>',sep='\n')
+cat('<th>Collection</th>',sep='\n')
+cat('<th>All</th>',sep='\n')
+cat('<th>OpenAPI2</th>',sep='\n')
+cat('<th>OpenAPI3</th>',sep='\n')
+cat('</tr>',sep='\n')
+# table row per collection
+for(collectionId in collectionIds) {
+  cat('<tr>',sep='\n')
+  cat(paste0('<td>',collectionId,'</td>'),sep='\n')
+  cat(paste0('<td style="text-align:center">',RenderCell(api_counts=df_api_counts, subset=df_spectral_subset, collectionId=collectionId, ruleCode=ruleCode),'</td>'),sep='\n')
+  cat(paste0('<td style="text-align:center">',RenderCell(api_counts=df_api_counts, subset=df_spectral_subset, collectionId=collectionId, ruleCode=ruleCode, class='OpenAPI2'),'</td>'),sep='\n')
+  cat(paste0('<td style="text-align:center">',RenderCell(api_counts=df_api_counts, subset=df_spectral_subset, collectionId=collectionId, ruleCode=ruleCode, class='OpenAPI3'),'</td>'),sep='\n')
+  cat('</tr>',sep='\n')
+}
+# table row with total across all collections
+cat('<tr>',sep='\n')
+cat(paste0('<td>','<i>All Collections</i>','</td>'),sep='\n')
+cat(paste0('<td style="text-align:center">',RenderCell(api_counts=df_api_counts, subset=df_spectral_subset, ruleCode=ruleCode),'</td>'),sep='\n')
+cat(paste0('<td style="text-align:center">',RenderCell(api_counts=df_api_counts, subset=df_spectral_subset, ruleCode=ruleCode, class='OpenAPI2'),'</td>'),sep='\n')
+cat(paste0('<td style="text-align:center">',RenderCell(api_counts=df_api_counts, subset=df_spectral_subset, ruleCode=ruleCode, class='OpenAPI3'),'</td>'),sep='\n')
+cat('</tr>',sep='\n')
+# end table
+cat('</table>',sep='\n')
+```
+
+<details style="margin-bottom:20px;">
+<summary>Data Table</summary>
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+kable(df_spectral_subset)
+```
+</details>
+
+
+
+
+  
