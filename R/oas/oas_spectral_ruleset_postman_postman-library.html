@@ -1,0 +1,6529 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+box-sizing: border-box;
+min-width: 200px;
+max-width: 980px;
+margin: 0 auto;
+padding: 45px;
+padding-top: 0px;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="oas-spectral-ruleset-postmanpostman-library">OAS Spectral
+Ruleset postman/postman-library</h1>
+<p><sup>Last updated: 2023-03-01</sup></p>
+<p><sup><em>DISCLAIMER: the results and findings below are preliminary
+and have not been fully validated or peer reviewed. Use with care. Do
+not quote or disseminate.</em></sup></p>
+<p><sup><a href="oas_spectral.md">Back to spectral</a> | <a href="https://github.com/postman-open-technologies/knowledge-base/labels/oas%3Aspectral">View
+related issues</a></sup></p>
+<h3 id="overview">Overview</h3>
+<p>Source code for this ruleset can be found at <a href="https://github.com/postman-open-technologies/knowledge-base/tree/main/spectral">https://github.com/postman-open-technologies/knowledge-base/tree/main/spectral</a></p>
+<p><a id="summary"></a></p>
+<h3 id="summary">Summary</h3>
+<p>Spectral rule error rates for <u>schema validated APIs</u>. See below
+for details and more granular analysis for each rule.</p>
+<table>
+<thead>
+<tr class="header">
+<th>rule</th>
+<th align="center">All<br />(22,756)</th>
+<th align="center">OpenAPI2<br />(7,555)</th>
+<th align="center">OpenAPI3<br />(15,201)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="#info-contact">info-contact</a><br /><sup>Ensures that all
+APIs have contact information.</sup></td>
+<td align="center">14,812 (65.1%)</td>
+<td align="center">4,399 (58.2%)</td>
+<td align="center">10,413 (68.5%)</td>
+</tr>
+<tr class="even">
+<td><a href="#info-contact-email">info-contact-email</a><br /><sup>Ensures that
+all APIs have contact email.</sup></td>
+<td align="center">2,097 (9.2%)</td>
+<td align="center">975 (12.9%)</td>
+<td align="center">1,122 (7.4%)</td>
+</tr>
+<tr class="odd">
+<td><a href="#info-contact-email-or-url">info-contact-email-or-url</a><br /><sup>Ensures
+that all APIs have contact URL or email.</sup></td>
+<td align="center">1,161 (5.1%)</td>
+<td align="center">558 (7.4%)</td>
+<td align="center">603 (4%)</td>
+</tr>
+<tr class="even">
+<td><a href="#info-contact-name">info-contact-name</a><br /><sup>Ensures
+that all APIs have contact name.</sup></td>
+<td align="center">3,147 (13.8%)</td>
+<td align="center">1,367 (18.1%)</td>
+<td align="center">1,780 (11.7%)</td>
+</tr>
+<tr class="odd">
+<td><a href="#info-contact-url">info-contact-url</a><br /><sup>Ensures
+that all APIs have contact URL.</sup></td>
+<td align="center">4,333 (19%)</td>
+<td align="center">1,884 (24.9%)</td>
+<td align="center">2,449 (16.1%)</td>
+</tr>
+<tr class="even">
+<td><a href="#info-description">info-description</a><br /><sup>Ensures
+that all OpenAPIs have a information description.</sup></td>
+<td align="center">7,428 (32.6%)</td>
+<td align="center">1,433 (19%)</td>
+<td align="center">5,995 (39.4%)</td>
+</tr>
+<tr class="odd">
+<td><a href="#info-license">info-license</a><br /><sup>Ensures that all
+OpenAPIs have a information object license.</sup></td>
+<td align="center">14,348 (63.1%)</td>
+<td align="center">5,098 (67.5%)</td>
+<td align="center">9,250 (60.9%)</td>
+</tr>
+<tr class="even">
+<td><a href="#info-license-url">info-license-url</a><br /><sup>Ensures
+that all OpenAPIs have a information object license url.</sup></td>
+<td align="center">3,056 (13.4%)</td>
+<td align="center">220 (2.9%)</td>
+<td align="center">2,836 (18.7%)</td>
+</tr>
+<tr class="odd">
+<td><a href="#info-terms-of-service">info-terms-of-service</a><br /><sup>Ensures
+that all OpenAPIs have a information object terms of service.</sup></td>
+<td align="center">19,034 (83.6%)</td>
+<td align="center">5,799 (76.8%)</td>
+<td align="center">13,235 (87.1%)</td>
+</tr>
+<tr class="even">
+<td><a href="#no-response-body-on-204">no-response-body-on-204</a><br /><sup>Ensures
+that no 204 No Content response has a body.</sup></td>
+<td align="center">393 (1.7%)</td>
+<td align="center">88 (1.2%)</td>
+<td align="center">305 (2%)</td>
+</tr>
+<tr class="odd">
+<td><a href="#no-trailing-slash-on-paths">no-trailing-slash-on-paths</a><br /><sup>Ensures
+that there are no trailing slashes on paths.</sup></td>
+<td align="center">1,357 (6%)</td>
+<td align="center">563 (7.5%)</td>
+<td align="center">794 (5.2%)</td>
+</tr>
+<tr class="even">
+<td><a href="#operations-description">operations-description</a><br /><sup>Ensures
+that each of the operations have a description.</sup></td>
+<td align="center">12,225 (53.7%)</td>
+<td align="center">3,406 (45.1%)</td>
+<td align="center">8,819 (58%)</td>
+</tr>
+<tr class="odd">
+<td><a href="#operations-status-code-2xx">operations-status-code-2xx</a><br /><sup>Ensures
+that each of the operations returns at least a 2xx HTTP status
+code.</sup></td>
+<td align="center">1,562 (6.9%)</td>
+<td align="center">903 (12%)</td>
+<td align="center">659 (4.3%)</td>
+</tr>
+<tr class="even">
+<td><a href="#operations-status-code-5xx">operations-status-code-5xx</a><br /><sup>Ensures
+that each of the operations returns at least a 5xx HTTP status
+code.</sup></td>
+<td align="center">18,178 (79.9%)</td>
+<td align="center">6,054 (80.1%)</td>
+<td align="center">12,124 (79.8%)</td>
+</tr>
+<tr class="odd">
+<td><a href="#operations-summary">operations-summary</a><br /><sup>Ensures that
+each of the operations for an API have a summary.</sup></td>
+<td align="center">6,138 (27%)</td>
+<td align="center">2,630 (34.8%)</td>
+<td align="center">3,508 (23.1%)</td>
+</tr>
+<tr class="even">
+<td><a href="#operations-summary-period-none">operations-summary-period-none</a><br /><sup>Ensures
+that each of the operations summaries do not have an ending
+period.</sup></td>
+<td align="center">2,960 (13%)</td>
+<td align="center">1,197 (15.8%)</td>
+<td align="center">1,763 (11.6%)</td>
+</tr>
+<tr class="odd">
+<td><a href="#parameters-description">parameters-description</a><br /><sup>Ensures
+that that all parameters have a descriptions.</sup></td>
+<td align="center">7,224 (31.7%)</td>
+<td align="center">3,104 (41.1%)</td>
+<td align="center">4,120 (27.1%)</td>
+</tr>
+<tr class="even">
+<td><a href="#parameters-examples-any">parameters-examples-any</a><br /><sup>Ensures
+that that all parameters have a examples.</sup></td>
+<td align="center">12,040 (52.9%)</td>
+<td align="center">0 (0%)</td>
+<td align="center">12,040 (79.2%)</td>
+</tr>
+<tr class="odd">
+<td><a href="#request-bodies-examples-any">request-bodies-examples-any</a><br /><sup>Ensures
+that a example is always present for each request body (schema.example
+for Swagger 2, examples or example for OpenAPI 3).</sup></td>
+<td align="center">11,691 (51.4%)</td>
+<td align="center">4,560 (60.4%)</td>
+<td align="center">7,131 (46.9%)</td>
+</tr>
+<tr class="even">
+<td><a href="#request-body-on-patch">request-body-on-patch</a><br /><sup>Ensures
+that PATCH methods have request bodies.</sup></td>
+<td align="center">370 (1.6%)</td>
+<td align="center">163 (2.2%)</td>
+<td align="center">207 (1.4%)</td>
+</tr>
+<tr class="odd">
+<td><a href="#request-body-on-post">request-body-on-post</a><br /><sup>Ensures
+that POST methods have request bodies.</sup></td>
+<td align="center">3,586 (15.8%)</td>
+<td align="center">1,498 (19.8%)</td>
+<td align="center">2,088 (13.7%)</td>
+</tr>
+<tr class="even">
+<td><a href="#request-body-on-put">request-body-on-put</a><br /><sup>Ensures
+that PUT methods have request bodies.</sup></td>
+<td align="center">1,299 (5.7%)</td>
+<td align="center">620 (8.2%)</td>
+<td align="center">679 (4.5%)</td>
+</tr>
+<tr class="odd">
+<td><a href="#responses-examples-any">responses-examples-any</a><br /><sup>Ensuring
+all responses have examples (OpenAPI 3, Swagger 2) or example (OpenAPI
+3) defined.</sup></td>
+<td align="center">19,942 (87.6%)</td>
+<td align="center">7,212 (95.5%)</td>
+<td align="center">12,730 (83.7%)</td>
+</tr>
+<tr class="even">
+<td><a href="#reusable-schema-description">reusable-schema-description</a><br /><sup>Ensure
+all reusable schema should have a description.</sup></td>
+<td align="center">17,552 (77.1%)</td>
+<td align="center">5,719 (75.7%)</td>
+<td align="center">11,833 (77.8%)</td>
+</tr>
+<tr class="odd">
+<td><a href="#schema-properties-define-array-boundaries">schema-properties-define-array-boundaries</a><br /><sup>Requires
+that arrays have their minimum and maximum boundaries
+defined.</sup></td>
+<td align="center">14,442 (63.5%)</td>
+<td align="center">5,818 (77%)</td>
+<td align="center">8,624 (56.7%)</td>
+</tr>
+<tr class="even">
+<td><a href="#schema-properties-descriptions">schema-properties-descriptions</a><br /><sup>Ensure
+that all schemas properties should have a description.</sup></td>
+<td align="center">18,746 (82.4%)</td>
+<td align="center">5,962 (78.9%)</td>
+<td align="center">12,784 (84.1%)</td>
+</tr>
+<tr class="odd">
+<td><a href="#schema-reference-reusable">schema-reference-reusable</a><br /><sup>Ensures
+all schema properties use a $ref contain a $ref targeting a reusable
+schema defined in definitions (Swagger 2) or components.schema (OpenAPI
+3)</sup></td>
+<td align="center">17,200 (75.6%)</td>
+<td align="center">4,071 (53.9%)</td>
+<td align="center">13,129 (86.4%)</td>
+</tr>
+</tbody>
+</table>
+<p><a id="info-contact"></a></p>
+<h3 id="info-contact-">info-contact <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that all APIs have contact information.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>error</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>API must have a contact information available.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that all APIs have contact information.
+message: API must have a contact information available.
+given: $.info
+severity: error
+formats:
+- oas2
+- oas3
+then:
+  field: contact
+  function: truthy</code></pre>
+</details>
+
+<h4 id="statistics">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 6,241 (84%) / 7,433<br />invalid: 572 (44%) /
+1,300<br />all: 6,813 (78%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 796 (61.4%) / 1,296<br />invalid: 253 (66.4%) /
+381<br />all: 1,049 (62.6%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,445 (88.7%) / 6,137<br />invalid: 319 (34.7%) /
+919<br />all: 5,764 (81.7%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 8,571 (55.9%) / 15,323<br />invalid: 2,675 (55.1%) /
+4,859<br />all: 11,246 (55.7%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 3,603 (57.6%) / 6,259<br />invalid: 958 (48.7%) /
+1,967<br />all: 4,561 (55.4%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 4,968 (54.8%) / 9,064<br />invalid: 1,717 (59.4%) /
+2,892<br />all: 6,685 (55.9%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 14,812 (65.1%) / 22,756<br />invalid: 3,247 (52.7%) /
+6,159<br />all: 18,059 (62.5%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 4,399 (58.2%) / 7,555<br />invalid: 1,211 (51.6%) /
+2,348<br />all: 5,610 (56.6%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 10,413 (68.5%) / 15,201<br />invalid: 2,036 (53.4%) /
+3,811<br />all: 12,449 (65.5%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">5445</td>
+<td align="right">5445</td>
+</tr>
+<tr class="even">
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">4968</td>
+<td align="right">4968</td>
+</tr>
+<tr class="odd">
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">3603</td>
+<td align="right">3603</td>
+</tr>
+<tr class="even">
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">1717</td>
+<td align="right">1717</td>
+</tr>
+<tr class="odd">
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">958</td>
+<td align="right">958</td>
+</tr>
+<tr class="even">
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">796</td>
+<td align="right">796</td>
+</tr>
+<tr class="odd">
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">319</td>
+<td align="right">319</td>
+</tr>
+<tr class="even">
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">253</td>
+<td align="right">253</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="info-contact-email"></a></p>
+<h3 id="info-contact-email-">info-contact-email <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that all APIs have contact email.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>error</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>API must have a contact email available.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that all APIs have contact email.
+message: API must have a contact email available.
+given: $.info.contact
+severity: error
+formats:
+- oas2
+- oas3
+then:
+  field: email
+  function: truthy</code></pre>
+</details>
+
+<h4 id="statistics-1">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 1,683 (11%) / 15,323<br />invalid: 455 (9.4%) /
+4,859<br />all: 2,138 (10.6%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 774 (12.4%) / 6,259<br />invalid: 293 (14.9%) /
+1,967<br />all: 1,067 (13%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 909 (10%) / 9,064<br />invalid: 162 (5.6%) / 2,892<br />all:
+1,071 (9%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 414 (5.6%) / 7,433<br />invalid: 117 (9%) / 1,300<br />all:
+531 (6.1%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 201 (15.5%) / 1,296<br />invalid: 65 (17.1%) / 381<br />all:
+266 (15.9%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 213 (3.5%) / 6,137<br />invalid: 52 (5.7%) / 919<br />all:
+265 (3.8%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 2,097 (9.2%) / 22,756<br />invalid: 572 (9.3%) /
+6,159<br />all: 2,669 (9.2%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 975 (12.9%) / 7,555<br />invalid: 358 (15.2%) /
+2,348<br />all: 1,333 (13.5%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,122 (7.4%) / 15,201<br />invalid: 214 (5.6%) /
+3,811<br />all: 1,336 (7%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">9</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-email</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">909</td>
+<td align="right">909</td>
+</tr>
+<tr class="even">
+<td align="left">10</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-email</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">774</td>
+<td align="right">774</td>
+</tr>
+<tr class="odd">
+<td align="left">11</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-email</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">293</td>
+<td align="right">293</td>
+</tr>
+<tr class="even">
+<td align="left">12</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-email</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">213</td>
+<td align="right">213</td>
+</tr>
+<tr class="odd">
+<td align="left">13</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-email</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">201</td>
+<td align="right">201</td>
+</tr>
+<tr class="even">
+<td align="left">14</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-email</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">162</td>
+<td align="right">162</td>
+</tr>
+<tr class="odd">
+<td align="left">15</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-email</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">65</td>
+<td align="right">65</td>
+</tr>
+<tr class="even">
+<td align="left">16</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-email</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">52</td>
+<td align="right">52</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="info-contact-email-or-url"></a></p>
+<h3 id="info-contact-email-or-url-">info-contact-email-or-url <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that all APIs have contact URL or email.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>error</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>API must have a contact URL or email available.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that all APIs have contact URL or email.
+message: API must have a contact URL or email available.
+given: $.info.contact
+severity: error
+formats:
+- oas2
+- oas3
+then:
+  function: schema
+  functionOptions:
+    schema:
+      anyOf:
+      - required: url
+      - required: email</code></pre>
+</details>
+
+<h4 id="statistics-2">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 927 (6%) / 15,323<br />invalid: 234 (4.8%) / 4,859<br />all:
+1,161 (5.8%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 462 (7.4%) / 6,259<br />invalid: 154 (7.8%) /
+1,967<br />all: 616 (7.5%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 465 (5.1%) / 9,064<br />invalid: 80 (2.8%) / 2,892<br />all:
+545 (4.6%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 234 (3.1%) / 7,433<br />invalid: 89 (6.8%) / 1,300<br />all:
+323 (3.7%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 96 (7.4%) / 1,296<br />invalid: 52 (13.6%) / 381<br />all:
+148 (8.8%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 138 (2.2%) / 6,137<br />invalid: 37 (4%) / 919<br />all: 175
+(2.5%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 1,161 (5.1%) / 22,756<br />invalid: 323 (5.2%) /
+6,159<br />all: 1,484 (5.1%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 558 (7.4%) / 7,555<br />invalid: 206 (8.8%) /
+2,348<br />all: 764 (7.7%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 603 (4%) / 15,201<br />invalid: 117 (3.1%) / 3,811<br />all:
+720 (3.8%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">17</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-email-or-url</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">465</td>
+<td align="right">465</td>
+</tr>
+<tr class="even">
+<td align="left">18</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-email-or-url</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">462</td>
+<td align="right">462</td>
+</tr>
+<tr class="odd">
+<td align="left">19</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-email-or-url</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">154</td>
+<td align="right">154</td>
+</tr>
+<tr class="even">
+<td align="left">20</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-email-or-url</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">138</td>
+<td align="right">138</td>
+</tr>
+<tr class="odd">
+<td align="left">21</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-email-or-url</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">96</td>
+<td align="right">96</td>
+</tr>
+<tr class="even">
+<td align="left">22</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-email-or-url</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">80</td>
+<td align="right">80</td>
+</tr>
+<tr class="odd">
+<td align="left">23</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-email-or-url</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">52</td>
+<td align="right">52</td>
+</tr>
+<tr class="even">
+<td align="left">24</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-email-or-url</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">37</td>
+<td align="right">37</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="info-contact-name"></a></p>
+<h3 id="info-contact-name-">info-contact-name <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that all APIs have contact name.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>error</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>API must have a contact name available.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that all APIs have contact name.
+message: API must have a contact name available.
+given: $.info.contact
+severity: error
+formats:
+- oas2
+- oas3
+then:
+  field: name
+  function: truthy</code></pre>
+</details>
+
+<h4 id="statistics-3">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 2,675 (17.5%) / 15,323<br />invalid: 816 (16.8%) /
+4,859<br />all: 3,491 (17.3%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,117 (17.8%) / 6,259<br />invalid: 352 (17.9%) /
+1,967<br />all: 1,469 (17.9%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,558 (17.2%) / 9,064<br />invalid: 464 (16%) /
+2,892<br />all: 2,022 (16.9%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 472 (6.4%) / 7,433<br />invalid: 95 (7.3%) / 1,300<br />all:
+567 (6.5%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 250 (19.3%) / 1,296<br />invalid: 49 (12.9%) / 381<br />all:
+299 (17.8%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 222 (3.6%) / 6,137<br />invalid: 46 (5%) / 919<br />all: 268
+(3.8%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 3,147 (13.8%) / 22,756<br />invalid: 911 (14.8%) /
+6,159<br />all: 4,058 (14%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,367 (18.1%) / 7,555<br />invalid: 401 (17.1%) /
+2,348<br />all: 1,768 (17.9%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,780 (11.7%) / 15,201<br />invalid: 510 (13.4%) /
+3,811<br />all: 2,290 (12%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">25</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-name</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">1558</td>
+<td align="right">1558</td>
+</tr>
+<tr class="even">
+<td align="left">26</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-name</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">1117</td>
+<td align="right">1117</td>
+</tr>
+<tr class="odd">
+<td align="left">27</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-name</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">464</td>
+<td align="right">464</td>
+</tr>
+<tr class="even">
+<td align="left">28</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-name</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">352</td>
+<td align="right">352</td>
+</tr>
+<tr class="odd">
+<td align="left">29</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-name</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">250</td>
+<td align="right">250</td>
+</tr>
+<tr class="even">
+<td align="left">30</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-name</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">222</td>
+<td align="right">222</td>
+</tr>
+<tr class="odd">
+<td align="left">31</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-name</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">49</td>
+<td align="right">49</td>
+</tr>
+<tr class="even">
+<td align="left">32</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-name</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">46</td>
+<td align="right">46</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="info-contact-url"></a></p>
+<h3 id="info-contact-url-">info-contact-url <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that all APIs have contact URL.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>error</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>API must have a contact URL available.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that all APIs have contact URL.
+message: API must have a contact URL available.
+given: $.info.contact
+severity: error
+formats:
+- oas2
+- oas3
+then:
+  field: url
+  function: truthy</code></pre>
+</details>
+
+<h4 id="statistics-4">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 3,619 (23.6%) / 15,323<br />invalid: 1,088 (22.4%) /
+4,859<br />all: 4,707 (23.3%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,547 (24.7%) / 6,259<br />invalid: 442 (22.5%) /
+1,967<br />all: 1,989 (24.2%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 2,072 (22.9%) / 9,064<br />invalid: 646 (22.3%) /
+2,892<br />all: 2,718 (22.7%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 714 (9.6%) / 7,433<br />invalid: 161 (12.4%) /
+1,300<br />all: 875 (10%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 337 (26%) / 1,296<br />invalid: 83 (21.8%) / 381<br />all:
+420 (25%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 377 (6.1%) / 6,137<br />invalid: 78 (8.5%) / 919<br />all:
+455 (6.4%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 4,333 (19%) / 22,756<br />invalid: 1,249 (20.3%) /
+6,159<br />all: 5,582 (19.3%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,884 (24.9%) / 7,555<br />invalid: 525 (22.4%) /
+2,348<br />all: 2,409 (24.3%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 2,449 (16.1%) / 15,201<br />invalid: 724 (19%) /
+3,811<br />all: 3,173 (16.7%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">33</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-url</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">2072</td>
+<td align="right">2072</td>
+</tr>
+<tr class="even">
+<td align="left">34</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-url</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">1547</td>
+<td align="right">1547</td>
+</tr>
+<tr class="odd">
+<td align="left">35</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-url</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">646</td>
+<td align="right">646</td>
+</tr>
+<tr class="even">
+<td align="left">36</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-url</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">442</td>
+<td align="right">442</td>
+</tr>
+<tr class="odd">
+<td align="left">37</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-url</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">377</td>
+<td align="right">377</td>
+</tr>
+<tr class="even">
+<td align="left">38</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-url</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">337</td>
+<td align="right">337</td>
+</tr>
+<tr class="odd">
+<td align="left">39</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-url</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">83</td>
+<td align="right">83</td>
+</tr>
+<tr class="even">
+<td align="left">40</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-contact-url</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">78</td>
+<td align="right">78</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="info-description"></a></p>
+<h3 id="info-description-">info-description <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that all OpenAPIs have a information description.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>The info object should have a description.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that all OpenAPIs have a information description.
+message: The info object should have a description.
+given: $.info
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+  field: description
+  function: truthy</code></pre>
+</details>
+
+<h4 id="statistics-5">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 4,061 (54.6%) / 7,433<br />invalid: 436 (33.5%) /
+1,300<br />all: 4,497 (51.5%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 256 (19.8%) / 1,296<br />invalid: 155 (40.7%) /
+381<br />all: 411 (24.5%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 3,805 (62%) / 6,137<br />invalid: 281 (30.6%) /
+919<br />all: 4,086 (57.9%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 3,367 (22%) / 15,323<br />invalid: 1,032 (21.2%) /
+4,859<br />all: 4,399 (21.8%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,177 (18.8%) / 6,259<br />invalid: 350 (17.8%) /
+1,967<br />all: 1,527 (18.6%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 2,190 (24.2%) / 9,064<br />invalid: 682 (23.6%) /
+2,892<br />all: 2,872 (24%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 7,428 (32.6%) / 22,756<br />invalid: 1,468 (23.8%) /
+6,159<br />all: 8,896 (30.8%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,433 (19%) / 7,555<br />invalid: 505 (21.5%) /
+2,348<br />all: 1,938 (19.6%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,995 (39.4%) / 15,201<br />invalid: 963 (25.3%) /
+3,811<br />all: 6,958 (36.6%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">41</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-description</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">3805</td>
+<td align="right">3805</td>
+</tr>
+<tr class="even">
+<td align="left">42</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-description</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">2190</td>
+<td align="right">2190</td>
+</tr>
+<tr class="odd">
+<td align="left">43</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-description</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">1177</td>
+<td align="right">1177</td>
+</tr>
+<tr class="even">
+<td align="left">44</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-description</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">682</td>
+<td align="right">682</td>
+</tr>
+<tr class="odd">
+<td align="left">45</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-description</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">350</td>
+<td align="right">350</td>
+</tr>
+<tr class="even">
+<td align="left">46</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-description</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">281</td>
+<td align="right">281</td>
+</tr>
+<tr class="odd">
+<td align="left">47</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-description</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">256</td>
+<td align="right">256</td>
+</tr>
+<tr class="even">
+<td align="left">48</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-description</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">155</td>
+<td align="right">155</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="info-license"></a></p>
+<h3 id="info-license-">info-license <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that all OpenAPIs have a information object license.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>The info object should have a license.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that all OpenAPIs have a information object license.
+message: The info object should have a license.
+given: $.info
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+  field: license
+  function: truthy</code></pre>
+</details>
+
+<h4 id="statistics-6">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 10,024 (65.4%) / 15,323<br />invalid: 3,058 (62.9%) /
+4,859<br />all: 13,082 (64.8%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 4,169 (66.6%) / 6,259<br />invalid: 1,156 (58.8%) /
+1,967<br />all: 5,325 (64.7%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,855 (64.6%) / 9,064<br />invalid: 1,902 (65.8%) /
+2,892<br />all: 7,757 (64.9%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 4,324 (58.2%) / 7,433<br />invalid: 604 (46.5%) /
+1,300<br />all: 4,928 (56.4%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 929 (71.7%) / 1,296<br />invalid: 288 (75.6%) /
+381<br />all: 1,217 (72.6%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 3,395 (55.3%) / 6,137<br />invalid: 316 (34.4%) /
+919<br />all: 3,711 (52.6%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 14,348 (63.1%) / 22,756<br />invalid: 3,662 (59.5%) /
+6,159<br />all: 18,010 (62.3%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,098 (67.5%) / 7,555<br />invalid: 1,444 (61.5%) /
+2,348<br />all: 6,542 (66.1%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 9,250 (60.9%) / 15,201<br />invalid: 2,218 (58.2%) /
+3,811<br />all: 11,468 (60.3%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">49</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-license</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">5855</td>
+<td align="right">5855</td>
+</tr>
+<tr class="even">
+<td align="left">50</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-license</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">4169</td>
+<td align="right">4169</td>
+</tr>
+<tr class="odd">
+<td align="left">51</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-license</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">3395</td>
+<td align="right">3395</td>
+</tr>
+<tr class="even">
+<td align="left">52</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-license</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">1902</td>
+<td align="right">1902</td>
+</tr>
+<tr class="odd">
+<td align="left">53</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-license</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">1156</td>
+<td align="right">1156</td>
+</tr>
+<tr class="even">
+<td align="left">54</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-license</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">929</td>
+<td align="right">929</td>
+</tr>
+<tr class="odd">
+<td align="left">55</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-license</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">316</td>
+<td align="right">316</td>
+</tr>
+<tr class="even">
+<td align="left">56</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-license</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">288</td>
+<td align="right">288</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="info-license-url"></a></p>
+<h3 id="info-license-url-">info-license-url <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that all OpenAPIs have a information object license
+url.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>The info object should have a license url.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that all OpenAPIs have a information object license url.
+message: The info object should have a license url.
+given: $.info.license
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+  field: url
+  function: truthy</code></pre>
+</details>
+
+<h4 id="statistics-7">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 2,523 (33.9%) / 7,433<br />invalid: 147 (11.3%) /
+1,300<br />all: 2,670 (30.6%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 51 (3.9%) / 1,296<br />invalid: 42 (11%) / 381<br />all: 93
+(5.5%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 2,472 (40.3%) / 6,137<br />invalid: 105 (11.4%) /
+919<br />all: 2,577 (36.5%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 533 (3.5%) / 15,323<br />invalid: 191 (3.9%) /
+4,859<br />all: 724 (3.6%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 169 (2.7%) / 6,259<br />invalid: 64 (3.3%) / 1,967<br />all:
+233 (2.8%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 364 (4%) / 9,064<br />invalid: 127 (4.4%) / 2,892<br />all:
+491 (4.1%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 3,056 (13.4%) / 22,756<br />invalid: 338 (5.5%) /
+6,159<br />all: 3,394 (11.7%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 220 (2.9%) / 7,555<br />invalid: 106 (4.5%) /
+2,348<br />all: 326 (3.3%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 2,836 (18.7%) / 15,201<br />invalid: 232 (6.1%) /
+3,811<br />all: 3,068 (16.1%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">57</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-license-url</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">2472</td>
+<td align="right">2472</td>
+</tr>
+<tr class="even">
+<td align="left">58</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-license-url</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">364</td>
+<td align="right">364</td>
+</tr>
+<tr class="odd">
+<td align="left">59</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-license-url</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">169</td>
+<td align="right">169</td>
+</tr>
+<tr class="even">
+<td align="left">60</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-license-url</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">127</td>
+<td align="right">127</td>
+</tr>
+<tr class="odd">
+<td align="left">61</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-license-url</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">105</td>
+<td align="right">105</td>
+</tr>
+<tr class="even">
+<td align="left">62</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-license-url</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">64</td>
+<td align="right">64</td>
+</tr>
+<tr class="odd">
+<td align="left">63</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-license-url</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">51</td>
+<td align="right">51</td>
+</tr>
+<tr class="even">
+<td align="left">64</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-license-url</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">42</td>
+<td align="right">42</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="info-terms-of-service"></a></p>
+<h3 id="info-terms-of-service-">info-terms-of-service <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that all OpenAPIs have a information object terms of
+service.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>The info object should have a terms of service.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that all OpenAPIs have a information object terms of service.
+message: The info object should have a terms of service.
+given: $.info
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+  field: termsOfService
+  function: truthy</code></pre>
+</details>
+
+<h4 id="statistics-8">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 12,166 (79.4%) / 15,323<br />invalid: 3,557 (73.2%) /
+4,859<br />all: 15,723 (77.9%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 4,853 (77.5%) / 6,259<br />invalid: 1,312 (66.7%) /
+1,967<br />all: 6,165 (74.9%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 7,313 (80.7%) / 9,064<br />invalid: 2,245 (77.6%) /
+2,892<br />all: 9,558 (79.9%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 6,868 (92.4%) / 7,433<br />invalid: 999 (76.8%) /
+1,300<br />all: 7,867 (90.1%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 946 (73%) / 1,296<br />invalid: 298 (78.2%) / 381<br />all:
+1,244 (74.2%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,922 (96.5%) / 6,137<br />invalid: 701 (76.3%) /
+919<br />all: 6,623 (93.9%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 19,034 (83.6%) / 22,756<br />invalid: 4,556 (74%) /
+6,159<br />all: 23,590 (81.6%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,799 (76.8%) / 7,555<br />invalid: 1,610 (68.6%) /
+2,348<br />all: 7,409 (74.8%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 13,235 (87.1%) / 15,201<br />invalid: 2,946 (77.3%) /
+3,811<br />all: 16,181 (85.1%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">65</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-terms-of-service</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">7313</td>
+<td align="right">7313</td>
+</tr>
+<tr class="even">
+<td align="left">66</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-terms-of-service</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">5922</td>
+<td align="right">5922</td>
+</tr>
+<tr class="odd">
+<td align="left">67</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-terms-of-service</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">4853</td>
+<td align="right">4853</td>
+</tr>
+<tr class="even">
+<td align="left">68</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-terms-of-service</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">2245</td>
+<td align="right">2245</td>
+</tr>
+<tr class="odd">
+<td align="left">69</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-terms-of-service</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">1312</td>
+<td align="right">1312</td>
+</tr>
+<tr class="even">
+<td align="left">70</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-terms-of-service</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">946</td>
+<td align="right">946</td>
+</tr>
+<tr class="odd">
+<td align="left">71</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-terms-of-service</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">701</td>
+<td align="right">701</td>
+</tr>
+<tr class="even">
+<td align="left">72</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">info-terms-of-service</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">298</td>
+<td align="right">298</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="no-response-body-on-204"></a></p>
+<h3 id="no-response-body-on-204-">no-response-body-on-204 <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that no 204 No Content response has a body.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>error</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>A 204 No Content response can’t have a body.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that no 204 No Content response has a body.
+message: A 204 No Content response can&#39;t have a body.
+given: $.paths.*.*.responses.204
+severity: error
+formats:
+- oas2
+- oas3
+then:
+- field: schema
+  function: falsy
+- field: content
+  function: falsy</code></pre>
+</details>
+
+<h4 id="statistics-9">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 285 (1.9%) / 15,323<br />invalid: 145 (3%) / 4,859<br />all:
+430 (2.1%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 71 (1.1%) / 6,259<br />invalid: 33 (1.7%) / 1,967<br />all:
+104 (1.3%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 214 (2.4%) / 9,064<br />invalid: 112 (3.9%) /
+2,892<br />all: 326 (2.7%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 108 (1.5%) / 7,433<br />invalid: 73 (5.6%) / 1,300<br />all:
+181 (2.1%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 17 (1.3%) / 1,296<br />invalid: 28 (7.3%) / 381<br />all: 45
+(2.7%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 91 (1.5%) / 6,137<br />invalid: 45 (4.9%) / 919<br />all:
+136 (1.9%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 393 (1.7%) / 22,756<br />invalid: 218 (3.5%) /
+6,159<br />all: 611 (2.1%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 88 (1.2%) / 7,555<br />invalid: 61 (2.6%) / 2,348<br />all:
+149 (1.5%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 305 (2%) / 15,201<br />invalid: 157 (4.1%) / 3,811<br />all:
+462 (2.4%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">73</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">no-response-body-on-204</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">214</td>
+<td align="right">578</td>
+</tr>
+<tr class="even">
+<td align="left">74</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">no-response-body-on-204</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">112</td>
+<td align="right">684</td>
+</tr>
+<tr class="odd">
+<td align="left">75</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">no-response-body-on-204</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">91</td>
+<td align="right">587</td>
+</tr>
+<tr class="even">
+<td align="left">76</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">no-response-body-on-204</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">71</td>
+<td align="right">159</td>
+</tr>
+<tr class="odd">
+<td align="left">77</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">no-response-body-on-204</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">45</td>
+<td align="right">623</td>
+</tr>
+<tr class="even">
+<td align="left">78</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">no-response-body-on-204</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">33</td>
+<td align="right">129</td>
+</tr>
+<tr class="odd">
+<td align="left">79</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">no-response-body-on-204</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">28</td>
+<td align="right">861</td>
+</tr>
+<tr class="even">
+<td align="left">80</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">no-response-body-on-204</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">17</td>
+<td align="right">60</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="no-trailing-slash-on-paths"></a></p>
+<h3 id="no-trailing-slash-on-paths-">no-trailing-slash-on-paths <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that there are no trailing slashes on paths.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>error</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>There should be no trailing slashes on paths.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that there are no trailing slashes on paths.
+message: There should be no trailing slashes on paths.
+given: $.paths.*~
+severity: error
+formats:
+- oas2
+- oas3
+then:
+  function: pattern
+  functionOptions:
+    notMatch: .+\/$</code></pre>
+</details>
+
+<h4 id="statistics-10">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 960 (6.3%) / 15,323<br />invalid: 412 (8.5%) /
+4,859<br />all: 1,372 (6.8%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 384 (6.1%) / 6,259<br />invalid: 175 (8.9%) /
+1,967<br />all: 559 (6.8%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 576 (6.4%) / 9,064<br />invalid: 237 (8.2%) /
+2,892<br />all: 813 (6.8%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 397 (5.3%) / 7,433<br />invalid: 131 (10.1%) /
+1,300<br />all: 528 (6%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 179 (13.8%) / 1,296<br />invalid: 43 (11.3%) / 381<br />all:
+222 (13.2%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 218 (3.6%) / 6,137<br />invalid: 88 (9.6%) / 919<br />all:
+306 (4.3%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 1,357 (6%) / 22,756<br />invalid: 543 (8.8%) /
+6,159<br />all: 1,900 (6.6%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 563 (7.5%) / 7,555<br />invalid: 218 (9.3%) /
+2,348<br />all: 781 (7.9%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 794 (5.2%) / 15,201<br />invalid: 325 (8.5%) /
+3,811<br />all: 1,119 (5.9%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">81</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">no-trailing-slash-on-paths</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">576</td>
+<td align="right">2972</td>
+</tr>
+<tr class="even">
+<td align="left">82</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">no-trailing-slash-on-paths</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">384</td>
+<td align="right">3063</td>
+</tr>
+<tr class="odd">
+<td align="left">83</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">no-trailing-slash-on-paths</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">237</td>
+<td align="right">1486</td>
+</tr>
+<tr class="even">
+<td align="left">84</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">no-trailing-slash-on-paths</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">218</td>
+<td align="right">1067</td>
+</tr>
+<tr class="odd">
+<td align="left">85</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">no-trailing-slash-on-paths</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">179</td>
+<td align="right">2401</td>
+</tr>
+<tr class="even">
+<td align="left">86</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">no-trailing-slash-on-paths</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">175</td>
+<td align="right">943</td>
+</tr>
+<tr class="odd">
+<td align="left">87</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">no-trailing-slash-on-paths</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">88</td>
+<td align="right">823</td>
+</tr>
+<tr class="even">
+<td align="left">88</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">no-trailing-slash-on-paths</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">43</td>
+<td align="right">461</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="operations-description"></a></p>
+<h3 id="operations-description-">operations-description <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that each of the operations have a description.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>Your operations all need descriptions.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that each of the operations have a description.
+message: Your operations all need descriptions.
+given: $.paths.*[get,post,patch,put,delete,options,head,trace]
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+- field: description
+  function: truthy</code></pre>
+</details>
+
+<h4 id="statistics-11">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 5,457 (73.4%) / 7,433<br />invalid: 543 (41.8%) /
+1,300<br />all: 6,000 (68.7%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 691 (53.3%) / 1,296<br />invalid: 192 (50.4%) /
+381<br />all: 883 (52.7%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 4,766 (77.7%) / 6,137<br />invalid: 351 (38.2%) /
+919<br />all: 5,117 (72.5%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 6,768 (44.2%) / 15,323<br />invalid: 2,096 (43.1%) /
+4,859<br />all: 8,864 (43.9%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 2,715 (43.4%) / 6,259<br />invalid: 857 (43.6%) /
+1,967<br />all: 3,572 (43.4%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 4,053 (44.7%) / 9,064<br />invalid: 1,239 (42.8%) /
+2,892<br />all: 5,292 (44.3%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 12,225 (53.7%) / 22,756<br />invalid: 2,639 (42.8%) /
+6,159<br />all: 14,864 (51.4%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 3,406 (45.1%) / 7,555<br />invalid: 1,049 (44.7%) /
+2,348<br />all: 4,455 (45%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 8,819 (58%) / 15,201<br />invalid: 1,590 (41.7%) /
+3,811<br />all: 10,409 (54.7%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">89</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-description</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">4766</td>
+<td align="right">41717</td>
+</tr>
+<tr class="even">
+<td align="left">90</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-description</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">4053</td>
+<td align="right">42801</td>
+</tr>
+<tr class="odd">
+<td align="left">91</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-description</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">2715</td>
+<td align="right">29404</td>
+</tr>
+<tr class="even">
+<td align="left">92</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-description</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">1239</td>
+<td align="right">18941</td>
+</tr>
+<tr class="odd">
+<td align="left">93</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-description</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">857</td>
+<td align="right">12389</td>
+</tr>
+<tr class="even">
+<td align="left">94</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-description</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">691</td>
+<td align="right">22833</td>
+</tr>
+<tr class="odd">
+<td align="left">95</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-description</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">351</td>
+<td align="right">10602</td>
+</tr>
+<tr class="even">
+<td align="left">96</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-description</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">192</td>
+<td align="right">30461</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="operations-status-code-2xx"></a></p>
+<h3 id="operations-status-code-2xx-">operations-status-code-2xx <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that each of the operations returns at least a 2xx HTTP
+status code.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>Operation should return a 2xx HTTP status code</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that each of the operations returns at least a 2xx HTTP status
+  code.
+message: Operation should return a 2xx HTTP status code
+given: $.paths.*.*.responses
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+  function: schema
+  functionOptions:
+    schema:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      anyOf:
+      - required: 2XX
+        properties:
+          2XX: yes
+      - required: &#39;200&#39;
+        properties:
+          &#39;200&#39;: yes
+      - required: &#39;201&#39;
+        properties:
+          &#39;201&#39;: yes
+      - required: &#39;202&#39;
+        properties:
+          &#39;202&#39;: yes
+      - required: &#39;203&#39;
+        properties:
+          &#39;203&#39;: yes
+      - required: &#39;204&#39;
+        properties:
+          &#39;204&#39;: yes
+      - required: &#39;205&#39;
+        properties:
+          &#39;205&#39;: yes
+      - required: &#39;206&#39;
+        properties:
+          &#39;206&#39;: yes
+      - required: &#39;207&#39;
+        properties:
+          &#39;207&#39;: yes
+      - required: &#39;208&#39;
+        properties:
+          &#39;208&#39;: yes
+      - required: &#39;226&#39;
+        properties:
+          &#39;226&#39;: yes</code></pre>
+</details>
+
+<h4 id="statistics-12">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 1,208 (7.9%) / 15,323<br />invalid: 443 (9.1%) /
+4,859<br />all: 1,651 (8.2%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 690 (11%) / 6,259<br />invalid: 249 (12.7%) /
+1,967<br />all: 939 (11.4%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 518 (5.7%) / 9,064<br />invalid: 194 (6.7%) /
+2,892<br />all: 712 (6%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 354 (4.8%) / 7,433<br />invalid: 90 (6.9%) / 1,300<br />all:
+444 (5.1%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 213 (16.4%) / 1,296<br />invalid: 33 (8.7%) / 381<br />all:
+246 (14.7%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 141 (2.3%) / 6,137<br />invalid: 57 (6.2%) / 919<br />all:
+198 (2.8%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 1,562 (6.9%) / 22,756<br />invalid: 533 (8.7%) /
+6,159<br />all: 2,095 (7.2%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 903 (12%) / 7,555<br />invalid: 282 (12%) / 2,348<br />all:
+1,185 (12%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 659 (4.3%) / 15,201<br />invalid: 251 (6.6%) /
+3,811<br />all: 910 (4.8%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">97</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-status-code-2xx</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">690</td>
+<td align="right">4638</td>
+</tr>
+<tr class="even">
+<td align="left">98</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-status-code-2xx</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">518</td>
+<td align="right">7913</td>
+</tr>
+<tr class="odd">
+<td align="left">99</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-status-code-2xx</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">249</td>
+<td align="right">2250</td>
+</tr>
+<tr class="even">
+<td align="left">100</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-status-code-2xx</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">213</td>
+<td align="right">2341</td>
+</tr>
+<tr class="odd">
+<td align="left">101</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-status-code-2xx</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">194</td>
+<td align="right">2223</td>
+</tr>
+<tr class="even">
+<td align="left">102</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-status-code-2xx</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">141</td>
+<td align="right">2288</td>
+</tr>
+<tr class="odd">
+<td align="left">103</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-status-code-2xx</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">57</td>
+<td align="right">1610</td>
+</tr>
+<tr class="even">
+<td align="left">104</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-status-code-2xx</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">33</td>
+<td align="right">2395</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="operations-status-code-5xx"></a></p>
+<h3 id="operations-status-code-5xx-">operations-status-code-5xx <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that each of the operations returns at least a 5xx HTTP
+status code.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>Operation should return a 5xx HTTP status code</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that each of the operations returns at least a 5xx HTTP status
+  code.
+message: Operation should return a 5xx HTTP status code
+given: $.paths.*.*.responses
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+  function: schema
+  functionOptions:
+    schema:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      anyOf:
+      - required: &#39;500&#39;
+        properties:
+          &#39;500&#39;: yes
+      - required: &#39;501&#39;
+        properties:
+          &#39;501&#39;: yes
+      - required: &#39;502&#39;
+        properties:
+          &#39;502&#39;: yes
+      - required: &#39;503&#39;
+        properties:
+          &#39;503&#39;: yes
+      - required: &#39;504&#39;
+        properties:
+          &#39;504&#39;: yes
+      - required: &#39;505&#39;
+        properties:
+          &#39;505&#39;: yes
+      - required: &#39;506&#39;
+        properties:
+          &#39;506&#39;: yes
+      - required: &#39;507&#39;
+        properties:
+          &#39;507&#39;: yes
+      - required: &#39;508&#39;
+        properties:
+          &#39;508&#39;: yes
+      - required: &#39;510&#39;
+        properties:
+          &#39;510&#39;: yes
+      - required: &#39;511&#39;
+        properties:
+          &#39;511&#39;: yes</code></pre>
+</details>
+
+<h4 id="statistics-13">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 11,965 (78.1%) / 15,323<br />invalid: 3,250 (66.9%) /
+4,859<br />all: 15,215 (75.4%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,103 (81.5%) / 6,259<br />invalid: 1,332 (67.7%) /
+1,967<br />all: 6,435 (78.2%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 6,862 (75.7%) / 9,064<br />invalid: 1,918 (66.3%) /
+2,892<br />all: 8,780 (73.4%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 6,213 (83.6%) / 7,433<br />invalid: 762 (58.6%) /
+1,300<br />all: 6,975 (79.9%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 951 (73.4%) / 1,296<br />invalid: 356 (93.4%) /
+381<br />all: 1,307 (77.9%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,262 (85.7%) / 6,137<br />invalid: 406 (44.2%) /
+919<br />all: 5,668 (80.3%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 18,178 (79.9%) / 22,756<br />invalid: 4,012 (65.1%) /
+6,159<br />all: 22,190 (76.7%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 6,054 (80.1%) / 7,555<br />invalid: 1,688 (71.9%) /
+2,348<br />all: 7,742 (78.2%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 12,124 (79.8%) / 15,201<br />invalid: 2,324 (61%) /
+3,811<br />all: 14,448 (76%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">105</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-status-code-5xx</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">6862</td>
+<td align="right">92670</td>
+</tr>
+<tr class="even">
+<td align="left">106</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-status-code-5xx</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">5262</td>
+<td align="right">74496</td>
+</tr>
+<tr class="odd">
+<td align="left">107</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-status-code-5xx</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">5103</td>
+<td align="right">62371</td>
+</tr>
+<tr class="even">
+<td align="left">108</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-status-code-5xx</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">1918</td>
+<td align="right">30642</td>
+</tr>
+<tr class="odd">
+<td align="left">109</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-status-code-5xx</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">1332</td>
+<td align="right">23309</td>
+</tr>
+<tr class="even">
+<td align="left">110</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-status-code-5xx</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">951</td>
+<td align="right">38957</td>
+</tr>
+<tr class="odd">
+<td align="left">111</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-status-code-5xx</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">406</td>
+<td align="right">24565</td>
+</tr>
+<tr class="even">
+<td align="left">112</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-status-code-5xx</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">356</td>
+<td align="right">46348</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="operations-summary"></a></p>
+<h3 id="operations-summary-">operations-summary <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that each of the operations for an API have a summary.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>error</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>All of your operations need summaries.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that each of the operations for an API have a summary.
+message: All of your operations need summaries.
+given: $.paths.*[get,post,patch,put,delete,options,head,trace]
+severity: error
+formats:
+- oas2
+- oas3
+then:
+- field: summary
+  function: truthy</code></pre>
+</details>
+
+<h4 id="statistics-14">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 4,977 (32.5%) / 15,323<br />invalid: 1,195 (24.6%) /
+4,859<br />all: 6,172 (30.6%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 2,181 (34.8%) / 6,259<br />invalid: 548 (27.9%) /
+1,967<br />all: 2,729 (33.2%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 2,796 (30.8%) / 9,064<br />invalid: 647 (22.4%) /
+2,892<br />all: 3,443 (28.8%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 1,161 (15.6%) / 7,433<br />invalid: 228 (17.5%) /
+1,300<br />all: 1,389 (15.9%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 449 (34.6%) / 1,296<br />invalid: 94 (24.7%) / 381<br />all:
+543 (32.4%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 712 (11.6%) / 6,137<br />invalid: 134 (14.6%) /
+919<br />all: 846 (12%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 6,138 (27%) / 22,756<br />invalid: 1,423 (23.1%) /
+6,159<br />all: 7,561 (26.1%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 2,630 (34.8%) / 7,555<br />invalid: 642 (27.3%) /
+2,348<br />all: 3,272 (33%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 3,508 (23.1%) / 15,201<br />invalid: 781 (20.5%) /
+3,811<br />all: 4,289 (22.6%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">113</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-summary</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">2796</td>
+<td align="right">37507</td>
+</tr>
+<tr class="even">
+<td align="left">114</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-summary</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">2181</td>
+<td align="right">22241</td>
+</tr>
+<tr class="odd">
+<td align="left">115</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-summary</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">712</td>
+<td align="right">26490</td>
+</tr>
+<tr class="even">
+<td align="left">116</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-summary</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">647</td>
+<td align="right">14663</td>
+</tr>
+<tr class="odd">
+<td align="left">117</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-summary</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">548</td>
+<td align="right">8173</td>
+</tr>
+<tr class="even">
+<td align="left">118</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-summary</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">449</td>
+<td align="right">14333</td>
+</tr>
+<tr class="odd">
+<td align="left">119</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-summary</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">134</td>
+<td align="right">5647</td>
+</tr>
+<tr class="even">
+<td align="left">120</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-summary</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">94</td>
+<td align="right">14060</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="operations-summary-period-none"></a></p>
+<h3 id="operations-summary-period-none-">operations-summary-period-none
+<sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that each of the operations summaries do not have an ending
+period.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>Your operations summaries should not end with a period.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that each of the operations summaries do not have an ending period.
+message: Your operations summaries should not end with a period.
+given: $.paths.*[get,post,patch,put,delete,options,head,trace]
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+  field: summary
+  function: pattern
+  functionOptions:
+    notMatch: \.$</code></pre>
+</details>
+
+<h4 id="statistics-15">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 2,390 (15.6%) / 15,323<br />invalid: 645 (13.3%) /
+4,859<br />all: 3,035 (15%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,006 (16.1%) / 6,259<br />invalid: 244 (12.4%) /
+1,967<br />all: 1,250 (15.2%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,384 (15.3%) / 9,064<br />invalid: 401 (13.9%) /
+2,892<br />all: 1,785 (14.9%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 570 (7.7%) / 7,433<br />invalid: 242 (18.6%) /
+1,300<br />all: 812 (9.3%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 191 (14.7%) / 1,296<br />invalid: 105 (27.6%) /
+381<br />all: 296 (17.7%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 379 (6.2%) / 6,137<br />invalid: 137 (14.9%) / 919<br />all:
+516 (7.3%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 2,960 (13%) / 22,756<br />invalid: 887 (14.4%) /
+6,159<br />all: 3,847 (13.3%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,197 (15.8%) / 7,555<br />invalid: 349 (14.9%) /
+2,348<br />all: 1,546 (15.6%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,763 (11.6%) / 15,201<br />invalid: 538 (14.1%) /
+3,811<br />all: 2,301 (12.1%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">121</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-summary-period-none</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">1384</td>
+<td align="right">11784</td>
+</tr>
+<tr class="even">
+<td align="left">122</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-summary-period-none</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">1006</td>
+<td align="right">9189</td>
+</tr>
+<tr class="odd">
+<td align="left">123</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-summary-period-none</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">401</td>
+<td align="right">3201</td>
+</tr>
+<tr class="even">
+<td align="left">124</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-summary-period-none</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">379</td>
+<td align="right">3610</td>
+</tr>
+<tr class="odd">
+<td align="left">125</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-summary-period-none</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">244</td>
+<td align="right">3299</td>
+</tr>
+<tr class="even">
+<td align="left">126</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-summary-period-none</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">191</td>
+<td align="right">3063</td>
+</tr>
+<tr class="odd">
+<td align="left">127</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-summary-period-none</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">137</td>
+<td align="right">2676</td>
+</tr>
+<tr class="even">
+<td align="left">128</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">operations-summary-period-none</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">105</td>
+<td align="right">1895</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="parameters-description"></a></p>
+<h3 id="parameters-description-">parameters-description <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that that all parameters have a descriptions.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>Your parameters all need descriptions.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that that all parameters have a descriptions.
+message: Your parameters all need descriptions.
+given:
+- $.paths.*.parameters.*
+- $.paths.*.*.parameters.*
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+  field: description
+  function: truthy</code></pre>
+</details>
+
+<h4 id="statistics-16">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 5,160 (33.7%) / 15,323<br />invalid: 1,453 (29.9%) /
+4,859<br />all: 6,613 (32.8%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 2,421 (38.7%) / 6,259<br />invalid: 637 (32.4%) /
+1,967<br />all: 3,058 (37.2%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 2,739 (30.2%) / 9,064<br />invalid: 816 (28.2%) /
+2,892<br />all: 3,555 (29.7%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 2,064 (27.8%) / 7,433<br />invalid: 604 (46.5%) /
+1,300<br />all: 2,668 (30.6%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 683 (52.7%) / 1,296<br />invalid: 210 (55.1%) /
+381<br />all: 893 (53.2%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,381 (22.5%) / 6,137<br />invalid: 394 (42.9%) /
+919<br />all: 1,775 (25.2%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 7,224 (31.7%) / 22,756<br />invalid: 2,057 (33.4%) /
+6,159<br />all: 9,281 (32.1%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 3,104 (41.1%) / 7,555<br />invalid: 847 (36.1%) /
+2,348<br />all: 3,951 (39.9%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 4,120 (27.1%) / 15,201<br />invalid: 1,210 (31.8%) /
+3,811<br />all: 5,330 (28%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">129</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">parameters-description</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">2739</td>
+<td align="right">43446</td>
+</tr>
+<tr class="even">
+<td align="left">130</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">parameters-description</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">2421</td>
+<td align="right">30575</td>
+</tr>
+<tr class="odd">
+<td align="left">131</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">parameters-description</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">1381</td>
+<td align="right">52693</td>
+</tr>
+<tr class="even">
+<td align="left">132</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">parameters-description</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">816</td>
+<td align="right">17311</td>
+</tr>
+<tr class="odd">
+<td align="left">133</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">parameters-description</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">683</td>
+<td align="right">43862</td>
+</tr>
+<tr class="even">
+<td align="left">134</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">parameters-description</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">637</td>
+<td align="right">14162</td>
+</tr>
+<tr class="odd">
+<td align="left">135</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">parameters-description</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">394</td>
+<td align="right">32240</td>
+</tr>
+<tr class="even">
+<td align="left">136</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">parameters-description</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">210</td>
+<td align="right">55832</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="parameters-examples-any"></a></p>
+<h3 id="parameters-examples-any-">parameters-examples-any <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that that all parameters have a examples.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>Your parameters all need examples.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that that all parameters have a examples.
+message: Your parameters all need examples.
+given:
+- $.paths.*.parameters.*
+- $.paths.*.*.parameters.*
+severity: warn
+formats: oas3
+then:
+  function: xor
+  functionOptions:
+    properties:
+    - example
+    - examples</code></pre>
+</details>
+
+<h4 id="statistics-17">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 6,351 (41.4%) / 15,323<br />invalid: 1,755 (36.1%) /
+4,859<br />all: 8,106 (40.2%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 0 (0%) / 6,259<br />invalid: 7 (0.4%) / 1,967<br />all: 7
+(0.1%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 6,351 (70.1%) / 9,064<br />invalid: 1,748 (60.4%) /
+2,892<br />all: 8,099 (67.7%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 5,689 (76.5%) / 7,433<br />invalid: 779 (59.9%) /
+1,300<br />all: 6,468 (74.1%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 0 (0%) / 1,296<br />invalid: 4 (1%) / 381<br />all: 4 (0.2%)
+/ 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,689 (92.7%) / 6,137<br />invalid: 775 (84.3%) /
+919<br />all: 6,464 (91.6%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 12,040 (52.9%) / 22,756<br />invalid: 2,534 (41.1%) /
+6,159<br />all: 14,574 (50.4%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 0 (0%) / 7,555<br />invalid: 11 (0.5%) / 2,348<br />all: 11
+(0.1%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 12,040 (79.2%) / 15,201<br />invalid: 2,523 (66.2%) /
+3,811<br />all: 14,563 (76.6%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">137</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">parameters-examples-any</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">6351</td>
+<td align="right">152796</td>
+</tr>
+<tr class="even">
+<td align="left">138</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">parameters-examples-any</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">5689</td>
+<td align="right">146360</td>
+</tr>
+<tr class="odd">
+<td align="left">139</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">parameters-examples-any</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">1748</td>
+<td align="right">49453</td>
+</tr>
+<tr class="even">
+<td align="left">140</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">parameters-examples-any</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">775</td>
+<td align="right">94919</td>
+</tr>
+<tr class="odd">
+<td align="left">141</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">parameters-examples-any</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">7</td>
+<td align="right">85</td>
+</tr>
+<tr class="even">
+<td align="left">142</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">parameters-examples-any</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">4</td>
+<td align="right">1723</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="request-bodies-examples-any"></a></p>
+<h3 id="request-bodies-examples-any-">request-bodies-examples-any
+<sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that a example is always present for each request body
+(schema.example for Swagger 2, examples or example for OpenAPI 3).</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>All request bodies should have an example present.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that a example is always present for each request body (schema.example
+  for Swagger 2, examples or example for OpenAPI 3).
+message: All request bodies should have an example present.
+given:
+- $.paths.*.*.parameters[?(@.in == &#39;body&#39;)].schema
+- $.paths.*.*.requestBody.content.*
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+  function: xor
+  functionOptions:
+    properties:
+    - examples
+    - example</code></pre>
+</details>
+
+<h4 id="statistics-18">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 8,771 (57.2%) / 15,323<br />invalid: 2,207 (45.4%) /
+4,859<br />all: 10,978 (54.4%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 3,576 (57.1%) / 6,259<br />invalid: 797 (40.5%) /
+1,967<br />all: 4,373 (53.2%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,195 (57.3%) / 9,064<br />invalid: 1,410 (48.8%) /
+2,892<br />all: 6,605 (55.2%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 2,920 (39.3%) / 7,433<br />invalid: 646 (49.7%) /
+1,300<br />all: 3,566 (40.8%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 984 (75.9%) / 1,296<br />invalid: 269 (70.6%) /
+381<br />all: 1,253 (74.7%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,936 (31.5%) / 6,137<br />invalid: 377 (41%) /
+919<br />all: 2,313 (32.8%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 11,691 (51.4%) / 22,756<br />invalid: 2,853 (46.3%) /
+6,159<br />all: 14,544 (50.3%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 4,560 (60.4%) / 7,555<br />invalid: 1,066 (45.4%) /
+2,348<br />all: 5,626 (56.8%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 7,131 (46.9%) / 15,201<br />invalid: 1,787 (46.9%) /
+3,811<br />all: 8,918 (46.9%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">143</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-bodies-examples-any</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">5195</td>
+<td align="right">40703</td>
+</tr>
+<tr class="even">
+<td align="left">144</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-bodies-examples-any</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">3576</td>
+<td align="right">16809</td>
+</tr>
+<tr class="odd">
+<td align="left">145</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-bodies-examples-any</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">1936</td>
+<td align="right">44954</td>
+</tr>
+<tr class="even">
+<td align="left">146</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-bodies-examples-any</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">1410</td>
+<td align="right">12667</td>
+</tr>
+<tr class="odd">
+<td align="left">147</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-bodies-examples-any</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">984</td>
+<td align="right">12913</td>
+</tr>
+<tr class="even">
+<td align="left">148</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-bodies-examples-any</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">797</td>
+<td align="right">5476</td>
+</tr>
+<tr class="odd">
+<td align="left">149</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-bodies-examples-any</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">377</td>
+<td align="right">11221</td>
+</tr>
+<tr class="even">
+<td align="left">150</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-bodies-examples-any</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">269</td>
+<td align="right">16554</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="request-body-on-patch"></a></p>
+<h3 id="request-body-on-patch-">request-body-on-patch <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that PATCH methods have request bodies.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>Your PATCH methods should have request bodies.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that PATCH methods have request bodies.
+message: Your PATCH methods should have request bodies.
+given: $.paths.*.patch
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+  function: schema
+  functionOptions:
+    schema:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      oneOf:
+      - required: requestBody
+      - required: parameters
+        properties:
+          parameters:
+            type: array
+            minItems: 1
+            contains:
+              type: object
+              properties:
+                in:
+                  type: string
+                  pattern: ^body|formData$
+              required: name</code></pre>
+</details>
+
+<h4 id="statistics-19">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 244 (1.6%) / 15,323<br />invalid: 243 (5%) / 4,859<br />all:
+487 (2.4%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 106 (1.7%) / 6,259<br />invalid: 60 (3.1%) / 1,967<br />all:
+166 (2%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 138 (1.5%) / 9,064<br />invalid: 183 (6.3%) /
+2,892<br />all: 321 (2.7%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 126 (1.7%) / 7,433<br />invalid: 118 (9.1%) /
+1,300<br />all: 244 (2.8%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 57 (4.4%) / 1,296<br />invalid: 64 (16.8%) / 381<br />all:
+121 (7.2%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 69 (1.1%) / 6,137<br />invalid: 54 (5.9%) / 919<br />all:
+123 (1.7%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 370 (1.6%) / 22,756<br />invalid: 361 (5.9%) /
+6,159<br />all: 731 (2.5%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 163 (2.2%) / 7,555<br />invalid: 124 (5.3%) /
+2,348<br />all: 287 (2.9%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 207 (1.4%) / 15,201<br />invalid: 237 (6.2%) /
+3,811<br />all: 444 (2.3%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">151</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-patch</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">183</td>
+<td align="right">874</td>
+</tr>
+<tr class="even">
+<td align="left">152</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-patch</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">138</td>
+<td align="right">1150</td>
+</tr>
+<tr class="odd">
+<td align="left">153</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-patch</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">106</td>
+<td align="right">629</td>
+</tr>
+<tr class="even">
+<td align="left">154</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-patch</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">69</td>
+<td align="right">547</td>
+</tr>
+<tr class="odd">
+<td align="left">155</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-patch</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">64</td>
+<td align="right">295</td>
+</tr>
+<tr class="even">
+<td align="left">156</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-patch</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">60</td>
+<td align="right">437</td>
+</tr>
+<tr class="odd">
+<td align="left">157</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-patch</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">57</td>
+<td align="right">281</td>
+</tr>
+<tr class="even">
+<td align="left">158</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-patch</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">54</td>
+<td align="right">1957</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="request-body-on-post"></a></p>
+<h3 id="request-body-on-post-">request-body-on-post <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that POST methods have request bodies.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>Your POST methods should have request bodies.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that POST methods have request bodies.
+message: Your POST methods should have request bodies.
+given: $.paths.*.post
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+  function: schema
+  functionOptions:
+    schema:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      oneOf:
+      - required: requestBody
+      - required: parameters
+        properties:
+          parameters:
+            type: array
+            minItems: 1
+            contains:
+              type: object
+              properties:
+                in:
+                  type: string
+                  pattern: ^body|formData$
+              required: name</code></pre>
+</details>
+
+<h4 id="statistics-20">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 2,679 (17.5%) / 15,323<br />invalid: 1,241 (25.5%) /
+4,859<br />all: 3,920 (19.4%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,176 (18.8%) / 6,259<br />invalid: 505 (25.7%) /
+1,967<br />all: 1,681 (20.4%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,503 (16.6%) / 9,064<br />invalid: 736 (25.4%) /
+2,892<br />all: 2,239 (18.7%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 907 (12.2%) / 7,433<br />invalid: 485 (37.3%) /
+1,300<br />all: 1,392 (15.9%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 322 (24.8%) / 1,296<br />invalid: 167 (43.8%) /
+381<br />all: 489 (29.2%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 585 (9.5%) / 6,137<br />invalid: 318 (34.6%) / 919<br />all:
+903 (12.8%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 3,586 (15.8%) / 22,756<br />invalid: 1,726 (28%) /
+6,159<br />all: 5,312 (18.4%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,498 (19.8%) / 7,555<br />invalid: 672 (28.6%) /
+2,348<br />all: 2,170 (21.9%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 2,088 (13.7%) / 15,201<br />invalid: 1,054 (27.7%) /
+3,811<br />all: 3,142 (16.5%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">159</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-post</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">1503</td>
+<td align="right">17375</td>
+</tr>
+<tr class="even">
+<td align="left">160</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-post</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">1176</td>
+<td align="right">13126</td>
+</tr>
+<tr class="odd">
+<td align="left">161</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-post</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">736</td>
+<td align="right">8487</td>
+</tr>
+<tr class="even">
+<td align="left">162</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-post</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">585</td>
+<td align="right">15060</td>
+</tr>
+<tr class="odd">
+<td align="left">163</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-post</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">505</td>
+<td align="right">6766</td>
+</tr>
+<tr class="even">
+<td align="left">164</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-post</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">322</td>
+<td align="right">5369</td>
+</tr>
+<tr class="odd">
+<td align="left">165</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-post</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">318</td>
+<td align="right">17464</td>
+</tr>
+<tr class="even">
+<td align="left">166</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-post</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">167</td>
+<td align="right">7515</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="request-body-on-put"></a></p>
+<h3 id="request-body-on-put-">request-body-on-put <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures that PUT methods have request bodies.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>Your PUT methods should have request bodies.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensures that PUT methods have request bodies.
+message: Your PUT methods should have request bodies.
+given: $.paths.*.put
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+  function: schema
+  functionOptions:
+    schema:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      oneOf:
+      - required: requestBody
+      - required: parameters
+        properties:
+          parameters:
+            type: array
+            minItems: 1
+            contains:
+              type: object
+              properties:
+                in:
+                  type: string
+                  pattern: ^body|formData$
+              required: name</code></pre>
+</details>
+
+<h4 id="statistics-21">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 906 (5.9%) / 15,323<br />invalid: 500 (10.3%) /
+4,859<br />all: 1,406 (7%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 491 (7.8%) / 6,259<br />invalid: 216 (11%) / 1,967<br />all:
+707 (8.6%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 415 (4.6%) / 9,064<br />invalid: 284 (9.8%) /
+2,892<br />all: 699 (5.8%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 393 (5.3%) / 7,433<br />invalid: 202 (15.5%) /
+1,300<br />all: 595 (6.8%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 129 (10%) / 1,296<br />invalid: 86 (22.6%) / 381<br />all:
+215 (12.8%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 264 (4.3%) / 6,137<br />invalid: 116 (12.6%) / 919<br />all:
+380 (5.4%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 1,299 (5.7%) / 22,756<br />invalid: 702 (11.4%) /
+6,159<br />all: 2,001 (6.9%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 620 (8.2%) / 7,555<br />invalid: 302 (12.9%) /
+2,348<br />all: 922 (9.3%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 679 (4.5%) / 15,201<br />invalid: 400 (10.5%) /
+3,811<br />all: 1,079 (5.7%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">167</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-put</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">491</td>
+<td align="right">3460</td>
+</tr>
+<tr class="even">
+<td align="left">168</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-put</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">415</td>
+<td align="right">3462</td>
+</tr>
+<tr class="odd">
+<td align="left">169</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-put</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">284</td>
+<td align="right">2126</td>
+</tr>
+<tr class="even">
+<td align="left">170</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-put</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">264</td>
+<td align="right">9049</td>
+</tr>
+<tr class="odd">
+<td align="left">171</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-put</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">216</td>
+<td align="right">2212</td>
+</tr>
+<tr class="even">
+<td align="left">172</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-put</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">129</td>
+<td align="right">1536</td>
+</tr>
+<tr class="odd">
+<td align="left">173</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-put</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">116</td>
+<td align="right">4430</td>
+</tr>
+<tr class="even">
+<td align="left">174</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">request-body-on-put</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">86</td>
+<td align="right">1460</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="responses-examples-any"></a></p>
+<h3 id="responses-examples-any-">responses-examples-any <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensuring all responses have examples (OpenAPI 3, Swagger 2) or
+example (OpenAPI 3) defined.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>All your responses need to have property examples (OpenAPI 3,
+Swagger 2) or example (OpenAPI 3) defined.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensuring all responses have examples (OpenAPI 3, Swagger 2) or example
+  (OpenAPI 3) defined.
+message: All your responses need to have property examples (OpenAPI 3, Swagger 2)
+  or example (OpenAPI 3) defined.
+given: &#39;#ResponseContentDefinition&#39;
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+  function: xor
+  functionOptions:
+    properties:
+    - example
+    - examples</code></pre>
+</details>
+
+<h4 id="statistics-22">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 12,901 (84.2%) / 15,323<br />invalid: 3,040 (62.6%) /
+4,859<br />all: 15,941 (79%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,943 (95%) / 6,259<br />invalid: 1,466 (74.5%) /
+1,967<br />all: 7,409 (90.1%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 6,958 (76.8%) / 9,064<br />invalid: 1,574 (54.4%) /
+2,892<br />all: 8,532 (71.4%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 7,041 (94.7%) / 7,433<br />invalid: 722 (55.5%) /
+1,300<br />all: 7,763 (88.9%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,269 (97.9%) / 1,296<br />invalid: 343 (90%) /
+381<br />all: 1,612 (96.1%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,772 (94.1%) / 6,137<br />invalid: 379 (41.2%) /
+919<br />all: 6,151 (87.2%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 19,942 (87.6%) / 22,756<br />invalid: 3,762 (61.1%) /
+6,159<br />all: 23,704 (82%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 7,212 (95.5%) / 7,555<br />invalid: 1,809 (77%) /
+2,348<br />all: 9,021 (91.1%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 12,730 (83.7%) / 15,201<br />invalid: 1,953 (51.2%) /
+3,811<br />all: 14,683 (77.2%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">175</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">responses-examples-any</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">6958</td>
+<td align="right">150579</td>
+</tr>
+<tr class="even">
+<td align="left">176</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">responses-examples-any</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">5943</td>
+<td align="right">185893</td>
+</tr>
+<tr class="odd">
+<td align="left">177</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">responses-examples-any</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">5772</td>
+<td align="right">137776</td>
+</tr>
+<tr class="even">
+<td align="left">178</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">responses-examples-any</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">1574</td>
+<td align="right">45043</td>
+</tr>
+<tr class="odd">
+<td align="left">179</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">responses-examples-any</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">1466</td>
+<td align="right">55201</td>
+</tr>
+<tr class="even">
+<td align="left">180</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">responses-examples-any</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">1269</td>
+<td align="right">126558</td>
+</tr>
+<tr class="odd">
+<td align="left">181</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">responses-examples-any</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">379</td>
+<td align="right">42968</td>
+</tr>
+<tr class="even">
+<td align="left">182</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">responses-examples-any</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">343</td>
+<td align="right">129028</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="reusable-schema-description"></a></p>
+<h3 id="reusable-schema-description-">reusable-schema-description
+<sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensure all reusable schema should have a description.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>All reusable schema should have descriptions.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensure all reusable schema should have a description.
+message: All reusable schema should have descriptions.
+given:
+- $.definitions.*
+- $.components.schemas.*
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+  field: description
+  function: truthy</code></pre>
+</details>
+
+<h4 id="statistics-23">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 10,805 (70.5%) / 15,323<br />invalid: 2,721 (56%) /
+4,859<br />all: 13,526 (67%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 4,600 (73.5%) / 6,259<br />invalid: 1,149 (58.4%) /
+1,967<br />all: 5,749 (69.9%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 6,205 (68.5%) / 9,064<br />invalid: 1,572 (54.4%) /
+2,892<br />all: 7,777 (65%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 6,747 (90.8%) / 7,433<br />invalid: 953 (73.3%) /
+1,300<br />all: 7,700 (88.2%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,119 (86.3%) / 1,296<br />invalid: 249 (65.4%) /
+381<br />all: 1,368 (81.6%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,628 (91.7%) / 6,137<br />invalid: 704 (76.6%) /
+919<br />all: 6,332 (89.7%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 17,552 (77.1%) / 22,756<br />invalid: 3,674 (59.7%) /
+6,159<br />all: 21,226 (73.4%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,719 (75.7%) / 7,555<br />invalid: 1,398 (59.5%) /
+2,348<br />all: 7,117 (71.9%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 11,833 (77.8%) / 15,201<br />invalid: 2,276 (59.7%) /
+3,811<br />all: 14,109 (74.2%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">183</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">reusable-schema-description</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">6205</td>
+<td align="right">94858</td>
+</tr>
+<tr class="even">
+<td align="left">184</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">reusable-schema-description</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">5628</td>
+<td align="right">72180</td>
+</tr>
+<tr class="odd">
+<td align="left">185</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">reusable-schema-description</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">4600</td>
+<td align="right">62745</td>
+</tr>
+<tr class="even">
+<td align="left">186</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">reusable-schema-description</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">1572</td>
+<td align="right">26196</td>
+</tr>
+<tr class="odd">
+<td align="left">187</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">reusable-schema-description</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">1149</td>
+<td align="right">15730</td>
+</tr>
+<tr class="even">
+<td align="left">188</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">reusable-schema-description</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">1119</td>
+<td align="right">30722</td>
+</tr>
+<tr class="odd">
+<td align="left">189</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">reusable-schema-description</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">704</td>
+<td align="right">53613</td>
+</tr>
+<tr class="even">
+<td align="left">190</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">reusable-schema-description</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">249</td>
+<td align="right">25232</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="schema-properties-define-array-boundaries"></a></p>
+<h3 id="schema-properties-define-array-boundaries-">schema-properties-define-array-boundaries
+<sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Requires that arrays have their minimum and maximum boundaries
+defined.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>Arrays must have minItems and maxItems defined.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Requires that arrays have their minimum and maximum boundaries defined.
+message: Arrays must have minItems and maxItems defined.
+given: $..[?(@ != null &amp;&amp; @.type==&quot;array&quot;)]
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+- field: maxItems
+  function: defined
+- field: minItems
+  function: defined</code></pre>
+</details>
+
+<h4 id="statistics-24">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 11,223 (73.2%) / 15,323<br />invalid: 2,636 (54.2%) /
+4,859<br />all: 13,859 (68.7%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 4,711 (75.3%) / 6,259<br />invalid: 1,018 (51.8%) /
+1,967<br />all: 5,729 (69.6%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 6,512 (71.8%) / 9,064<br />invalid: 1,618 (55.9%) /
+2,892<br />all: 8,130 (68%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 3,219 (43.3%) / 7,433<br />invalid: 712 (54.8%) /
+1,300<br />all: 3,931 (45%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,107 (85.4%) / 1,296<br />invalid: 311 (81.6%) /
+381<br />all: 1,418 (84.6%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 2,112 (34.4%) / 6,137<br />invalid: 401 (43.6%) /
+919<br />all: 2,513 (35.6%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 14,442 (63.5%) / 22,756<br />invalid: 3,348 (54.4%) /
+6,159<br />all: 17,790 (61.5%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,818 (77%) / 7,555<br />invalid: 1,329 (56.6%) /
+2,348<br />all: 7,147 (72.2%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 8,624 (56.7%) / 15,201<br />invalid: 2,019 (53%) /
+3,811<br />all: 10,643 (56%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">191</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-properties-define-array-boundaries</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">6512</td>
+<td align="right">103597</td>
+</tr>
+<tr class="even">
+<td align="left">192</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-properties-define-array-boundaries</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">4711</td>
+<td align="right">64757</td>
+</tr>
+<tr class="odd">
+<td align="left">193</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-properties-define-array-boundaries</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">2112</td>
+<td align="right">83394</td>
+</tr>
+<tr class="even">
+<td align="left">194</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-properties-define-array-boundaries</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">1618</td>
+<td align="right">28398</td>
+</tr>
+<tr class="odd">
+<td align="left">195</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-properties-define-array-boundaries</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">1107</td>
+<td align="right">35062</td>
+</tr>
+<tr class="even">
+<td align="left">196</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-properties-define-array-boundaries</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">1018</td>
+<td align="right">15011</td>
+</tr>
+<tr class="odd">
+<td align="left">197</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-properties-define-array-boundaries</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">401</td>
+<td align="right">31341</td>
+</tr>
+<tr class="even">
+<td align="left">198</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-properties-define-array-boundaries</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">311</td>
+<td align="right">39486</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="schema-properties-descriptions"></a></p>
+<h3 id="schema-properties-descriptions-">schema-properties-descriptions
+<sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensure that all schemas properties should have a description.</td>
+</tr>
+<tr class="even">
+<td>Severity</td>
+<td>warn</td>
+</tr>
+<tr class="odd">
+<td>Message:</td>
+<td>All schema properties should have descriptions.</td>
+</tr>
+</tbody>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: Ensure that all schemas properties should have a description.
+message: All schema properties should have descriptions.
+given: $..properties.*
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+  field: description
+  function: truthy</code></pre>
+</details>
+
+<h4 id="statistics-25">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 11,906 (77.7%) / 15,323<br />invalid: 3,096 (63.7%) /
+4,859<br />all: 15,002 (74.3%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 4,864 (77.7%) / 6,259<br />invalid: 1,124 (57.1%) /
+1,967<br />all: 5,988 (72.8%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 7,042 (77.7%) / 9,064<br />invalid: 1,972 (68.2%) /
+2,892<br />all: 9,014 (75.4%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 6,840 (92%) / 7,433<br />invalid: 957 (73.6%) /
+1,300<br />all: 7,797 (89.3%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 1,098 (84.7%) / 1,296<br />invalid: 278 (73%) /
+381<br />all: 1,376 (82.1%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,742 (93.6%) / 6,137<br />invalid: 679 (73.9%) /
+919<br />all: 6,421 (91%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 18,746 (82.4%) / 22,756<br />invalid: 4,053 (65.8%) /
+6,159<br />all: 22,799 (78.8%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,962 (78.9%) / 7,555<br />invalid: 1,402 (59.7%) /
+2,348<br />all: 7,364 (74.4%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 12,784 (84.1%) / 15,201<br />invalid: 2,651 (69.6%) /
+3,811<br />all: 15,435 (81.2%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">199</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-properties-descriptions</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">7042</td>
+<td align="right">421384</td>
+</tr>
+<tr class="even">
+<td align="left">200</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-properties-descriptions</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">5742</td>
+<td align="right">776231</td>
+</tr>
+<tr class="odd">
+<td align="left">201</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-properties-descriptions</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">4864</td>
+<td align="right">272481</td>
+</tr>
+<tr class="even">
+<td align="left">202</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-properties-descriptions</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">1972</td>
+<td align="right">154440</td>
+</tr>
+<tr class="odd">
+<td align="left">203</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-properties-descriptions</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">1124</td>
+<td align="right">76596</td>
+</tr>
+<tr class="even">
+<td align="left">204</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-properties-descriptions</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">1098</td>
+<td align="right">154394</td>
+</tr>
+<tr class="odd">
+<td align="left">205</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-properties-descriptions</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">679</td>
+<td align="right">149314</td>
+</tr>
+<tr class="even">
+<td align="left">206</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-properties-descriptions</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">278</td>
+<td align="right">149735</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+<p><a id="schema-reference-reusable"></a></p>
+<h3 id="schema-reference-reusable-">schema-reference-reusable <sup><a href="#summary">🔝</a></sup></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Ensures all schema properties use a $ref contain a $ref targeting a
+reusable schema</td>
+</tr>
+</tbody>
+</table>
+<p>defined in definitions (Swagger 2) or components.schema (OpenAPI 3) |
+| Severity | warn | | Message: | A schema property should have a $ref
+property referencing a reusable schema |</p>
+<details style="margin-bottom:20px;">
+<summary>
+Rule Definition
+</summary>
+
+<pre><code>description: &quot;Ensures all schema properties use a $ref contain a $ref targeting a
+  reusable schema \ndefined in definitions (Swagger 2) or components.schema (OpenAPI
+  3)\n&quot;
+message: A schema property should have a $ref property referencing a reusable schema
+given: $..schema
+resolved: no
+severity: warn
+formats:
+- oas2
+- oas3
+then:
+- field: $ref
+  function: truthy
+- field: $ref
+  function: pattern
+  functionOptions:
+    match: ^.*#\/(definitions|components\/schemas)\/.*$</code></pre>
+</details>
+
+<h4 id="statistics-26">Statistics</h4>
+<table>
+<tr>
+<th>
+Collection
+</th>
+<th>
+All
+</th>
+<th>
+OpenAPI2
+</th>
+<th>
+OpenAPI3
+</th>
+</tr>
+<tr>
+<td>
+kin
+</td>
+<td style="text-align:center">
+<small>valid: 10,894 (71.1%) / 15,323<br />invalid: 2,796 (57.5%) /
+4,859<br />all: 13,690 (67.8%) / 20,182</small>
+</td>
+<td style="text-align:center">
+<small>valid: 3,366 (53.8%) / 6,259<br />invalid: 855 (43.5%) /
+1,967<br />all: 4,221 (51.3%) / 8,226</small>
+</td>
+<td style="text-align:center">
+<small>valid: 7,528 (83.1%) / 9,064<br />invalid: 1,941 (67.1%) /
+2,892<br />all: 9,469 (79.2%) / 11,956</small>
+</td>
+</tr>
+<tr>
+<td>
+postman_apis
+</td>
+<td style="text-align:center">
+<small>valid: 6,306 (84.8%) / 7,433<br />invalid: 1,097 (84.4%) /
+1,300<br />all: 7,403 (84.8%) / 8,733</small>
+</td>
+<td style="text-align:center">
+<small>valid: 705 (54.4%) / 1,296<br />invalid: 309 (81.1%) /
+381<br />all: 1,014 (60.5%) / 1,677</small>
+</td>
+<td style="text-align:center">
+<small>valid: 5,601 (91.3%) / 6,137<br />invalid: 788 (85.7%) /
+919<br />all: 6,389 (90.5%) / 7,056</small>
+</td>
+</tr>
+<tr>
+<td>
+<i>All Collections</i>
+</td>
+<td style="text-align:center">
+<small>valid: 17,200 (75.6%) / 22,756<br />invalid: 3,893 (63.2%) /
+6,159<br />all: 21,093 (72.9%) / 28,915</small>
+</td>
+<td style="text-align:center">
+<small>valid: 4,071 (53.9%) / 7,555<br />invalid: 1,164 (49.6%) /
+2,348<br />all: 5,235 (52.9%) / 9,903</small>
+</td>
+<td style="text-align:center">
+<small>valid: 13,129 (86.4%) / 15,201<br />invalid: 2,729 (71.6%) /
+3,811<br />all: 15,858 (83.4%) / 19,012</small>
+</td>
+</tr>
+</table>
+<details style="margin-bottom:20px;">
+<summary>
+Data Table
+</summary>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">attachment_type</th>
+<th align="left">code</th>
+<th align="left">collection_id</th>
+<th align="left">class</th>
+<th align="left">is_valid</th>
+<th align="right">n_apis</th>
+<th align="right">n_err</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">207</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-reference-reusable</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">7528</td>
+<td align="right">230220</td>
+</tr>
+<tr class="even">
+<td align="left">208</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-reference-reusable</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">true</td>
+<td align="right">5601</td>
+<td align="right">229616</td>
+</tr>
+<tr class="odd">
+<td align="left">209</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-reference-reusable</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">3366</td>
+<td align="right">27858</td>
+</tr>
+<tr class="even">
+<td align="left">210</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-reference-reusable</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">1941</td>
+<td align="right">70652</td>
+</tr>
+<tr class="odd">
+<td align="left">211</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-reference-reusable</td>
+<td align="left">kin</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">855</td>
+<td align="right">13316</td>
+</tr>
+<tr class="even">
+<td align="left">212</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-reference-reusable</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI3</td>
+<td align="left">false</td>
+<td align="right">788</td>
+<td align="right">114225</td>
+</tr>
+<tr class="odd">
+<td align="left">213</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-reference-reusable</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">true</td>
+<td align="right">705</td>
+<td align="right">17502</td>
+</tr>
+<tr class="even">
+<td align="left">214</td>
+<td align="left">spectral/postman/postman-library</td>
+<td align="left">schema-reference-reusable</td>
+<td align="left">postman_apis</td>
+<td align="left">OpenAPI2</td>
+<td align="left">false</td>
+<td align="right">309</td>
+<td align="right">42405</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+</body>
+</html>

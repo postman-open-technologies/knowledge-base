@@ -7,6 +7,8 @@ output:
     toc_depth: 2
 params:
     spectralRoot: '../../spectral'
+    renderReports: TRUE
+    rulesetIdRegex: '.*'
 ---
 
 ```{r, include=FALSE}
@@ -24,10 +26,14 @@ require("yaml")
 
 ```{r}
 # generate reports
-for (file in list.files(params$spectralRoot, pattern='\\.spectral\\.meta\\.yaml$', recursive = TRUE, include.dirs = FALSE)) {
-  rulesetId = sub(".spectral.meta.yaml", "", file)
-  outfile = paste0('oas_spectral_ruleset_',sub("/","_",rulesetId),".md")
-  rmarkdown::render("oas_spectral_ruleset.template.Rmd", output_file = outfile, params=list("spectralRoot"=params$spectralRoot, "rulesetId"=rulesetId), envir = new.env() )
+if (params$renderReports) {
+  for (file in list.files(params$spectralRoot, pattern='\\.spectral\\.meta\\.yaml$', recursive = TRUE, include.dirs = FALSE)) {
+    rulesetId = sub(".spectral.meta.yaml", "", file)
+    if (grepl(params$rulesetIdRegex, rulesetId)) {
+      outfile = paste0('oas_spectral_ruleset_',sub("/","_",rulesetId),".md")
+      rmarkdown::render("oas_spectral_ruleset.template.Rmd", output_file = outfile, params=list("spectralRoot"=params$spectralRoot, "rulesetId"=rulesetId), envir = new.env(), quiet = TRUE)
+    }
+  }
 }
 ```
 
