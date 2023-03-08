@@ -1,6 +1,6 @@
 OAS Paths Operations & Responses
 ================
-<sup>Last updated: 2023-03-07</sup>
+<sup>Last updated: 2023-03-08</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#operations" id="toc-operations">Operations</a>
