@@ -7,7 +7,7 @@ To establish a framework for harvesting, ingesting, storing, querying, and publi
 ## Research and Findings
 The initial focus of the knowledge base is around the Open API specifications version 2 and 3. Consult our OAS Summary report for information on current research topics, questions, findings, and documentation. These reports are automatically updated on a daily basis.
 
-- [OpenAPI Summary & Findings](https://github.com/postman-open-technologies/knowledge-base/blob/main/R/oas_summary.md)
+- [OpenAPI Summary](https://github.com/postman-open-technologies/knowledge-base/blob/main/R/oas/oas_spectral_ruleset_postman_postman-library.md)
 
 Our platform has however been designed to be generic and capable of handling various types of resources. We expect to shortly start exploring other specifications such as AsyncAPI, gRPC, GraphQL, Postman collections, Spectral rules, and more.
 
