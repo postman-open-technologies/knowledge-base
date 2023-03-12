@@ -1,6 +1,6 @@
 OAS Servers Analysis
 ================
-<sup>Last updated: 2023-03-11</sup>
+<sup>Last updated: 2023-03-12</sup>
 
 - <a href="#overview" id="toc-overview">Overview</a>
 - <a href="#findings" id="toc-findings">Findings</a>
@@ -37,21 +37,21 @@ for the host and other components of the URL.
 
 ## How is the server property used in APIs?
 
-- Out of 7,555 valid OpenAPI2 specifications, 5,710 (75.6%) have a
-  `host` property, 5,500 (72.8%) have a `basePath` property, and 6,088
-  (80.6%) have a `schemes` property.
+- Out of 7,703 valid OpenAPI2 specifications, 5,834 (75.7%) have a
+  `host` property, 5,592 (72.6%) have a `basePath` property, and 6,202
+  (80.5%) have a `schemes` property.
 
-- Out of 15,201 valid OpenAPI3 specifications, 12,689 (83.5%) have a
+- Out of 15,347 valid OpenAPI3 specifications, 12,797 (83.4%) have a
   `servers` property, with an average of 1.2 server/entry, and a range
   of 0-13.
 
 ## How often do APIs use localhost vs domain based servers?
 
-- Out of the 20,453 host/servers entries (across all APIs), 4,888
-  (23.9%) contain localhost or 127.0.0.1, 11,631 (56.9%) use a DNS host,
-  and 777 (3.8%) use a variable template (3.x only). 1,799 (8.8%) use a
+- Out of the 20,718 host/servers entries (across all APIs), 4,903
+  (23.7%) contain localhost or 127.0.0.1, 11,829 (57.1%) use a DNS host,
+  and 792 (3.8%) use a variable template (3.x only). 1,833 (8.8%) use a
   relative path (no server specified).
-- 6,695 (32.7%) use an http protocol, and 10,954 (53.6%) https.
+- 6,758 (32.6%) use an http protocol, and 11,123 (53.7%) https.
 
 ## What are the most commonly used top level domains for APIs?
 
@@ -61,12 +61,12 @@ comprehensive list.
 
 | Rank | Domain         | \#APIs |
 |------|----------------|--------|
-| 1    | swagger.io     | 1098   |
+| 1    | swagger.io     | 1113   |
 | 2    | swaggerhub.com | 1005   |
 | 3    | azure.com      | 551    |
 | 4    | pstmn.io       | 529    |
-| 5    | herokuapp.com  | 320    |
-| 6    | example.com    | 224    |
+| 5    | herokuapp.com  | 321    |
+| 6    | example.com    | 229    |
 | 7    | googleapis.com | 188    |
 | 8    | amazonaws.com  | 168    |
 | 9    | amazon.com     | 163    |

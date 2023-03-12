@@ -1,6 +1,6 @@
 OAS Validity
 ================
-<sup>Last updated: 2023-03-11</sup>
+<sup>Last updated: 2023-03-12</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#how-many-valid-openapis-do-we-have"
@@ -24,10 +24,10 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 
 ## *How many valid OpenAPIs do we have?*
 
-- Out of 28,915 entries, 22,756 (78.7%) are valid and 6,159 (21.3%) are
+- Out of 29,317 entries, 23,050 (78.6%) are valid and 6,267 (21.4%) are
   invalid
-- 7,555 out of the 9,903 OpenAPI2 entries are valid (76.3%)
-- 15,201 out of the 19,012 OpenAPI3 entries are valid (80%)
+- 7,703 out of the 10,128 OpenAPI2 entries are valid (76.1%)
+- 15,347 out of the 19,189 OpenAPI3 entries are valid (80%)
 
 ![](oas_validity_files/figure-gfm/oas_validity_charts-1.png)<!-- -->
 
@@ -36,15 +36,15 @@ issues](https://github.com/postman-open-technologies/knowledge-base/labels/oas%3
 <sup>See [source of errors](oas_validity_errors.md) for details and more
 in-depth analysis around validation issues.<sup>
 
-- A total of 183,944 validation errors are found across 6,159 invalid
+- A total of 185,149 validation errors are found across 6,267 invalid
   APIs
-- Looking at the *error* counts, 130,108 (70.7%) are found under
-  `paths`. This is followed by 36,112 (19.6%) under `components`, 12,851
-  (7%) under `definitions`, 1,805 (1%) under `root`, and 1,063 (0.6%)
+- Looking at the *error* counts, 131,102 (70.8%) are found under
+  `paths`. This is followed by 36,144 (19.5%) under `components`, 12,976
+  (7%) under `definitions`, 1,811 (1%) under `root`, and 1,085 (0.6%)
   under `info`
-- Looking at the *API* counts, 3,866 (40.4%)have at least one error
-  under `paths`. This is followed by 1,521 (15.9%) under `components`,
-  1,484 (15.5%) under `root`, 812 (8.5%) under `info`, and 511 (5.3%)
+- Looking at the *API* counts, 3,933 (40.5%)have at least one error
+  under `paths`. This is followed by 1,532 (15.8%) under `components`,
+  1,490 (15.3%) under `root`, 833 (8.6%) under `info`, and 537 (5.5%)
   under `definitions`
 - Keep in mind the `definitions` property is only used by OpenAPI 2.x
   and `components` by OpenAPI 3.x (as v2 `definitions` became
