@@ -1,0 +1,13 @@
+{
+    "urn": "postman:SpectralScoringConfig:8dh4hd7df",
+    "name": "Scoring example with severity weights",
+    "description": "This basic configuration uses all the rules in a single ruleset and set weights for different severity levels",
+    "severityWeights": {
+        "error": 1.0,
+        "warn": 0.5,
+        "hint": 0.25
+    },
+    "rulesets": {
+        "postman:SpectralRuleset:http-status-codes:v1.0.0": {}
+    }
+}

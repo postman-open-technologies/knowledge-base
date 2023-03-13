@@ -1,0 +1,14 @@
+{
+    "urn": "postman:SpectralScoringConfig:cnfu494iu",
+    "name": "Scoring example with multiple ruleset",
+    "description": "This configuration uses two rulesets with equal weights",
+    "severityWeights": {
+        "error": 1.0,
+        "warn": 0.5,
+        "hint": 0.25
+    },
+    "rulesets": {
+        "postman:SpectralRuleset:http-status-codes:v1.0.0": {},
+        "postman:SpectralRuleset:postman.postman-library:v1.0.0": {"weight": 5.0}
+    }
+}

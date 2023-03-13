@@ -1,0 +1,13 @@
+{
+    "urn": "postman:SpectralScoringConfig:8djfh39d",
+    "name": "Scoring example with rule weights",
+    "description": "This basic configuration uses all the rules in a single ruleset boosting the weight of some of the rules",
+    "rulesets": {
+        "postman:SpectralRuleset:http-status-codes:v1.0.0": {
+            "rules": {
+                "postman:SpectralRule:http-status-codes:invalid:v1": {"weight": 2.0},
+                "postman:SpectralRule:http-status-codes:unused:v1": {"weight": 1.5}
+            }
+        }
+    }
+}

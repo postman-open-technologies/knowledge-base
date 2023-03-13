@@ -1,0 +1,8 @@
+{
+    "urn": "postman:SpectralScoringConfig:09shr8dh3",
+    "name": "Scoring example",
+    "description": "This basic configuration uses all the rules in a single ruleset",
+    "rulesets": {
+        "postman:SpectralRuleset:http-status-codes:v1.0.0": {}
+    }
+}
