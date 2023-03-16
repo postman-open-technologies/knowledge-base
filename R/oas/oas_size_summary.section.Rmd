@@ -20,5 +20,7 @@ df = dbGetQuery(conn, query)
 
 - Based on `r format_count(df$n_valid[1])` valid API specifications, the average JSON size is `r format(round(df$avg_size[1],1), big.mark = ",")`Kb, ranging from < 1Kb to `r format(round(df$max_size[1],1), big.mark = ",")`Kb.
 - No significant difference is observed between version 2 (`r format(round(df$avg_size_openapi2[1],1), big.mark = ",")`Kb) and 3 (`r format(round(df$avg_size_openapi3[1],1), big.mark = ",")`Kb)
+- Some interesting differences are observed between API from the Postman public network vs APIs collected the Internet
+- It's important to keep in mind that assessing API size can be challenging as we may do not have the full definition when the specification is spread across multiple files
 
 

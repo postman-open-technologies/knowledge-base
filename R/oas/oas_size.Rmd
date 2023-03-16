@@ -8,6 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+require('knitr')
 knitr::opts_chunk$set(echo = FALSE)
 source("db_connection.R", local = knitr::knit_global())
 source("utils.R", local = knitr::knit_global())
@@ -26,7 +27,7 @@ library("ggplot2")
 ```{r oas_size_summary, child=c('oas_size_summary.section.Rmd')}
 ```
 
-```{r oas_size_buckets_query, eval=TRUE }
+```{r, eval=TRUE }
 query = "
 select 
 	bucket, 
@@ -38,11 +39,13 @@ select
 		when bucket=4 then '21-50'
 		when bucket=5 then '51-100'
 		when bucket=6 then '102-250'
-		when bucket=7 then '>250'
+		when bucket=7 then '250-999'
+		when bucket=8 then '1000+'
 	end as label,
-	count(*) as count
+	count(*) as count,
+	round((count(*)/sum(count(*)) over())*100,2) as pct
 from (
-select uri, width_bucket(json_data_size/1024, array[1,6,11,21,51,101,251]) as bucket
+select uri, width_bucket(json_data_size/1024, array[1,6,11,21,51,101,251,1000]) as bucket
 	from vw_oas_resource 
 	where json_meta->'isValid' = 'true'	
 ) as t1
@@ -55,12 +58,65 @@ df = dbGetQuery(conn, query)
 df$label <- factor(df$label, levels = df$label)
 ggplot(df, aes(x = label, y = count)) +
   geom_bar(stat = "identity") +
-  geom_text(aes(label = count), vjust = -0.3) +
-  ggtitle("API JSON Size") +
+  geom_text(aes(label = paste0(pct,'%')), vjust = -0.3) +
+  ggtitle("OpenAPIs JSON Size Distribution") +
   theme(plot.title = element_text(hjust = 0.5, face = "bold")) +
   xlab("Size in Kb") +
   ylab("Count of APIs")
 ```
+
+<details style="margin-bottom:20px;">
+<summary>Data Table</summary>
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+kable(df)
+```
+</details>
+
+
+```{r, eval=TRUE }
+query = "
+select 
+	source,
+	bucket,
+	case 
+		when bucket=0 then '<1'
+		when bucket=1 then '1-5'
+		when bucket=2 then '6-10'
+		when bucket=3 then '11-20'
+		when bucket=4 then '21-50'
+		when bucket=5 then '51-100'
+		when bucket=6 then '102-250'
+		when bucket=7 then '250-999'
+		when bucket=8 then '1000+'
+	end as label,
+	count(*) as n, round((count(*)/sum(count(*)) over(partition by source))*100,2) as pct
+from (
+select case when collection_id = 'postman_apis' then 'postman' else 'external'end as source, uri, width_bucket(json_data_size/1024, array[1,6,11,21,51,101,251,1000]) as bucket
+	from vw_oas_resource 
+	where json_meta->'isValid' = 'true'	
+) as t1
+group by 1,2 order by bucket, source
+"
+df = dbGetQuery(conn, query)
+```
+
+```{r oas_paths_buckets_postman_barplot, include = TRUE, out.width="90%"}
+df$label <- with(df, reorder(label, bucket))
+ggplot(df, aes(x = label, y = pct, fill = source)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  ggtitle("Postman vs External OpenAPIs JSON Size Distribution") +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"), legend.position = c(0.91, 0.88)) +
+  xlab("Size in Kb") +
+  ylab("Percentage of APIs") +
+  scale_fill_manual(values = c("postman" = "orange", "external" = "red"))
+```
+
+<details style="margin-bottom:20px;">
+<summary>Data Table</summary>
+```{r, eval=TRUE, echo=FALSE, results='asis'}
+kable(df)
+```
+</details>
 
 # Methodology
 
