@@ -1,10 +1,11 @@
 const createError = require('http-errors');
 const express = require('express');
 const logger = require('morgan');
+require('dotenv').config();
 
 const indexRouter = require('./routes/index');
 const knockknockRouter = require('./routes/knockknock');
-const questionsRouter = require('./routes/questions');
+const reportsRouter = require('./routes/reports');
 
 const app = express();
 
@@ -14,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
 app.use('/knockknock', knockknockRouter);
-app.use('/questions', questionsRouter);
+app.use('/reports', reportsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

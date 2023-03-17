@@ -52,22 +52,22 @@
         }
       }
     },
-    "/questions": {
+    "/reports": {
       "get": {
-        "summary": "List all available questions",
-        "operationId": "listQuestion",
+        "summary": "Retrieve a list of the available types of statistical reports",
+        "operationId": "listReports",
         "tags": [
-          "questions",
-          "question",
+          "reports",
+          "report",
           "list"
         ],
         "responses": {
           "200": {
-            "description": "A list of available questions",
+            "description": "A list of available types of statistical reports",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Questions"
+                  "$ref": "#/components/schemas/Reports"
                 }
               }
             }
@@ -85,19 +85,19 @@
         }
       }
     },
-    "/questions/{questionId}": {
+    "/reports/{reportId}": {
       "get": {
-        "summary": "Retrieve a specific question identified by questionId",
-        "operationId": "getQuestion",
+        "summary": "Retrieve a specific type of report identified by reportId",
+        "operationId": "getReport",
         "tags": [
-          "question"
+          "report"
         ],
         "parameters": [
           {
-            "name": "questionId",
+            "name": "reportId",
             "in": "path",
             "required": true,
-            "description": "The ID of the question to retrieve",
+            "description": "The ID of the type of report to retrieve",
             "schema": {
               "type": "string"
             }
@@ -105,17 +105,17 @@
         ],
         "responses": {
           "200": {
-            "description": "Details of a question",
+            "description": "Details of a type of report",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Question"
+                  "$ref": "#/components/schemas/Report"
                 }
               }
             }
           },
           "404": {
-            "description": "Question not found",
+            "description": "Report type not found",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -167,11 +167,22 @@
           }
         }
       }
+    },
+    "/statistics": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
-      "Question": {
+      "Report": {
         "type": "object",
         "required": [
           "id",
@@ -194,10 +205,10 @@
           }
         }
       },
-      "Questions": {
+      "Reports": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/Question"
+          "$ref": "#/components/schemas/Report"
         }
       },
       "ProblemDetailsError": {

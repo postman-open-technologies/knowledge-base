@@ -1,19 +1,35 @@
 const express = require('express');
-const router = express.Router();
+const Router = require('express-promise-router');
 const createError = require('http-errors');
-const questions = require('../lib/questions');
+const reports = require('../lib/reports');
 
-router.get('/', function(req, res, next) {
-  res.json(questions);
+const router = new Router();
+
+router.get('/', async (req, res, next) => {
+  try {
+    res.json(await reports.all());
+  } catch (err) {
+    next(createError(500, {
+      details: `Error fetching ${req.originalUrl}`,
+      instance: req.originalUrl
+    }));
+  }
 });
 
-router.get('/:questionId', function(req, res, next) {
-  const output = questions.find(question => question.id == req.params.questionId);
-  if (output) {
-    res.json(output);
-  } else {
-    next(createError(404, {
-      details: `Resource ${req.originalUrl} not found`,
+router.get('/:reportId', async (req, res, next) => {
+  try {
+    const output = await reports.get(req.params.reportId);
+    if (output) {
+      res.json(output);
+    } else {
+      next(createError(404, {
+        details: `Resource ${req.originalUrl} not found`,
+        instance: req.originalUrl
+      }));
+    }
+  } catch (err) {
+    next(createError(500, {
+      details: `Error fetching ${req.originalUrl}`,
       instance: req.originalUrl
     }));
   }

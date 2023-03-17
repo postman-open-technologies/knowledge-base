@@ -1,16 +1,34 @@
-const fs = require('fs');
-const YAML = require('yaml');
+const db = require('./db');
 
-const YAMLfile = '../sql/postgres.yaml';
+module.exports.all = async () => {
+  result = await db.query(`
+  SELECT DISTINCT attachment_type, code
+  FROM vw_oas_resource_spectral_errors
+  WHERE attachment_type LIKE 'spectral/%'
+  AND code NOT IN ('invalid-ref', 'parser','unrecognized-format')
+  ORDER BY 1,2
+  `);
+  return result.rows.map(row => {
+    return {
+      id: row.code,
+      scope: row.attachment_type
+    };
+  });
+};
 
-const questionsYAML = fs.readFileSync(YAMLfile, 'utf-8');
-const questions = YAML.parse(questionsYAML).queries;
-
-module.exports = questions.map(question => {
-  return {
-    id: Object.keys(question)[0],
-    description: question.description,
-    output: question.output,
-    scope: question.scope
-  };
-});
+module.exports.get = async (id) => {
+  result = await db.query(`
+  SELECT DISTINCT attachment_type, code
+  FROM vw_oas_resource_spectral_errors
+  WHERE attachment_type LIKE 'spectral/%'
+  AND code = $1
+  AND code NOT IN ('invalid-ref', 'parser','unrecognized-format')
+  ORDER BY 1,2
+  `, [id]);
+  return result.rowCount && result.rows.map(row => {
+    return {
+      id: row.code,
+      scope: row.attachment_type
+    };
+  })[0];
+};
