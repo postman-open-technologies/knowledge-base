@@ -1,6 +1,6 @@
 OAS Summary
 ================
-<sup>Last updated: 2023-03-16</sup>
+<sup>Last updated: 2023-03-17</sup>
 
 - <a href="#size" id="toc-size">Size</a>
 - <a href="#validity-and-source-of-errors"
@@ -31,6 +31,11 @@ selected topics.
   33.7Kb, ranging from \< 1Kb to 7,575Kb.
 - No significant difference is observed between version 2 (33.1Kb) and 3
   (34.1Kb)
+- Some interesting differences are observed between API from the Postman
+  public network vs APIs collected the Internet
+- It’s important to keep in mind that assessing API size can be
+  challenging as we may do not have the full definition when the
+  specification is spread across multiple files
 
 ## Validity and source of errors
 
