@@ -137,6 +137,58 @@
         }
       }
     },
+    "/statistics/{statisticType}": {
+      "get": {
+        "summary": "Retrieve a specific type of statistics report identified by statisticType",
+        "operationId": "getStatistics",
+        "tags": [
+          "statistic"
+        ],
+        "parameters": [
+          {
+            "name": "statisticType",
+            "in": "path",
+            "required": true,
+            "description": "The type of statistics report to retrieve",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The statistics details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Statistic"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Statistics report type not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsError"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsError"
+                }
+              }
+            }
+          }
+        } 
+      }
+    },
     "/knockknock": {
       "get": {
         "summary": "This path is used to check if the API is running",
@@ -209,6 +261,43 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/Report"
+        }
+      },
+      "Statistic": {
+        "type": "object",
+        "properties": {
+          "info": {
+            "$ref": "#/components/schemas/StatisticInfo"
+          },
+          "data": {
+            "$ref": "#/components/schemas/StatisticData"
+          }
+        }
+      },
+      "StatisticInfo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "creationDateTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "StatisticData": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer"
+          },
+          "count": {
+            "type": "integer"
+          }
         }
       },
       "ProblemDetailsError": {
