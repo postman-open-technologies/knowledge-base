@@ -1,6 +1,6 @@
 OAS Spectral Ruleset postman/postman-library
 ================
-<sup>Last updated: 2023-04-03</sup>
+<sup>Last updated: 2023-04-04</sup>
 
 <sup>*DISCLAIMER: the results and findings below are preliminary and
 have not been fully validated or peer reviewed. Use with care. Do not
