@@ -1,6 +1,6 @@
 OAS JSON Size
 ================
-<sup>Last updated: 2023-04-18</sup>
+<sup>Last updated: 2023-04-19</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#what-is-the-typical-size-of-an-api"
