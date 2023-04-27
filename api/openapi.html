@@ -4,13 +4,138 @@
 <p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
 </blockquote>
 <p>This is the API that lets you access the information available on the Knowledge Base.</p>
-<p>Please refer to the <a href="CONTRIBUTING.md">contributing instructions</a> for information on how to install the API server and run it.</p>
+<p>Please refer to the <a href="https://raw.githubusercontent.com/postman-open-technologies/knowledge-base/main/api/CONTRIBUTING.md">contributing instructions</a> for information on how to install the API server and run it.</p>
 <p>Base URLs:</p>
 <ul>
 <li><a href="http://localhost:3000">http://localhost:3000</a></li>
 </ul>
 <p>Email: <a href="mailto:open@postman.com">Postman Open Technologies</a> Web: <a href="https://www.postman.com/open-tech/">Postman Open Technologies</a>
 License: <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a></p>
+<h1 id="postman-open-technologies-knowledge-base-api-default">Default</h1>
+<h2>get__statistics</h2>
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="nohighlight example"><code><span class="hljs-meta">#</span><span class="bash"> You can also use wget</span>
+curl -X GET http://localhost:3000/statistics
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://localhost:3000/statistics</span> HTTP/1.1
+<span class="hljs-attribute">Host</span>: localhost:3000
+
+</code></pre>
+<pre class="nohighlight example"><code>
+fetch(<span class="hljs-string">'http://localhost:3000/statistics'</span>,
+{
+  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>
+
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
+    <span class="hljs-keyword">return</span> res.json();
+}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(body);
+});
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
+
+result = RestClient.get <span class="hljs-string">'http://localhost:3000/statistics'</span>,
+  <span class="hljs-symbol">params:</span> {
+  }
+
+p JSON.parse(result)
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">import</span> requests
+
+r = requests.get(<span class="hljs-string">'http://localhost:3000/statistics'</span>)
+
+print(r.json())
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
+
+<span class="hljs-comment">// Define array of request body.</span>
+$request_body = <span class="hljs-keyword">array</span>();
+
+<span class="hljs-keyword">try</span> {
+    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://localhost:3000/statistics'</span>, <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">'headers'</span> =&gt; $headers,
+        <span class="hljs-string">'json'</span> =&gt; $request_body,
+       )
+    );
+    print_r($response-&gt;getBody()-&gt;getContents());
+ }
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+    <span class="hljs-comment">// handle exception or api errors.</span>
+    print_r($e-&gt;getMessage());
+ }
+
+ <span class="hljs-comment">// ...</span>
+
+</code></pre>
+<pre class="nohighlight example"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"http://localhost:3000/statistics"</span>);
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod(<span class="hljs-string">"GET"</span>);
+<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
+BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
+    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
+<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+       <span class="hljs-string">"bytes"</span>
+       <span class="hljs-string">"net/http"</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+
+    data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
+    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"http://localhost:3000/statistics"</span>, data)
+    req.Header = headers
+
+    client := &amp;http.Client{}
+    resp, err := client.Do(req)
+    <span class="hljs-comment">// ...</span>
+}
+
+</code></pre>
+<p><code>GET /statistics</code></p>
+<h3 id="get__statistics-responses">Responses</h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<aside class="success">
+This operation does not require authentication
+</aside>
 <h1 id="postman-open-technologies-knowledge-base-api-openapi">openapi</h1>
 <h2>getOpenAPI</h2>
 <p><a id="opIdgetOpenAPI"></a></p>
@@ -175,18 +300,18 @@ System.out.println(response.toString());
 <aside class="success">
 This operation does not require authentication
 </aside>
-<h1 id="postman-open-technologies-knowledge-base-api-questions">questions</h1>
-<h2>listQuestion</h2>
-<p><a id="opIdlistQuestion"></a></p>
+<h1 id="postman-open-technologies-knowledge-base-api-reports">reports</h1>
+<h2>listReports</h2>
+<p><a id="opIdlistReports"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
 <pre class="nohighlight example"><code><span class="hljs-meta">#</span><span class="bash"> You can also use wget</span>
-curl -X GET http://localhost:3000/questions \
+curl -X GET http://localhost:3000/reports \
   -H 'Accept: application/json'
 
 </code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://localhost:3000/questions</span> HTTP/1.1
+<pre class="nohighlight example"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://localhost:3000/reports</span> HTTP/1.1
 <span class="hljs-attribute">Host</span>: localhost:3000
 <span class="hljs-attribute">Accept</span>: application/json
 
@@ -196,7 +321,7 @@ curl -X GET http://localhost:3000/questions \
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
 };
 
-fetch(<span class="hljs-string">'http://localhost:3000/questions'</span>,
+fetch(<span class="hljs-string">'http://localhost:3000/reports'</span>,
 {
   <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
 
@@ -216,7 +341,7 @@ headers = {
   <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://localhost:3000/questions'</span>,
+result = RestClient.get <span class="hljs-string">'http://localhost:3000/reports'</span>,
   <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
@@ -228,7 +353,7 @@ headers = {
   <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
 }
 
-r = requests.get(<span class="hljs-string">'http://localhost:3000/questions'</span>, headers = headers)
+r = requests.get(<span class="hljs-string">'http://localhost:3000/reports'</span>, headers = headers)
 
 print(r.json())
 
@@ -247,7 +372,7 @@ $client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
 $request_body = <span class="hljs-keyword">array</span>();
 
 <span class="hljs-keyword">try</span> {
-    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://localhost:3000/questions'</span>, <span class="hljs-keyword">array</span>(
+    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://localhost:3000/reports'</span>, <span class="hljs-keyword">array</span>(
         <span class="hljs-string">'headers'</span> =&gt; $headers,
         <span class="hljs-string">'json'</span> =&gt; $request_body,
        )
@@ -262,7 +387,7 @@ $request_body = <span class="hljs-keyword">array</span>();
  <span class="hljs-comment">// ...</span>
 
 </code></pre>
-<pre class="nohighlight example"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"http://localhost:3000/questions"</span>);
+<pre class="nohighlight example"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"http://localhost:3000/reports"</span>);
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod(<span class="hljs-string">"GET"</span>);
 <span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
@@ -291,7 +416,7 @@ System.out.println(response.toString());
     }
 
     data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
-    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"http://localhost:3000/questions"</span>, data)
+    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"http://localhost:3000/reports"</span>, data)
     req.Header = headers
 
     client := &amp;http.Client{}
@@ -300,8 +425,8 @@ System.out.println(response.toString());
 }
 
 </code></pre>
-<p><code>GET /questions</code></p>
-<p><em>List all available questions</em></p>
+<p><code>GET /reports</code></p>
+<p><em>Retrieve a list of the available types of statistical reports</em></p>
 <blockquote>
 <p>Example responses</p>
 </blockquote>
@@ -317,7 +442,7 @@ System.out.println(response.toString());
   }
 ]
 </code></pre>
-<h3 id="listquestion-responses">Responses</h3>
+<h3 id="listreports-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -331,8 +456,8 @@ System.out.println(response.toString());
 <tr>
 <td>200</td>
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>A list of available questions</td>
-<td><a href="#schemaquestions">Questions</a></td>
+<td>A list of available types of statistical reports</td>
+<td><a href="#schemareports">Reports</a></td>
 </tr>
 <tr>
 <td>default</td>
@@ -345,18 +470,18 @@ System.out.println(response.toString());
 <aside class="success">
 This operation does not require authentication
 </aside>
-<h1 id="postman-open-technologies-knowledge-base-api-question">question</h1>
-<h2>getQuestion</h2>
-<p><a id="opIdgetQuestion"></a></p>
+<h1 id="postman-open-technologies-knowledge-base-api-report">report</h1>
+<h2>getReport</h2>
+<p><a id="opIdgetReport"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
 <pre class="nohighlight example"><code><span class="hljs-meta">#</span><span class="bash"> You can also use wget</span>
-curl -X GET http://localhost:3000/questions/{questionId} \
+curl -X GET http://localhost:3000/reports/{reportId} \
   -H 'Accept: application/json'
 
 </code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://localhost:3000/questions/{questionId}</span> HTTP/1.1
+<pre class="nohighlight example"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://localhost:3000/reports/{reportId}</span> HTTP/1.1
 <span class="hljs-attribute">Host</span>: localhost:3000
 <span class="hljs-attribute">Accept</span>: application/json
 
@@ -366,7 +491,7 @@ curl -X GET http://localhost:3000/questions/{questionId} \
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
 };
 
-fetch(<span class="hljs-string">'http://localhost:3000/questions/{questionId}'</span>,
+fetch(<span class="hljs-string">'http://localhost:3000/reports/{reportId}'</span>,
 {
   <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
 
@@ -386,7 +511,7 @@ headers = {
   <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://localhost:3000/questions/{questionId}'</span>,
+result = RestClient.get <span class="hljs-string">'http://localhost:3000/reports/{reportId}'</span>,
   <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
@@ -398,7 +523,7 @@ headers = {
   <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
 }
 
-r = requests.get(<span class="hljs-string">'http://localhost:3000/questions/{questionId}'</span>, headers = headers)
+r = requests.get(<span class="hljs-string">'http://localhost:3000/reports/{reportId}'</span>, headers = headers)
 
 print(r.json())
 
@@ -417,7 +542,7 @@ $client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
 $request_body = <span class="hljs-keyword">array</span>();
 
 <span class="hljs-keyword">try</span> {
-    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://localhost:3000/questions/{questionId}'</span>, <span class="hljs-keyword">array</span>(
+    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://localhost:3000/reports/{reportId}'</span>, <span class="hljs-keyword">array</span>(
         <span class="hljs-string">'headers'</span> =&gt; $headers,
         <span class="hljs-string">'json'</span> =&gt; $request_body,
        )
@@ -432,7 +557,7 @@ $request_body = <span class="hljs-keyword">array</span>();
  <span class="hljs-comment">// ...</span>
 
 </code></pre>
-<pre class="nohighlight example"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"http://localhost:3000/questions/{questionId}"</span>);
+<pre class="nohighlight example"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"http://localhost:3000/reports/{reportId}"</span>);
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod(<span class="hljs-string">"GET"</span>);
 <span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
@@ -461,7 +586,7 @@ System.out.println(response.toString());
     }
 
     data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
-    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"http://localhost:3000/questions/{questionId}"</span>, data)
+    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"http://localhost:3000/reports/{reportId}"</span>, data)
     req.Header = headers
 
     client := &amp;http.Client{}
@@ -470,9 +595,9 @@ System.out.println(response.toString());
 }
 
 </code></pre>
-<p><code>GET /questions/{questionId}</code></p>
-<p><em>Retrieve a specific question identified by questionId</em></p>
-<h3 id="getquestion-parameters">Parameters</h3>
+<p><code>GET /reports/{reportId}</code></p>
+<p><em>Retrieve a specific type of report identified by reportId</em></p>
+<h3 id="getreport-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -485,11 +610,11 @@ System.out.println(response.toString());
 </thead>
 <tbody>
 <tr>
-<td>questionId</td>
+<td>reportId</td>
 <td>path</td>
 <td>string</td>
 <td>true</td>
-<td>The ID of the question to retrieve</td>
+<td>The ID of the type of report to retrieve</td>
 </tr>
 </tbody>
 </table>
@@ -506,7 +631,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"scope"</span>: <span class="hljs-string">"string"</span>
 }
 </code></pre>
-<h3 id="getquestion-responses">Responses</h3>
+<h3 id="getreport-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -520,13 +645,213 @@ System.out.println(response.toString());
 <tr>
 <td>200</td>
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>Details of a question</td>
-<td><a href="#schemaquestion">Question</a></td>
+<td>Details of a type of report</td>
+<td><a href="#schemareport">Report</a></td>
 </tr>
 <tr>
 <td>404</td>
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
-<td>Question not found</td>
+<td>Report type not found</td>
+<td><a href="#schemaproblemdetailserror">ProblemDetailsError</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>Default</td>
+<td>Error</td>
+<td><a href="#schemaproblemdetailserror">ProblemDetailsError</a></td>
+</tr>
+</tbody>
+</table>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h1 id="postman-open-technologies-knowledge-base-api-statistic">statistic</h1>
+<h2>getStatistics</h2>
+<p><a id="opIdgetStatistics"></a></p>
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="nohighlight example"><code><span class="hljs-meta">#</span><span class="bash"> You can also use wget</span>
+curl -X GET http://localhost:3000/statistics/{statisticType} \
+  -H 'Accept: application/json'
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://localhost:3000/statistics/{statisticType}</span> HTTP/1.1
+<span class="hljs-attribute">Host</span>: localhost:3000
+<span class="hljs-attribute">Accept</span>: application/json
+
+</code></pre>
+<pre class="nohighlight example"><code>
+<span class="hljs-keyword">const</span> headers = {
+  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
+};
+
+fetch(<span class="hljs-string">'http://localhost:3000/statistics/{statisticType}'</span>,
+{
+  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+
+  <span class="hljs-attr">headers</span>: headers
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
+    <span class="hljs-keyword">return</span> res.json();
+}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(body);
+});
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
+
+headers = {
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
+}
+
+result = RestClient.get <span class="hljs-string">'http://localhost:3000/statistics/{statisticType}'</span>,
+  <span class="hljs-symbol">params:</span> {
+  }, <span class="hljs-symbol">headers:</span> headers
+
+p JSON.parse(result)
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">import</span> requests
+headers = {
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
+}
+
+r = requests.get(<span class="hljs-string">'http://localhost:3000/statistics/{statisticType}'</span>, headers = headers)
+
+print(r.json())
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>,
+);
+
+$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
+
+<span class="hljs-comment">// Define array of request body.</span>
+$request_body = <span class="hljs-keyword">array</span>();
+
+<span class="hljs-keyword">try</span> {
+    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://localhost:3000/statistics/{statisticType}'</span>, <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">'headers'</span> =&gt; $headers,
+        <span class="hljs-string">'json'</span> =&gt; $request_body,
+       )
+    );
+    print_r($response-&gt;getBody()-&gt;getContents());
+ }
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+    <span class="hljs-comment">// handle exception or api errors.</span>
+    print_r($e-&gt;getMessage());
+ }
+
+ <span class="hljs-comment">// ...</span>
+
+</code></pre>
+<pre class="nohighlight example"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"http://localhost:3000/statistics/{statisticType}"</span>);
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod(<span class="hljs-string">"GET"</span>);
+<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
+BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
+    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
+<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+</code></pre>
+<pre class="nohighlight example"><code><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+       <span class="hljs-string">"bytes"</span>
+       <span class="hljs-string">"net/http"</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+
+    headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
+        <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/json"</span>},
+    }
+
+    data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
+    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"http://localhost:3000/statistics/{statisticType}"</span>, data)
+    req.Header = headers
+
+    client := &amp;http.Client{}
+    resp, err := client.Do(req)
+    <span class="hljs-comment">// ...</span>
+}
+
+</code></pre>
+<p><code>GET /statistics/{statisticType}</code></p>
+<p><em>Retrieve a specific type of statistics report identified by statisticType</em></p>
+<h3 id="getstatistics-parameters">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>statisticType</td>
+<td>path</td>
+<td>string</td>
+<td>true</td>
+<td>The type of statistics report to retrieve</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Example responses</p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<pre class="nohighlight example"><code>{
+  <span class="hljs-attr">"info"</span>: {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"creationDateTime"</span>: <span class="hljs-string">"2019-08-24T14:15:22Z"</span>
+  },
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"total"</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">"count"</span>: <span class="hljs-number">0</span>
+  }
+}
+</code></pre>
+<h3 id="getstatistics-responses">Responses</h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>The statistics details</td>
+<td><a href="#schemastatistic">Statistic</a></td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Statistics report type not found</td>
 <td><a href="#schemaproblemdetailserror">ProblemDetailsError</a></td>
 </tr>
 <tr>
@@ -706,12 +1031,12 @@ System.out.println(response.toString());
 This operation does not require authentication
 </aside>
 <h1>Schemas</h1>
-<h2 id="tocS_Question">Question</h2>
+<h2 id="tocS_Report">Report</h2>
 <!-- backwards compatibility -->
-<a id="schemaquestion"></a>
-<a id="schema_Question"></a>
-<a id="tocSquestion"></a>
-<a id="tocsquestion"></a>
+<a id="schemareport"></a>
+<a id="schema_Report"></a>
+<a id="tocSreport"></a>
+<a id="tocsreport"></a>
 <pre class="nohighlight example"><code>{
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
   <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
@@ -762,12 +1087,12 @@ This operation does not require authentication
 </tr>
 </tbody>
 </table>
-<h2 id="tocS_Questions">Questions</h2>
+<h2 id="tocS_Reports">Reports</h2>
 <!-- backwards compatibility -->
-<a id="schemaquestions"></a>
-<a id="schema_Questions"></a>
-<a id="tocSquestions"></a>
-<a id="tocsquestions"></a>
+<a id="schemareports"></a>
+<a id="schema_Reports"></a>
+<a id="tocSreports"></a>
+<a id="tocsreports"></a>
 <pre class="nohighlight example"><code>[
   {
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
@@ -792,7 +1117,142 @@ This operation does not require authentication
 <tbody>
 <tr>
 <td><em>anonymous</em></td>
-<td>[<a href="#schemaquestion">Question</a>]</td>
+<td>[<a href="#schemareport">Report</a>]</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tocS_Statistic">Statistic</h2>
+<!-- backwards compatibility -->
+<a id="schemastatistic"></a>
+<a id="schema_Statistic"></a>
+<a id="tocSstatistic"></a>
+<a id="tocsstatistic"></a>
+<pre class="nohighlight example"><code>{
+  <span class="hljs-attr">"info"</span>: {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"creationDateTime"</span>: <span class="hljs-string">"2019-08-24T14:15:22Z"</span>
+  },
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"total"</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">"count"</span>: <span class="hljs-number">0</span>
+  }
+}
+
+</code></pre>
+<h3>Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>info</td>
+<td><a href="#schemastatisticinfo">StatisticInfo</a></td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>data</td>
+<td><a href="#schemastatisticdata">StatisticData</a></td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tocS_StatisticInfo">StatisticInfo</h2>
+<!-- backwards compatibility -->
+<a id="schemastatisticinfo"></a>
+<a id="schema_StatisticInfo"></a>
+<a id="tocSstatisticinfo"></a>
+<a id="tocsstatisticinfo"></a>
+<pre class="nohighlight example"><code>{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"creationDateTime"</span>: <span class="hljs-string">"2019-08-24T14:15:22Z"</span>
+}
+
+</code></pre>
+<h3>Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>creationDateTime</td>
+<td>string(date-time)</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tocS_StatisticData">StatisticData</h2>
+<!-- backwards compatibility -->
+<a id="schemastatisticdata"></a>
+<a id="schema_StatisticData"></a>
+<a id="tocSstatisticdata"></a>
+<a id="tocsstatisticdata"></a>
+<pre class="nohighlight example"><code>{
+  <span class="hljs-attr">"total"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"count"</span>: <span class="hljs-number">0</span>
+}
+
+</code></pre>
+<h3>Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>total</td>
+<td>integer</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>count</td>
+<td>integer</td>
 <td>false</td>
 <td>none</td>
 <td>none</td>
