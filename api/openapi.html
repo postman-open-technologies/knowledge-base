@@ -1,1357 +1,396 @@
-<html><head><meta charset="UTF-8"><title>Postman Open Technologies Knowledge Base API v0.2.0</title></head><body><!-- Generator: Widdershins v4.0.1 -->
-<h1 id="postman-open-technologies-knowledge-base-api">Postman Open Technologies Knowledge Base API v0.2.0</h1>
-<blockquote>
-<p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
-</blockquote>
-<p>This is the API that lets you access the information available on the Knowledge Base.</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>Postman Open Technologies Knowledge Base API</title>
+  <!-- needed for adaptive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <script src="https://cdn.redoc.ly/redoc/v2.0.0/bundles/redoc.standalone.js"></script><style data-styled="true" data-styled-version="5.3.3">.fcjMZs{width:calc(100% - 40%);padding:0 40px;}/*!sc*/
+@media print,screen and (max-width:75rem){.fcjMZs{width:100%;padding:40px 40px;}}/*!sc*/
+data-styled.g4[id="sc-hKwDye"]{content:"fcjMZs,"}/*!sc*/
+.kKqedw{padding:40px 0;}/*!sc*/
+.kKqedw:last-child{min-height:calc(100vh + 1px);}/*!sc*/
+.sc-eCImPb > .sc-eCImPb:last-child{min-height:initial;}/*!sc*/
+@media print,screen and (max-width:75rem){.kKqedw{padding:0;}}/*!sc*/
+.hexvPn{padding:40px 0;position:relative;}/*!sc*/
+.hexvPn:last-child{min-height:calc(100vh + 1px);}/*!sc*/
+.sc-eCImPb > .sc-eCImPb:last-child{min-height:initial;}/*!sc*/
+@media print,screen and (max-width:75rem){.hexvPn{padding:0;}}/*!sc*/
+.hexvPn:not(:last-of-type):after{position:absolute;bottom:0;width:100%;display:block;content:'';border-bottom:1px solid rgba(0,0,0,0.2);}/*!sc*/
+data-styled.g5[id="sc-eCImPb"]{content:"kKqedw,hexvPn,"}/*!sc*/
+.vSqXI{width:40%;color:#ffffff;background-color:#263238;padding:0 40px;}/*!sc*/
+@media print,screen and (max-width:75rem){.vSqXI{width:100%;padding:40px 40px;}}/*!sc*/
+data-styled.g6[id="sc-jRQBWg"]{content:"vSqXI,"}/*!sc*/
+.dKDnzb{background-color:#263238;}/*!sc*/
+data-styled.g7[id="sc-gKclnd"]{content:"dKDnzb,"}/*!sc*/
+.jTXZbd{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;width:100%;padding:0;}/*!sc*/
+@media print,screen and (max-width:75rem){.jTXZbd{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}}/*!sc*/
+data-styled.g8[id="sc-iCfMLu"]{content:"jTXZbd,"}/*!sc*/
+.kwcwWd{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.85714em;line-height:1.6em;color:#333333;}/*!sc*/
+data-styled.g9[id="sc-furwcr"]{content:"kwcwWd,"}/*!sc*/
+.QwiBS{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.57143em;line-height:1.6em;color:#333333;margin:0 0 20px;}/*!sc*/
+data-styled.g10[id="sc-pVTFL"]{content:"QwiBS,"}/*!sc*/
+.hwMGJl{color:#ffffff;}/*!sc*/
+data-styled.g12[id="sc-kDTinF"]{content:"hwMGJl,"}/*!sc*/
+.kyZwVG{border-bottom:1px solid rgba(38,50,56,0.3);margin:1em 0 1em 0;color:rgba(38,50,56,0.5);font-weight:normal;text-transform:uppercase;font-size:0.929em;line-height:20px;}/*!sc*/
+data-styled.g13[id="sc-iqseJM"]{content:"kyZwVG,"}/*!sc*/
+.bNUQy{cursor:pointer;margin-left:-20px;padding:0;line-height:1;width:20px;display:inline-block;outline:0;}/*!sc*/
+.bNUQy:before{content:'';width:15px;height:15px;background-size:contain;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMCIgeT0iMCIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNNDU5LjcgMjMzLjRsLTkwLjUgOTAuNWMtNTAgNTAtMTMxIDUwLTE4MSAwIC03LjktNy44LTE0LTE2LjctMTkuNC0yNS44bDQyLjEtNDIuMWMyLTIgNC41LTMuMiA2LjgtNC41IDIuOSA5LjkgOCAxOS4zIDE1LjggMjcuMiAyNSAyNSA2NS42IDI0LjkgOTAuNSAwbDkwLjUtOTAuNWMyNS0yNSAyNS02NS42IDAtOTAuNSAtMjQuOS0yNS02NS41LTI1LTkwLjUgMGwtMzIuMiAzMi4yYy0yNi4xLTEwLjItNTQuMi0xMi45LTgxLjYtOC45bDY4LjYtNjguNmM1MC01MCAxMzEtNTAgMTgxIDBDNTA5LjYgMTAyLjMgNTA5LjYgMTgzLjQgNDU5LjcgMjMzLjR6TTIyMC4zIDM4Mi4ybC0zMi4yIDMyLjJjLTI1IDI0LjktNjUuNiAyNC45LTkwLjUgMCAtMjUtMjUtMjUtNjUuNiAwLTkwLjVsOTAuNS05MC41YzI1LTI1IDY1LjUtMjUgOTAuNSAwIDcuOCA3LjggMTIuOSAxNy4yIDE1LjggMjcuMSAyLjQtMS40IDQuOC0yLjUgNi44LTQuNWw0Mi4xLTQyYy01LjQtOS4yLTExLjYtMTgtMTkuNC0yNS44IC01MC01MC0xMzEtNTAtMTgxIDBsLTkwLjUgOTAuNWMtNTAgNTAtNTAgMTMxIDAgMTgxIDUwIDUwIDEzMSA1MCAxODEgMGw2OC42LTY4LjZDMjc0LjYgMzk1LjEgMjQ2LjQgMzkyLjMgMjIwLjMgMzgyLjJ6Ii8+PC9zdmc+Cg==');opacity:0.5;visibility:hidden;display:inline-block;vertical-align:middle;}/*!sc*/
+h1:hover > .sc-crHmcD::before,h2:hover > .bNUQy::before,.bNUQy:hover::before{visibility:visible;}/*!sc*/
+data-styled.g14[id="sc-crHmcD"]{content:"bNUQy,"}/*!sc*/
+.jLPfXH{height:18px;width:18px;min-width:18px;vertical-align:middle;float:right;-webkit-transition:-webkit-transform 0.2s ease-out;-webkit-transition:transform 0.2s ease-out;transition:transform 0.2s ease-out;-webkit-transform:rotateZ(-90deg);-ms-transform:rotateZ(-90deg);transform:rotateZ(-90deg);}/*!sc*/
+.bPEzCN{height:1.5em;width:1.5em;min-width:1.5em;vertical-align:middle;float:left;-webkit-transition:-webkit-transform 0.2s ease-out;-webkit-transition:transform 0.2s ease-out;transition:transform 0.2s ease-out;-webkit-transform:rotateZ(-90deg);-ms-transform:rotateZ(-90deg);transform:rotateZ(-90deg);}/*!sc*/
+.bPEzCN polygon{fill:#1d8127;}/*!sc*/
+.FBjwd{height:1.5em;width:1.5em;min-width:1.5em;vertical-align:middle;float:left;-webkit-transition:-webkit-transform 0.2s ease-out;-webkit-transition:transform 0.2s ease-out;transition:transform 0.2s ease-out;-webkit-transform:rotateZ(-90deg);-ms-transform:rotateZ(-90deg);transform:rotateZ(-90deg);}/*!sc*/
+.FBjwd polygon{fill:#d41f1c;}/*!sc*/
+.laPRNF{height:20px;width:20px;min-width:20px;vertical-align:middle;float:right;-webkit-transition:-webkit-transform 0.2s ease-out;-webkit-transition:transform 0.2s ease-out;transition:transform 0.2s ease-out;-webkit-transform:rotateZ(0);-ms-transform:rotateZ(0);transform:rotateZ(0);}/*!sc*/
+.laPRNF polygon{fill:white;}/*!sc*/
+data-styled.g15[id="sc-egiyK"]{content:"jLPfXH,bPEzCN,FBjwd,laPRNF,"}/*!sc*/
+.kCCtqV{border-left:1px solid #7c7cbb;box-sizing:border-box;position:relative;padding:10px 10px 10px 0;}/*!sc*/
+@media screen and (max-width:50rem){.kCCtqV{display:block;overflow:hidden;}}/*!sc*/
+tr:first-of-type > .sc-hBUSln,tr.last > .kCCtqV{border-left-width:0;background-position:top left;background-repeat:no-repeat;background-size:1px 100%;}/*!sc*/
+tr:first-of-type > .sc-hBUSln{background-image:linear-gradient( to bottom, transparent 0%, transparent 22px, #7c7cbb 22px, #7c7cbb 100% );}/*!sc*/
+tr.last > .sc-hBUSln{background-image:linear-gradient( to bottom, #7c7cbb 0%, #7c7cbb 22px, transparent 22px, transparent 100% );}/*!sc*/
+tr.last + tr > .sc-hBUSln{border-left-color:transparent;}/*!sc*/
+tr.last:first-child > .sc-hBUSln{background:none;border-left-color:transparent;}/*!sc*/
+data-styled.g18[id="sc-hBUSln"]{content:"kCCtqV,"}/*!sc*/
+.fwnkRw{vertical-align:top;line-height:20px;white-space:nowrap;font-size:13px;font-family:Courier,monospace;}/*!sc*/
+.fwnkRw.deprecated{-webkit-text-decoration:line-through;text-decoration:line-through;color:#707070;}/*!sc*/
+data-styled.g20[id="sc-fFeiMQ"]{content:"fwnkRw,"}/*!sc*/
+.fOwWgB{border-bottom:1px solid #9fb4be;padding:10px 0;width:75%;box-sizing:border-box;}/*!sc*/
+tr.expanded .sc-bkkeKt{border-bottom:none;}/*!sc*/
+@media screen and (max-width:50rem){.fOwWgB{padding:0 20px;border-bottom:none;border-left:1px solid #7c7cbb;}tr.last > .sc-bkkeKt{border-left:none;}}/*!sc*/
+data-styled.g21[id="sc-bkkeKt"]{content:"fOwWgB,"}/*!sc*/
+.fMdASL{color:#7c7cbb;font-family:Courier,monospace;margin-right:10px;}/*!sc*/
+.fMdASL::before{content:'';display:inline-block;vertical-align:middle;width:10px;height:1px;background:#7c7cbb;}/*!sc*/
+.fMdASL::after{content:'';display:inline-block;vertical-align:middle;width:1px;background:#7c7cbb;height:7px;}/*!sc*/
+data-styled.g22[id="sc-ieecCq"]{content:"fMdASL,"}/*!sc*/
+.wbnF{border-collapse:separate;border-radius:3px;font-size:14px;border-spacing:0;width:100%;}/*!sc*/
+.wbnF > tr{vertical-align:middle;}/*!sc*/
+@media screen and (max-width:50rem){.wbnF{display:block;}.wbnF > tr,.wbnF > tbody > tr{display:block;}}/*!sc*/
+@media screen and (max-width:50rem) and (-ms-high-contrast:none){.wbnF td{float:left;width:100%;}}/*!sc*/
+.wbnF .sc-dJjYzT,.wbnF .sc-dJjYzT .sc-dJjYzT .sc-dJjYzT,.wbnF .sc-dJjYzT .sc-dJjYzT .sc-dJjYzT .sc-dJjYzT .sc-dJjYzT{margin:1em;margin-right:0;background:#fafafa;}/*!sc*/
+.wbnF .sc-dJjYzT .sc-dJjYzT,.wbnF .sc-dJjYzT .sc-dJjYzT .sc-dJjYzT .sc-dJjYzT,.wbnF .sc-dJjYzT .sc-dJjYzT .sc-dJjYzT .sc-dJjYzT .sc-dJjYzT .sc-dJjYzT{background:#ffffff;}/*!sc*/
+data-styled.g24[id="sc-hGPBjI"]{content:"wbnF,"}/*!sc*/
+.eCLDJY > ul{list-style:none;padding:0;margin:0;margin:0 -5px;}/*!sc*/
+.eCLDJY > ul > li{padding:5px 10px;display:inline-block;background-color:#11171a;border-bottom:1px solid rgba(0,0,0,0.5);cursor:pointer;text-align:center;outline:none;color:#ccc;margin:0 5px 5px 5px;border:1px solid #07090b;border-radius:5px;min-width:60px;font-size:0.9em;font-weight:bold;}/*!sc*/
+.eCLDJY > ul > li.react-tabs__tab--selected{color:#333333;background:#ffffff;}/*!sc*/
+.eCLDJY > ul > li.react-tabs__tab--selected:focus{outline:auto;}/*!sc*/
+.eCLDJY > ul > li:only-child{-webkit-flex:none;-ms-flex:none;flex:none;min-width:100px;}/*!sc*/
+.eCLDJY > ul > li.tab-success{color:#1d8127;}/*!sc*/
+.eCLDJY > ul > li.tab-redirect{color:#ffa500;}/*!sc*/
+.eCLDJY > ul > li.tab-info{color:#87ceeb;}/*!sc*/
+.eCLDJY > ul > li.tab-error{color:#d41f1c;}/*!sc*/
+.eCLDJY > .react-tabs__tab-panel{background:#11171a;}/*!sc*/
+.eCLDJY > .react-tabs__tab-panel > div,.eCLDJY > .react-tabs__tab-panel > pre{padding:20px;margin:0;}/*!sc*/
+.eCLDJY > .react-tabs__tab-panel > div > pre{padding:0;}/*!sc*/
+data-styled.g30[id="sc-cxpSdN"]{content:"eCLDJY,"}/*!sc*/
+.hGZPxu code[class*='language-'],.hGZPxu pre[class*='language-']{text-shadow:0 -0.1em 0.2em black;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;}/*!sc*/
+@media print{.hGZPxu code[class*='language-'],.hGZPxu pre[class*='language-']{text-shadow:none;}}/*!sc*/
+.hGZPxu pre[class*='language-']{padding:1em;margin:0.5em 0;overflow:auto;}/*!sc*/
+.hGZPxu .token.comment,.hGZPxu .token.prolog,.hGZPxu .token.doctype,.hGZPxu .token.cdata{color:hsl(30,20%,50%);}/*!sc*/
+.hGZPxu .token.punctuation{opacity:0.7;}/*!sc*/
+.hGZPxu .namespace{opacity:0.7;}/*!sc*/
+.hGZPxu .token.property,.hGZPxu .token.tag,.hGZPxu .token.number,.hGZPxu .token.constant,.hGZPxu .token.symbol{color:#4a8bb3;}/*!sc*/
+.hGZPxu .token.boolean{color:#e64441;}/*!sc*/
+.hGZPxu .token.selector,.hGZPxu .token.attr-name,.hGZPxu .token.string,.hGZPxu .token.char,.hGZPxu .token.builtin,.hGZPxu .token.inserted{color:#a0fbaa;}/*!sc*/
+.hGZPxu .token.selector + a,.hGZPxu .token.attr-name + a,.hGZPxu .token.string + a,.hGZPxu .token.char + a,.hGZPxu .token.builtin + a,.hGZPxu .token.inserted + a,.hGZPxu .token.selector + a:visited,.hGZPxu .token.attr-name + a:visited,.hGZPxu .token.string + a:visited,.hGZPxu .token.char + a:visited,.hGZPxu .token.builtin + a:visited,.hGZPxu .token.inserted + a:visited{color:#4ed2ba;-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.hGZPxu .token.property.string{color:white;}/*!sc*/
+.hGZPxu .token.operator,.hGZPxu .token.entity,.hGZPxu .token.url,.hGZPxu .token.variable{color:hsl(40,90%,60%);}/*!sc*/
+.hGZPxu .token.atrule,.hGZPxu .token.attr-value,.hGZPxu .token.keyword{color:hsl(350,40%,70%);}/*!sc*/
+.hGZPxu .token.regex,.hGZPxu .token.important{color:#e90;}/*!sc*/
+.hGZPxu .token.important,.hGZPxu .token.bold{font-weight:bold;}/*!sc*/
+.hGZPxu .token.italic{font-style:italic;}/*!sc*/
+.hGZPxu .token.entity{cursor:help;}/*!sc*/
+.hGZPxu .token.deleted{color:red;}/*!sc*/
+data-styled.g32[id="sc-iJKOTD"]{content:"hGZPxu,"}/*!sc*/
+.gjxyHD{opacity:0.7;-webkit-transition:opacity 0.3s ease;transition:opacity 0.3s ease;text-align:right;}/*!sc*/
+.gjxyHD:focus-within{opacity:1;}/*!sc*/
+.gjxyHD > button{background-color:transparent;border:0;color:inherit;padding:2px 10px;font-family:Roboto,sans-serif;font-size:14px;line-height:1.5em;cursor:pointer;outline:0;}/*!sc*/
+.gjxyHD > button:hover,.gjxyHD > button:focus{background:rgba(255,255,255,0.1);}/*!sc*/
+data-styled.g33[id="sc-giYglK"]{content:"gjxyHD,"}/*!sc*/
+.eqZXtE{position:relative;}/*!sc*/
+data-styled.g38[id="sc-ikJyIC"]{content:"eqZXtE,"}/*!sc*/
+.fYaHea{font-family:Roboto,sans-serif;font-weight:400;line-height:1.5em;}/*!sc*/
+.fYaHea p:last-child{margin-bottom:0;}/*!sc*/
+.fYaHea h1{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.85714em;line-height:1.6em;color:#32329f;margin-top:0;}/*!sc*/
+.fYaHea h2{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.57143em;line-height:1.6em;color:#333333;}/*!sc*/
+.fYaHea code{color:#e53935;background-color:rgba(38,50,56,0.05);font-family:Courier,monospace;border-radius:2px;border:1px solid rgba(38,50,56,0.1);padding:0 5px;font-size:13px;font-weight:400;word-break:break-word;}/*!sc*/
+.fYaHea pre{font-family:Courier,monospace;white-space:pre;background-color:#11171a;color:white;padding:20px;overflow-x:auto;line-height:normal;border-radius:0px;border:1px solid rgba(38,50,56,0.1);}/*!sc*/
+.fYaHea pre code{background-color:transparent;color:white;padding:0;}/*!sc*/
+.fYaHea pre code:before,.fYaHea pre code:after{content:none;}/*!sc*/
+.fYaHea blockquote{margin:0;margin-bottom:1em;padding:0 15px;color:#777;border-left:4px solid #ddd;}/*!sc*/
+.fYaHea img{max-width:100%;box-sizing:content-box;}/*!sc*/
+.fYaHea ul,.fYaHea ol{padding-left:2em;margin:0;margin-bottom:1em;}/*!sc*/
+.fYaHea ul ul,.fYaHea ol ul,.fYaHea ul ol,.fYaHea ol ol{margin-bottom:0;margin-top:0;}/*!sc*/
+.fYaHea table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all;border-collapse:collapse;border-spacing:0;margin-top:1.5em;margin-bottom:1.5em;}/*!sc*/
+.fYaHea table tr{background-color:#fff;border-top:1px solid #ccc;}/*!sc*/
+.fYaHea table tr:nth-child(2n){background-color:#fafafa;}/*!sc*/
+.fYaHea table th,.fYaHea table td{padding:6px 13px;border:1px solid #ddd;}/*!sc*/
+.fYaHea table th{text-align:left;font-weight:bold;}/*!sc*/
+.fYaHea .share-link{cursor:pointer;margin-left:-20px;padding:0;line-height:1;width:20px;display:inline-block;outline:0;}/*!sc*/
+.fYaHea .share-link:before{content:'';width:15px;height:15px;background-size:contain;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMCIgeT0iMCIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNNDU5LjcgMjMzLjRsLTkwLjUgOTAuNWMtNTAgNTAtMTMxIDUwLTE4MSAwIC03LjktNy44LTE0LTE2LjctMTkuNC0yNS44bDQyLjEtNDIuMWMyLTIgNC41LTMuMiA2LjgtNC41IDIuOSA5LjkgOCAxOS4zIDE1LjggMjcuMiAyNSAyNSA2NS42IDI0LjkgOTAuNSAwbDkwLjUtOTAuNWMyNS0yNSAyNS02NS42IDAtOTAuNSAtMjQuOS0yNS02NS41LTI1LTkwLjUgMGwtMzIuMiAzMi4yYy0yNi4xLTEwLjItNTQuMi0xMi45LTgxLjYtOC45bDY4LjYtNjguNmM1MC01MCAxMzEtNTAgMTgxIDBDNTA5LjYgMTAyLjMgNTA5LjYgMTgzLjQgNDU5LjcgMjMzLjR6TTIyMC4zIDM4Mi4ybC0zMi4yIDMyLjJjLTI1IDI0LjktNjUuNiAyNC45LTkwLjUgMCAtMjUtMjUtMjUtNjUuNiAwLTkwLjVsOTAuNS05MC41YzI1LTI1IDY1LjUtMjUgOTAuNSAwIDcuOCA3LjggMTIuOSAxNy4yIDE1LjggMjcuMSAyLjQtMS40IDQuOC0yLjUgNi44LTQuNWw0Mi4xLTQyYy01LjQtOS4yLTExLjYtMTgtMTkuNC0yNS44IC01MC01MC0xMzEtNTAtMTgxIDBsLTkwLjUgOTAuNWMtNTAgNTAtNTAgMTMxIDAgMTgxIDUwIDUwIDEzMSA1MCAxODEgMGw2OC42LTY4LjZDMjc0LjYgMzk1LjEgMjQ2LjQgMzkyLjMgMjIwLjMgMzgyLjJ6Ii8+PC9zdmc+Cg==');opacity:0.5;visibility:hidden;display:inline-block;vertical-align:middle;}/*!sc*/
+.fYaHea h1:hover > .share-link::before,.fYaHea h2:hover > .share-link::before,.fYaHea .share-link:hover::before{visibility:visible;}/*!sc*/
+.fYaHea a{-webkit-text-decoration:auto;text-decoration:auto;color:#32329f;}/*!sc*/
+.fYaHea a:visited{color:#32329f;}/*!sc*/
+.fYaHea a:hover{color:#6868cf;-webkit-text-decoration:auto;text-decoration:auto;}/*!sc*/
+.fhPxtY{font-family:Roboto,sans-serif;font-weight:400;line-height:1.5em;}/*!sc*/
+.fhPxtY p:last-child{margin-bottom:0;}/*!sc*/
+.fhPxtY p:first-child{margin-top:0;}/*!sc*/
+.fhPxtY p:last-child{margin-bottom:0;}/*!sc*/
+.fhPxtY h1{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.85714em;line-height:1.6em;color:#32329f;margin-top:0;}/*!sc*/
+.fhPxtY h2{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.57143em;line-height:1.6em;color:#333333;}/*!sc*/
+.fhPxtY code{color:#e53935;background-color:rgba(38,50,56,0.05);font-family:Courier,monospace;border-radius:2px;border:1px solid rgba(38,50,56,0.1);padding:0 5px;font-size:13px;font-weight:400;word-break:break-word;}/*!sc*/
+.fhPxtY pre{font-family:Courier,monospace;white-space:pre;background-color:#11171a;color:white;padding:20px;overflow-x:auto;line-height:normal;border-radius:0px;border:1px solid rgba(38,50,56,0.1);}/*!sc*/
+.fhPxtY pre code{background-color:transparent;color:white;padding:0;}/*!sc*/
+.fhPxtY pre code:before,.fhPxtY pre code:after{content:none;}/*!sc*/
+.fhPxtY blockquote{margin:0;margin-bottom:1em;padding:0 15px;color:#777;border-left:4px solid #ddd;}/*!sc*/
+.fhPxtY img{max-width:100%;box-sizing:content-box;}/*!sc*/
+.fhPxtY ul,.fhPxtY ol{padding-left:2em;margin:0;margin-bottom:1em;}/*!sc*/
+.fhPxtY ul ul,.fhPxtY ol ul,.fhPxtY ul ol,.fhPxtY ol ol{margin-bottom:0;margin-top:0;}/*!sc*/
+.fhPxtY table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all;border-collapse:collapse;border-spacing:0;margin-top:1.5em;margin-bottom:1.5em;}/*!sc*/
+.fhPxtY table tr{background-color:#fff;border-top:1px solid #ccc;}/*!sc*/
+.fhPxtY table tr:nth-child(2n){background-color:#fafafa;}/*!sc*/
+.fhPxtY table th,.fhPxtY table td{padding:6px 13px;border:1px solid #ddd;}/*!sc*/
+.fhPxtY table th{text-align:left;font-weight:bold;}/*!sc*/
+.fhPxtY .share-link{cursor:pointer;margin-left:-20px;padding:0;line-height:1;width:20px;display:inline-block;outline:0;}/*!sc*/
+.fhPxtY .share-link:before{content:'';width:15px;height:15px;background-size:contain;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMCIgeT0iMCIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNNDU5LjcgMjMzLjRsLTkwLjUgOTAuNWMtNTAgNTAtMTMxIDUwLTE4MSAwIC03LjktNy44LTE0LTE2LjctMTkuNC0yNS44bDQyLjEtNDIuMWMyLTIgNC41LTMuMiA2LjgtNC41IDIuOSA5LjkgOCAxOS4zIDE1LjggMjcuMiAyNSAyNSA2NS42IDI0LjkgOTAuNSAwbDkwLjUtOTAuNWMyNS0yNSAyNS02NS42IDAtOTAuNSAtMjQuOS0yNS02NS41LTI1LTkwLjUgMGwtMzIuMiAzMi4yYy0yNi4xLTEwLjItNTQuMi0xMi45LTgxLjYtOC45bDY4LjYtNjguNmM1MC01MCAxMzEtNTAgMTgxIDBDNTA5LjYgMTAyLjMgNTA5LjYgMTgzLjQgNDU5LjcgMjMzLjR6TTIyMC4zIDM4Mi4ybC0zMi4yIDMyLjJjLTI1IDI0LjktNjUuNiAyNC45LTkwLjUgMCAtMjUtMjUtMjUtNjUuNiAwLTkwLjVsOTAuNS05MC41YzI1LTI1IDY1LjUtMjUgOTAuNSAwIDcuOCA3LjggMTIuOSAxNy4yIDE1LjggMjcuMSAyLjQtMS40IDQuOC0yLjUgNi44LTQuNWw0Mi4xLTQyYy01LjQtOS4yLTExLjYtMTgtMTkuNC0yNS44IC01MC01MC0xMzEtNTAtMTgxIDBsLTkwLjUgOTAuNWMtNTAgNTAtNTAgMTMxIDAgMTgxIDUwIDUwIDEzMSA1MCAxODEgMGw2OC42LTY4LjZDMjc0LjYgMzk1LjEgMjQ2LjQgMzkyLjMgMjIwLjMgMzgyLjJ6Ii8+PC9zdmc+Cg==');opacity:0.5;visibility:hidden;display:inline-block;vertical-align:middle;}/*!sc*/
+.fhPxtY h1:hover > .share-link::before,.fhPxtY h2:hover > .share-link::before,.fhPxtY .share-link:hover::before{visibility:visible;}/*!sc*/
+.fhPxtY a{-webkit-text-decoration:auto;text-decoration:auto;color:#32329f;}/*!sc*/
+.fhPxtY a:visited{color:#32329f;}/*!sc*/
+.fhPxtY a:hover{color:#6868cf;-webkit-text-decoration:auto;text-decoration:auto;}/*!sc*/
+data-styled.g43[id="sc-cidDSM"]{content:"fYaHea,fhPxtY,"}/*!sc*/
+.eahewB{font-family:Roboto,sans-serif;font-weight:400;line-height:1.5em;}/*!sc*/
+.eahewB p:last-child{margin-bottom:0;}/*!sc*/
+.eahewB p:first-child{margin-top:0;}/*!sc*/
+.eahewB p:last-child{margin-bottom:0;}/*!sc*/
+.eahewB p{display:inline-block;}/*!sc*/
+.eahewB h1{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.85714em;line-height:1.6em;color:#32329f;margin-top:0;}/*!sc*/
+.eahewB h2{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.57143em;line-height:1.6em;color:#333333;}/*!sc*/
+.eahewB code{color:#e53935;background-color:rgba(38,50,56,0.05);font-family:Courier,monospace;border-radius:2px;border:1px solid rgba(38,50,56,0.1);padding:0 5px;font-size:13px;font-weight:400;word-break:break-word;}/*!sc*/
+.eahewB pre{font-family:Courier,monospace;white-space:pre;background-color:#11171a;color:white;padding:20px;overflow-x:auto;line-height:normal;border-radius:0px;border:1px solid rgba(38,50,56,0.1);}/*!sc*/
+.eahewB pre code{background-color:transparent;color:white;padding:0;}/*!sc*/
+.eahewB pre code:before,.eahewB pre code:after{content:none;}/*!sc*/
+.eahewB blockquote{margin:0;margin-bottom:1em;padding:0 15px;color:#777;border-left:4px solid #ddd;}/*!sc*/
+.eahewB img{max-width:100%;box-sizing:content-box;}/*!sc*/
+.eahewB ul,.eahewB ol{padding-left:2em;margin:0;margin-bottom:1em;}/*!sc*/
+.eahewB ul ul,.eahewB ol ul,.eahewB ul ol,.eahewB ol ol{margin-bottom:0;margin-top:0;}/*!sc*/
+.eahewB table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all;border-collapse:collapse;border-spacing:0;margin-top:1.5em;margin-bottom:1.5em;}/*!sc*/
+.eahewB table tr{background-color:#fff;border-top:1px solid #ccc;}/*!sc*/
+.eahewB table tr:nth-child(2n){background-color:#fafafa;}/*!sc*/
+.eahewB table th,.eahewB table td{padding:6px 13px;border:1px solid #ddd;}/*!sc*/
+.eahewB table th{text-align:left;font-weight:bold;}/*!sc*/
+.eahewB .share-link{cursor:pointer;margin-left:-20px;padding:0;line-height:1;width:20px;display:inline-block;outline:0;}/*!sc*/
+.eahewB .share-link:before{content:'';width:15px;height:15px;background-size:contain;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMCIgeT0iMCIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNNDU5LjcgMjMzLjRsLTkwLjUgOTAuNWMtNTAgNTAtMTMxIDUwLTE4MSAwIC03LjktNy44LTE0LTE2LjctMTkuNC0yNS44bDQyLjEtNDIuMWMyLTIgNC41LTMuMiA2LjgtNC41IDIuOSA5LjkgOCAxOS4zIDE1LjggMjcuMiAyNSAyNSA2NS42IDI0LjkgOTAuNSAwbDkwLjUtOTAuNWMyNS0yNSAyNS02NS42IDAtOTAuNSAtMjQuOS0yNS02NS41LTI1LTkwLjUgMGwtMzIuMiAzMi4yYy0yNi4xLTEwLjItNTQuMi0xMi45LTgxLjYtOC45bDY4LjYtNjguNmM1MC01MCAxMzEtNTAgMTgxIDBDNTA5LjYgMTAyLjMgNTA5LjYgMTgzLjQgNDU5LjcgMjMzLjR6TTIyMC4zIDM4Mi4ybC0zMi4yIDMyLjJjLTI1IDI0LjktNjUuNiAyNC45LTkwLjUgMCAtMjUtMjUtMjUtNjUuNiAwLTkwLjVsOTAuNS05MC41YzI1LTI1IDY1LjUtMjUgOTAuNSAwIDcuOCA3LjggMTIuOSAxNy4yIDE1LjggMjcuMSAyLjQtMS40IDQuOC0yLjUgNi44LTQuNWw0Mi4xLTQyYy01LjQtOS4yLTExLjYtMTgtMTkuNC0yNS44IC01MC01MC0xMzEtNTAtMTgxIDBsLTkwLjUgOTAuNWMtNTAgNTAtNTAgMTMxIDAgMTgxIDUwIDUwIDEzMSA1MCAxODEgMGw2OC42LTY4LjZDMjc0LjYgMzk1LjEgMjQ2LjQgMzkyLjMgMjIwLjMgMzgyLjJ6Ii8+PC9zdmc+Cg==');opacity:0.5;visibility:hidden;display:inline-block;vertical-align:middle;}/*!sc*/
+.eahewB h1:hover > .share-link::before,.eahewB h2:hover > .share-link::before,.eahewB .share-link:hover::before{visibility:visible;}/*!sc*/
+.eahewB a{-webkit-text-decoration:auto;text-decoration:auto;color:#32329f;}/*!sc*/
+.eahewB a:visited{color:#32329f;}/*!sc*/
+.eahewB a:hover{color:#6868cf;-webkit-text-decoration:auto;text-decoration:auto;}/*!sc*/
+data-styled.g44[id="sc-jcFjpl"]{content:"eahewB,"}/*!sc*/
+.ddxnzs{position:relative;}/*!sc*/
+data-styled.g45[id="sc-caiLqq"]{content:"ddxnzs,"}/*!sc*/
+.jOBPNj:hover > .sc-giYglK{opacity:1;}/*!sc*/
+data-styled.g50[id="sc-jObWnj"]{content:"jOBPNj,"}/*!sc*/
+.sRoPx{font-family:Courier,monospace;font-size:13px;white-space:pre;contain:content;overflow-x:auto;}/*!sc*/
+.sRoPx .redoc-json code > .collapser{display:none;pointer-events:none;}/*!sc*/
+.sRoPx .callback-function{color:gray;}/*!sc*/
+.sRoPx .collapser:after{content:'-';cursor:pointer;}/*!sc*/
+.sRoPx .collapsed > .collapser:after{content:'+';cursor:pointer;}/*!sc*/
+.sRoPx .ellipsis:after{content:' … ';}/*!sc*/
+.sRoPx .collapsible{margin-left:2em;}/*!sc*/
+.sRoPx .hoverable{padding-top:1px;padding-bottom:1px;padding-left:2px;padding-right:2px;border-radius:2px;}/*!sc*/
+.sRoPx .hovered{background-color:rgba(235,238,249,1);}/*!sc*/
+.sRoPx .collapser{background-color:transparent;border:0;color:#fff;font-family:Courier,monospace;font-size:13px;padding-right:6px;padding-left:6px;padding-top:0;padding-bottom:0;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;width:15px;height:15px;position:absolute;top:4px;left:-1.5em;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-user-select:none;padding:2px;}/*!sc*/
+.sRoPx .collapser:focus{outline-color:#fff;outline-style:dotted;outline-width:1px;}/*!sc*/
+.sRoPx ul{list-style-type:none;padding:0px;margin:0px 0px 0px 26px;}/*!sc*/
+.sRoPx li{position:relative;display:block;}/*!sc*/
+.sRoPx .hoverable{display:inline-block;}/*!sc*/
+.sRoPx .selected{outline-style:solid;outline-width:1px;outline-style:dotted;}/*!sc*/
+.sRoPx .collapsed > .collapsible{display:none;}/*!sc*/
+.sRoPx .ellipsis{display:none;}/*!sc*/
+.sRoPx .collapsed > .ellipsis{display:inherit;}/*!sc*/
+data-styled.g51[id="sc-dPiLbb"]{content:"sRoPx,"}/*!sc*/
+.eidhyg{padding:0.9em;background-color:rgba(38,50,56,0.4);margin:0 0 10px 0;display:block;font-family:Montserrat,sans-serif;font-size:0.929em;line-height:1.5em;}/*!sc*/
+data-styled.g52[id="sc-bBHHxi"]{content:"eidhyg,"}/*!sc*/
+.iYcnri{font-family:Montserrat,sans-serif;font-size:12px;position:absolute;z-index:1;top:-11px;left:12px;font-weight:600;color:rgba(255,255,255,0.7);}/*!sc*/
+data-styled.g53[id="sc-cNKqjZ"]{content:"iYcnri,"}/*!sc*/
+.bcpfGN{position:relative;}/*!sc*/
+data-styled.g54[id="sc-AjmGg"]{content:"bcpfGN,"}/*!sc*/
+.iUheaL{margin-top:15px;}/*!sc*/
+data-styled.g57[id="sc-jgrJph"]{content:"iUheaL,"}/*!sc*/
+.gHbDui{vertical-align:middle;font-size:13px;line-height:20px;}/*!sc*/
+data-styled.g59[id="sc-lbhJGD"]{content:"gHbDui,"}/*!sc*/
+.eLMLxg{color:rgba(102,102,102,0.9);}/*!sc*/
+data-styled.g60[id="sc-iNGGcK"]{content:"eLMLxg,"}/*!sc*/
+.ifsMbX{color:#666;}/*!sc*/
+data-styled.g61[id="sc-jeraig"]{content:"ifsMbX,"}/*!sc*/
+.eyZzuM{vertical-align:middle;font-size:13px;line-height:20px;}/*!sc*/
+data-styled.g63[id="sc-nVkyK"]{content:"eyZzuM,"}/*!sc*/
+.eSyGZd{color:#d41f1c;font-size:0.9em;font-weight:normal;margin-left:20px;line-height:1;}/*!sc*/
+data-styled.g64[id="sc-hiwPVj"]{content:"eSyGZd,"}/*!sc*/
+.dezuum{margin-top:0;margin-bottom:0.5em;}/*!sc*/
+data-styled.g93[id="sc-dFtzxp"]{content:"dezuum,"}/*!sc*/
+.cfBNBf{border:1px solid #32329f;color:#32329f;font-weight:normal;margin-left:0.5em;padding:4px 8px 4px;display:inline-block;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}/*!sc*/
+data-styled.g94[id="sc-brSvTw"]{content:"cfBNBf,"}/*!sc*/
+.dSDiln::before{content:'|';display:inline-block;opacity:0.5;width:15px;text-align:center;}/*!sc*/
+.dSDiln:last-child::after{display:none;}/*!sc*/
+data-styled.g95[id="sc-gIDmLj"]{content:"dSDiln,"}/*!sc*/
+.jnWsnL{overflow:hidden;}/*!sc*/
+data-styled.g96[id="sc-evcjhq"]{content:"jnWsnL,"}/*!sc*/
+.clvmzv{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-left:-15px;}/*!sc*/
+data-styled.g97[id="sc-fHeRUh"]{content:"clvmzv,"}/*!sc*/
+.eXEyiA{width:9ex;display:inline-block;height:13px;line-height:13px;background-color:#333;border-radius:3px;background-repeat:no-repeat;background-position:6px 4px;font-size:7px;font-family:Verdana,sans-serif;color:white;text-transform:uppercase;text-align:center;font-weight:bold;vertical-align:middle;margin-right:6px;margin-top:2px;}/*!sc*/
+.eXEyiA.get{background-color:#2F8132;}/*!sc*/
+.eXEyiA.post{background-color:#186FAF;}/*!sc*/
+.eXEyiA.put{background-color:#95507c;}/*!sc*/
+.eXEyiA.options{background-color:#947014;}/*!sc*/
+.eXEyiA.patch{background-color:#bf581d;}/*!sc*/
+.eXEyiA.delete{background-color:#cc3333;}/*!sc*/
+.eXEyiA.basic{background-color:#707070;}/*!sc*/
+.eXEyiA.link{background-color:#07818F;}/*!sc*/
+.eXEyiA.head{background-color:#A23DAD;}/*!sc*/
+.eXEyiA.hook{background-color:#32329f;}/*!sc*/
+data-styled.g101[id="sc-ilfuhL"]{content:"eXEyiA,"}/*!sc*/
+.cBjpjq{margin:0;padding:0;}/*!sc*/
+.cBjpjq:first-child{padding-bottom:32px;}/*!sc*/
+.sc-uojGG .sc-uojGG{font-size:0.929em;}/*!sc*/
+.fZvBef{margin:0;padding:0;display:none;}/*!sc*/
+.fZvBef:first-child{padding-bottom:32px;}/*!sc*/
+.sc-uojGG .sc-uojGG{font-size:0.929em;}/*!sc*/
+data-styled.g102[id="sc-uojGG"]{content:"cBjpjq,fZvBef,"}/*!sc*/
+.iVJVQY{list-style:none inside none;overflow:hidden;text-overflow:ellipsis;padding:0;}/*!sc*/
+data-styled.g103[id="sc-bilyIR"]{content:"iVJVQY,"}/*!sc*/
+.cbGskd{cursor:pointer;color:#333333;margin:0;padding:12.5px 20px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;font-family:Montserrat,sans-serif;font-size:0.929em;text-transform:none;background-color:#fafafa;}/*!sc*/
+.cbGskd:hover{color:#32329f;background-color:#e1e1e1;}/*!sc*/
+.cbGskd .sc-egiyK{height:1.5em;width:1.5em;}/*!sc*/
+.cbGskd .sc-egiyK polygon{fill:#333333;}/*!sc*/
+.jDuioL{cursor:pointer;color:#333333;margin:0;padding:12.5px 20px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;font-family:Montserrat,sans-serif;background-color:#fafafa;}/*!sc*/
+.jDuioL:hover{color:#32329f;background-color:#ededed;}/*!sc*/
+.jDuioL .sc-egiyK{height:1.5em;width:1.5em;}/*!sc*/
+.jDuioL .sc-egiyK polygon{fill:#333333;}/*!sc*/
+data-styled.g104[id="sc-eGPXGI"]{content:"cbGskd,jDuioL,"}/*!sc*/
+.hTIqli{display:inline-block;vertical-align:middle;width:auto;overflow:hidden;text-overflow:ellipsis;}/*!sc*/
+.gPtqKT{display:inline-block;vertical-align:middle;width:calc(100% - 38px);overflow:hidden;text-overflow:ellipsis;}/*!sc*/
+data-styled.g105[id="sc-hAcGzb"]{content:"hTIqli,gPtqKT,"}/*!sc*/
+.hjTfvW{font-size:0.8em;margin-top:10px;text-align:center;position:fixed;width:260px;bottom:0;background:#fafafa;}/*!sc*/
+.hjTfvW a,.hjTfvW a:visited,.hjTfvW a:hover{color:#333333 !important;padding:5px 0;border-top:1px solid #e1e1e1;-webkit-text-decoration:none;text-decoration:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}/*!sc*/
+.hjTfvW img{width:15px;margin-right:5px;}/*!sc*/
+@media screen and (max-width:50rem){.hjTfvW{width:100%;}}/*!sc*/
+data-styled.g106[id="sc-kYHfwS"]{content:"hjTfvW,"}/*!sc*/
+.jYAhkx{cursor:pointer;position:relative;margin-bottom:5px;}/*!sc*/
+data-styled.g112[id="sc-FNXRL"]{content:"jYAhkx,"}/*!sc*/
+.hxZHzL{font-family:Courier,monospace;margin-left:10px;-webkit-flex:1;-ms-flex:1;flex:1;overflow-x:hidden;text-overflow:ellipsis;}/*!sc*/
+data-styled.g113[id="sc-jWUzzU"]{content:"hxZHzL,"}/*!sc*/
+.bxamQ{outline:0;color:inherit;width:100%;text-align:left;cursor:pointer;padding:10px 30px 10px 20px;border-radius:4px 4px 0 0;background-color:#11171a;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;white-space:nowrap;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;border:1px solid transparent;border-bottom:0;-webkit-transition:border-color 0.25s ease;transition:border-color 0.25s ease;}/*!sc*/
+.bxamQ ..sc-jWUzzU{color:#ffffff;}/*!sc*/
+.bxamQ:focus{box-shadow:inset 0 2px 2px rgba(0,0,0,0.45),0 2px 0 rgba(128,128,128,0.25);}/*!sc*/
+data-styled.g114[id="sc-eFegNN"]{content:"bxamQ,"}/*!sc*/
+.hYmQQT{font-size:0.929em;line-height:20px;background-color:#2F8132;color:#ffffff;padding:3px 10px;text-transform:uppercase;font-family:Montserrat,sans-serif;margin:0;}/*!sc*/
+data-styled.g115[id="sc-fmBCVi"]{content:"hYmQQT,"}/*!sc*/
+.fuqHqW{position:absolute;width:100%;z-index:100;background:#fafafa;color:#263238;box-sizing:border-box;box-shadow:0px 0px 6px rgba(0,0,0,0.33);overflow:hidden;border-bottom-left-radius:4px;border-bottom-right-radius:4px;-webkit-transition:all 0.25s ease;transition:all 0.25s ease;visibility:hidden;-webkit-transform:translateY(-50%) scaleY(0);-ms-transform:translateY(-50%) scaleY(0);transform:translateY(-50%) scaleY(0);}/*!sc*/
+data-styled.g116[id="sc-lkgTHX"]{content:"fuqHqW,"}/*!sc*/
+.fUpXCf{padding:10px;}/*!sc*/
+data-styled.g117[id="sc-jlRLRk"]{content:"fUpXCf,"}/*!sc*/
+.ggmziU{padding:5px;border:1px solid #ccc;background:#fff;word-break:break-all;color:#32329f;}/*!sc*/
+.ggmziU > span{color:#333333;}/*!sc*/
+data-styled.g118[id="sc-dUbtfd"]{content:"ggmziU,"}/*!sc*/
+.hoRAnv{display:block;border:0;width:100%;text-align:left;padding:10px;border-radius:2px;margin-bottom:4px;line-height:1.5em;cursor:pointer;color:#1d8127;background-color:rgba(29,129,39,0.07);}/*!sc*/
+.hoRAnv:focus{outline:auto #1d8127;}/*!sc*/
+.wltdp{display:block;border:0;width:100%;text-align:left;padding:10px;border-radius:2px;margin-bottom:4px;line-height:1.5em;cursor:pointer;color:#d41f1c;background-color:rgba(212,31,28,0.07);}/*!sc*/
+.wltdp:focus{outline:auto #d41f1c;}/*!sc*/
+data-styled.g119[id="sc-htJRVC"]{content:"hoRAnv,wltdp,"}/*!sc*/
+.jHtNTU{vertical-align:top;}/*!sc*/
+data-styled.g123[id="sc-fXeWAj"]{content:"jHtNTU,"}/*!sc*/
+.bTvSgn{font-size:1.3em;padding:0.2em 0;margin:3em 0 1.1em;color:#333333;font-weight:normal;}/*!sc*/
+data-styled.g124[id="sc-fIosxK"]{content:"bTvSgn,"}/*!sc*/
+.lptroy{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:20px;height:20px;-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;color:#32329f;}/*!sc*/
+data-styled.g130[id="sc-iqVWFU"]{content:"lptroy,"}/*!sc*/
+.iFeLMl{width:260px;background-color:#fafafa;overflow:hidden;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-backface-visibility:hidden;backface-visibility:hidden;height:100vh;position:-webkit-sticky;position:sticky;position:-webkit-sticky;top:0;}/*!sc*/
+@media screen and (max-width:50rem){.iFeLMl{position:fixed;z-index:20;width:100%;background:#fafafa;display:none;}}/*!sc*/
+@media print{.iFeLMl{display:none;}}/*!sc*/
+data-styled.g131[id="sc-eWfVMQ"]{content:"iFeLMl,"}/*!sc*/
+.cxHKpm{outline:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-color:#f2f2f2;color:#32329f;display:none;cursor:pointer;position:fixed;right:20px;z-index:100;border-radius:50%;box-shadow:0 0 20px rgba(0,0,0,0.3);bottom:44px;width:60px;height:60px;padding:0 20px;}/*!sc*/
+@media screen and (max-width:50rem){.cxHKpm{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}}/*!sc*/
+.cxHKpm svg{color:#0065FB;}/*!sc*/
+@media print{.cxHKpm{display:none;}}/*!sc*/
+data-styled.g132[id="sc-kTLmzF"]{content:"cxHKpm,"}/*!sc*/
+.cjkacg{font-family:Roboto,sans-serif;font-size:14px;font-weight:400;line-height:1.5em;color:#333333;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:relative;text-align:left;-webkit-font-smoothing:antialiased;font-smoothing:antialiased;text-rendering:optimizeSpeed !important;tap-highlight-color:rgba(0,0,0,0);-webkit-text-size-adjust:100%;text-size-adjust:100%;}/*!sc*/
+.cjkacg *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(255,255,255,0);}/*!sc*/
+data-styled.g133[id="sc-dwsnSq"]{content:"cjkacg,"}/*!sc*/
+.jxeukX{z-index:1;position:relative;overflow:hidden;width:calc(100% - 260px);contain:layout;}/*!sc*/
+@media print,screen and (max-width:50rem){.jxeukX{width:100%;}}/*!sc*/
+data-styled.g134[id="sc-jtXEFf"]{content:"jxeukX,"}/*!sc*/
+.bLydqy{background:#263238;position:absolute;top:0;bottom:0;right:0;width:calc((100% - 260px) * 0.4);}/*!sc*/
+@media print,screen and (max-width:75rem){.bLydqy{display:none;}}/*!sc*/
+data-styled.g135[id="sc-eldieg"]{content:"bLydqy,"}/*!sc*/
+.qyDlP{padding:5px 0;}/*!sc*/
+data-styled.g136[id="sc-kiIyQV"]{content:"qyDlP,"}/*!sc*/
+.KrPzq{width:calc(100% - 40px);box-sizing:border-box;margin:0 20px;padding:5px 10px 5px 20px;border:0;border-bottom:1px solid #e1e1e1;font-family:Roboto,sans-serif;font-weight:bold;font-size:13px;color:#333333;background-color:transparent;outline:none;}/*!sc*/
+data-styled.g137[id="sc-cLpAjG"]{content:"KrPzq,"}/*!sc*/
+.liFvtQ{position:absolute;left:20px;height:1.8em;width:0.9em;}/*!sc*/
+.liFvtQ path{fill:#333333;}/*!sc*/
+data-styled.g138[id="sc-iIUQWv"]{content:"liFvtQ,"}/*!sc*/
+</style>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
+</head>
+
+<body>
+  
+      <div id="redoc"><div class="sc-dwsnSq cjkacg redoc-wrap"><div class="sc-eWfVMQ iFeLMl menu-content" style="top:0px;height:calc(100vh - 0px)"><div role="search" class="sc-kiIyQV qyDlP"><svg class="sc-iIUQWv liFvtQ search-icon" version="1.1" viewBox="0 0 1000 1000" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M968.2,849.4L667.3,549c83.9-136.5,66.7-317.4-51.7-435.6C477.1-25,252.5-25,113.9,113.4c-138.5,138.3-138.5,362.6,0,501C219.2,730.1,413.2,743,547.6,666.5l301.9,301.4c43.6,43.6,76.9,14.9,104.2-12.4C981,928.3,1011.8,893,968.2,849.4z M524.5,522c-88.9,88.7-233,88.7-321.8,0c-88.9-88.7-88.9-232.6,0-321.3c88.9-88.7,233-88.7,321.8,0C613.4,289.4,613.4,433.3,524.5,522z"></path></svg><input type="text" value="" placeholder="Search..." aria-label="Search" class="sc-cLpAjG KrPzq search-input"/></div><div class="sc-ikJyIC eqZXtE scrollbar-container undefined"><ul class="sc-uojGG cBjpjq" role="menu"><li data-item-id="tag/openapi" class="sc-bilyIR iVJVQY"><label type="tag" role="menuitem" class="sc-eGPXGI cbGskd -depth1"><span title="openapi" class="sc-hAcGzb hTIqli">openapi</span><svg class="sc-egiyK jLPfXH" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></label><ul class="sc-uojGG fZvBef"><li data-item-id="tag/openapi/operation/getOpenAPI" class="sc-bilyIR iVJVQY"><label role="menuitem" class="sc-eGPXGI jDuioL -depth2"><span type="get" class="sc-ilfuhL eXEyiA operation-type get">get</span><span width="calc(100% - 38px)" class="sc-hAcGzb gPtqKT">Retrieve the OpenAPI definition</span></label></li></ul></li><li data-item-id="tag/definition" class="sc-bilyIR iVJVQY"><label type="tag" role="menuitem" class="sc-eGPXGI cbGskd -depth1"><span title="definition" class="sc-hAcGzb hTIqli">definition</span><svg class="sc-egiyK jLPfXH" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></label><ul class="sc-uojGG fZvBef"><li data-item-id="tag/definition/operation/getOpenAPI" class="sc-bilyIR iVJVQY"><label role="menuitem" class="sc-eGPXGI jDuioL -depth2"><span type="get" class="sc-ilfuhL eXEyiA operation-type get">get</span><span width="calc(100% - 38px)" class="sc-hAcGzb gPtqKT">Retrieve the OpenAPI definition</span></label></li></ul></li><li data-item-id="tag/reports" class="sc-bilyIR iVJVQY"><label type="tag" role="menuitem" class="sc-eGPXGI cbGskd -depth1"><span title="reports" class="sc-hAcGzb hTIqli">reports</span><svg class="sc-egiyK jLPfXH" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></label><ul class="sc-uojGG fZvBef"><li data-item-id="tag/reports/operation/listReports" class="sc-bilyIR iVJVQY"><label role="menuitem" class="sc-eGPXGI jDuioL -depth2"><span type="get" class="sc-ilfuhL eXEyiA operation-type get">get</span><span width="calc(100% - 38px)" class="sc-hAcGzb gPtqKT">Retrieve a list of the available types of statistical reports</span></label></li></ul></li><li data-item-id="tag/report" class="sc-bilyIR iVJVQY"><label type="tag" role="menuitem" class="sc-eGPXGI cbGskd -depth1"><span title="report" class="sc-hAcGzb hTIqli">report</span><svg class="sc-egiyK jLPfXH" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></label><ul class="sc-uojGG fZvBef"><li data-item-id="tag/report/operation/listReports" class="sc-bilyIR iVJVQY"><label role="menuitem" class="sc-eGPXGI jDuioL -depth2"><span type="get" class="sc-ilfuhL eXEyiA operation-type get">get</span><span width="calc(100% - 38px)" class="sc-hAcGzb gPtqKT">Retrieve a list of the available types of statistical reports</span></label></li><li data-item-id="tag/report/operation/getReport" class="sc-bilyIR iVJVQY"><label role="menuitem" class="sc-eGPXGI jDuioL -depth2"><span type="get" class="sc-ilfuhL eXEyiA operation-type get">get</span><span width="calc(100% - 38px)" class="sc-hAcGzb gPtqKT">Retrieve a specific type of report identified by reportId</span></label></li></ul></li><li data-item-id="tag/list" class="sc-bilyIR iVJVQY"><label type="tag" role="menuitem" class="sc-eGPXGI cbGskd -depth1"><span title="list" class="sc-hAcGzb hTIqli">list</span><svg class="sc-egiyK jLPfXH" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></label><ul class="sc-uojGG fZvBef"><li data-item-id="tag/list/operation/listReports" class="sc-bilyIR iVJVQY"><label role="menuitem" class="sc-eGPXGI jDuioL -depth2"><span type="get" class="sc-ilfuhL eXEyiA operation-type get">get</span><span width="calc(100% - 38px)" class="sc-hAcGzb gPtqKT">Retrieve a list of the available types of statistical reports</span></label></li></ul></li><li data-item-id="tag/statistic" class="sc-bilyIR iVJVQY"><label type="tag" role="menuitem" class="sc-eGPXGI cbGskd -depth1"><span title="statistic" class="sc-hAcGzb hTIqli">statistic</span><svg class="sc-egiyK jLPfXH" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></label><ul class="sc-uojGG fZvBef"><li data-item-id="tag/statistic/operation/getStatistics" class="sc-bilyIR iVJVQY"><label role="menuitem" class="sc-eGPXGI jDuioL -depth2"><span type="get" class="sc-ilfuhL eXEyiA operation-type get">get</span><span width="calc(100% - 38px)" class="sc-hAcGzb gPtqKT">Retrieve a specific type of statistics report identified by statisticType</span></label></li></ul></li><li data-item-id="tag/monitoring" class="sc-bilyIR iVJVQY"><label type="tag" role="menuitem" class="sc-eGPXGI cbGskd -depth1"><span title="monitoring" class="sc-hAcGzb hTIqli">monitoring</span><svg class="sc-egiyK jLPfXH" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></label><ul class="sc-uojGG fZvBef"><li data-item-id="tag/monitoring/operation/knockknock" class="sc-bilyIR iVJVQY"><label role="menuitem" class="sc-eGPXGI jDuioL -depth2"><span type="get" class="sc-ilfuhL eXEyiA operation-type get">get</span><span width="calc(100% - 38px)" class="sc-hAcGzb gPtqKT">This path is used to check if the API is running</span></label></li></ul></li></ul><div class="sc-kYHfwS hjTfvW"><a target="_blank" rel="noopener noreferrer" href="https://redocly.com/redoc/">API docs by Redocly</a></div></div></div><div class="sc-kTLmzF cxHKpm"><div class="sc-iqVWFU lptroy"><svg class="" style="transform:translate(2px, -4px) rotate(180deg);transition:transform 0.2s ease" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="15" height="15"><g transform="translate(904.92214,-879.1482)"><path d="
+          m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,
+          -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,
+          0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892,
+          -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696,
+          -174.68583 0.6895,0 26.281,25.03215 56.8701,
+          55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864
+          -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,
+          -104.0616 -231.873,-231.248 z
+        " fill="currentColor"></path></g></svg><svg class="" style="transform:translate(2px, 4px);transition:transform 0.2s ease" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="15" height="15"><g transform="translate(904.92214,-879.1482)"><path d="
+          m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,
+          -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,
+          0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892,
+          -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696,
+          -174.68583 0.6895,0 26.281,25.03215 56.8701,
+          55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864
+          -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,
+          -104.0616 -231.873,-231.248 z
+        " fill="currentColor"></path></g></svg></div></div><div class="sc-jtXEFf jxeukX api-content"><div class="sc-eCImPb kKqedw"><div class="sc-iCfMLu jTXZbd"><div class="sc-hKwDye fcjMZs api-info"><h1 class="sc-furwcr sc-dFtzxp kwcwWd dezuum">Postman Open Technologies Knowledge Base API<!-- --> <span>(<!-- -->0.2.0<!-- -->)</span></h1><p>Download OpenAPI specification<!-- -->:<a download="openapi.json" target="_blank" class="sc-brSvTw cfBNBf">Download</a></p><div class="sc-iJKOTD sc-cidDSM hGZPxu fYaHea"><div class="sc-evcjhq jnWsnL"><div class="sc-fHeRUh clvmzv"><span class="sc-gIDmLj dSDiln">Postman Open Technologies<!-- -->:<!-- --> <a href="mailto:open@postman.com">open@postman.com</a></span> <span class="sc-gIDmLj dSDiln">URL: <a href="https://www.postman.com/open-tech/">https://www.postman.com/open-tech/</a></span> <span class="sc-gIDmLj dSDiln">License:<!-- --> <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a></span> </div></div></div><div class="sc-iJKOTD sc-cidDSM hGZPxu fYaHea" data-role="redoc-summary"></div><div class="sc-iJKOTD sc-cidDSM hGZPxu fYaHea" data-role="redoc-description"><p>This is the API that lets you access the information available on the Knowledge Base.</p>
 <p>Please refer to the <a href="https://raw.githubusercontent.com/postman-open-technologies/knowledge-base/main/api/CONTRIBUTING.md">contributing instructions</a> for information on how to install the API server and run it.</p>
-<p>Base URLs:</p>
-<ul>
-<li><a href="http://localhost:3000">http://localhost:3000</a></li>
-</ul>
-<p>Email: <a href="mailto:open@postman.com">Postman Open Technologies</a> Web: <a href="https://www.postman.com/open-tech/">Postman Open Technologies</a>
-License: <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a></p>
-<h1 id="postman-open-technologies-knowledge-base-api-default">Default</h1>
-<h2>get__statistics</h2>
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<pre class="nohighlight example"><code><span class="hljs-meta">#</span><span class="bash"> You can also use wget</span>
-curl -X GET http://localhost:3000/statistics
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://localhost:3000/statistics</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: localhost:3000
-
-</code></pre>
-<pre class="nohighlight example"><code>
-fetch(<span class="hljs-string">'http://localhost:3000/statistics'</span>,
-{
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>
-
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
-    <span class="hljs-keyword">return</span> res.json();
-}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(body);
-});
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
-<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
-
-result = RestClient.get <span class="hljs-string">'http://localhost:3000/statistics'</span>,
-  <span class="hljs-symbol">params:</span> {
-  }
-
-p JSON.parse(result)
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">import</span> requests
-
-r = requests.get(<span class="hljs-string">'http://localhost:3000/statistics'</span>)
-
-print(r.json())
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-meta">&lt;?php</span>
-
-<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
-
-$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
-
-<span class="hljs-comment">// Define array of request body.</span>
-$request_body = <span class="hljs-keyword">array</span>();
-
-<span class="hljs-keyword">try</span> {
-    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://localhost:3000/statistics'</span>, <span class="hljs-keyword">array</span>(
-        <span class="hljs-string">'headers'</span> =&gt; $headers,
-        <span class="hljs-string">'json'</span> =&gt; $request_body,
-       )
-    );
-    print_r($response-&gt;getBody()-&gt;getContents());
- }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
-    <span class="hljs-comment">// handle exception or api errors.</span>
-    print_r($e-&gt;getMessage());
- }
-
- <span class="hljs-comment">// ...</span>
-
-</code></pre>
-<pre class="nohighlight example"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"http://localhost:3000/statistics"</span>);
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod(<span class="hljs-string">"GET"</span>);
-<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
-BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
-    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
-<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">package</span> main
-
-<span class="hljs-keyword">import</span> (
-       <span class="hljs-string">"bytes"</span>
-       <span class="hljs-string">"net/http"</span>
-)
-
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
-
-    data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
-    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"http://localhost:3000/statistics"</span>, data)
-    req.Header = headers
-
-    client := &amp;http.Client{}
-    resp, err := client.Do(req)
-    <span class="hljs-comment">// ...</span>
-}
-
-</code></pre>
-<p><code>GET /statistics</code></p>
-<h3 id="get__statistics-responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>OK</td>
-<td>None</td>
-</tr>
-</tbody>
-</table>
-<aside class="success">
-This operation does not require authentication
-</aside>
-<h1 id="postman-open-technologies-knowledge-base-api-openapi">openapi</h1>
-<h2>getOpenAPI</h2>
-<p><a id="opIdgetOpenAPI"></a></p>
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<pre class="nohighlight example"><code><span class="hljs-meta">#</span><span class="bash"> You can also use wget</span>
-curl -X GET http://localhost:3000/ \
-  -H 'Accept: application/json'
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://localhost:3000/</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: localhost:3000
-<span class="hljs-attribute">Accept</span>: application/json
-
-</code></pre>
-<pre class="nohighlight example"><code>
-<span class="hljs-keyword">const</span> headers = {
-  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
-};
-
-fetch(<span class="hljs-string">'http://localhost:3000/'</span>,
-{
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
-
-  <span class="hljs-attr">headers</span>: headers
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
-    <span class="hljs-keyword">return</span> res.json();
-}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(body);
-});
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
-<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
-
-headers = {
-  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
-}
-
-result = RestClient.get <span class="hljs-string">'http://localhost:3000/'</span>,
-  <span class="hljs-symbol">params:</span> {
-  }, <span class="hljs-symbol">headers:</span> headers
-
-p JSON.parse(result)
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">import</span> requests
-headers = {
-  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
-}
-
-r = requests.get(<span class="hljs-string">'http://localhost:3000/'</span>, headers = headers)
-
-print(r.json())
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-meta">&lt;?php</span>
-
-<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
-
-$headers = <span class="hljs-keyword">array</span>(
-    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>,
-);
-
-$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
-
-<span class="hljs-comment">// Define array of request body.</span>
-$request_body = <span class="hljs-keyword">array</span>();
-
-<span class="hljs-keyword">try</span> {
-    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://localhost:3000/'</span>, <span class="hljs-keyword">array</span>(
-        <span class="hljs-string">'headers'</span> =&gt; $headers,
-        <span class="hljs-string">'json'</span> =&gt; $request_body,
-       )
-    );
-    print_r($response-&gt;getBody()-&gt;getContents());
- }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
-    <span class="hljs-comment">// handle exception or api errors.</span>
-    print_r($e-&gt;getMessage());
- }
-
- <span class="hljs-comment">// ...</span>
-
-</code></pre>
-<pre class="nohighlight example"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"http://localhost:3000/"</span>);
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod(<span class="hljs-string">"GET"</span>);
-<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
-BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
-    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
-<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">package</span> main
-
-<span class="hljs-keyword">import</span> (
-       <span class="hljs-string">"bytes"</span>
-       <span class="hljs-string">"net/http"</span>
-)
-
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
-
-    headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
-        <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/json"</span>},
-    }
-
-    data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
-    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"http://localhost:3000/"</span>, data)
-    req.Header = headers
-
-    client := &amp;http.Client{}
-    resp, err := client.Do(req)
-    <span class="hljs-comment">// ...</span>
-}
-
-</code></pre>
-<p><code>GET /</code></p>
-<p><em>Retrieve the OpenAPI definition</em></p>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<blockquote>
-<p>200 Response</p>
-</blockquote>
-<pre class="nohighlight example"><code>{}
-</code></pre>
-<h3 id="getopenapi-responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>The OpenAPI definition</td>
-<td>Inline</td>
-</tr>
-<tr>
-<td>default</td>
-<td>Default</td>
-<td>Error</td>
-<td><a href="#schemaproblemdetailserror">ProblemDetailsError</a></td>
-</tr>
-</tbody>
-</table>
-<h3 id="getopenapi-responseschema">Response Schema</h3>
-<aside class="success">
-This operation does not require authentication
-</aside>
-<h1 id="postman-open-technologies-knowledge-base-api-reports">reports</h1>
-<h2>listReports</h2>
-<p><a id="opIdlistReports"></a></p>
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<pre class="nohighlight example"><code><span class="hljs-meta">#</span><span class="bash"> You can also use wget</span>
-curl -X GET http://localhost:3000/reports \
-  -H 'Accept: application/json'
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://localhost:3000/reports</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: localhost:3000
-<span class="hljs-attribute">Accept</span>: application/json
-
-</code></pre>
-<pre class="nohighlight example"><code>
-<span class="hljs-keyword">const</span> headers = {
-  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
-};
-
-fetch(<span class="hljs-string">'http://localhost:3000/reports'</span>,
-{
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
-
-  <span class="hljs-attr">headers</span>: headers
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
-    <span class="hljs-keyword">return</span> res.json();
-}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(body);
-});
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
-<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
-
-headers = {
-  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
-}
-
-result = RestClient.get <span class="hljs-string">'http://localhost:3000/reports'</span>,
-  <span class="hljs-symbol">params:</span> {
-  }, <span class="hljs-symbol">headers:</span> headers
-
-p JSON.parse(result)
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">import</span> requests
-headers = {
-  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
-}
-
-r = requests.get(<span class="hljs-string">'http://localhost:3000/reports'</span>, headers = headers)
-
-print(r.json())
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-meta">&lt;?php</span>
-
-<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
-
-$headers = <span class="hljs-keyword">array</span>(
-    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>,
-);
-
-$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
-
-<span class="hljs-comment">// Define array of request body.</span>
-$request_body = <span class="hljs-keyword">array</span>();
-
-<span class="hljs-keyword">try</span> {
-    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://localhost:3000/reports'</span>, <span class="hljs-keyword">array</span>(
-        <span class="hljs-string">'headers'</span> =&gt; $headers,
-        <span class="hljs-string">'json'</span> =&gt; $request_body,
-       )
-    );
-    print_r($response-&gt;getBody()-&gt;getContents());
- }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
-    <span class="hljs-comment">// handle exception or api errors.</span>
-    print_r($e-&gt;getMessage());
- }
-
- <span class="hljs-comment">// ...</span>
-
-</code></pre>
-<pre class="nohighlight example"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"http://localhost:3000/reports"</span>);
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod(<span class="hljs-string">"GET"</span>);
-<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
-BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
-    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
-<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">package</span> main
-
-<span class="hljs-keyword">import</span> (
-       <span class="hljs-string">"bytes"</span>
-       <span class="hljs-string">"net/http"</span>
-)
-
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
-
-    headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
-        <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/json"</span>},
-    }
-
-    data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
-    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"http://localhost:3000/reports"</span>, data)
-    req.Header = headers
-
-    client := &amp;http.Client{}
-    resp, err := client.Do(req)
-    <span class="hljs-comment">// ...</span>
-}
-
-</code></pre>
-<p><code>GET /reports</code></p>
-<p><em>Retrieve a list of the available types of statistical reports</em></p>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<blockquote>
-<p>200 Response</p>
-</blockquote>
-<pre class="nohighlight example"><code>[
-  {
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"output"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"scope"</span>: <span class="hljs-string">"string"</span>
-  }
-]
-</code></pre>
-<h3 id="listreports-responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>A list of available types of statistical reports</td>
-<td><a href="#schemareports">Reports</a></td>
-</tr>
-<tr>
-<td>default</td>
-<td>Default</td>
-<td>Error</td>
-<td><a href="#schemaproblemdetailserror">ProblemDetailsError</a></td>
-</tr>
-</tbody>
-</table>
-<aside class="success">
-This operation does not require authentication
-</aside>
-<h1 id="postman-open-technologies-knowledge-base-api-report">report</h1>
-<h2>getReport</h2>
-<p><a id="opIdgetReport"></a></p>
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<pre class="nohighlight example"><code><span class="hljs-meta">#</span><span class="bash"> You can also use wget</span>
-curl -X GET http://localhost:3000/reports/{reportId} \
-  -H 'Accept: application/json'
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://localhost:3000/reports/{reportId}</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: localhost:3000
-<span class="hljs-attribute">Accept</span>: application/json
-
-</code></pre>
-<pre class="nohighlight example"><code>
-<span class="hljs-keyword">const</span> headers = {
-  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
-};
-
-fetch(<span class="hljs-string">'http://localhost:3000/reports/{reportId}'</span>,
-{
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
-
-  <span class="hljs-attr">headers</span>: headers
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
-    <span class="hljs-keyword">return</span> res.json();
-}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(body);
-});
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
-<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
-
-headers = {
-  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
-}
-
-result = RestClient.get <span class="hljs-string">'http://localhost:3000/reports/{reportId}'</span>,
-  <span class="hljs-symbol">params:</span> {
-  }, <span class="hljs-symbol">headers:</span> headers
-
-p JSON.parse(result)
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">import</span> requests
-headers = {
-  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
-}
-
-r = requests.get(<span class="hljs-string">'http://localhost:3000/reports/{reportId}'</span>, headers = headers)
-
-print(r.json())
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-meta">&lt;?php</span>
-
-<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
-
-$headers = <span class="hljs-keyword">array</span>(
-    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>,
-);
-
-$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
-
-<span class="hljs-comment">// Define array of request body.</span>
-$request_body = <span class="hljs-keyword">array</span>();
-
-<span class="hljs-keyword">try</span> {
-    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://localhost:3000/reports/{reportId}'</span>, <span class="hljs-keyword">array</span>(
-        <span class="hljs-string">'headers'</span> =&gt; $headers,
-        <span class="hljs-string">'json'</span> =&gt; $request_body,
-       )
-    );
-    print_r($response-&gt;getBody()-&gt;getContents());
- }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
-    <span class="hljs-comment">// handle exception or api errors.</span>
-    print_r($e-&gt;getMessage());
- }
-
- <span class="hljs-comment">// ...</span>
-
-</code></pre>
-<pre class="nohighlight example"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"http://localhost:3000/reports/{reportId}"</span>);
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod(<span class="hljs-string">"GET"</span>);
-<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
-BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
-    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
-<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">package</span> main
-
-<span class="hljs-keyword">import</span> (
-       <span class="hljs-string">"bytes"</span>
-       <span class="hljs-string">"net/http"</span>
-)
-
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
-
-    headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
-        <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/json"</span>},
-    }
-
-    data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
-    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"http://localhost:3000/reports/{reportId}"</span>, data)
-    req.Header = headers
-
-    client := &amp;http.Client{}
-    resp, err := client.Do(req)
-    <span class="hljs-comment">// ...</span>
-}
-
-</code></pre>
-<p><code>GET /reports/{reportId}</code></p>
-<p><em>Retrieve a specific type of report identified by reportId</em></p>
-<h3 id="getreport-parameters">Parameters</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>In</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>reportId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>The ID of the type of report to retrieve</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<blockquote>
-<p>200 Response</p>
-</blockquote>
-<pre class="nohighlight example"><code>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"output"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"scope"</span>: <span class="hljs-string">"string"</span>
-}
-</code></pre>
-<h3 id="getreport-responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>Details of a type of report</td>
-<td><a href="#schemareport">Report</a></td>
-</tr>
-<tr>
-<td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
-<td>Report type not found</td>
-<td><a href="#schemaproblemdetailserror">ProblemDetailsError</a></td>
-</tr>
-<tr>
-<td>default</td>
-<td>Default</td>
-<td>Error</td>
-<td><a href="#schemaproblemdetailserror">ProblemDetailsError</a></td>
-</tr>
-</tbody>
-</table>
-<aside class="success">
-This operation does not require authentication
-</aside>
-<h1 id="postman-open-technologies-knowledge-base-api-statistic">statistic</h1>
-<h2>getStatistics</h2>
-<p><a id="opIdgetStatistics"></a></p>
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<pre class="nohighlight example"><code><span class="hljs-meta">#</span><span class="bash"> You can also use wget</span>
-curl -X GET http://localhost:3000/statistics/{statisticType} \
-  -H 'Accept: application/json'
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://localhost:3000/statistics/{statisticType}</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: localhost:3000
-<span class="hljs-attribute">Accept</span>: application/json
-
-</code></pre>
-<pre class="nohighlight example"><code>
-<span class="hljs-keyword">const</span> headers = {
-  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
-};
-
-fetch(<span class="hljs-string">'http://localhost:3000/statistics/{statisticType}'</span>,
-{
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
-
-  <span class="hljs-attr">headers</span>: headers
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
-    <span class="hljs-keyword">return</span> res.json();
-}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(body);
-});
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
-<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
-
-headers = {
-  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
-}
-
-result = RestClient.get <span class="hljs-string">'http://localhost:3000/statistics/{statisticType}'</span>,
-  <span class="hljs-symbol">params:</span> {
-  }, <span class="hljs-symbol">headers:</span> headers
-
-p JSON.parse(result)
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">import</span> requests
-headers = {
-  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
-}
-
-r = requests.get(<span class="hljs-string">'http://localhost:3000/statistics/{statisticType}'</span>, headers = headers)
-
-print(r.json())
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-meta">&lt;?php</span>
-
-<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
-
-$headers = <span class="hljs-keyword">array</span>(
-    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>,
-);
-
-$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
-
-<span class="hljs-comment">// Define array of request body.</span>
-$request_body = <span class="hljs-keyword">array</span>();
-
-<span class="hljs-keyword">try</span> {
-    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://localhost:3000/statistics/{statisticType}'</span>, <span class="hljs-keyword">array</span>(
-        <span class="hljs-string">'headers'</span> =&gt; $headers,
-        <span class="hljs-string">'json'</span> =&gt; $request_body,
-       )
-    );
-    print_r($response-&gt;getBody()-&gt;getContents());
- }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
-    <span class="hljs-comment">// handle exception or api errors.</span>
-    print_r($e-&gt;getMessage());
- }
-
- <span class="hljs-comment">// ...</span>
-
-</code></pre>
-<pre class="nohighlight example"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"http://localhost:3000/statistics/{statisticType}"</span>);
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod(<span class="hljs-string">"GET"</span>);
-<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
-BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
-    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
-<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">package</span> main
-
-<span class="hljs-keyword">import</span> (
-       <span class="hljs-string">"bytes"</span>
-       <span class="hljs-string">"net/http"</span>
-)
-
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
-
-    headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
-        <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/json"</span>},
-    }
-
-    data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
-    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"http://localhost:3000/statistics/{statisticType}"</span>, data)
-    req.Header = headers
-
-    client := &amp;http.Client{}
-    resp, err := client.Do(req)
-    <span class="hljs-comment">// ...</span>
-}
-
-</code></pre>
-<p><code>GET /statistics/{statisticType}</code></p>
-<p><em>Retrieve a specific type of statistics report identified by statisticType</em></p>
-<h3 id="getstatistics-parameters">Parameters</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>In</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>statisticType</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>The type of statistics report to retrieve</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<blockquote>
-<p>200 Response</p>
-</blockquote>
-<pre class="nohighlight example"><code>{
-  <span class="hljs-attr">"info"</span>: {
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"creationDateTime"</span>: <span class="hljs-string">"2019-08-24T14:15:22Z"</span>
-  },
-  <span class="hljs-attr">"data"</span>: {
-    <span class="hljs-attr">"total"</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">"count"</span>: <span class="hljs-number">0</span>
-  }
-}
-</code></pre>
-<h3 id="getstatistics-responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>The statistics details</td>
-<td><a href="#schemastatistic">Statistic</a></td>
-</tr>
-<tr>
-<td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
-<td>Statistics report type not found</td>
-<td><a href="#schemaproblemdetailserror">ProblemDetailsError</a></td>
-</tr>
-<tr>
-<td>default</td>
-<td>Default</td>
-<td>Error</td>
-<td><a href="#schemaproblemdetailserror">ProblemDetailsError</a></td>
-</tr>
-</tbody>
-</table>
-<aside class="success">
-This operation does not require authentication
-</aside>
-<h1 id="postman-open-technologies-knowledge-base-api-monitoring">monitoring</h1>
-<h2>knockknock</h2>
-<p><a id="opIdknockknock"></a></p>
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<pre class="nohighlight example"><code><span class="hljs-meta">#</span><span class="bash"> You can also use wget</span>
-curl -X GET http://localhost:3000/knockknock \
-  -H 'Accept: application/json'
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://localhost:3000/knockknock</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: localhost:3000
-<span class="hljs-attribute">Accept</span>: application/json
-
-</code></pre>
-<pre class="nohighlight example"><code>
-<span class="hljs-keyword">const</span> headers = {
-  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
-};
-
-fetch(<span class="hljs-string">'http://localhost:3000/knockknock'</span>,
-{
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
-
-  <span class="hljs-attr">headers</span>: headers
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
-    <span class="hljs-keyword">return</span> res.json();
-}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(body);
-});
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
-<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
-
-headers = {
-  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
-}
-
-result = RestClient.get <span class="hljs-string">'http://localhost:3000/knockknock'</span>,
-  <span class="hljs-symbol">params:</span> {
-  }, <span class="hljs-symbol">headers:</span> headers
-
-p JSON.parse(result)
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">import</span> requests
-headers = {
-  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
-}
-
-r = requests.get(<span class="hljs-string">'http://localhost:3000/knockknock'</span>, headers = headers)
-
-print(r.json())
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-meta">&lt;?php</span>
-
-<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
-
-$headers = <span class="hljs-keyword">array</span>(
-    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>,
-);
-
-$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
-
-<span class="hljs-comment">// Define array of request body.</span>
-$request_body = <span class="hljs-keyword">array</span>();
-
-<span class="hljs-keyword">try</span> {
-    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://localhost:3000/knockknock'</span>, <span class="hljs-keyword">array</span>(
-        <span class="hljs-string">'headers'</span> =&gt; $headers,
-        <span class="hljs-string">'json'</span> =&gt; $request_body,
-       )
-    );
-    print_r($response-&gt;getBody()-&gt;getContents());
- }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
-    <span class="hljs-comment">// handle exception or api errors.</span>
-    print_r($e-&gt;getMessage());
- }
-
- <span class="hljs-comment">// ...</span>
-
-</code></pre>
-<pre class="nohighlight example"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"http://localhost:3000/knockknock"</span>);
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod(<span class="hljs-string">"GET"</span>);
-<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
-BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
-    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
-<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-</code></pre>
-<pre class="nohighlight example"><code><span class="hljs-keyword">package</span> main
-
-<span class="hljs-keyword">import</span> (
-       <span class="hljs-string">"bytes"</span>
-       <span class="hljs-string">"net/http"</span>
-)
-
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
-
-    headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
-        <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/json"</span>},
-    }
-
-    data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
-    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"http://localhost:3000/knockknock"</span>, data)
-    req.Header = headers
-
-    client := &amp;http.Client{}
-    resp, err := client.Do(req)
-    <span class="hljs-comment">// ...</span>
-}
-
-</code></pre>
-<p><code>GET /knockknock</code></p>
-<p><em>This path is used to check if the API is running</em></p>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<blockquote>
-<p>200 Response</p>
-</blockquote>
-<pre class="nohighlight example"><code>{
-  <span class="hljs-attr">"response"</span>: <span class="hljs-string">"string"</span>
-}
-</code></pre>
-<h3 id="knockknock-responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>A static response</td>
-<td><a href="#schemaknockknock">KnockKnock</a></td>
-</tr>
-<tr>
-<td>default</td>
-<td>Default</td>
-<td>Error</td>
-<td><a href="#schemaproblemdetailserror">ProblemDetailsError</a></td>
-</tr>
-</tbody>
-</table>
-<aside class="success">
-This operation does not require authentication
-</aside>
-<h1>Schemas</h1>
-<h2 id="tocS_Report">Report</h2>
-<!-- backwards compatibility -->
-<a id="schemareport"></a>
-<a id="schema_Report"></a>
-<a id="tocSreport"></a>
-<a id="tocsreport"></a>
-<pre class="nohighlight example"><code>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"output"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"scope"</span>: <span class="hljs-string">"string"</span>
-}
-
-</code></pre>
-<h3>Properties</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Restrictions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>description</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>output</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>scope</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-<td>none</td>
-</tr>
-</tbody>
-</table>
-<h2 id="tocS_Reports">Reports</h2>
-<!-- backwards compatibility -->
-<a id="schemareports"></a>
-<a id="schema_Reports"></a>
-<a id="tocSreports"></a>
-<a id="tocsreports"></a>
-<pre class="nohighlight example"><code>[
-  {
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"output"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"scope"</span>: <span class="hljs-string">"string"</span>
-  }
-]
-
-</code></pre>
-<h3>Properties</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Restrictions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><em>anonymous</em></td>
-<td>[<a href="#schemareport">Report</a>]</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-</tbody>
-</table>
-<h2 id="tocS_Statistic">Statistic</h2>
-<!-- backwards compatibility -->
-<a id="schemastatistic"></a>
-<a id="schema_Statistic"></a>
-<a id="tocSstatistic"></a>
-<a id="tocsstatistic"></a>
-<pre class="nohighlight example"><code>{
-  <span class="hljs-attr">"info"</span>: {
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"creationDateTime"</span>: <span class="hljs-string">"2019-08-24T14:15:22Z"</span>
-  },
-  <span class="hljs-attr">"data"</span>: {
-    <span class="hljs-attr">"total"</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">"count"</span>: <span class="hljs-number">0</span>
-  }
-}
-
-</code></pre>
-<h3>Properties</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Restrictions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>info</td>
-<td><a href="#schemastatisticinfo">StatisticInfo</a></td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>data</td>
-<td><a href="#schemastatisticdata">StatisticData</a></td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-</tbody>
-</table>
-<h2 id="tocS_StatisticInfo">StatisticInfo</h2>
-<!-- backwards compatibility -->
-<a id="schemastatisticinfo"></a>
-<a id="schema_StatisticInfo"></a>
-<a id="tocSstatisticinfo"></a>
-<a id="tocsstatisticinfo"></a>
-<pre class="nohighlight example"><code>{
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"creationDateTime"</span>: <span class="hljs-string">"2019-08-24T14:15:22Z"</span>
-}
-
-</code></pre>
-<h3>Properties</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Restrictions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>type</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>creationDateTime</td>
-<td>string(date-time)</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-</tbody>
-</table>
-<h2 id="tocS_StatisticData">StatisticData</h2>
-<!-- backwards compatibility -->
-<a id="schemastatisticdata"></a>
-<a id="schema_StatisticData"></a>
-<a id="tocSstatisticdata"></a>
-<a id="tocsstatisticdata"></a>
-<pre class="nohighlight example"><code>{
-  <span class="hljs-attr">"total"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"count"</span>: <span class="hljs-number">0</span>
-}
-
-</code></pre>
-<h3>Properties</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Restrictions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>total</td>
-<td>integer</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>count</td>
-<td>integer</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-</tbody>
-</table>
-<h2 id="tocS_ProblemDetailsError">ProblemDetailsError</h2>
-<!-- backwards compatibility -->
-<a id="schemaproblemdetailserror"></a>
-<a id="schema_ProblemDetailsError"></a>
-<a id="tocSproblemdetailserror"></a>
-<a id="tocsproblemdetailserror"></a>
-<pre class="nohighlight example"><code>{
-  <span class="hljs-attr">"status"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"details"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"instance"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
-}
-
-</code></pre>
-<h3>Properties</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Restrictions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>status</td>
-<td>integer</td>
-<td>true</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>title</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>details</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>instance</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>type</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-<td>none</td>
-</tr>
-</tbody>
-</table>
-<h2 id="tocS_KnockKnock">KnockKnock</h2>
-<!-- backwards compatibility -->
-<a id="schemaknockknock"></a>
-<a id="schema_KnockKnock"></a>
-<a id="tocSknockknock"></a>
-<a id="tocsknockknock"></a>
-<pre class="nohighlight example"><code>{
-  <span class="hljs-attr">"response"</span>: <span class="hljs-string">"string"</span>
-}
-
-</code></pre>
-<h3>Properties</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Restrictions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>response</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-<td>none</td>
-</tr>
-</tbody>
-</table>
+</div></div></div></div><div id="tag/openapi" data-section-id="tag/openapi" class="sc-eCImPb kKqedw"><div class="sc-iCfMLu jTXZbd"><div class="sc-hKwDye fcjMZs"><h1 class="sc-furwcr kwcwWd"><a class="sc-crHmcD bNUQy" href="#tag/openapi" aria-label="tag/openapi"></a>openapi</h1></div></div></div><div id="tag/openapi/operation/getOpenAPI" data-section-id="tag/openapi/operation/getOpenAPI" class="sc-eCImPb hexvPn"><div data-section-id="operation/getOpenAPI" id="operation/getOpenAPI" class="sc-iCfMLu jTXZbd"><div class="sc-hKwDye fcjMZs"><h2 class="sc-pVTFL QwiBS"><a class="sc-crHmcD bNUQy" href="#tag/openapi/operation/getOpenAPI" aria-label="tag/openapi/operation/getOpenAPI"></a>Retrieve the OpenAPI definition<!-- --> </h2><div><h3 class="sc-fIosxK bTvSgn">Responses</h3><div><button class="sc-htJRVC hoRAnv"><svg class="sc-egiyK bPEzCN" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">200<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>The OpenAPI definition</p>
+</span></button></div><div><button class="sc-htJRVC wltdp"><svg class="sc-egiyK FBjwd" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">default<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>Error</p>
+</span></button></div></div></div><div class="sc-jRQBWg sc-gKclnd vSqXI dKDnzb"><div class="sc-FNXRL jYAhkx"><button class="sc-eFegNN bxamQ"><span type="get" class="sc-fmBCVi hYmQQT http-verb get">get</span><span class="sc-jWUzzU hxZHzL">/</span><svg class="sc-egiyK laPRNF" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></button><div aria-hidden="true" class="sc-lkgTHX fuqHqW"><div class="sc-jlRLRk fUpXCf"><div class="sc-iJKOTD sc-cidDSM hGZPxu fhPxtY"></div><div tabindex="0" role="button"><div class="sc-dUbtfd ggmziU"><span>http://localhost:3000</span>/</div></div></div></div></div><div><h3 class="sc-kDTinF hwMGJl"> <!-- -->Response samples<!-- --> </h3><div class="sc-cxpSdN eCLDJY" data-rttabs="true"><ul class="react-tabs__tab-list" role="tablist"><li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-0" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-1" tabindex="0" data-rttab="true">200</li><li class="tab-error" role="tab" id="react-tabs-2" aria-selected="false" aria-disabled="false" aria-controls="react-tabs-3" data-rttab="true">default</li></ul><div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-1" aria-labelledby="react-tabs-0"><div><div class="sc-AjmGg bcpfGN"><span class="sc-cNKqjZ iYcnri">Content type</span><div class="sc-bBHHxi eidhyg">application/json</div></div><div class="sc-jgrJph iUheaL"><div class="sc-jObWnj jOBPNj"><div class="sc-giYglK gjxyHD"><button><div class="sc-caiLqq ddxnzs">Copy</div></button></div><div class="sc-iJKOTD hGZPxu sc-dPiLbb sRoPx"><div class="redoc-json"><code><span class="token punctuation">{ }</span></code></div></div></div></div></div></div><div class="react-tabs__tab-panel" role="tabpanel" id="react-tabs-3" aria-labelledby="react-tabs-2"></div></div></div></div></div></div><div id="tag/definition" data-section-id="tag/definition" class="sc-eCImPb kKqedw"><div class="sc-iCfMLu jTXZbd"><div class="sc-hKwDye fcjMZs"><h1 class="sc-furwcr kwcwWd"><a class="sc-crHmcD bNUQy" href="#tag/definition" aria-label="tag/definition"></a>definition</h1></div></div></div><div id="tag/definition/operation/getOpenAPI" data-section-id="tag/definition/operation/getOpenAPI" class="sc-eCImPb hexvPn"><div data-section-id="operation/getOpenAPI" id="operation/getOpenAPI" class="sc-iCfMLu jTXZbd"><div class="sc-hKwDye fcjMZs"><h2 class="sc-pVTFL QwiBS"><a class="sc-crHmcD bNUQy" href="#tag/definition/operation/getOpenAPI" aria-label="tag/definition/operation/getOpenAPI"></a>Retrieve the OpenAPI definition<!-- --> </h2><div><h3 class="sc-fIosxK bTvSgn">Responses</h3><div><button class="sc-htJRVC hoRAnv"><svg class="sc-egiyK bPEzCN" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">200<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>The OpenAPI definition</p>
+</span></button></div><div><button class="sc-htJRVC wltdp"><svg class="sc-egiyK FBjwd" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">default<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>Error</p>
+</span></button></div></div></div><div class="sc-jRQBWg sc-gKclnd vSqXI dKDnzb"><div class="sc-FNXRL jYAhkx"><button class="sc-eFegNN bxamQ"><span type="get" class="sc-fmBCVi hYmQQT http-verb get">get</span><span class="sc-jWUzzU hxZHzL">/</span><svg class="sc-egiyK laPRNF" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></button><div aria-hidden="true" class="sc-lkgTHX fuqHqW"><div class="sc-jlRLRk fUpXCf"><div class="sc-iJKOTD sc-cidDSM hGZPxu fhPxtY"></div><div tabindex="0" role="button"><div class="sc-dUbtfd ggmziU"><span>http://localhost:3000</span>/</div></div></div></div></div><div><h3 class="sc-kDTinF hwMGJl"> <!-- -->Response samples<!-- --> </h3><div class="sc-cxpSdN eCLDJY" data-rttabs="true"><ul class="react-tabs__tab-list" role="tablist"><li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-4" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-5" tabindex="0" data-rttab="true">200</li><li class="tab-error" role="tab" id="react-tabs-6" aria-selected="false" aria-disabled="false" aria-controls="react-tabs-7" data-rttab="true">default</li></ul><div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-5" aria-labelledby="react-tabs-4"><div><div class="sc-AjmGg bcpfGN"><span class="sc-cNKqjZ iYcnri">Content type</span><div class="sc-bBHHxi eidhyg">application/json</div></div><div class="sc-jgrJph iUheaL"><div class="sc-jObWnj jOBPNj"><div class="sc-giYglK gjxyHD"><button><div class="sc-caiLqq ddxnzs">Copy</div></button></div><div class="sc-iJKOTD hGZPxu sc-dPiLbb sRoPx"><div class="redoc-json"><code><span class="token punctuation">{ }</span></code></div></div></div></div></div></div><div class="react-tabs__tab-panel" role="tabpanel" id="react-tabs-7" aria-labelledby="react-tabs-6"></div></div></div></div></div></div><div id="tag/reports" data-section-id="tag/reports" class="sc-eCImPb kKqedw"><div class="sc-iCfMLu jTXZbd"><div class="sc-hKwDye fcjMZs"><h1 class="sc-furwcr kwcwWd"><a class="sc-crHmcD bNUQy" href="#tag/reports" aria-label="tag/reports"></a>reports</h1></div></div></div><div id="tag/reports/operation/listReports" data-section-id="tag/reports/operation/listReports" class="sc-eCImPb hexvPn"><div data-section-id="operation/listReports" id="operation/listReports" class="sc-iCfMLu jTXZbd"><div class="sc-hKwDye fcjMZs"><h2 class="sc-pVTFL QwiBS"><a class="sc-crHmcD bNUQy" href="#tag/reports/operation/listReports" aria-label="tag/reports/operation/listReports"></a>Retrieve a list of the available types of statistical reports<!-- --> </h2><div><h3 class="sc-fIosxK bTvSgn">Responses</h3><div><button class="sc-htJRVC hoRAnv"><svg class="sc-egiyK bPEzCN" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">200<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>A list of available types of statistical reports</p>
+</span></button></div><div><button class="sc-htJRVC wltdp"><svg class="sc-egiyK FBjwd" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">default<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>Error</p>
+</span></button></div></div></div><div class="sc-jRQBWg sc-gKclnd vSqXI dKDnzb"><div class="sc-FNXRL jYAhkx"><button class="sc-eFegNN bxamQ"><span type="get" class="sc-fmBCVi hYmQQT http-verb get">get</span><span class="sc-jWUzzU hxZHzL">/reports</span><svg class="sc-egiyK laPRNF" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></button><div aria-hidden="true" class="sc-lkgTHX fuqHqW"><div class="sc-jlRLRk fUpXCf"><div class="sc-iJKOTD sc-cidDSM hGZPxu fhPxtY"></div><div tabindex="0" role="button"><div class="sc-dUbtfd ggmziU"><span>http://localhost:3000</span>/reports</div></div></div></div></div><div><h3 class="sc-kDTinF hwMGJl"> <!-- -->Response samples<!-- --> </h3><div class="sc-cxpSdN eCLDJY" data-rttabs="true"><ul class="react-tabs__tab-list" role="tablist"><li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-8" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-9" tabindex="0" data-rttab="true">200</li><li class="tab-error" role="tab" id="react-tabs-10" aria-selected="false" aria-disabled="false" aria-controls="react-tabs-11" data-rttab="true">default</li></ul><div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-9" aria-labelledby="react-tabs-8"><div><div class="sc-AjmGg bcpfGN"><span class="sc-cNKqjZ iYcnri">Content type</span><div class="sc-bBHHxi eidhyg">application/json</div></div><div class="sc-jgrJph iUheaL"><div class="sc-jObWnj jOBPNj"><div class="sc-giYglK gjxyHD"><button><div class="sc-caiLqq ddxnzs">Copy</div></button><button> Expand all </button><button> Collapse all </button></div><div class="sc-iJKOTD hGZPxu sc-dPiLbb sRoPx"><div class="redoc-json"><code><button class="collapser" aria-label="collapse"></button><span class="token punctuation">[</span><span class="ellipsis"></span><ul class="array collapsible"><li><div class="hoverable "><button class="collapser" aria-label="collapse"></button><span class="token punctuation">{</span><span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable collapsed"><span class="property token string">"id"</span>: <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable collapsed"><span class="property token string">"description"</span>: <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable collapsed"><span class="property token string">"output"</span>: <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable collapsed"><span class="property token string">"scope"</span>: <span class="token string">&quot;string&quot;</span></div></li></ul><span class="token punctuation">}</span></div></li></ul><span class="token punctuation">]</span></code></div></div></div></div></div></div><div class="react-tabs__tab-panel" role="tabpanel" id="react-tabs-11" aria-labelledby="react-tabs-10"></div></div></div></div></div></div><div id="tag/report" data-section-id="tag/report" class="sc-eCImPb kKqedw"><div class="sc-iCfMLu jTXZbd"><div class="sc-hKwDye fcjMZs"><h1 class="sc-furwcr kwcwWd"><a class="sc-crHmcD bNUQy" href="#tag/report" aria-label="tag/report"></a>report</h1></div></div></div><div id="tag/report/operation/listReports" data-section-id="tag/report/operation/listReports" class="sc-eCImPb hexvPn"><div data-section-id="operation/listReports" id="operation/listReports" class="sc-iCfMLu jTXZbd"><div class="sc-hKwDye fcjMZs"><h2 class="sc-pVTFL QwiBS"><a class="sc-crHmcD bNUQy" href="#tag/report/operation/listReports" aria-label="tag/report/operation/listReports"></a>Retrieve a list of the available types of statistical reports<!-- --> </h2><div><h3 class="sc-fIosxK bTvSgn">Responses</h3><div><button class="sc-htJRVC hoRAnv"><svg class="sc-egiyK bPEzCN" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">200<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>A list of available types of statistical reports</p>
+</span></button></div><div><button class="sc-htJRVC wltdp"><svg class="sc-egiyK FBjwd" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">default<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>Error</p>
+</span></button></div></div></div><div class="sc-jRQBWg sc-gKclnd vSqXI dKDnzb"><div class="sc-FNXRL jYAhkx"><button class="sc-eFegNN bxamQ"><span type="get" class="sc-fmBCVi hYmQQT http-verb get">get</span><span class="sc-jWUzzU hxZHzL">/reports</span><svg class="sc-egiyK laPRNF" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></button><div aria-hidden="true" class="sc-lkgTHX fuqHqW"><div class="sc-jlRLRk fUpXCf"><div class="sc-iJKOTD sc-cidDSM hGZPxu fhPxtY"></div><div tabindex="0" role="button"><div class="sc-dUbtfd ggmziU"><span>http://localhost:3000</span>/reports</div></div></div></div></div><div><h3 class="sc-kDTinF hwMGJl"> <!-- -->Response samples<!-- --> </h3><div class="sc-cxpSdN eCLDJY" data-rttabs="true"><ul class="react-tabs__tab-list" role="tablist"><li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-12" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-13" tabindex="0" data-rttab="true">200</li><li class="tab-error" role="tab" id="react-tabs-14" aria-selected="false" aria-disabled="false" aria-controls="react-tabs-15" data-rttab="true">default</li></ul><div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-13" aria-labelledby="react-tabs-12"><div><div class="sc-AjmGg bcpfGN"><span class="sc-cNKqjZ iYcnri">Content type</span><div class="sc-bBHHxi eidhyg">application/json</div></div><div class="sc-jgrJph iUheaL"><div class="sc-jObWnj jOBPNj"><div class="sc-giYglK gjxyHD"><button><div class="sc-caiLqq ddxnzs">Copy</div></button><button> Expand all </button><button> Collapse all </button></div><div class="sc-iJKOTD hGZPxu sc-dPiLbb sRoPx"><div class="redoc-json"><code><button class="collapser" aria-label="collapse"></button><span class="token punctuation">[</span><span class="ellipsis"></span><ul class="array collapsible"><li><div class="hoverable "><button class="collapser" aria-label="collapse"></button><span class="token punctuation">{</span><span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable collapsed"><span class="property token string">"id"</span>: <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable collapsed"><span class="property token string">"description"</span>: <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable collapsed"><span class="property token string">"output"</span>: <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable collapsed"><span class="property token string">"scope"</span>: <span class="token string">&quot;string&quot;</span></div></li></ul><span class="token punctuation">}</span></div></li></ul><span class="token punctuation">]</span></code></div></div></div></div></div></div><div class="react-tabs__tab-panel" role="tabpanel" id="react-tabs-15" aria-labelledby="react-tabs-14"></div></div></div></div></div></div><div id="tag/report/operation/getReport" data-section-id="tag/report/operation/getReport" class="sc-eCImPb hexvPn"><div data-section-id="operation/getReport" id="operation/getReport" class="sc-iCfMLu jTXZbd"><div class="sc-hKwDye fcjMZs"><h2 class="sc-pVTFL QwiBS"><a class="sc-crHmcD bNUQy" href="#tag/report/operation/getReport" aria-label="tag/report/operation/getReport"></a>Retrieve a specific type of report identified by reportId<!-- --> </h2><div><h5 class="sc-iqseJM kyZwVG">path<!-- --> Parameters</h5><table class="sc-hGPBjI wbnF"><tbody><tr class="last "><td class="sc-hBUSln sc-fFeiMQ kCCtqV fwnkRw" kind="field" title="reportId"><span class="sc-ieecCq fMdASL"></span><span class="property-name">reportId</span><div class="sc-nVkyK sc-hiwPVj eyZzuM eSyGZd">required</div></td><td class="sc-bkkeKt fOwWgB"><div><div><span class="sc-lbhJGD sc-iNGGcK gHbDui eLMLxg"></span><span class="sc-lbhJGD sc-jeraig gHbDui ifsMbX">string</span></div> <div><div class="sc-iJKOTD sc-cidDSM hGZPxu fhPxtY"><p>The ID of the type of report to retrieve</p>
+</div></div></div></td></tr></tbody></table></div><div><h3 class="sc-fIosxK bTvSgn">Responses</h3><div><button class="sc-htJRVC hoRAnv"><svg class="sc-egiyK bPEzCN" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">200<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>Details of a type of report</p>
+</span></button></div><div><button class="sc-htJRVC wltdp"><svg class="sc-egiyK FBjwd" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">404<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>Report type not found</p>
+</span></button></div><div><button class="sc-htJRVC wltdp"><svg class="sc-egiyK FBjwd" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">default<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>Error</p>
+</span></button></div></div></div><div class="sc-jRQBWg sc-gKclnd vSqXI dKDnzb"><div class="sc-FNXRL jYAhkx"><button class="sc-eFegNN bxamQ"><span type="get" class="sc-fmBCVi hYmQQT http-verb get">get</span><span class="sc-jWUzzU hxZHzL">/reports/{reportId}</span><svg class="sc-egiyK laPRNF" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></button><div aria-hidden="true" class="sc-lkgTHX fuqHqW"><div class="sc-jlRLRk fUpXCf"><div class="sc-iJKOTD sc-cidDSM hGZPxu fhPxtY"></div><div tabindex="0" role="button"><div class="sc-dUbtfd ggmziU"><span>http://localhost:3000</span>/reports/{reportId}</div></div></div></div></div><div><h3 class="sc-kDTinF hwMGJl"> <!-- -->Response samples<!-- --> </h3><div class="sc-cxpSdN eCLDJY" data-rttabs="true"><ul class="react-tabs__tab-list" role="tablist"><li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-16" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-17" tabindex="0" data-rttab="true">200</li><li class="tab-error" role="tab" id="react-tabs-18" aria-selected="false" aria-disabled="false" aria-controls="react-tabs-19" data-rttab="true">404</li><li class="tab-error" role="tab" id="react-tabs-20" aria-selected="false" aria-disabled="false" aria-controls="react-tabs-21" data-rttab="true">default</li></ul><div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-17" aria-labelledby="react-tabs-16"><div><div class="sc-AjmGg bcpfGN"><span class="sc-cNKqjZ iYcnri">Content type</span><div class="sc-bBHHxi eidhyg">application/json</div></div><div class="sc-jgrJph iUheaL"><div class="sc-jObWnj jOBPNj"><div class="sc-giYglK gjxyHD"><button><div class="sc-caiLqq ddxnzs">Copy</div></button></div><div class="sc-iJKOTD hGZPxu sc-dPiLbb sRoPx"><div class="redoc-json"><code><button class="collapser" aria-label="collapse"></button><span class="token punctuation">{</span><span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable "><span class="property token string">"id"</span>: <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"description"</span>: <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"output"</span>: <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"scope"</span>: <span class="token string">&quot;string&quot;</span></div></li></ul><span class="token punctuation">}</span></code></div></div></div></div></div></div><div class="react-tabs__tab-panel" role="tabpanel" id="react-tabs-19" aria-labelledby="react-tabs-18"></div><div class="react-tabs__tab-panel" role="tabpanel" id="react-tabs-21" aria-labelledby="react-tabs-20"></div></div></div></div></div></div><div id="tag/list" data-section-id="tag/list" class="sc-eCImPb kKqedw"><div class="sc-iCfMLu jTXZbd"><div class="sc-hKwDye fcjMZs"><h1 class="sc-furwcr kwcwWd"><a class="sc-crHmcD bNUQy" href="#tag/list" aria-label="tag/list"></a>list</h1></div></div></div><div id="tag/list/operation/listReports" data-section-id="tag/list/operation/listReports" class="sc-eCImPb hexvPn"><div data-section-id="operation/listReports" id="operation/listReports" class="sc-iCfMLu jTXZbd"><div class="sc-hKwDye fcjMZs"><h2 class="sc-pVTFL QwiBS"><a class="sc-crHmcD bNUQy" href="#tag/list/operation/listReports" aria-label="tag/list/operation/listReports"></a>Retrieve a list of the available types of statistical reports<!-- --> </h2><div><h3 class="sc-fIosxK bTvSgn">Responses</h3><div><button class="sc-htJRVC hoRAnv"><svg class="sc-egiyK bPEzCN" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">200<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>A list of available types of statistical reports</p>
+</span></button></div><div><button class="sc-htJRVC wltdp"><svg class="sc-egiyK FBjwd" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">default<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>Error</p>
+</span></button></div></div></div><div class="sc-jRQBWg sc-gKclnd vSqXI dKDnzb"><div class="sc-FNXRL jYAhkx"><button class="sc-eFegNN bxamQ"><span type="get" class="sc-fmBCVi hYmQQT http-verb get">get</span><span class="sc-jWUzzU hxZHzL">/reports</span><svg class="sc-egiyK laPRNF" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></button><div aria-hidden="true" class="sc-lkgTHX fuqHqW"><div class="sc-jlRLRk fUpXCf"><div class="sc-iJKOTD sc-cidDSM hGZPxu fhPxtY"></div><div tabindex="0" role="button"><div class="sc-dUbtfd ggmziU"><span>http://localhost:3000</span>/reports</div></div></div></div></div><div><h3 class="sc-kDTinF hwMGJl"> <!-- -->Response samples<!-- --> </h3><div class="sc-cxpSdN eCLDJY" data-rttabs="true"><ul class="react-tabs__tab-list" role="tablist"><li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-22" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-23" tabindex="0" data-rttab="true">200</li><li class="tab-error" role="tab" id="react-tabs-24" aria-selected="false" aria-disabled="false" aria-controls="react-tabs-25" data-rttab="true">default</li></ul><div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-23" aria-labelledby="react-tabs-22"><div><div class="sc-AjmGg bcpfGN"><span class="sc-cNKqjZ iYcnri">Content type</span><div class="sc-bBHHxi eidhyg">application/json</div></div><div class="sc-jgrJph iUheaL"><div class="sc-jObWnj jOBPNj"><div class="sc-giYglK gjxyHD"><button><div class="sc-caiLqq ddxnzs">Copy</div></button><button> Expand all </button><button> Collapse all </button></div><div class="sc-iJKOTD hGZPxu sc-dPiLbb sRoPx"><div class="redoc-json"><code><button class="collapser" aria-label="collapse"></button><span class="token punctuation">[</span><span class="ellipsis"></span><ul class="array collapsible"><li><div class="hoverable "><button class="collapser" aria-label="collapse"></button><span class="token punctuation">{</span><span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable collapsed"><span class="property token string">"id"</span>: <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable collapsed"><span class="property token string">"description"</span>: <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable collapsed"><span class="property token string">"output"</span>: <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable collapsed"><span class="property token string">"scope"</span>: <span class="token string">&quot;string&quot;</span></div></li></ul><span class="token punctuation">}</span></div></li></ul><span class="token punctuation">]</span></code></div></div></div></div></div></div><div class="react-tabs__tab-panel" role="tabpanel" id="react-tabs-25" aria-labelledby="react-tabs-24"></div></div></div></div></div></div><div id="tag/statistic" data-section-id="tag/statistic" class="sc-eCImPb kKqedw"><div class="sc-iCfMLu jTXZbd"><div class="sc-hKwDye fcjMZs"><h1 class="sc-furwcr kwcwWd"><a class="sc-crHmcD bNUQy" href="#tag/statistic" aria-label="tag/statistic"></a>statistic</h1></div></div></div><div id="tag/statistic/operation/getStatistics" data-section-id="tag/statistic/operation/getStatistics" class="sc-eCImPb hexvPn"><div data-section-id="operation/getStatistics" id="operation/getStatistics" class="sc-iCfMLu jTXZbd"><div class="sc-hKwDye fcjMZs"><h2 class="sc-pVTFL QwiBS"><a class="sc-crHmcD bNUQy" href="#tag/statistic/operation/getStatistics" aria-label="tag/statistic/operation/getStatistics"></a>Retrieve a specific type of statistics report identified by statisticType<!-- --> </h2><div><h5 class="sc-iqseJM kyZwVG">path<!-- --> Parameters</h5><table class="sc-hGPBjI wbnF"><tbody><tr class="last "><td class="sc-hBUSln sc-fFeiMQ kCCtqV fwnkRw" kind="field" title="statisticType"><span class="sc-ieecCq fMdASL"></span><span class="property-name">statisticType</span><div class="sc-nVkyK sc-hiwPVj eyZzuM eSyGZd">required</div></td><td class="sc-bkkeKt fOwWgB"><div><div><span class="sc-lbhJGD sc-iNGGcK gHbDui eLMLxg"></span><span class="sc-lbhJGD sc-jeraig gHbDui ifsMbX">string</span></div> <div><div class="sc-iJKOTD sc-cidDSM hGZPxu fhPxtY"><p>The type of statistics report to retrieve</p>
+</div></div></div></td></tr></tbody></table></div><div><h3 class="sc-fIosxK bTvSgn">Responses</h3><div><button class="sc-htJRVC hoRAnv"><svg class="sc-egiyK bPEzCN" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">200<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>The statistics details</p>
+</span></button></div><div><button class="sc-htJRVC wltdp"><svg class="sc-egiyK FBjwd" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">404<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>Statistics report type not found</p>
+</span></button></div><div><button class="sc-htJRVC wltdp"><svg class="sc-egiyK FBjwd" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">default<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>Error</p>
+</span></button></div></div></div><div class="sc-jRQBWg sc-gKclnd vSqXI dKDnzb"><div class="sc-FNXRL jYAhkx"><button class="sc-eFegNN bxamQ"><span type="get" class="sc-fmBCVi hYmQQT http-verb get">get</span><span class="sc-jWUzzU hxZHzL">/statistics/{statisticType}</span><svg class="sc-egiyK laPRNF" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></button><div aria-hidden="true" class="sc-lkgTHX fuqHqW"><div class="sc-jlRLRk fUpXCf"><div class="sc-iJKOTD sc-cidDSM hGZPxu fhPxtY"></div><div tabindex="0" role="button"><div class="sc-dUbtfd ggmziU"><span>http://localhost:3000</span>/statistics/{statisticType}</div></div></div></div></div><div><h3 class="sc-kDTinF hwMGJl"> <!-- -->Response samples<!-- --> </h3><div class="sc-cxpSdN eCLDJY" data-rttabs="true"><ul class="react-tabs__tab-list" role="tablist"><li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-26" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-27" tabindex="0" data-rttab="true">200</li><li class="tab-error" role="tab" id="react-tabs-28" aria-selected="false" aria-disabled="false" aria-controls="react-tabs-29" data-rttab="true">404</li><li class="tab-error" role="tab" id="react-tabs-30" aria-selected="false" aria-disabled="false" aria-controls="react-tabs-31" data-rttab="true">default</li></ul><div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-27" aria-labelledby="react-tabs-26"><div><div class="sc-AjmGg bcpfGN"><span class="sc-cNKqjZ iYcnri">Content type</span><div class="sc-bBHHxi eidhyg">application/json</div></div><div class="sc-jgrJph iUheaL"><div class="sc-jObWnj jOBPNj"><div class="sc-giYglK gjxyHD"><button><div class="sc-caiLqq ddxnzs">Copy</div></button><button> Expand all </button><button> Collapse all </button></div><div class="sc-iJKOTD hGZPxu sc-dPiLbb sRoPx"><div class="redoc-json"><code><button class="collapser" aria-label="collapse"></button><span class="token punctuation">{</span><span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable "><span class="property token string">"info"</span>: <button class="collapser" aria-label="collapse"></button><span class="token punctuation">{</span><span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable collapsed"><span class="property token string">"name"</span>: <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable collapsed"><span class="property token string">"type"</span>: <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable collapsed"><span class="property token string">"creationDateTime"</span>: <span class="token string">&quot;2019-08-24T14:15:22Z&quot;</span></div></li></ul><span class="token punctuation">}</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"data"</span>: <button class="collapser" aria-label="collapse"></button><span class="token punctuation">{</span><span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable collapsed"><span class="property token string">"total"</span>: <span class="token number">0</span><span class="token punctuation">,</span></div></li><li><div class="hoverable collapsed"><span class="property token string">"count"</span>: <span class="token number">0</span></div></li></ul><span class="token punctuation">}</span></div></li></ul><span class="token punctuation">}</span></code></div></div></div></div></div></div><div class="react-tabs__tab-panel" role="tabpanel" id="react-tabs-29" aria-labelledby="react-tabs-28"></div><div class="react-tabs__tab-panel" role="tabpanel" id="react-tabs-31" aria-labelledby="react-tabs-30"></div></div></div></div></div></div><div id="tag/monitoring" data-section-id="tag/monitoring" class="sc-eCImPb kKqedw"><div class="sc-iCfMLu jTXZbd"><div class="sc-hKwDye fcjMZs"><h1 class="sc-furwcr kwcwWd"><a class="sc-crHmcD bNUQy" href="#tag/monitoring" aria-label="tag/monitoring"></a>monitoring</h1></div></div></div><div id="tag/monitoring/operation/knockknock" data-section-id="tag/monitoring/operation/knockknock" class="sc-eCImPb hexvPn"><div data-section-id="operation/knockknock" id="operation/knockknock" class="sc-iCfMLu jTXZbd"><div class="sc-hKwDye fcjMZs"><h2 class="sc-pVTFL QwiBS"><a class="sc-crHmcD bNUQy" href="#tag/monitoring/operation/knockknock" aria-label="tag/monitoring/operation/knockknock"></a>This path is used to check if the API is running<!-- --> </h2><div><h3 class="sc-fIosxK bTvSgn">Responses</h3><div><button class="sc-htJRVC hoRAnv"><svg class="sc-egiyK bPEzCN" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">200<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>A static response</p>
+</span></button></div><div><button class="sc-htJRVC wltdp"><svg class="sc-egiyK FBjwd" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg><strong class="sc-fXeWAj jHtNTU">default<!-- --> </strong><span class="sc-jcFjpl eahewB"><p>Error</p>
+</span></button></div></div></div><div class="sc-jRQBWg sc-gKclnd vSqXI dKDnzb"><div class="sc-FNXRL jYAhkx"><button class="sc-eFegNN bxamQ"><span type="get" class="sc-fmBCVi hYmQQT http-verb get">get</span><span class="sc-jWUzzU hxZHzL">/knockknock</span><svg class="sc-egiyK laPRNF" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></button><div aria-hidden="true" class="sc-lkgTHX fuqHqW"><div class="sc-jlRLRk fUpXCf"><div class="sc-iJKOTD sc-cidDSM hGZPxu fhPxtY"></div><div tabindex="0" role="button"><div class="sc-dUbtfd ggmziU"><span>http://localhost:3000</span>/knockknock</div></div></div></div></div><div><h3 class="sc-kDTinF hwMGJl"> <!-- -->Response samples<!-- --> </h3><div class="sc-cxpSdN eCLDJY" data-rttabs="true"><ul class="react-tabs__tab-list" role="tablist"><li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-32" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-33" tabindex="0" data-rttab="true">200</li><li class="tab-error" role="tab" id="react-tabs-34" aria-selected="false" aria-disabled="false" aria-controls="react-tabs-35" data-rttab="true">default</li></ul><div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-33" aria-labelledby="react-tabs-32"><div><div class="sc-AjmGg bcpfGN"><span class="sc-cNKqjZ iYcnri">Content type</span><div class="sc-bBHHxi eidhyg">application/json</div></div><div class="sc-jgrJph iUheaL"><div class="sc-jObWnj jOBPNj"><div class="sc-giYglK gjxyHD"><button><div class="sc-caiLqq ddxnzs">Copy</div></button></div><div class="sc-iJKOTD hGZPxu sc-dPiLbb sRoPx"><div class="redoc-json"><code><button class="collapser" aria-label="collapse"></button><span class="token punctuation">{</span><span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable "><span class="property token string">"response"</span>: <span class="token string">&quot;string&quot;</span></div></li></ul><span class="token punctuation">}</span></code></div></div></div></div></div></div><div class="react-tabs__tab-panel" role="tabpanel" id="react-tabs-35" aria-labelledby="react-tabs-34"></div></div></div></div></div></div></div><div class="sc-eldieg bLydqy"></div></div></div>
+      <script>
+      const __redoc_state = {"menu":{"activeItemIdx":-1},"spec":{"data":{"openapi":"3.0.0","info":{"version":"0.2.0","title":"Postman Open Technologies Knowledge Base API","description":"This is the API that lets you access the information available on the Knowledge Base.\n\nPlease refer to the [contributing instructions](https://raw.githubusercontent.com/postman-open-technologies/knowledge-base/main/api/CONTRIBUTING.md) for information on how to install the API server and run it.","license":{"name":"Apache 2.0","url":"https://www.apache.org/licenses/LICENSE-2.0.html"},"contact":{"name":"Postman Open Technologies","url":"https://www.postman.com/open-tech/","email":"open@postman.com"}},"servers":[{"url":"http://localhost:3000"}],"paths":{"/":{"get":{"summary":"Retrieve the OpenAPI definition","operationId":"getOpenAPI","tags":["openapi","definition"],"responses":{"200":{"description":"The OpenAPI definition","content":{"application/json":{"schema":{"type":"object"}}}},"default":{"description":"Error","content":{"application/problem+json":{"schema":{"$ref":"#/components/schemas/ProblemDetailsError"}}}}}}},"/reports":{"get":{"summary":"Retrieve a list of the available types of statistical reports","operationId":"listReports","tags":["reports","report","list"],"responses":{"200":{"description":"A list of available types of statistical reports","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Reports"}}}},"default":{"description":"Error","content":{"application/problem+json":{"schema":{"$ref":"#/components/schemas/ProblemDetailsError"}}}}}}},"/reports/{reportId}":{"get":{"summary":"Retrieve a specific type of report identified by reportId","operationId":"getReport","tags":["report"],"parameters":[{"name":"reportId","in":"path","required":true,"description":"The ID of the type of report to retrieve","schema":{"type":"string"}}],"responses":{"200":{"description":"Details of a type of report","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Report"}}}},"404":{"description":"Report type not found","content":{"application/problem+json":{"schema":{"$ref":"#/components/schemas/ProblemDetailsError"}}}},"default":{"description":"Error","content":{"application/problem+json":{"schema":{"$ref":"#/components/schemas/ProblemDetailsError"}}}}}}},"/statistics/{statisticType}":{"get":{"summary":"Retrieve a specific type of statistics report identified by statisticType","operationId":"getStatistics","tags":["statistic"],"parameters":[{"name":"statisticType","in":"path","required":true,"description":"The type of statistics report to retrieve","schema":{"type":"string"}}],"responses":{"200":{"description":"The statistics details","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Statistic"}}}},"404":{"description":"Statistics report type not found","content":{"application/problem+json":{"schema":{"$ref":"#/components/schemas/ProblemDetailsError"}}}},"default":{"description":"Error","content":{"application/problem+json":{"schema":{"$ref":"#/components/schemas/ProblemDetailsError"}}}}}}},"/knockknock":{"get":{"summary":"This path is used to check if the API is running","operationId":"knockknock","tags":["monitoring"],"responses":{"200":{"description":"A static response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/KnockKnock"}}}},"default":{"description":"Error","content":{"application/problem+json":{"schema":{"$ref":"#/components/schemas/ProblemDetailsError"}}}}}}}},"components":{"schemas":{"Report":{"type":"object","required":["id","description","output","scope"],"properties":{"id":{"type":"string"},"description":{"type":"string"},"output":{"type":"string"},"scope":{"type":"string"}}},"Reports":{"type":"array","items":{"$ref":"#/components/schemas/Report"}},"Statistic":{"type":"object","properties":{"info":{"$ref":"#/components/schemas/StatisticInfo"},"data":{"$ref":"#/components/schemas/StatisticData"}}},"StatisticInfo":{"type":"object","properties":{"name":{"type":"string"},"type":{"type":"string"},"creationDateTime":{"type":"string","format":"date-time"}}},"StatisticData":{"type":"object","properties":{"total":{"type":"integer"},"count":{"type":"integer"}}},"ProblemDetailsError":{"type":"object","properties":{"status":{"type":"integer"},"title":{"type":"string"},"details":{"type":"string"},"instance":{"type":"string"},"type":{"type":"string"}},"additionalProperties":true,"required":["status","title","details","type"]},"KnockKnock":{"type":"object","properties":{"response":{"type":"string"}},"additionalProperties":false,"required":["response"]}}}}},"searchIndex":{"store":["tag/openapi","tag/openapi/operation/getOpenAPI","tag/definition","tag/definition/operation/getOpenAPI","tag/reports","tag/reports/operation/listReports","tag/report","tag/report/operation/listReports","tag/report/operation/getReport","tag/list","tag/list/operation/listReports","tag/statistic","tag/statistic/operation/getStatistics","tag/monitoring","tag/monitoring/operation/knockknock"],"index":{"version":"2.3.9","fields":["title","description"],"fieldVectors":[["title/0",[0,2.122]],["description/0",[]],["title/1",[0,1.572,1,0.784,2,1.572]],["description/1",[3,1.367]],["title/2",[2,2.122]],["description/2",[]],["title/3",[0,1.572,1,0.784,2,1.572]],["description/3",[3,1.367]],["title/4",[4,0.588]],["description/4",[]],["title/5",[1,0.564,4,0.314,5,0.945,6,1.132,7,0.796,8,0.796]],["description/5",[4,0.31]],["title/6",[4,0.588]],["description/6",[]],["title/7",[1,0.564,4,0.314,5,0.945,6,1.132,7,0.796,8,0.796]],["description/7",[4,0.31]],["title/8",[1,0.564,4,0.314,7,0.796,9,1.383,10,1.383,11,1.763]],["description/8",[12,1.743]],["title/9",[5,1.771]],["description/9",[]],["title/10",[1,0.564,4,0.314,5,0.945,6,1.132,7,0.796,8,0.796]],["description/10",[4,0.31]],["title/11",[8,1.491]],["description/11",[]],["title/12",[1,0.516,4,0.287,7,0.728,8,0.728,9,1.265,10,1.265,13,1.613]],["description/12",[14,1.743]],["title/13",[15,3.305]],["description/13",[]],["title/14",[16,1.945,17,1.945,18,1.945,19,1.945,20,1.945]],["description/14",[21,1.743]]],"invertedIndex":[["",{"_index":3,"title":{},"description":{"1":{},"3":{}}}],["api",{"_index":19,"title":{"14":{}},"description":{}}],["avail",{"_index":6,"title":{"5":{},"7":{},"10":{}},"description":{}}],["check",{"_index":18,"title":{"14":{}},"description":{}}],["definit",{"_index":2,"title":{"1":{},"2":{},"3":{}},"description":{}}],["identifi",{"_index":10,"title":{"8":{},"12":{}},"description":{}}],["knockknock",{"_index":21,"title":{},"description":{"14":{}}}],["list",{"_index":5,"title":{"5":{},"7":{},"9":{},"10":{}},"description":{}}],["monitor",{"_index":15,"title":{"13":{}},"description":{}}],["openapi",{"_index":0,"title":{"0":{},"1":{},"3":{}},"description":{}}],["path",{"_index":16,"title":{"14":{}},"description":{}}],["report",{"_index":4,"title":{"4":{},"5":{},"6":{},"7":{},"8":{},"10":{},"12":{}},"description":{"5":{},"7":{},"10":{}}}],["reportid",{"_index":11,"title":{"8":{}},"description":{}}],["reports/{reportid",{"_index":12,"title":{},"description":{"8":{}}}],["retriev",{"_index":1,"title":{"1":{},"3":{},"5":{},"7":{},"8":{},"10":{},"12":{}},"description":{}}],["run",{"_index":20,"title":{"14":{}},"description":{}}],["specif",{"_index":9,"title":{"8":{},"12":{}},"description":{}}],["statist",{"_index":8,"title":{"5":{},"7":{},"10":{},"11":{},"12":{}},"description":{}}],["statistics/{statistictyp",{"_index":14,"title":{},"description":{"12":{}}}],["statistictyp",{"_index":13,"title":{"12":{}},"description":{}}],["type",{"_index":7,"title":{"5":{},"7":{},"8":{},"10":{},"12":{}},"description":{}}],["us",{"_index":17,"title":{"14":{}},"description":{}}]],"pipeline":[]}},"options":{}};
+
+      var container = document.getElementById('redoc');
+      Redoc.hydrate(__redoc_state, container);
+
+      </script>
+</body>
+
+</html>
