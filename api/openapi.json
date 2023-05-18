@@ -34,15 +34,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "example": {
-                    "openapi": "3.1.1",
-                    "info": {
-                      "title": "A minimal OpenAPI definition",
-                      "version": "1.2.3"
-                    },
-                    "components": {}
-                  }
+                  "type": "object"
+                },
+                "example": {
+                  "openapi": "3.1.1",
+                  "info": {
+                    "title": "A minimal OpenAPI definition",
+                    "version": "1.2.3"
+                  },
+                  "components": {}
                 }
               },
               "text/html": {
@@ -57,14 +57,14 @@
             "content": {
               "application/problem+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetailsError",
-                  "example": {
-                    "status": 500,
-                    "title": "Internal Server Error",
-                    "details": "Error fetching /",
-                    "instance": "/",
-                    "type": "http://localhost:3000/InternalServerError"
-                  }
+                  "$ref": "#/components/schemas/ProblemDetailsError"
+                },
+                "example": {
+                  "status": 500,
+                  "title": "Internal Server Error",
+                  "details": "Error fetching /",
+                  "instance": "/",
+                  "type": "http://localhost:3000/InternalServerError"
                 }
               }
             }
@@ -88,18 +88,18 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Reports",
-                  "example": [
-                    {
-                      "id": "info-contact",
-                      "scope": "spectral/postman/postman-library"
-                    },
-                    {
-                      "id": "info-license",
-                      "scope": "spectral/postman/postman-library"
-                    }
-                  ]
-                }
+                  "$ref": "#/components/schemas/Reports"
+                },
+                "example": [
+                  {
+                    "id": "info-contact",
+                    "scope": "spectral/postman/postman-library"
+                  },
+                  {
+                    "id": "info-license",
+                    "scope": "spectral/postman/postman-library"
+                  }
+                ]
               }
             }
           },
@@ -108,14 +108,14 @@
             "content": {
               "application/problem+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetailsError",
-                  "example": {
-                    "status": 500,
-                    "title": "Internal Server Error",
-                    "details": "Error fetching /reports",
-                    "instance": "/reports",
-                    "type": "http://localhost:3000/InternalServerError"
-                  }
+                  "$ref": "#/components/schemas/ProblemDetailsError"
+                },
+                "example": {
+                  "status": 500,
+                  "title": "Internal Server Error",
+                  "details": "Error fetching /reports",
+                  "instance": "/reports",
+                  "type": "http://localhost:3000/InternalServerError"
                 }
               }
             }
@@ -147,11 +147,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Report",
-                  "example": {
-                    "id": "info-contact",
-                    "scope": "spectral/postman/postman-library"
-                  }
+                  "$ref": "#/components/schemas/Report"
+                },
+                "example": {
+                  "id": "info-contact",
+                  "scope": "spectral/postman/postman-library"
                 }
               }
             }
@@ -161,14 +161,14 @@
             "content": {
               "application/problem+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetailsError",
-                  "example": {
-                    "status": 404,
-                    "title": "Not Found",
-                    "details": "Resource /reports/not%20found%20example not found",
-                    "instance": "/reports/not%20found%20example",
-                    "type": "http://localhost:3000/NotFoundError"
-                  }
+                  "$ref": "#/components/schemas/ProblemDetailsError"
+                },
+                "example": {
+                  "status": 404,
+                  "title": "Not Found",
+                  "details": "Resource /reports/not%20found%20example not found",
+                  "instance": "/reports/not%20found%20example",
+                  "type": "http://localhost:3000/NotFoundError"
                 }
               }
             }
@@ -178,14 +178,14 @@
             "content": {
               "application/problem+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetailsError",
-                  "example": {
-                    "status": 500,
-                    "title": "Internal Server Error",
-                    "details": "Error fetching /reports/info-contact",
-                    "instance": "/reports/info-contact",
-                    "type": "http://localhost:3000/InternalServerError"
-                  }
+                  "$ref": "#/components/schemas/ProblemDetailsError"
+                },
+                "example": {
+                  "status": 500,
+                  "title": "Internal Server Error",
+                  "details": "Error fetching /reports/info-contact",
+                  "instance": "/reports/info-contact",
+                  "type": "http://localhost:3000/InternalServerError"
                 }
               }
             }
@@ -217,17 +217,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Statistic",
-                  "example": {
-                    "info": {
-                      "id": "info-contact",
-                      "scope": "spectral/postman/postman-library"
-                    },
-                    "data": {
-                      "creationDateTime": "2023-05-18T12:39:28.414Z",
-                      "total": 29720,
-                      "count": 18344
-                    }
+                  "$ref": "#/components/schemas/Statistic"
+                },
+                "example": {
+                  "info": {
+                    "id": "info-contact",
+                    "scope": "spectral/postman/postman-library"
+                  },
+                  "data": {
+                    "creationDateTime": "2023-05-18T12:39:28.414Z",
+                    "total": 29720,
+                    "count": 18344
                   }
                 }
               }
@@ -238,14 +238,14 @@
             "content": {
               "application/problem+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetailsError",
-                  "example": {
-                    "status": 404,
-                    "title": "Not Found",
-                    "details": "Resource /statistics/not%20found%20example not found",
-                    "instance": "/statistics/not%20found%20example",
-                    "type": "http://localhost:3000/NotFoundError"
-                  }
+                  "$ref": "#/components/schemas/ProblemDetailsError"
+                },
+                "example": {
+                  "status": 404,
+                  "title": "Not Found",
+                  "details": "Resource /statistics/not%20found%20example not found",
+                  "instance": "/statistics/not%20found%20example",
+                  "type": "http://localhost:3000/NotFoundError"
                 }
               }
             }
@@ -255,14 +255,14 @@
             "content": {
               "application/problem+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetailsError",
-                  "example": {
-                    "status": 500,
-                    "title": "Internal Server Error",
-                    "details": "Error fetching /statistics/info-contact",
-                    "instance": "/statistics/info-contact",
-                    "type": "http://localhost:3000/InternalServerError"
-                  }
+                  "$ref": "#/components/schemas/ProblemDetailsError"
+                },
+                "example": {
+                  "status": 500,
+                  "title": "Internal Server Error",
+                  "details": "Error fetching /statistics/info-contact",
+                  "instance": "/statistics/info-contact",
+                  "type": "http://localhost:3000/InternalServerError"
                 }
               }
             }
@@ -283,10 +283,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/KnockKnock",
-                  "example": {
-                    "response": "Who is there?"
-                  }
+                  "$ref": "#/components/schemas/KnockKnock"
+                },
+                "example": {
+                  "response": "Who is there?"
                 }
               }
             }
@@ -296,14 +296,14 @@
             "content": {
               "application/problem+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetailsError",
-                  "example": {
-                    "status": 500,
-                    "title": "Internal Server Error",
-                    "details": "Error fetching /knockknock",
-                    "instance": "/knockknock",
-                    "type": "http://localhost:3000/InternalServerError"
-                  }
+                  "$ref": "#/components/schemas/ProblemDetailsError"
+                },
+                "example": {
+                  "status": 500,
+                  "title": "Internal Server Error",
+                  "details": "Error fetching /knockknock",
+                  "instance": "/knockknock",
+                  "type": "http://localhost:3000/InternalServerError"
                 }
               }
             }
