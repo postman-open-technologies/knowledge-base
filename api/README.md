@@ -1,5 +1,5 @@
 ---
-title: Postman Open Technologies Knowledge Base API v0.3.0
+title: Postman Open Technologies Knowledge Base API v0.4.0
 language_tabs:
   - shell: Shell
   - http: HTTP
@@ -19,7 +19,7 @@ headingLevel: 2
 
 <!-- Generator: Widdershins v4.0.1 -->
 
-<h1 id="postman-open-technologies-knowledge-base-api">Postman Open Technologies Knowledge Base API v0.3.0</h1>
+<h1 id="postman-open-technologies-knowledge-base-api">Postman Open Technologies Knowledge Base API v0.4.0</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -186,17 +186,38 @@ func main() {
 > 200 Response
 
 ```json
-{}
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "A minimal OpenAPI definition",
+    "version": "1.2.3"
+  },
+  "components": {}
+}
+```
+
+```
+"string"
+```
+
+> default Response
+
+```json
+{
+  "status": 500,
+  "title": "Internal Server Error",
+  "details": "Error fetching /",
+  "instance": "/",
+  "type": "http://localhost:3000/InternalServerError"
+}
 ```
 
 <h3 id="getopenapi-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The OpenAPI definition|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The OpenAPI definition, available in JSON or HTML format, depending on the content type that you accept|string|
 |default|Default|Error|[ProblemDetailsError](#schemaproblemdetailserror)|
-
-<h3 id="getopenapi-responseschema">Response Schema</h3>
 
 <aside class="success">
 This operation does not require authentication
@@ -358,12 +379,26 @@ You can use this path to retrieve the full list of available types of statistica
 ```json
 [
   {
-    "id": "string",
-    "scope": "string",
-    "description": "string",
-    "output": "string"
+    "id": "info-contact",
+    "scope": "spectral/postman/postman-library"
+  },
+  {
+    "id": "info-license",
+    "scope": "spectral/postman/postman-library"
   }
 ]
+```
+
+> default Response
+
+```json
+{
+  "status": 500,
+  "title": "Internal Server Error",
+  "details": "Error fetching /reports",
+  "instance": "/reports",
+  "type": "http://localhost:3000/InternalServerError"
+}
 ```
 
 <h3 id="listreports-responses">Responses</h3>
@@ -536,10 +571,32 @@ func main() {
 
 ```json
 {
-  "id": "string",
-  "scope": "string",
-  "description": "string",
-  "output": "string"
+  "id": "info-contact",
+  "scope": "spectral/postman/postman-library"
+}
+```
+
+> 404 Response
+
+```json
+{
+  "status": 404,
+  "title": "Not Found",
+  "details": "Resource /reports/not%20found%20example not found",
+  "instance": "/reports/not%20found%20example",
+  "type": "http://localhost:3000/NotFoundError"
+}
+```
+
+> default Response
+
+```json
+{
+  "status": 500,
+  "title": "Internal Server Error",
+  "details": "Error fetching /reports/info-contact",
+  "instance": "/reports/info-contact",
+  "type": "http://localhost:3000/InternalServerError"
 }
 ```
 
@@ -715,16 +772,38 @@ func main() {
 ```json
 {
   "info": {
-    "id": "string",
-    "scope": "string",
-    "description": "string",
-    "output": "string"
+    "id": "info-contact",
+    "scope": "spectral/postman/postman-library"
   },
   "data": {
-    "creationDateTime": "2019-08-24T14:15:22Z",
-    "total": 0,
-    "count": 0
+    "creationDateTime": "2023-05-18T12:39:28.414Z",
+    "total": 29720,
+    "count": 18344
   }
+}
+```
+
+> 404 Response
+
+```json
+{
+  "status": 404,
+  "title": "Not Found",
+  "details": "Resource /statistics/not%20found%20example not found",
+  "instance": "/statistics/not%20found%20example",
+  "type": "http://localhost:3000/NotFoundError"
+}
+```
+
+> default Response
+
+```json
+{
+  "status": 500,
+  "title": "Internal Server Error",
+  "details": "Error fetching /statistics/info-contact",
+  "instance": "/statistics/info-contact",
+  "type": "http://localhost:3000/InternalServerError"
 }
 ```
 
@@ -893,7 +972,19 @@ func main() {
 
 ```json
 {
-  "response": "string"
+  "response": "Who is there?"
+}
+```
+
+> default Response
+
+```json
+{
+  "status": 500,
+  "title": "Internal Server Error",
+  "details": "Error fetching /knockknock",
+  "instance": "/knockknock",
+  "type": "http://localhost:3000/InternalServerError"
 }
 ```
 
