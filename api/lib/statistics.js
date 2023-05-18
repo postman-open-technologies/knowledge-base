@@ -31,8 +31,8 @@ module.exports.get = async (id) => {
       },
       data: {
         creationDateTime: new Date().toISOString(),
-        total: total[0],
-        count: row.count
+        total: parseInt(total[0]),
+        count: parseInt(row.count)
       }
     };
   })[0];
