@@ -1,18 +1,25 @@
 const fs = require('fs');
 const express = require('express');
 const router = express.Router();
-
-const openapi = require('../openapi.json');
+const createError = require('http-errors');
 
 router.get('/', function(req, res, next) {
-  res.format({
-    json: function() {
-      res.json(openapi);
-    },
-    html: function() {
-      res.send(fs.readFileSync('openapi.html', 'utf-8'));
-    }
-  });
+  try {
+    const openapi = require('../openapi.json');
+    res.format({
+      json: function() {
+        res.json(openapi);
+      },
+      html: function() {
+        res.send(fs.readFileSync('openapi.html', 'utf-8'));
+      }
+    });
+  } catch (err) {
+    next(createError(500, {
+      details: `Error fetching ${req.originalUrl}`,
+      instance: req.originalUrl
+    }));
+  }
 });
 
 module.exports = router;
