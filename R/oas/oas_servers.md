@@ -1,6 +1,6 @@
 OAS Servers Analysis
 ================
-<sup>Last updated: 2023-05-31</sup>
+<sup>Last updated: 2023-06-01</sup>
 
 - <a href="#overview" id="toc-overview">Overview</a>
 - <a href="#findings" id="toc-findings">Findings</a>
