@@ -1,6 +1,6 @@
 OAS Summary
 ================
-<sup>Last updated: 2023-06-03</sup>
+<sup>Last updated: 2023-06-04</sup>
 
 - <a href="#size" id="toc-size">Size</a>
 - <a href="#validity-and-source-of-errors"
