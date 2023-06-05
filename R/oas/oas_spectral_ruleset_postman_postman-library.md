@@ -1,6 +1,6 @@
 OAS Spectral Ruleset postman/postman-library
 ================
-<sup>Last updated: 2023-06-04</sup>
+<sup>Last updated: 2023-06-05</sup>
 
 <sup>*DISCLAIMER: the results and findings below are preliminary and
 have not been fully validated or peer reviewed. Use with care. Do not
@@ -23,33 +23,33 @@ for details and more granular analysis for each rule.
 
 | rule                                                                                                                                                                                                                             | All<br/>(23,345) | OpenAPI2<br/>(7,851) | OpenAPI3<br/>(15,494) |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------:|:--------------------:|:---------------------:|
-| [info-contact](#info-contact)<br/><sup>Ensures that all APIs have contact information.</sup>                                                                                                                                     |  15,027 (64.4%)  |    4,514 (57.5%)     |    10,513 (67.9%)     |
-| [info-contact-email](#info-contact-email)<br/><sup>Ensures that all APIs have contact email.</sup>                                                                                                                               |   2,120 (9.1%)   |     993 (12.6%)      |     1,127 (7.3%)      |
-| [info-contact-email-or-url](#info-contact-email-or-url)<br/><sup>Ensures that all APIs have contact URL or email.</sup>                                                                                                          |    1,177 (5%)    |      572 (7.3%)      |      605 (3.9%)       |
-| [info-contact-name](#info-contact-name)<br/><sup>Ensures that all APIs have contact name.</sup>                                                                                                                                  |  3,187 (13.7%)   |    1,389 (17.7%)     |     1,798 (11.6%)     |
-| [info-contact-url](#info-contact-url)<br/><sup>Ensures that all APIs have contact URL.</sup>                                                                                                                                     |  4,398 (18.8%)   |    1,923 (24.5%)     |      2,475 (16%)      |
-| [info-description](#info-description)<br/><sup>Ensures that all OpenAPIs have a information description.</sup>                                                                                                                   |  7,531 (32.3%)   |    1,485 (18.9%)     |      6,046 (39%)      |
-| [info-license](#info-license)<br/><sup>Ensures that all OpenAPIs have a information object license.</sup>                                                                                                                        |  14,615 (62.6%)  |    5,222 (66.5%)     |     9,393 (60.6%)     |
-| [info-license-url](#info-license-url)<br/><sup>Ensures that all OpenAPIs have a information object license url.</sup>                                                                                                            |  3,069 (13.1%)   |      227 (2.9%)      |     2,842 (18.3%)     |
-| [info-terms-of-service](#info-terms-of-service)<br/><sup>Ensures that all OpenAPIs have a information object terms of service.</sup>                                                                                             |  19,308 (82.7%)  |    5,940 (75.7%)     |    13,368 (86.3%)     |
-| [no-response-body-on-204](#no-response-body-on-204)<br/><sup>Ensures that no 204 No Content response has a body.</sup>                                                                                                           |    403 (1.7%)    |      93 (1.2%)       |       310 (2%)        |
-| [no-trailing-slash-on-paths](#no-trailing-slash-on-paths)<br/><sup>Ensures that there are no trailing slashes on paths.</sup>                                                                                                    |   1,371 (5.9%)   |      571 (7.3%)      |      800 (5.2%)       |
-| [operations-description](#operations-description)<br/><sup>Ensures that each of the operations have a description.</sup>                                                                                                         |  12,428 (53.2%)  |    3,506 (44.7%)     |     8,922 (57.6%)     |
-| [operations-status-code-2xx](#operations-status-code-2xx)<br/><sup>Ensures that each of the operations returns at least a 2xx HTTP status code.</sup>                                                                            |   1,589 (6.8%)   |     916 (11.7%)      |      673 (4.3%)       |
-| [operations-status-code-5xx](#operations-status-code-5xx)<br/><sup>Ensures that each of the operations returns at least a 5xx HTTP status code.</sup>                                                                            |   18,449 (79%)   |    6,197 (78.9%)     |    12,252 (79.1%)     |
-| [operations-summary](#operations-summary)<br/><sup>Ensures that each of the operations for an API have a summary.</sup>                                                                                                          |  6,243 (26.7%)   |    2,676 (34.1%)     |      3,567 (23%)      |
-| [operations-summary-period-none](#operations-summary-period-none)<br/><sup>Ensures that each of the operations summaries do not have an ending period.</sup>                                                                     |  3,068 (13.1%)   |    1,242 (15.8%)     |     1,826 (11.8%)     |
-| [parameters-description](#parameters-description)<br/><sup>Ensures that that all parameters have a descriptions.</sup>                                                                                                           |  7,362 (31.5%)   |    3,181 (40.5%)     |      4,181 (27%)      |
-| [parameters-examples-any](#parameters-examples-any)<br/><sup>Ensures that that all parameters have a examples.</sup>                                                                                                             |  12,185 (52.2%)  |        0 (0%)        |    12,185 (78.6%)     |
-| [request-bodies-examples-any](#request-bodies-examples-any)<br/><sup>Ensures that a example is always present for each request body (schema.example for Swagger 2, examples or example for OpenAPI 3).</sup>                     |   11,916 (51%)   |    4,667 (59.4%)     |     7,249 (46.8%)     |
-| [request-body-on-patch](#request-body-on-patch)<br/><sup>Ensures that PATCH methods have request bodies.</sup>                                                                                                                   |    374 (1.6%)    |      165 (2.1%)      |      209 (1.3%)       |
-| [request-body-on-post](#request-body-on-post)<br/><sup>Ensures that POST methods have request bodies.</sup>                                                                                                                      |  3,676 (15.7%)   |    1,544 (19.7%)     |     2,132 (13.8%)     |
-| [request-body-on-put](#request-body-on-put)<br/><sup>Ensures that PUT methods have request bodies.</sup>                                                                                                                         |   1,323 (5.7%)   |      636 (8.1%)      |      687 (4.4%)       |
-| [responses-examples-any](#responses-examples-any)<br/><sup>Ensuring all responses have examples (OpenAPI 3, Swagger 2) or example (OpenAPI 3) defined.</sup>                                                                     |  20,279 (86.9%)  |     7,381 (94%)      |    12,898 (83.2%)     |
-| [reusable-schema-description](#reusable-schema-description)<br/><sup>Ensure all reusable schema should have a description.</sup>                                                                                                 |  17,829 (76.4%)  |    5,857 (74.6%)     |    11,972 (77.3%)     |
-| [schema-properties-define-array-boundaries](#schema-properties-define-array-boundaries)<br/><sup>Requires that arrays have their minimum and maximum boundaries defined.</sup>                                                   |  14,737 (63.1%)  |    5,961 (75.9%)     |     8,776 (56.6%)     |
-| [schema-properties-descriptions](#schema-properties-descriptions)<br/><sup>Ensure that all schemas properties should have a description.</sup>                                                                                   |  19,041 (81.6%)  |    6,106 (77.8%)     |    12,935 (83.5%)     |
-| [schema-reference-reusable](#schema-reference-reusable)<br/><sup>Ensures all schema properties use a \$ref contain a \$ref targeting a reusable schema defined in definitions (Swagger 2) or components.schema (OpenAPI 3)</sup> |  17,475 (74.9%)  |    4,183 (53.3%)     |    13,292 (85.8%)     |
+| [info-contact](#info-contact)<br/><sup>Ensures that all APIs have contact information.</sup>                                                                                                                                     |  15,145 (64.9%)  |    4,581 (58.3%)     |    10,564 (68.2%)     |
+| [info-contact-email](#info-contact-email)<br/><sup>Ensures that all APIs have contact email.</sup>                                                                                                                               |   2,132 (9.1%)   |    1,002 (12.8%)     |     1,130 (7.3%)      |
+| [info-contact-email-or-url](#info-contact-email-or-url)<br/><sup>Ensures that all APIs have contact URL or email.</sup>                                                                                                          |   1,184 (5.1%)   |      579 (7.4%)      |      605 (3.9%)       |
+| [info-contact-name](#info-contact-name)<br/><sup>Ensures that all APIs have contact name.</sup>                                                                                                                                  |  3,210 (13.8%)   |    1,404 (17.9%)     |     1,806 (11.7%)     |
+| [info-contact-url](#info-contact-url)<br/><sup>Ensures that all APIs have contact URL.</sup>                                                                                                                                     |   4,435 (19%)    |    1,947 (24.8%)     |     2,488 (16.1%)     |
+| [info-description](#info-description)<br/><sup>Ensures that all OpenAPIs have a information description.</sup>                                                                                                                   |  7,590 (32.5%)   |    1,517 (19.3%)     |     6,073 (39.2%)     |
+| [info-license](#info-license)<br/><sup>Ensures that all OpenAPIs have a information object license.</sup>                                                                                                                        |  14,767 (63.3%)  |    5,293 (67.4%)     |     9,474 (61.1%)     |
+| [info-license-url](#info-license-url)<br/><sup>Ensures that all OpenAPIs have a information object license url.</sup>                                                                                                            |  3,079 (13.2%)   |       232 (3%)       |     2,847 (18.4%)     |
+| [info-terms-of-service](#info-terms-of-service)<br/><sup>Ensures that all OpenAPIs have a information object terms of service.</sup>                                                                                             |  19,457 (83.3%)  |    6,023 (76.7%)     |    13,434 (86.7%)     |
+| [no-response-body-on-204](#no-response-body-on-204)<br/><sup>Ensures that no 204 No Content response has a body.</sup>                                                                                                           |    408 (1.7%)    |      95 (1.2%)       |       313 (2%)        |
+| [no-trailing-slash-on-paths](#no-trailing-slash-on-paths)<br/><sup>Ensures that there are no trailing slashes on paths.</sup>                                                                                                    |   1,378 (5.9%)   |      576 (7.3%)      |      802 (5.2%)       |
+| [operations-description](#operations-description)<br/><sup>Ensures that each of the operations have a description.</sup>                                                                                                         |  12,560 (53.8%)  |    3,578 (45.6%)     |      8,982 (58%)      |
+| [operations-status-code-2xx](#operations-status-code-2xx)<br/><sup>Ensures that each of the operations returns at least a 2xx HTTP status code.</sup>                                                                            |   1,605 (6.9%)   |     924 (11.8%)      |      681 (4.4%)       |
+| [operations-status-code-5xx](#operations-status-code-5xx)<br/><sup>Ensures that each of the operations returns at least a 5xx HTTP status code.</sup>                                                                            |  18,604 (79.7%)  |    6,286 (80.1%)     |    12,318 (79.5%)     |
+| [operations-summary](#operations-summary)<br/><sup>Ensures that each of the operations for an API have a summary.</sup>                                                                                                          |   6,301 (27%)    |    2,701 (34.4%)     |     3,600 (23.2%)     |
+| [operations-summary-period-none](#operations-summary-period-none)<br/><sup>Ensures that each of the operations summaries do not have an ending period.</sup>                                                                     |  3,141 (13.5%)   |    1,273 (16.2%)     |     1,868 (12.1%)     |
+| [parameters-description](#parameters-description)<br/><sup>Ensures that that all parameters have a descriptions.</sup>                                                                                                           |  7,445 (31.9%)   |    3,229 (41.1%)     |     4,216 (27.2%)     |
+| [parameters-examples-any](#parameters-examples-any)<br/><sup>Ensures that that all parameters have a examples.</sup>                                                                                                             |  12,271 (52.6%)  |        0 (0%)        |    12,271 (79.2%)     |
+| [request-bodies-examples-any](#request-bodies-examples-any)<br/><sup>Ensures that a example is always present for each request body (schema.example for Swagger 2, examples or example for OpenAPI 3).</sup>                     |  12,055 (51.6%)  |    4,737 (60.3%)     |     7,318 (47.2%)     |
+| [request-body-on-patch](#request-body-on-patch)<br/><sup>Ensures that PATCH methods have request bodies.</sup>                                                                                                                   |    376 (1.6%)    |      166 (2.1%)      |      210 (1.4%)       |
+| [request-body-on-post](#request-body-on-post)<br/><sup>Ensures that POST methods have request bodies.</sup>                                                                                                                      |   3,736 (16%)    |    1,578 (20.1%)     |     2,158 (13.9%)     |
+| [request-body-on-put](#request-body-on-put)<br/><sup>Ensures that PUT methods have request bodies.</sup>                                                                                                                         |   1,339 (5.7%)   |      646 (8.2%)      |      693 (4.5%)       |
+| [responses-examples-any](#responses-examples-any)<br/><sup>Ensuring all responses have examples (OpenAPI 3, Swagger 2) or example (OpenAPI 3) defined.</sup>                                                                     |  20,481 (87.7%)  |    7,485 (95.3%)     |    12,996 (83.9%)     |
+| [reusable-schema-description](#reusable-schema-description)<br/><sup>Ensure all reusable schema should have a description.</sup>                                                                                                 |  17,995 (77.1%)  |    5,942 (75.7%)     |    12,053 (77.8%)     |
+| [schema-properties-define-array-boundaries](#schema-properties-define-array-boundaries)<br/><sup>Requires that arrays have their minimum and maximum boundaries defined.</sup>                                                   |  14,921 (63.9%)  |    6,054 (77.1%)     |     8,867 (57.2%)     |
+| [schema-properties-descriptions](#schema-properties-descriptions)<br/><sup>Ensure that all schemas properties should have a description.</sup>                                                                                   |  19,215 (82.3%)  |    6,194 (78.9%)     |     13,021 (84%)      |
+| [schema-reference-reusable](#schema-reference-reusable)<br/><sup>Ensures all schema properties use a \$ref contain a \$ref targeting a reusable schema defined in definitions (Swagger 2) or components.schema (OpenAPI 3)</sup> |  17,640 (75.6%)  |    4,258 (54.2%)     |    13,382 (86.4%)     |
 
 <a id="info-contact"></a>
 
@@ -118,16 +118,16 @@ postman_apis
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 8,613 (55.2%) / 15,617<br/>invalid: 2,685 (54.1%) /
-4,967<br/>all: 11,298 (54.9%) / 20,584</small>
+<small>valid: 8,731 (55.9%) / 15,617<br/>invalid: 2,725 (54.9%) /
+4,967<br/>all: 11,456 (55.7%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 3,621 (56.5%) / 6,407<br/>invalid: 963 (47.1%) /
-2,044<br/>all: 4,584 (54.2%) / 8,451</small>
+<small>valid: 3,688 (57.6%) / 6,407<br/>invalid: 994 (48.6%) /
+2,044<br/>all: 4,682 (55.4%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 4,992 (54.2%) / 9,210<br/>invalid: 1,722 (58.9%) /
-2,923<br/>all: 6,714 (55.3%) / 12,133</small>
+<small>valid: 5,043 (54.8%) / 9,210<br/>invalid: 1,731 (59.2%) /
+2,923<br/>all: 6,774 (55.8%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -152,16 +152,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 15,027 (64.4%) / 23,345<br/>invalid: 3,317 (52%) /
-6,375<br/>all: 18,344 (61.7%) / 29,720</small>
+<small>valid: 15,145 (64.9%) / 23,345<br/>invalid: 3,357 (52.7%) /
+6,375<br/>all: 18,502 (62.3%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 4,514 (57.5%) / 7,851<br/>invalid: 1,261 (50.4%) /
-2,502<br/>all: 5,775 (55.8%) / 10,353</small>
+<small>valid: 4,581 (58.3%) / 7,851<br/>invalid: 1,292 (51.6%) /
+2,502<br/>all: 5,873 (56.7%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 10,513 (67.9%) / 15,494<br/>invalid: 2,056 (53.1%) /
-3,873<br/>all: 12,569 (64.9%) / 19,367</small>
+<small>valid: 10,564 (68.2%) / 15,494<br/>invalid: 2,065 (53.3%) /
+3,873<br/>all: 12,629 (65.2%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -173,10 +173,10 @@ Data Table
 | attachment_type                  | code         | collection_id | class    | is_valid | n_apis | n_err |
 |:---------------------------------|:-------------|:--------------|:---------|:---------|-------:|------:|
 | spectral/postman/postman-library | info-contact | postman_apis  | OpenAPI3 | true     |   5445 |  5445 |
-| spectral/postman/postman-library | info-contact | kin           | OpenAPI3 | true     |   4992 |  4992 |
-| spectral/postman/postman-library | info-contact | kin           | OpenAPI2 | true     |   3621 |  3621 |
-| spectral/postman/postman-library | info-contact | kin           | OpenAPI3 | false    |   1722 |  1722 |
-| spectral/postman/postman-library | info-contact | kin           | OpenAPI2 | false    |    963 |   963 |
+| spectral/postman/postman-library | info-contact | kin           | OpenAPI3 | true     |   5043 |  5043 |
+| spectral/postman/postman-library | info-contact | kin           | OpenAPI2 | true     |   3688 |  3688 |
+| spectral/postman/postman-library | info-contact | kin           | OpenAPI3 | false    |   1731 |  1731 |
+| spectral/postman/postman-library | info-contact | kin           | OpenAPI2 | false    |    994 |   994 |
 | spectral/postman/postman-library | info-contact | postman_apis  | OpenAPI2 | true     |    796 |   796 |
 | spectral/postman/postman-library | info-contact | postman_apis  | OpenAPI3 | false    |    319 |   319 |
 | spectral/postman/postman-library | info-contact | postman_apis  | OpenAPI2 | false    |    253 |   253 |
@@ -237,16 +237,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 1,686 (10.8%) / 15,617<br/>invalid: 457 (9.2%) /
-4,967<br/>all: 2,143 (10.4%) / 20,584</small>
+<small>valid: 1,698 (10.9%) / 15,617<br/>invalid: 466 (9.4%) /
+4,967<br/>all: 2,164 (10.5%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 777 (12.1%) / 6,407<br/>invalid: 294 (14.4%) /
-2,044<br/>all: 1,071 (12.7%) / 8,451</small>
+<small>valid: 786 (12.3%) / 6,407<br/>invalid: 298 (14.6%) /
+2,044<br/>all: 1,084 (12.8%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 909 (9.9%) / 9,210<br/>invalid: 163 (5.6%) /
-2,923<br/>all: 1,072 (8.8%) / 12,133</small>
+<small>valid: 912 (9.9%) / 9,210<br/>invalid: 168 (5.7%) /
+2,923<br/>all: 1,080 (8.9%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -288,16 +288,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 2,120 (9.1%) / 23,345<br/>invalid: 586 (9.2%) /
-6,375<br/>all: 2,706 (9.1%) / 29,720</small>
+<small>valid: 2,132 (9.1%) / 23,345<br/>invalid: 595 (9.3%) /
+6,375<br/>all: 2,727 (9.2%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 993 (12.6%) / 7,851<br/>invalid: 366 (14.6%) /
-2,502<br/>all: 1,359 (13.1%) / 10,353</small>
+<small>valid: 1,002 (12.8%) / 7,851<br/>invalid: 370 (14.8%) /
+2,502<br/>all: 1,372 (13.3%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,127 (7.3%) / 15,494<br/>invalid: 220 (5.7%) /
-3,873<br/>all: 1,347 (7%) / 19,367</small>
+<small>valid: 1,130 (7.3%) / 15,494<br/>invalid: 225 (5.8%) /
+3,873<br/>all: 1,355 (7%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -308,12 +308,12 @@ Data Table
 
 |     | attachment_type                  | code               | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:-------------------|:--------------|:---------|:---------|-------:|------:|
-| 13  | spectral/postman/postman-library | info-contact-email | kin           | OpenAPI3 | true     |    909 |   909 |
-| 14  | spectral/postman/postman-library | info-contact-email | kin           | OpenAPI2 | true     |    777 |   777 |
-| 15  | spectral/postman/postman-library | info-contact-email | kin           | OpenAPI2 | false    |    294 |   294 |
+| 13  | spectral/postman/postman-library | info-contact-email | kin           | OpenAPI3 | true     |    912 |   912 |
+| 14  | spectral/postman/postman-library | info-contact-email | kin           | OpenAPI2 | true     |    786 |   786 |
+| 15  | spectral/postman/postman-library | info-contact-email | kin           | OpenAPI2 | false    |    298 |   298 |
 | 16  | spectral/postman/postman-library | info-contact-email | postman_apis  | OpenAPI3 | true     |    213 |   213 |
 | 17  | spectral/postman/postman-library | info-contact-email | postman_apis  | OpenAPI2 | true     |    201 |   201 |
-| 18  | spectral/postman/postman-library | info-contact-email | kin           | OpenAPI3 | false    |    163 |   163 |
+| 18  | spectral/postman/postman-library | info-contact-email | kin           | OpenAPI3 | false    |    168 |   168 |
 | 19  | spectral/postman/postman-library | info-contact-email | postman_apis  | OpenAPI2 | false    |     65 |    65 |
 | 20  | spectral/postman/postman-library | info-contact-email | postman_apis  | OpenAPI3 | false    |     52 |    52 |
 | 21  | spectral/postman/postman-library | info-contact-email | kinweb        | OpenAPI2 | true     |     15 |    15 |
@@ -377,16 +377,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 929 (5.9%) / 15,617<br/>invalid: 235 (4.7%) /
-4,967<br/>all: 1,164 (5.7%) / 20,584</small>
+<small>valid: 936 (6%) / 15,617<br/>invalid: 244 (4.9%) / 4,967<br/>all:
+1,180 (5.7%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 464 (7.2%) / 6,407<br/>invalid: 155 (7.6%) /
-2,044<br/>all: 619 (7.3%) / 8,451</small>
+<small>valid: 471 (7.4%) / 6,407<br/>invalid: 159 (7.8%) /
+2,044<br/>all: 630 (7.5%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 465 (5%) / 9,210<br/>invalid: 80 (2.7%) / 2,923<br/>all:
-545 (4.5%) / 12,133</small>
+<small>valid: 465 (5%) / 9,210<br/>invalid: 85 (2.9%) / 2,923<br/>all:
+550 (4.5%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -428,16 +428,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 1,177 (5%) / 23,345<br/>invalid: 336 (5.3%) /
-6,375<br/>all: 1,513 (5.1%) / 29,720</small>
+<small>valid: 1,184 (5.1%) / 23,345<br/>invalid: 345 (5.4%) /
+6,375<br/>all: 1,529 (5.1%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 572 (7.3%) / 7,851<br/>invalid: 214 (8.6%) /
-2,502<br/>all: 786 (7.6%) / 10,353</small>
+<small>valid: 579 (7.4%) / 7,851<br/>invalid: 218 (8.7%) /
+2,502<br/>all: 797 (7.7%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 605 (3.9%) / 15,494<br/>invalid: 122 (3.2%) /
-3,873<br/>all: 727 (3.8%) / 19,367</small>
+<small>valid: 605 (3.9%) / 15,494<br/>invalid: 127 (3.3%) /
+3,873<br/>all: 732 (3.8%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -448,12 +448,12 @@ Data Table
 
 |     | attachment_type                  | code                      | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:--------------------------|:--------------|:---------|:---------|-------:|------:|
-| 25  | spectral/postman/postman-library | info-contact-email-or-url | kin           | OpenAPI3 | true     |    465 |   465 |
-| 26  | spectral/postman/postman-library | info-contact-email-or-url | kin           | OpenAPI2 | true     |    464 |   464 |
-| 27  | spectral/postman/postman-library | info-contact-email-or-url | kin           | OpenAPI2 | false    |    155 |   155 |
+| 25  | spectral/postman/postman-library | info-contact-email-or-url | kin           | OpenAPI2 | true     |    471 |   471 |
+| 26  | spectral/postman/postman-library | info-contact-email-or-url | kin           | OpenAPI3 | true     |    465 |   465 |
+| 27  | spectral/postman/postman-library | info-contact-email-or-url | kin           | OpenAPI2 | false    |    159 |   159 |
 | 28  | spectral/postman/postman-library | info-contact-email-or-url | postman_apis  | OpenAPI3 | true     |    138 |   138 |
 | 29  | spectral/postman/postman-library | info-contact-email-or-url | postman_apis  | OpenAPI2 | true     |     96 |    96 |
-| 30  | spectral/postman/postman-library | info-contact-email-or-url | kin           | OpenAPI3 | false    |     80 |    80 |
+| 30  | spectral/postman/postman-library | info-contact-email-or-url | kin           | OpenAPI3 | false    |     85 |    85 |
 | 31  | spectral/postman/postman-library | info-contact-email-or-url | postman_apis  | OpenAPI2 | false    |     52 |    52 |
 | 32  | spectral/postman/postman-library | info-contact-email-or-url | postman_apis  | OpenAPI3 | false    |     37 |    37 |
 | 33  | spectral/postman/postman-library | info-contact-email-or-url | kinweb        | OpenAPI2 | true     |     12 |    12 |
@@ -513,16 +513,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 2,684 (17.2%) / 15,617<br/>invalid: 820 (16.5%) /
-4,967<br/>all: 3,504 (17%) / 20,584</small>
+<small>valid: 2,707 (17.3%) / 15,617<br/>invalid: 834 (16.8%) /
+4,967<br/>all: 3,541 (17.2%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,120 (17.5%) / 6,407<br/>invalid: 354 (17.3%) /
-2,044<br/>all: 1,474 (17.4%) / 8,451</small>
+<small>valid: 1,135 (17.7%) / 6,407<br/>invalid: 363 (17.8%) /
+2,044<br/>all: 1,498 (17.7%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,564 (17%) / 9,210<br/>invalid: 466 (15.9%) /
-2,923<br/>all: 2,030 (16.7%) / 12,133</small>
+<small>valid: 1,572 (17.1%) / 9,210<br/>invalid: 471 (16.1%) /
+2,923<br/>all: 2,043 (16.8%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -564,16 +564,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 3,187 (13.7%) / 23,345<br/>invalid: 940 (14.7%) /
-6,375<br/>all: 4,127 (13.9%) / 29,720</small>
+<small>valid: 3,210 (13.8%) / 23,345<br/>invalid: 954 (15%) /
+6,375<br/>all: 4,164 (14%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,389 (17.7%) / 7,851<br/>invalid: 420 (16.8%) /
-2,502<br/>all: 1,809 (17.5%) / 10,353</small>
+<small>valid: 1,404 (17.9%) / 7,851<br/>invalid: 429 (17.1%) /
+2,502<br/>all: 1,833 (17.7%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,798 (11.6%) / 15,494<br/>invalid: 520 (13.4%) /
-3,873<br/>all: 2,318 (12%) / 19,367</small>
+<small>valid: 1,806 (11.7%) / 15,494<br/>invalid: 525 (13.6%) /
+3,873<br/>all: 2,331 (12%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -584,10 +584,10 @@ Data Table
 
 |     | attachment_type                  | code              | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:------------------|:--------------|:---------|:---------|-------:|------:|
-| 37  | spectral/postman/postman-library | info-contact-name | kin           | OpenAPI3 | true     |   1564 |  1564 |
-| 38  | spectral/postman/postman-library | info-contact-name | kin           | OpenAPI2 | true     |   1120 |  1120 |
-| 39  | spectral/postman/postman-library | info-contact-name | kin           | OpenAPI3 | false    |    466 |   466 |
-| 40  | spectral/postman/postman-library | info-contact-name | kin           | OpenAPI2 | false    |    354 |   354 |
+| 37  | spectral/postman/postman-library | info-contact-name | kin           | OpenAPI3 | true     |   1572 |  1572 |
+| 38  | spectral/postman/postman-library | info-contact-name | kin           | OpenAPI2 | true     |   1135 |  1135 |
+| 39  | spectral/postman/postman-library | info-contact-name | kin           | OpenAPI3 | false    |    471 |   471 |
+| 40  | spectral/postman/postman-library | info-contact-name | kin           | OpenAPI2 | false    |    363 |   363 |
 | 41  | spectral/postman/postman-library | info-contact-name | postman_apis  | OpenAPI2 | true     |    250 |   250 |
 | 42  | spectral/postman/postman-library | info-contact-name | postman_apis  | OpenAPI3 | true     |    222 |   222 |
 | 43  | spectral/postman/postman-library | info-contact-name | postman_apis  | OpenAPI2 | false    |     49 |    49 |
@@ -649,16 +649,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 3,631 (23.3%) / 15,617<br/>invalid: 1,093 (22%) /
-4,967<br/>all: 4,724 (22.9%) / 20,584</small>
+<small>valid: 3,668 (23.5%) / 15,617<br/>invalid: 1,115 (22.4%) /
+4,967<br/>all: 4,783 (23.2%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,553 (24.2%) / 6,407<br/>invalid: 445 (21.8%) /
-2,044<br/>all: 1,998 (23.6%) / 8,451</small>
+<small>valid: 1,577 (24.6%) / 6,407<br/>invalid: 458 (22.4%) /
+2,044<br/>all: 2,035 (24.1%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 2,078 (22.6%) / 9,210<br/>invalid: 648 (22.2%) /
-2,923<br/>all: 2,726 (22.5%) / 12,133</small>
+<small>valid: 2,091 (22.7%) / 9,210<br/>invalid: 657 (22.5%) /
+2,923<br/>all: 2,748 (22.6%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -700,16 +700,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 4,398 (18.8%) / 23,345<br/>invalid: 1,289 (20.2%) /
-6,375<br/>all: 5,687 (19.1%) / 29,720</small>
+<small>valid: 4,435 (19%) / 23,345<br/>invalid: 1,311 (20.6%) /
+6,375<br/>all: 5,746 (19.3%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,923 (24.5%) / 7,851<br/>invalid: 551 (22%) /
-2,502<br/>all: 2,474 (23.9%) / 10,353</small>
+<small>valid: 1,947 (24.8%) / 7,851<br/>invalid: 564 (22.5%) /
+2,502<br/>all: 2,511 (24.3%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 2,475 (16%) / 15,494<br/>invalid: 738 (19.1%) /
-3,873<br/>all: 3,213 (16.6%) / 19,367</small>
+<small>valid: 2,488 (16.1%) / 15,494<br/>invalid: 747 (19.3%) /
+3,873<br/>all: 3,235 (16.7%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -720,10 +720,10 @@ Data Table
 
 |     | attachment_type                  | code             | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:-----------------|:--------------|:---------|:---------|-------:|------:|
-| 49  | spectral/postman/postman-library | info-contact-url | kin           | OpenAPI3 | true     |   2078 |  2078 |
-| 50  | spectral/postman/postman-library | info-contact-url | kin           | OpenAPI2 | true     |   1553 |  1553 |
-| 51  | spectral/postman/postman-library | info-contact-url | kin           | OpenAPI3 | false    |    648 |   648 |
-| 52  | spectral/postman/postman-library | info-contact-url | kin           | OpenAPI2 | false    |    445 |   445 |
+| 49  | spectral/postman/postman-library | info-contact-url | kin           | OpenAPI3 | true     |   2091 |  2091 |
+| 50  | spectral/postman/postman-library | info-contact-url | kin           | OpenAPI2 | true     |   1577 |  1577 |
+| 51  | spectral/postman/postman-library | info-contact-url | kin           | OpenAPI3 | false    |    657 |   657 |
+| 52  | spectral/postman/postman-library | info-contact-url | kin           | OpenAPI2 | false    |    458 |   458 |
 | 53  | spectral/postman/postman-library | info-contact-url | postman_apis  | OpenAPI3 | true     |    377 |   377 |
 | 54  | spectral/postman/postman-library | info-contact-url | postman_apis  | OpenAPI2 | true     |    337 |   337 |
 | 55  | spectral/postman/postman-library | info-contact-url | postman_apis  | OpenAPI2 | false    |     83 |    83 |
@@ -802,16 +802,16 @@ postman_apis
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 3,383 (21.7%) / 15,617<br/>invalid: 1,032 (20.8%) /
-4,967<br/>all: 4,415 (21.4%) / 20,584</small>
+<small>valid: 3,442 (22%) / 15,617<br/>invalid: 1,047 (21.1%) /
+4,967<br/>all: 4,489 (21.8%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,182 (18.4%) / 6,407<br/>invalid: 350 (17.1%) /
-2,044<br/>all: 1,532 (18.1%) / 8,451</small>
+<small>valid: 1,214 (18.9%) / 6,407<br/>invalid: 360 (17.6%) /
+2,044<br/>all: 1,574 (18.6%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 2,201 (23.9%) / 9,210<br/>invalid: 682 (23.3%) /
-2,923<br/>all: 2,883 (23.8%) / 12,133</small>
+<small>valid: 2,228 (24.2%) / 9,210<br/>invalid: 687 (23.5%) /
+2,923<br/>all: 2,915 (24%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -836,16 +836,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 7,531 (32.3%) / 23,345<br/>invalid: 1,490 (23.4%) /
-6,375<br/>all: 9,021 (30.4%) / 29,720</small>
+<small>valid: 7,590 (32.5%) / 23,345<br/>invalid: 1,505 (23.6%) /
+6,375<br/>all: 9,095 (30.6%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,485 (18.9%) / 7,851<br/>invalid: 518 (20.7%) /
-2,502<br/>all: 2,003 (19.3%) / 10,353</small>
+<small>valid: 1,517 (19.3%) / 7,851<br/>invalid: 528 (21.1%) /
+2,502<br/>all: 2,045 (19.8%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 6,046 (39%) / 15,494<br/>invalid: 972 (25.1%) /
-3,873<br/>all: 7,018 (36.2%) / 19,367</small>
+<small>valid: 6,073 (39.2%) / 15,494<br/>invalid: 977 (25.2%) /
+3,873<br/>all: 7,050 (36.4%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -857,10 +857,10 @@ Data Table
 |     | attachment_type                  | code             | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:-----------------|:--------------|:---------|:---------|-------:|------:|
 | 61  | spectral/postman/postman-library | info-description | postman_apis  | OpenAPI3 | true     |   3805 |  3805 |
-| 62  | spectral/postman/postman-library | info-description | kin           | OpenAPI3 | true     |   2201 |  2201 |
-| 63  | spectral/postman/postman-library | info-description | kin           | OpenAPI2 | true     |   1182 |  1182 |
-| 64  | spectral/postman/postman-library | info-description | kin           | OpenAPI3 | false    |    682 |   682 |
-| 65  | spectral/postman/postman-library | info-description | kin           | OpenAPI2 | false    |    350 |   350 |
+| 62  | spectral/postman/postman-library | info-description | kin           | OpenAPI3 | true     |   2228 |  2228 |
+| 63  | spectral/postman/postman-library | info-description | kin           | OpenAPI2 | true     |   1214 |  1214 |
+| 64  | spectral/postman/postman-library | info-description | kin           | OpenAPI3 | false    |    687 |   687 |
+| 65  | spectral/postman/postman-library | info-description | kin           | OpenAPI2 | false    |    360 |   360 |
 | 66  | spectral/postman/postman-library | info-description | postman_apis  | OpenAPI3 | false    |    281 |   281 |
 | 67  | spectral/postman/postman-library | info-description | postman_apis  | OpenAPI2 | true     |    256 |   256 |
 | 68  | spectral/postman/postman-library | info-description | postman_apis  | OpenAPI2 | false    |    155 |   155 |
@@ -921,16 +921,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 10,071 (64.5%) / 15,617<br/>invalid: 3,070 (61.8%) /
-4,967<br/>all: 13,141 (63.8%) / 20,584</small>
+<small>valid: 10,223 (65.5%) / 15,617<br/>invalid: 3,127 (63%) /
+4,967<br/>all: 13,350 (64.9%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 4,190 (65.4%) / 6,407<br/>invalid: 1,162 (56.8%) /
-2,044<br/>all: 5,352 (63.3%) / 8,451</small>
+<small>valid: 4,261 (66.5%) / 6,407<br/>invalid: 1,203 (58.9%) /
+2,044<br/>all: 5,464 (64.7%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 5,881 (63.9%) / 9,210<br/>invalid: 1,908 (65.3%) /
-2,923<br/>all: 7,789 (64.2%) / 12,133</small>
+<small>valid: 5,962 (64.7%) / 9,210<br/>invalid: 1,924 (65.8%) /
+2,923<br/>all: 7,886 (65%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -972,16 +972,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 14,615 (62.6%) / 23,345<br/>invalid: 3,759 (59%) /
-6,375<br/>all: 18,374 (61.8%) / 29,720</small>
+<small>valid: 14,767 (63.3%) / 23,345<br/>invalid: 3,816 (59.9%) /
+6,375<br/>all: 18,583 (62.5%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 5,222 (66.5%) / 7,851<br/>invalid: 1,509 (60.3%) /
-2,502<br/>all: 6,731 (65%) / 10,353</small>
+<small>valid: 5,293 (67.4%) / 7,851<br/>invalid: 1,550 (62%) /
+2,502<br/>all: 6,843 (66.1%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 9,393 (60.6%) / 15,494<br/>invalid: 2,250 (58.1%) /
-3,873<br/>all: 11,643 (60.1%) / 19,367</small>
+<small>valid: 9,474 (61.1%) / 15,494<br/>invalid: 2,266 (58.5%) /
+3,873<br/>all: 11,740 (60.6%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -992,11 +992,11 @@ Data Table
 
 |     | attachment_type                  | code         | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:-------------|:--------------|:---------|:---------|-------:|------:|
-| 73  | spectral/postman/postman-library | info-license | kin           | OpenAPI3 | true     |   5881 |  5881 |
-| 74  | spectral/postman/postman-library | info-license | kin           | OpenAPI2 | true     |   4190 |  4190 |
+| 73  | spectral/postman/postman-library | info-license | kin           | OpenAPI3 | true     |   5962 |  5962 |
+| 74  | spectral/postman/postman-library | info-license | kin           | OpenAPI2 | true     |   4261 |  4261 |
 | 75  | spectral/postman/postman-library | info-license | postman_apis  | OpenAPI3 | true     |   3395 |  3395 |
-| 76  | spectral/postman/postman-library | info-license | kin           | OpenAPI3 | false    |   1908 |  1908 |
-| 77  | spectral/postman/postman-library | info-license | kin           | OpenAPI2 | false    |   1162 |  1162 |
+| 76  | spectral/postman/postman-library | info-license | kin           | OpenAPI3 | false    |   1924 |  1924 |
+| 77  | spectral/postman/postman-library | info-license | kin           | OpenAPI2 | false    |   1203 |  1203 |
 | 78  | spectral/postman/postman-library | info-license | postman_apis  | OpenAPI2 | true     |    929 |   929 |
 | 79  | spectral/postman/postman-library | info-license | postman_apis  | OpenAPI3 | false    |    316 |   316 |
 | 80  | spectral/postman/postman-library | info-license | postman_apis  | OpenAPI2 | false    |    288 |   288 |
@@ -1074,16 +1074,16 @@ postman_apis
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 534 (3.4%) / 15,617<br/>invalid: 192 (3.9%) /
-4,967<br/>all: 726 (3.5%) / 20,584</small>
+<small>valid: 544 (3.5%) / 15,617<br/>invalid: 197 (4%) / 4,967<br/>all:
+741 (3.6%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 169 (2.6%) / 6,407<br/>invalid: 64 (3.1%) / 2,044<br/>all:
-233 (2.8%) / 8,451</small>
+<small>valid: 174 (2.7%) / 6,407<br/>invalid: 68 (3.3%) / 2,044<br/>all:
+242 (2.9%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 365 (4%) / 9,210<br/>invalid: 128 (4.4%) / 2,923<br/>all:
-493 (4.1%) / 12,133</small>
+<small>valid: 370 (4%) / 9,210<br/>invalid: 129 (4.4%) / 2,923<br/>all:
+499 (4.1%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -1108,16 +1108,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 3,069 (13.1%) / 23,345<br/>invalid: 348 (5.5%) /
-6,375<br/>all: 3,417 (11.5%) / 29,720</small>
+<small>valid: 3,079 (13.2%) / 23,345<br/>invalid: 353 (5.5%) /
+6,375<br/>all: 3,432 (11.5%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 227 (2.9%) / 7,851<br/>invalid: 114 (4.6%) /
-2,502<br/>all: 341 (3.3%) / 10,353</small>
+<small>valid: 232 (3%) / 7,851<br/>invalid: 118 (4.7%) / 2,502<br/>all:
+350 (3.4%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 2,842 (18.3%) / 15,494<br/>invalid: 234 (6%) /
-3,873<br/>all: 3,076 (15.9%) / 19,367</small>
+<small>valid: 2,847 (18.4%) / 15,494<br/>invalid: 235 (6.1%) /
+3,873<br/>all: 3,082 (15.9%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -1129,11 +1129,11 @@ Data Table
 |     | attachment_type                  | code             | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:-----------------|:--------------|:---------|:---------|-------:|------:|
 | 85  | spectral/postman/postman-library | info-license-url | postman_apis  | OpenAPI3 | true     |   2472 |  2472 |
-| 86  | spectral/postman/postman-library | info-license-url | kin           | OpenAPI3 | true     |    365 |   365 |
-| 87  | spectral/postman/postman-library | info-license-url | kin           | OpenAPI2 | true     |    169 |   169 |
-| 88  | spectral/postman/postman-library | info-license-url | kin           | OpenAPI3 | false    |    128 |   128 |
+| 86  | spectral/postman/postman-library | info-license-url | kin           | OpenAPI3 | true     |    370 |   370 |
+| 87  | spectral/postman/postman-library | info-license-url | kin           | OpenAPI2 | true     |    174 |   174 |
+| 88  | spectral/postman/postman-library | info-license-url | kin           | OpenAPI3 | false    |    129 |   129 |
 | 89  | spectral/postman/postman-library | info-license-url | postman_apis  | OpenAPI3 | false    |    105 |   105 |
-| 90  | spectral/postman/postman-library | info-license-url | kin           | OpenAPI2 | false    |     64 |    64 |
+| 90  | spectral/postman/postman-library | info-license-url | kin           | OpenAPI2 | false    |     68 |    68 |
 | 91  | spectral/postman/postman-library | info-license-url | postman_apis  | OpenAPI2 | true     |     51 |    51 |
 | 92  | spectral/postman/postman-library | info-license-url | postman_apis  | OpenAPI2 | false    |     42 |    42 |
 | 93  | spectral/postman/postman-library | info-license-url | kinweb        | OpenAPI2 | false    |      8 |     8 |
@@ -1193,16 +1193,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 12,223 (78.3%) / 15,617<br/>invalid: 3,572 (71.9%) /
-4,967<br/>all: 15,795 (76.7%) / 20,584</small>
+<small>valid: 12,372 (79.2%) / 15,617<br/>invalid: 3,633 (73.1%) /
+4,967<br/>all: 16,005 (77.8%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 4,875 (76.1%) / 6,407<br/>invalid: 1,319 (64.5%) /
-2,044<br/>all: 6,194 (73.3%) / 8,451</small>
+<small>valid: 4,958 (77.4%) / 6,407<br/>invalid: 1,363 (66.7%) /
+2,044<br/>all: 6,321 (74.8%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 7,348 (79.8%) / 9,210<br/>invalid: 2,253 (77.1%) /
-2,923<br/>all: 9,601 (79.1%) / 12,133</small>
+<small>valid: 7,414 (80.5%) / 9,210<br/>invalid: 2,270 (77.7%) /
+2,923<br/>all: 9,684 (79.8%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -1244,16 +1244,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 19,308 (82.7%) / 23,345<br/>invalid: 4,664 (73.2%) /
-6,375<br/>all: 23,972 (80.7%) / 29,720</small>
+<small>valid: 19,457 (83.3%) / 23,345<br/>invalid: 4,725 (74.1%) /
+6,375<br/>all: 24,182 (81.4%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 5,940 (75.7%) / 7,851<br/>invalid: 1,682 (67.2%) /
-2,502<br/>all: 7,622 (73.6%) / 10,353</small>
+<small>valid: 6,023 (76.7%) / 7,851<br/>invalid: 1,726 (69%) /
+2,502<br/>all: 7,749 (74.8%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 13,368 (86.3%) / 15,494<br/>invalid: 2,982 (77%) /
-3,873<br/>all: 16,350 (84.4%) / 19,367</small>
+<small>valid: 13,434 (86.7%) / 15,494<br/>invalid: 2,999 (77.4%) /
+3,873<br/>all: 16,433 (84.9%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -1264,11 +1264,11 @@ Data Table
 
 |     | attachment_type                  | code                  | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:----------------------|:--------------|:---------|:---------|-------:|------:|
-| 97  | spectral/postman/postman-library | info-terms-of-service | kin           | OpenAPI3 | true     |   7348 |  7348 |
+| 97  | spectral/postman/postman-library | info-terms-of-service | kin           | OpenAPI3 | true     |   7414 |  7414 |
 | 98  | spectral/postman/postman-library | info-terms-of-service | postman_apis  | OpenAPI3 | true     |   5922 |  5922 |
-| 99  | spectral/postman/postman-library | info-terms-of-service | kin           | OpenAPI2 | true     |   4875 |  4875 |
-| 100 | spectral/postman/postman-library | info-terms-of-service | kin           | OpenAPI3 | false    |   2253 |  2253 |
-| 101 | spectral/postman/postman-library | info-terms-of-service | kin           | OpenAPI2 | false    |   1319 |  1319 |
+| 99  | spectral/postman/postman-library | info-terms-of-service | kin           | OpenAPI2 | true     |   4958 |  4958 |
+| 100 | spectral/postman/postman-library | info-terms-of-service | kin           | OpenAPI3 | false    |   2270 |  2270 |
+| 101 | spectral/postman/postman-library | info-terms-of-service | kin           | OpenAPI2 | false    |   1363 |  1363 |
 | 102 | spectral/postman/postman-library | info-terms-of-service | postman_apis  | OpenAPI2 | true     |    946 |   946 |
 | 103 | spectral/postman/postman-library | info-terms-of-service | postman_apis  | OpenAPI3 | false    |    701 |   701 |
 | 104 | spectral/postman/postman-library | info-terms-of-service | postman_apis  | OpenAPI2 | false    |    298 |   298 |
@@ -1331,16 +1331,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 289 (1.9%) / 15,617<br/>invalid: 146 (2.9%) /
-4,967<br/>all: 435 (2.1%) / 20,584</small>
+<small>valid: 294 (1.9%) / 15,617<br/>invalid: 150 (3%) / 4,967<br/>all:
+444 (2.2%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 74 (1.2%) / 6,407<br/>invalid: 33 (1.6%) / 2,044<br/>all:
-107 (1.3%) / 8,451</small>
+<small>valid: 76 (1.2%) / 6,407<br/>invalid: 37 (1.8%) / 2,044<br/>all:
+113 (1.3%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 215 (2.3%) / 9,210<br/>invalid: 113 (3.9%) /
-2,923<br/>all: 328 (2.7%) / 12,133</small>
+<small>valid: 218 (2.4%) / 9,210<br/>invalid: 113 (3.9%) /
+2,923<br/>all: 331 (2.7%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -1382,16 +1382,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 403 (1.7%) / 23,345<br/>invalid: 224 (3.5%) /
-6,375<br/>all: 627 (2.1%) / 29,720</small>
+<small>valid: 408 (1.7%) / 23,345<br/>invalid: 228 (3.6%) /
+6,375<br/>all: 636 (2.1%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 93 (1.2%) / 7,851<br/>invalid: 66 (2.6%) / 2,502<br/>all:
-159 (1.5%) / 10,353</small>
+<small>valid: 95 (1.2%) / 7,851<br/>invalid: 70 (2.8%) / 2,502<br/>all:
+165 (1.6%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 310 (2%) / 15,494<br/>invalid: 158 (4.1%) / 3,873<br/>all:
-468 (2.4%) / 19,367</small>
+<small>valid: 313 (2%) / 15,494<br/>invalid: 158 (4.1%) / 3,873<br/>all:
+471 (2.4%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -1402,12 +1402,12 @@ Data Table
 
 |     | attachment_type                  | code                    | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:------------------------|:--------------|:---------|:---------|-------:|------:|
-| 109 | spectral/postman/postman-library | no-response-body-on-204 | kin           | OpenAPI3 | true     |    215 |   580 |
+| 109 | spectral/postman/postman-library | no-response-body-on-204 | kin           | OpenAPI3 | true     |    218 |   586 |
 | 110 | spectral/postman/postman-library | no-response-body-on-204 | kin           | OpenAPI3 | false    |    113 |   710 |
 | 111 | spectral/postman/postman-library | no-response-body-on-204 | postman_apis  | OpenAPI3 | true     |     91 |   587 |
-| 112 | spectral/postman/postman-library | no-response-body-on-204 | kin           | OpenAPI2 | true     |     74 |   164 |
+| 112 | spectral/postman/postman-library | no-response-body-on-204 | kin           | OpenAPI2 | true     |     76 |   169 |
 | 113 | spectral/postman/postman-library | no-response-body-on-204 | postman_apis  | OpenAPI3 | false    |     45 |   623 |
-| 114 | spectral/postman/postman-library | no-response-body-on-204 | kin           | OpenAPI2 | false    |     33 |   129 |
+| 114 | spectral/postman/postman-library | no-response-body-on-204 | kin           | OpenAPI2 | false    |     37 |   142 |
 | 115 | spectral/postman/postman-library | no-response-body-on-204 | postman_apis  | OpenAPI2 | false    |     28 |   861 |
 | 116 | spectral/postman/postman-library | no-response-body-on-204 | postman_apis  | OpenAPI2 | true     |     17 |    60 |
 | 117 | spectral/postman/postman-library | no-response-body-on-204 | kinweb        | OpenAPI2 | false    |      5 |    15 |
@@ -1467,16 +1467,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 965 (6.2%) / 15,617<br/>invalid: 412 (8.3%) /
-4,967<br/>all: 1,377 (6.7%) / 20,584</small>
+<small>valid: 972 (6.2%) / 15,617<br/>invalid: 415 (8.4%) /
+4,967<br/>all: 1,387 (6.7%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 386 (6%) / 6,407<br/>invalid: 175 (8.6%) / 2,044<br/>all:
-561 (6.6%) / 8,451</small>
+<small>valid: 391 (6.1%) / 6,407<br/>invalid: 178 (8.7%) /
+2,044<br/>all: 569 (6.7%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 579 (6.3%) / 9,210<br/>invalid: 237 (8.1%) /
-2,923<br/>all: 816 (6.7%) / 12,133</small>
+<small>valid: 581 (6.3%) / 9,210<br/>invalid: 237 (8.1%) /
+2,923<br/>all: 818 (6.7%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -1518,16 +1518,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 1,371 (5.9%) / 23,345<br/>invalid: 550 (8.6%) /
-6,375<br/>all: 1,921 (6.5%) / 29,720</small>
+<small>valid: 1,378 (5.9%) / 23,345<br/>invalid: 553 (8.7%) /
+6,375<br/>all: 1,931 (6.5%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 571 (7.3%) / 7,851<br/>invalid: 224 (9%) / 2,502<br/>all:
-795 (7.7%) / 10,353</small>
+<small>valid: 576 (7.3%) / 7,851<br/>invalid: 227 (9.1%) /
+2,502<br/>all: 803 (7.8%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 800 (5.2%) / 15,494<br/>invalid: 326 (8.4%) /
-3,873<br/>all: 1,126 (5.8%) / 19,367</small>
+<small>valid: 802 (5.2%) / 15,494<br/>invalid: 326 (8.4%) /
+3,873<br/>all: 1,128 (5.8%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -1538,12 +1538,12 @@ Data Table
 
 |     | attachment_type                  | code                       | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:---------------------------|:--------------|:---------|:---------|-------:|------:|
-| 120 | spectral/postman/postman-library | no-trailing-slash-on-paths | kin           | OpenAPI3 | true     |    579 |  2981 |
-| 121 | spectral/postman/postman-library | no-trailing-slash-on-paths | kin           | OpenAPI2 | true     |    386 |  3068 |
+| 120 | spectral/postman/postman-library | no-trailing-slash-on-paths | kin           | OpenAPI3 | true     |    581 |  2989 |
+| 121 | spectral/postman/postman-library | no-trailing-slash-on-paths | kin           | OpenAPI2 | true     |    391 |  3085 |
 | 122 | spectral/postman/postman-library | no-trailing-slash-on-paths | kin           | OpenAPI3 | false    |    237 |  1486 |
 | 123 | spectral/postman/postman-library | no-trailing-slash-on-paths | postman_apis  | OpenAPI3 | true     |    218 |  1067 |
 | 124 | spectral/postman/postman-library | no-trailing-slash-on-paths | postman_apis  | OpenAPI2 | true     |    179 |  2401 |
-| 125 | spectral/postman/postman-library | no-trailing-slash-on-paths | kin           | OpenAPI2 | false    |    175 |   943 |
+| 125 | spectral/postman/postman-library | no-trailing-slash-on-paths | kin           | OpenAPI2 | false    |    178 |   947 |
 | 126 | spectral/postman/postman-library | no-trailing-slash-on-paths | postman_apis  | OpenAPI3 | false    |     88 |   823 |
 | 127 | spectral/postman/postman-library | no-trailing-slash-on-paths | postman_apis  | OpenAPI2 | false    |     43 |   461 |
 | 128 | spectral/postman/postman-library | no-trailing-slash-on-paths | kinweb        | OpenAPI2 | true     |      6 |    37 |
@@ -1620,16 +1620,16 @@ postman_apis
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 6,793 (43.5%) / 15,617<br/>invalid: 2,101 (42.3%) /
-4,967<br/>all: 8,894 (43.2%) / 20,584</small>
+<small>valid: 6,925 (44.3%) / 15,617<br/>invalid: 2,150 (43.3%) /
+4,967<br/>all: 9,075 (44.1%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 2,722 (42.5%) / 6,407<br/>invalid: 858 (42%) /
-2,044<br/>all: 3,580 (42.4%) / 8,451</small>
+<small>valid: 2,794 (43.6%) / 6,407<br/>invalid: 895 (43.8%) /
+2,044<br/>all: 3,689 (43.7%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 4,071 (44.2%) / 9,210<br/>invalid: 1,243 (42.5%) /
-2,923<br/>all: 5,314 (43.8%) / 12,133</small>
+<small>valid: 4,131 (44.9%) / 9,210<br/>invalid: 1,255 (42.9%) /
+2,923<br/>all: 5,386 (44.4%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -1654,16 +1654,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 12,428 (53.2%) / 23,345<br/>invalid: 2,712 (42.5%) /
-6,375<br/>all: 15,140 (50.9%) / 29,720</small>
+<small>valid: 12,560 (53.8%) / 23,345<br/>invalid: 2,761 (43.3%) /
+6,375<br/>all: 15,321 (51.6%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 3,506 (44.7%) / 7,851<br/>invalid: 1,101 (44%) /
-2,502<br/>all: 4,607 (44.5%) / 10,353</small>
+<small>valid: 3,578 (45.6%) / 7,851<br/>invalid: 1,138 (45.5%) /
+2,502<br/>all: 4,716 (45.6%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 8,922 (57.6%) / 15,494<br/>invalid: 1,611 (41.6%) /
-3,873<br/>all: 10,533 (54.4%) / 19,367</small>
+<small>valid: 8,982 (58%) / 15,494<br/>invalid: 1,623 (41.9%) /
+3,873<br/>all: 10,605 (54.8%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -1675,10 +1675,10 @@ Data Table
 |     | attachment_type                  | code                   | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:-----------------------|:--------------|:---------|:---------|-------:|------:|
 | 132 | spectral/postman/postman-library | operations-description | postman_apis  | OpenAPI3 | true     |   4766 | 41717 |
-| 133 | spectral/postman/postman-library | operations-description | kin           | OpenAPI3 | true     |   4071 | 43013 |
-| 134 | spectral/postman/postman-library | operations-description | kin           | OpenAPI2 | true     |   2722 | 29429 |
-| 135 | spectral/postman/postman-library | operations-description | kin           | OpenAPI3 | false    |   1243 | 19147 |
-| 136 | spectral/postman/postman-library | operations-description | kin           | OpenAPI2 | false    |    858 | 12390 |
+| 133 | spectral/postman/postman-library | operations-description | kin           | OpenAPI3 | true     |   4131 | 43918 |
+| 134 | spectral/postman/postman-library | operations-description | kin           | OpenAPI2 | true     |   2794 | 30733 |
+| 135 | spectral/postman/postman-library | operations-description | kin           | OpenAPI3 | false    |   1255 | 19310 |
+| 136 | spectral/postman/postman-library | operations-description | kin           | OpenAPI2 | false    |    895 | 12988 |
 | 137 | spectral/postman/postman-library | operations-description | postman_apis  | OpenAPI2 | true     |    691 | 22833 |
 | 138 | spectral/postman/postman-library | operations-description | postman_apis  | OpenAPI3 | false    |    351 | 10602 |
 | 139 | spectral/postman/postman-library | operations-description | postman_apis  | OpenAPI2 | false    |    192 | 30461 |
@@ -1776,16 +1776,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 1,213 (7.8%) / 15,617<br/>invalid: 444 (8.9%) /
-4,967<br/>all: 1,657 (8%) / 20,584</small>
+<small>valid: 1,229 (7.9%) / 15,617<br/>invalid: 448 (9%) /
+4,967<br/>all: 1,677 (8.1%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 692 (10.8%) / 6,407<br/>invalid: 250 (12.2%) /
-2,044<br/>all: 942 (11.1%) / 8,451</small>
+<small>valid: 700 (10.9%) / 6,407<br/>invalid: 252 (12.3%) /
+2,044<br/>all: 952 (11.3%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 521 (5.7%) / 9,210<br/>invalid: 194 (6.6%) /
-2,923<br/>all: 715 (5.9%) / 12,133</small>
+<small>valid: 529 (5.7%) / 9,210<br/>invalid: 196 (6.7%) /
+2,923<br/>all: 725 (6%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -1827,16 +1827,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 1,589 (6.8%) / 23,345<br/>invalid: 541 (8.5%) /
-6,375<br/>all: 2,130 (7.2%) / 29,720</small>
+<small>valid: 1,605 (6.9%) / 23,345<br/>invalid: 545 (8.5%) /
+6,375<br/>all: 2,150 (7.2%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 916 (11.7%) / 7,851<br/>invalid: 288 (11.5%) /
-2,502<br/>all: 1,204 (11.6%) / 10,353</small>
+<small>valid: 924 (11.8%) / 7,851<br/>invalid: 290 (11.6%) /
+2,502<br/>all: 1,214 (11.7%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 673 (4.3%) / 15,494<br/>invalid: 253 (6.5%) /
-3,873<br/>all: 926 (4.8%) / 19,367</small>
+<small>valid: 681 (4.4%) / 15,494<br/>invalid: 255 (6.6%) /
+3,873<br/>all: 936 (4.8%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -1847,11 +1847,11 @@ Data Table
 
 |     | attachment_type                  | code                       | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:---------------------------|:--------------|:---------|:---------|-------:|------:|
-| 144 | spectral/postman/postman-library | operations-status-code-2xx | kin           | OpenAPI2 | true     |    692 |  4650 |
-| 145 | spectral/postman/postman-library | operations-status-code-2xx | kin           | OpenAPI3 | true     |    521 |  7933 |
-| 146 | spectral/postman/postman-library | operations-status-code-2xx | kin           | OpenAPI2 | false    |    250 |  2254 |
+| 144 | spectral/postman/postman-library | operations-status-code-2xx | kin           | OpenAPI2 | true     |    700 |  4807 |
+| 145 | spectral/postman/postman-library | operations-status-code-2xx | kin           | OpenAPI3 | true     |    529 |  7990 |
+| 146 | spectral/postman/postman-library | operations-status-code-2xx | kin           | OpenAPI2 | false    |    252 |  2263 |
 | 147 | spectral/postman/postman-library | operations-status-code-2xx | postman_apis  | OpenAPI2 | true     |    213 |  2341 |
-| 148 | spectral/postman/postman-library | operations-status-code-2xx | kin           | OpenAPI3 | false    |    194 |  2223 |
+| 148 | spectral/postman/postman-library | operations-status-code-2xx | kin           | OpenAPI3 | false    |    196 |  2227 |
 | 149 | spectral/postman/postman-library | operations-status-code-2xx | postman_apis  | OpenAPI3 | true     |    141 |  2288 |
 | 150 | spectral/postman/postman-library | operations-status-code-2xx | postman_apis  | OpenAPI3 | false    |     57 |  1610 |
 | 151 | spectral/postman/postman-library | operations-status-code-2xx | postman_apis  | OpenAPI2 | false    |     33 |  2395 |
@@ -1949,16 +1949,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 12,022 (77%) / 15,617<br/>invalid: 3,259 (65.6%) /
-4,967<br/>all: 15,281 (74.2%) / 20,584</small>
+<small>valid: 12,177 (78%) / 15,617<br/>invalid: 3,319 (66.8%) /
+4,967<br/>all: 15,496 (75.3%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 5,126 (80%) / 6,407<br/>invalid: 1,336 (65.4%) /
-2,044<br/>all: 6,462 (76.5%) / 8,451</small>
+<small>valid: 5,215 (81.4%) / 6,407<br/>invalid: 1,381 (67.6%) /
+2,044<br/>all: 6,596 (78%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 6,896 (74.9%) / 9,210<br/>invalid: 1,923 (65.8%) /
-2,923<br/>all: 8,819 (72.7%) / 12,133</small>
+<small>valid: 6,962 (75.6%) / 9,210<br/>invalid: 1,938 (66.3%) /
+2,923<br/>all: 8,900 (73.4%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -2000,16 +2000,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 18,449 (79%) / 23,345<br/>invalid: 4,110 (64.5%) /
-6,375<br/>all: 22,559 (75.9%) / 29,720</small>
+<small>valid: 18,604 (79.7%) / 23,345<br/>invalid: 4,170 (65.4%) /
+6,375<br/>all: 22,774 (76.6%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 6,197 (78.9%) / 7,851<br/>invalid: 1,757 (70.2%) /
-2,502<br/>all: 7,954 (76.8%) / 10,353</small>
+<small>valid: 6,286 (80.1%) / 7,851<br/>invalid: 1,802 (72%) /
+2,502<br/>all: 8,088 (78.1%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 12,252 (79.1%) / 15,494<br/>invalid: 2,353 (60.8%) /
-3,873<br/>all: 14,605 (75.4%) / 19,367</small>
+<small>valid: 12,318 (79.5%) / 15,494<br/>invalid: 2,368 (61.1%) /
+3,873<br/>all: 14,686 (75.8%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -2020,11 +2020,11 @@ Data Table
 
 |     | attachment_type                  | code                       | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:---------------------------|:--------------|:---------|:---------|-------:|------:|
-| 156 | spectral/postman/postman-library | operations-status-code-5xx | kin           | OpenAPI3 | true     |   6896 | 93018 |
+| 156 | spectral/postman/postman-library | operations-status-code-5xx | kin           | OpenAPI3 | true     |   6962 | 93985 |
 | 157 | spectral/postman/postman-library | operations-status-code-5xx | postman_apis  | OpenAPI3 | true     |   5262 | 74496 |
-| 158 | spectral/postman/postman-library | operations-status-code-5xx | kin           | OpenAPI2 | true     |   5126 | 62572 |
-| 159 | spectral/postman/postman-library | operations-status-code-5xx | kin           | OpenAPI3 | false    |   1923 | 30656 |
-| 160 | spectral/postman/postman-library | operations-status-code-5xx | kin           | OpenAPI2 | false    |   1336 | 23375 |
+| 158 | spectral/postman/postman-library | operations-status-code-5xx | kin           | OpenAPI2 | true     |   5215 | 64192 |
+| 159 | spectral/postman/postman-library | operations-status-code-5xx | kin           | OpenAPI3 | false    |   1938 | 31000 |
+| 160 | spectral/postman/postman-library | operations-status-code-5xx | kin           | OpenAPI2 | false    |   1381 | 24683 |
 | 161 | spectral/postman/postman-library | operations-status-code-5xx | postman_apis  | OpenAPI2 | true     |    951 | 38957 |
 | 162 | spectral/postman/postman-library | operations-status-code-5xx | postman_apis  | OpenAPI3 | false    |    406 | 24565 |
 | 163 | spectral/postman/postman-library | operations-status-code-5xx | postman_apis  | OpenAPI2 | false    |    356 | 46348 |
@@ -2085,16 +2085,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 5,001 (32%) / 15,617<br/>invalid: 1,198 (24.1%) /
-4,967<br/>all: 6,199 (30.1%) / 20,584</small>
+<small>valid: 5,059 (32.4%) / 15,617<br/>invalid: 1,224 (24.6%) /
+4,967<br/>all: 6,283 (30.5%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 2,193 (34.2%) / 6,407<br/>invalid: 550 (26.9%) /
-2,044<br/>all: 2,743 (32.5%) / 8,451</small>
+<small>valid: 2,218 (34.6%) / 6,407<br/>invalid: 567 (27.7%) /
+2,044<br/>all: 2,785 (33%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 2,808 (30.5%) / 9,210<br/>invalid: 648 (22.2%) /
-2,923<br/>all: 3,456 (28.5%) / 12,133</small>
+<small>valid: 2,841 (30.8%) / 9,210<br/>invalid: 657 (22.5%) /
+2,923<br/>all: 3,498 (28.8%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -2136,16 +2136,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 6,243 (26.7%) / 23,345<br/>invalid: 1,462 (22.9%) /
-6,375<br/>all: 7,705 (25.9%) / 29,720</small>
+<small>valid: 6,301 (27%) / 23,345<br/>invalid: 1,488 (23.3%) /
+6,375<br/>all: 7,789 (26.2%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 2,676 (34.1%) / 7,851<br/>invalid: 670 (26.8%) /
-2,502<br/>all: 3,346 (32.3%) / 10,353</small>
+<small>valid: 2,701 (34.4%) / 7,851<br/>invalid: 687 (27.5%) /
+2,502<br/>all: 3,388 (32.7%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 3,567 (23%) / 15,494<br/>invalid: 792 (20.4%) /
-3,873<br/>all: 4,359 (22.5%) / 19,367</small>
+<small>valid: 3,600 (23.2%) / 15,494<br/>invalid: 801 (20.7%) /
+3,873<br/>all: 4,401 (22.7%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -2156,11 +2156,11 @@ Data Table
 
 |     | attachment_type                  | code               | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:-------------------|:--------------|:---------|:---------|-------:|------:|
-| 168 | spectral/postman/postman-library | operations-summary | kin           | OpenAPI3 | true     |   2808 | 37604 |
-| 169 | spectral/postman/postman-library | operations-summary | kin           | OpenAPI2 | true     |   2193 | 22335 |
+| 168 | spectral/postman/postman-library | operations-summary | kin           | OpenAPI3 | true     |   2841 | 37952 |
+| 169 | spectral/postman/postman-library | operations-summary | kin           | OpenAPI2 | true     |   2218 | 22796 |
 | 170 | spectral/postman/postman-library | operations-summary | postman_apis  | OpenAPI3 | true     |    712 | 26490 |
-| 171 | spectral/postman/postman-library | operations-summary | kin           | OpenAPI3 | false    |    648 | 14811 |
-| 172 | spectral/postman/postman-library | operations-summary | kin           | OpenAPI2 | false    |    550 |  8201 |
+| 171 | spectral/postman/postman-library | operations-summary | kin           | OpenAPI3 | false    |    657 | 14884 |
+| 172 | spectral/postman/postman-library | operations-summary | kin           | OpenAPI2 | false    |    567 |  8338 |
 | 173 | spectral/postman/postman-library | operations-summary | postman_apis  | OpenAPI2 | true     |    449 | 14333 |
 | 174 | spectral/postman/postman-library | operations-summary | postman_apis  | OpenAPI3 | false    |    134 |  5647 |
 | 175 | spectral/postman/postman-library | operations-summary | postman_apis  | OpenAPI2 | false    |     94 | 14060 |
@@ -2223,16 +2223,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 2,400 (15.4%) / 15,617<br/>invalid: 648 (13%) /
-4,967<br/>all: 3,048 (14.8%) / 20,584</small>
+<small>valid: 2,473 (15.8%) / 15,617<br/>invalid: 679 (13.7%) /
+4,967<br/>all: 3,152 (15.3%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,009 (15.7%) / 6,407<br/>invalid: 244 (11.9%) /
-2,044<br/>all: 1,253 (14.8%) / 8,451</small>
+<small>valid: 1,040 (16.2%) / 6,407<br/>invalid: 270 (13.2%) /
+2,044<br/>all: 1,310 (15.5%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,391 (15.1%) / 9,210<br/>invalid: 404 (13.8%) /
-2,923<br/>all: 1,795 (14.8%) / 12,133</small>
+<small>valid: 1,433 (15.6%) / 9,210<br/>invalid: 409 (14%) /
+2,923<br/>all: 1,842 (15.2%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -2274,16 +2274,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 3,068 (13.1%) / 23,345<br/>invalid: 939 (14.7%) /
-6,375<br/>all: 4,007 (13.5%) / 29,720</small>
+<small>valid: 3,141 (13.5%) / 23,345<br/>invalid: 970 (15.2%) /
+6,375<br/>all: 4,111 (13.8%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,242 (15.8%) / 7,851<br/>invalid: 388 (15.5%) /
-2,502<br/>all: 1,630 (15.7%) / 10,353</small>
+<small>valid: 1,273 (16.2%) / 7,851<br/>invalid: 414 (16.5%) /
+2,502<br/>all: 1,687 (16.3%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,826 (11.8%) / 15,494<br/>invalid: 551 (14.2%) /
-3,873<br/>all: 2,377 (12.3%) / 19,367</small>
+<small>valid: 1,868 (12.1%) / 15,494<br/>invalid: 556 (14.4%) /
+3,873<br/>all: 2,424 (12.5%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -2294,11 +2294,11 @@ Data Table
 
 |     | attachment_type                  | code                           | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:-------------------------------|:--------------|:---------|:---------|-------:|------:|
-| 180 | spectral/postman/postman-library | operations-summary-period-none | kin           | OpenAPI3 | true     |   1391 | 11846 |
-| 181 | spectral/postman/postman-library | operations-summary-period-none | kin           | OpenAPI2 | true     |   1009 |  9200 |
-| 182 | spectral/postman/postman-library | operations-summary-period-none | kin           | OpenAPI3 | false    |    404 |  3205 |
+| 180 | spectral/postman/postman-library | operations-summary-period-none | kin           | OpenAPI3 | true     |   1433 | 12154 |
+| 181 | spectral/postman/postman-library | operations-summary-period-none | kin           | OpenAPI2 | true     |   1040 |  9445 |
+| 182 | spectral/postman/postman-library | operations-summary-period-none | kin           | OpenAPI3 | false    |    409 |  3238 |
 | 183 | spectral/postman/postman-library | operations-summary-period-none | postman_apis  | OpenAPI3 | true     |    379 |  3610 |
-| 184 | spectral/postman/postman-library | operations-summary-period-none | kin           | OpenAPI2 | false    |    244 |  3299 |
+| 184 | spectral/postman/postman-library | operations-summary-period-none | kin           | OpenAPI2 | false    |    270 |  3590 |
 | 185 | spectral/postman/postman-library | operations-summary-period-none | postman_apis  | OpenAPI2 | true     |    191 |  3063 |
 | 186 | spectral/postman/postman-library | operations-summary-period-none | postman_apis  | OpenAPI3 | false    |    137 |  2676 |
 | 187 | spectral/postman/postman-library | operations-summary-period-none | postman_apis  | OpenAPI2 | false    |    105 |  1895 |
@@ -2361,16 +2361,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 5,184 (33.2%) / 15,617<br/>invalid: 1,457 (29.3%) /
-4,967<br/>all: 6,641 (32.3%) / 20,584</small>
+<small>valid: 5,267 (33.7%) / 15,617<br/>invalid: 1,492 (30%) /
+4,967<br/>all: 6,759 (32.8%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 2,431 (37.9%) / 6,407<br/>invalid: 639 (31.3%) /
-2,044<br/>all: 3,070 (36.3%) / 8,451</small>
+<small>valid: 2,479 (38.7%) / 6,407<br/>invalid: 665 (32.5%) /
+2,044<br/>all: 3,144 (37.2%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 2,753 (29.9%) / 9,210<br/>invalid: 818 (28%) /
-2,923<br/>all: 3,571 (29.4%) / 12,133</small>
+<small>valid: 2,788 (30.3%) / 9,210<br/>invalid: 827 (28.3%) /
+2,923<br/>all: 3,615 (29.8%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -2412,16 +2412,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 7,362 (31.5%) / 23,345<br/>invalid: 2,114 (33.2%) /
-6,375<br/>all: 9,476 (31.9%) / 29,720</small>
+<small>valid: 7,445 (31.9%) / 23,345<br/>invalid: 2,149 (33.7%) /
+6,375<br/>all: 9,594 (32.3%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 3,181 (40.5%) / 7,851<br/>invalid: 887 (35.5%) /
-2,502<br/>all: 4,068 (39.3%) / 10,353</small>
+<small>valid: 3,229 (41.1%) / 7,851<br/>invalid: 913 (36.5%) /
+2,502<br/>all: 4,142 (40%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 4,181 (27%) / 15,494<br/>invalid: 1,227 (31.7%) /
-3,873<br/>all: 5,408 (27.9%) / 19,367</small>
+<small>valid: 4,216 (27.2%) / 15,494<br/>invalid: 1,236 (31.9%) /
+3,873<br/>all: 5,452 (28.2%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -2432,12 +2432,12 @@ Data Table
 
 |     | attachment_type                  | code                   | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:-----------------------|:--------------|:---------|:---------|-------:|------:|
-| 192 | spectral/postman/postman-library | parameters-description | kin           | OpenAPI3 | true     |   2753 | 43557 |
-| 193 | spectral/postman/postman-library | parameters-description | kin           | OpenAPI2 | true     |   2431 | 30620 |
+| 192 | spectral/postman/postman-library | parameters-description | kin           | OpenAPI3 | true     |   2788 | 44696 |
+| 193 | spectral/postman/postman-library | parameters-description | kin           | OpenAPI2 | true     |   2479 | 31746 |
 | 194 | spectral/postman/postman-library | parameters-description | postman_apis  | OpenAPI3 | true     |   1381 | 52693 |
-| 195 | spectral/postman/postman-library | parameters-description | kin           | OpenAPI3 | false    |    818 | 17467 |
+| 195 | spectral/postman/postman-library | parameters-description | kin           | OpenAPI3 | false    |    827 | 17562 |
 | 196 | spectral/postman/postman-library | parameters-description | postman_apis  | OpenAPI2 | true     |    683 | 43862 |
-| 197 | spectral/postman/postman-library | parameters-description | kin           | OpenAPI2 | false    |    639 | 14179 |
+| 197 | spectral/postman/postman-library | parameters-description | kin           | OpenAPI2 | false    |    665 | 14813 |
 | 198 | spectral/postman/postman-library | parameters-description | postman_apis  | OpenAPI3 | false    |    394 | 32240 |
 | 199 | spectral/postman/postman-library | parameters-description | postman_apis  | OpenAPI2 | false    |    210 | 55832 |
 | 200 | spectral/postman/postman-library | parameters-description | kinweb        | OpenAPI2 | true     |     67 |  1432 |
@@ -2500,16 +2500,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 6,378 (40.8%) / 15,617<br/>invalid: 1,762 (35.5%) /
-4,967<br/>all: 8,140 (39.5%) / 20,584</small>
+<small>valid: 6,464 (41.4%) / 15,617<br/>invalid: 1,778 (35.8%) /
+4,967<br/>all: 8,242 (40%) / 20,584</small>
 </td>
 <td style="text-align:center">
 <small>valid: 0 (0%) / 6,407<br/>invalid: 7 (0.3%) / 2,044<br/>all: 7
 (0.1%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 6,378 (69.3%) / 9,210<br/>invalid: 1,755 (60%) /
-2,923<br/>all: 8,133 (67%) / 12,133</small>
+<small>valid: 6,464 (70.2%) / 9,210<br/>invalid: 1,771 (60.6%) /
+2,923<br/>all: 8,235 (67.9%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -2551,16 +2551,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 12,185 (52.2%) / 23,345<br/>invalid: 2,567 (40.3%) /
-6,375<br/>all: 14,752 (49.6%) / 29,720</small>
+<small>valid: 12,271 (52.6%) / 23,345<br/>invalid: 2,583 (40.5%) /
+6,375<br/>all: 14,854 (50%) / 29,720</small>
 </td>
 <td style="text-align:center">
 <small>valid: 0 (0%) / 7,851<br/>invalid: 11 (0.4%) / 2,502<br/>all: 11
 (0.1%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 12,185 (78.6%) / 15,494<br/>invalid: 2,556 (66%) /
-3,873<br/>all: 14,741 (76.1%) / 19,367</small>
+<small>valid: 12,271 (79.2%) / 15,494<br/>invalid: 2,572 (66.4%) /
+3,873<br/>all: 14,843 (76.6%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -2571,9 +2571,9 @@ Data Table
 
 |     | attachment_type                  | code                    | collection_id | class    | is_valid | n_apis |  n_err |
 |:----|:---------------------------------|:------------------------|:--------------|:---------|:---------|-------:|-------:|
-| 204 | spectral/postman/postman-library | parameters-examples-any | kin           | OpenAPI3 | true     |   6378 | 153114 |
+| 204 | spectral/postman/postman-library | parameters-examples-any | kin           | OpenAPI3 | true     |   6464 | 155557 |
 | 205 | spectral/postman/postman-library | parameters-examples-any | postman_apis  | OpenAPI3 | true     |   5689 | 146360 |
-| 206 | spectral/postman/postman-library | parameters-examples-any | kin           | OpenAPI3 | false    |   1755 |  49649 |
+| 206 | spectral/postman/postman-library | parameters-examples-any | kin           | OpenAPI3 | false    |   1771 |  50094 |
 | 207 | spectral/postman/postman-library | parameters-examples-any | postman_apis  | OpenAPI3 | false    |    775 |  94919 |
 | 208 | spectral/postman/postman-library | parameters-examples-any | kinweb        | OpenAPI3 | true     |    118 |   2874 |
 | 209 | spectral/postman/postman-library | parameters-examples-any | kinweb        | OpenAPI3 | false    |     26 |   1070 |
@@ -2638,16 +2638,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 8,813 (56.4%) / 15,617<br/>invalid: 2,212 (44.5%) /
-4,967<br/>all: 11,025 (53.6%) / 20,584</small>
+<small>valid: 8,952 (57.3%) / 15,617<br/>invalid: 2,261 (45.5%) /
+4,967<br/>all: 11,213 (54.5%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 3,593 (56.1%) / 6,407<br/>invalid: 798 (39%) /
-2,044<br/>all: 4,391 (52%) / 8,451</small>
+<small>valid: 3,663 (57.2%) / 6,407<br/>invalid: 839 (41%) /
+2,044<br/>all: 4,502 (53.3%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 5,220 (56.7%) / 9,210<br/>invalid: 1,414 (48.4%) /
-2,923<br/>all: 6,634 (54.7%) / 12,133</small>
+<small>valid: 5,289 (57.4%) / 9,210<br/>invalid: 1,422 (48.6%) /
+2,923<br/>all: 6,711 (55.3%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -2689,16 +2689,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 11,916 (51%) / 23,345<br/>invalid: 2,931 (46%) /
-6,375<br/>all: 14,847 (50%) / 29,720</small>
+<small>valid: 12,055 (51.6%) / 23,345<br/>invalid: 2,980 (46.7%) /
+6,375<br/>all: 15,035 (50.6%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 4,667 (59.4%) / 7,851<br/>invalid: 1,126 (45%) /
-2,502<br/>all: 5,793 (56%) / 10,353</small>
+<small>valid: 4,737 (60.3%) / 7,851<br/>invalid: 1,167 (46.6%) /
+2,502<br/>all: 5,904 (57%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 7,249 (46.8%) / 15,494<br/>invalid: 1,805 (46.6%) /
-3,873<br/>all: 9,054 (46.7%) / 19,367</small>
+<small>valid: 7,318 (47.2%) / 15,494<br/>invalid: 1,813 (46.8%) /
+3,873<br/>all: 9,131 (47.1%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -2709,12 +2709,12 @@ Data Table
 
 |     | attachment_type                  | code                        | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:----------------------------|:--------------|:---------|:---------|-------:|------:|
-| 212 | spectral/postman/postman-library | request-bodies-examples-any | kin           | OpenAPI3 | true     |   5220 | 40844 |
-| 213 | spectral/postman/postman-library | request-bodies-examples-any | kin           | OpenAPI2 | true     |   3593 | 16855 |
+| 212 | spectral/postman/postman-library | request-bodies-examples-any | kin           | OpenAPI3 | true     |   5289 | 41722 |
+| 213 | spectral/postman/postman-library | request-bodies-examples-any | kin           | OpenAPI2 | true     |   3663 | 17290 |
 | 214 | spectral/postman/postman-library | request-bodies-examples-any | postman_apis  | OpenAPI3 | true     |   1936 | 44954 |
-| 215 | spectral/postman/postman-library | request-bodies-examples-any | kin           | OpenAPI3 | false    |   1414 | 12736 |
+| 215 | spectral/postman/postman-library | request-bodies-examples-any | kin           | OpenAPI3 | false    |   1422 | 12865 |
 | 216 | spectral/postman/postman-library | request-bodies-examples-any | postman_apis  | OpenAPI2 | true     |    984 | 12913 |
-| 217 | spectral/postman/postman-library | request-bodies-examples-any | kin           | OpenAPI2 | false    |    798 |  5477 |
+| 217 | spectral/postman/postman-library | request-bodies-examples-any | kin           | OpenAPI2 | false    |    839 |  5831 |
 | 218 | spectral/postman/postman-library | request-bodies-examples-any | postman_apis  | OpenAPI3 | false    |    377 | 11221 |
 | 219 | spectral/postman/postman-library | request-bodies-examples-any | postman_apis  | OpenAPI2 | false    |    269 | 16554 |
 | 220 | spectral/postman/postman-library | request-bodies-examples-any | kinweb        | OpenAPI3 | true     |     93 |  1073 |
@@ -2790,16 +2790,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 245 (1.6%) / 15,617<br/>invalid: 245 (4.9%) /
-4,967<br/>all: 490 (2.4%) / 20,584</small>
+<small>valid: 247 (1.6%) / 15,617<br/>invalid: 247 (5%) / 4,967<br/>all:
+494 (2.4%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 106 (1.7%) / 6,407<br/>invalid: 60 (2.9%) / 2,044<br/>all:
-166 (2%) / 8,451</small>
+<small>valid: 107 (1.7%) / 6,407<br/>invalid: 62 (3%) / 2,044<br/>all:
+169 (2%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 139 (1.5%) / 9,210<br/>invalid: 185 (6.3%) /
-2,923<br/>all: 324 (2.7%) / 12,133</small>
+<small>valid: 140 (1.5%) / 9,210<br/>invalid: 185 (6.3%) /
+2,923<br/>all: 325 (2.7%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -2841,16 +2841,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 374 (1.6%) / 23,345<br/>invalid: 365 (5.7%) /
-6,375<br/>all: 739 (2.5%) / 29,720</small>
+<small>valid: 376 (1.6%) / 23,345<br/>invalid: 367 (5.8%) /
+6,375<br/>all: 743 (2.5%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 165 (2.1%) / 7,851<br/>invalid: 126 (5%) / 2,502<br/>all:
-291 (2.8%) / 10,353</small>
+<small>valid: 166 (2.1%) / 7,851<br/>invalid: 128 (5.1%) /
+2,502<br/>all: 294 (2.8%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 209 (1.3%) / 15,494<br/>invalid: 239 (6.2%) /
-3,873<br/>all: 448 (2.3%) / 19,367</small>
+<small>valid: 210 (1.4%) / 15,494<br/>invalid: 239 (6.2%) /
+3,873<br/>all: 449 (2.3%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -2862,11 +2862,11 @@ Data Table
 |     | attachment_type                  | code                  | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:----------------------|:--------------|:---------|:---------|-------:|------:|
 | 224 | spectral/postman/postman-library | request-body-on-patch | kin           | OpenAPI3 | false    |    185 |   891 |
-| 225 | spectral/postman/postman-library | request-body-on-patch | kin           | OpenAPI3 | true     |    139 |  1152 |
-| 226 | spectral/postman/postman-library | request-body-on-patch | kin           | OpenAPI2 | true     |    106 |   629 |
+| 225 | spectral/postman/postman-library | request-body-on-patch | kin           | OpenAPI3 | true     |    140 |  1154 |
+| 226 | spectral/postman/postman-library | request-body-on-patch | kin           | OpenAPI2 | true     |    107 |   630 |
 | 227 | spectral/postman/postman-library | request-body-on-patch | postman_apis  | OpenAPI3 | true     |     69 |   547 |
 | 228 | spectral/postman/postman-library | request-body-on-patch | postman_apis  | OpenAPI2 | false    |     64 |   295 |
-| 229 | spectral/postman/postman-library | request-body-on-patch | kin           | OpenAPI2 | false    |     60 |   437 |
+| 229 | spectral/postman/postman-library | request-body-on-patch | kin           | OpenAPI2 | false    |     62 |   442 |
 | 230 | spectral/postman/postman-library | request-body-on-patch | postman_apis  | OpenAPI2 | true     |     57 |   281 |
 | 231 | spectral/postman/postman-library | request-body-on-patch | postman_apis  | OpenAPI3 | false    |     54 |  1957 |
 | 232 | spectral/postman/postman-library | request-body-on-patch | kinweb        | OpenAPI2 | true     |      2 |     2 |
@@ -2941,16 +2941,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 2,690 (17.2%) / 15,617<br/>invalid: 1,246 (25.1%) /
-4,967<br/>all: 3,936 (19.1%) / 20,584</small>
+<small>valid: 2,750 (17.6%) / 15,617<br/>invalid: 1,274 (25.6%) /
+4,967<br/>all: 4,024 (19.5%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,179 (18.4%) / 6,407<br/>invalid: 507 (24.8%) /
-2,044<br/>all: 1,686 (20%) / 8,451</small>
+<small>valid: 1,213 (18.9%) / 6,407<br/>invalid: 529 (25.9%) /
+2,044<br/>all: 1,742 (20.6%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,511 (16.4%) / 9,210<br/>invalid: 739 (25.3%) /
-2,923<br/>all: 2,250 (18.5%) / 12,133</small>
+<small>valid: 1,537 (16.7%) / 9,210<br/>invalid: 745 (25.5%) /
+2,923<br/>all: 2,282 (18.8%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -2992,16 +2992,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 3,676 (15.7%) / 23,345<br/>invalid: 1,770 (27.8%) /
-6,375<br/>all: 5,446 (18.3%) / 29,720</small>
+<small>valid: 3,736 (16%) / 23,345<br/>invalid: 1,798 (28.2%) /
+6,375<br/>all: 5,534 (18.6%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,544 (19.7%) / 7,851<br/>invalid: 702 (28.1%) /
-2,502<br/>all: 2,246 (21.7%) / 10,353</small>
+<small>valid: 1,578 (20.1%) / 7,851<br/>invalid: 724 (28.9%) /
+2,502<br/>all: 2,302 (22.2%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 2,132 (13.8%) / 15,494<br/>invalid: 1,068 (27.6%) /
-3,873<br/>all: 3,200 (16.5%) / 19,367</small>
+<small>valid: 2,158 (13.9%) / 15,494<br/>invalid: 1,074 (27.7%) /
+3,873<br/>all: 3,232 (16.7%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -3012,11 +3012,11 @@ Data Table
 
 |     | attachment_type                  | code                 | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:---------------------|:--------------|:---------|:---------|-------:|------:|
-| 235 | spectral/postman/postman-library | request-body-on-post | kin           | OpenAPI3 | true     |   1511 | 17426 |
-| 236 | spectral/postman/postman-library | request-body-on-post | kin           | OpenAPI2 | true     |   1179 | 13151 |
-| 237 | spectral/postman/postman-library | request-body-on-post | kin           | OpenAPI3 | false    |    739 |  8546 |
+| 235 | spectral/postman/postman-library | request-body-on-post | kin           | OpenAPI3 | true     |   1537 | 17660 |
+| 236 | spectral/postman/postman-library | request-body-on-post | kin           | OpenAPI2 | true     |   1213 | 13451 |
+| 237 | spectral/postman/postman-library | request-body-on-post | kin           | OpenAPI3 | false    |    745 |  8611 |
 | 238 | spectral/postman/postman-library | request-body-on-post | postman_apis  | OpenAPI3 | true     |    585 | 15060 |
-| 239 | spectral/postman/postman-library | request-body-on-post | kin           | OpenAPI2 | false    |    507 |  6770 |
+| 239 | spectral/postman/postman-library | request-body-on-post | kin           | OpenAPI2 | false    |    529 |  6912 |
 | 240 | spectral/postman/postman-library | request-body-on-post | postman_apis  | OpenAPI2 | true     |    322 |  5369 |
 | 241 | spectral/postman/postman-library | request-body-on-post | postman_apis  | OpenAPI3 | false    |    318 | 17464 |
 | 242 | spectral/postman/postman-library | request-body-on-post | postman_apis  | OpenAPI2 | false    |    167 |  7515 |
@@ -3093,16 +3093,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 910 (5.8%) / 15,617<br/>invalid: 505 (10.2%) /
-4,967<br/>all: 1,415 (6.9%) / 20,584</small>
+<small>valid: 926 (5.9%) / 15,617<br/>invalid: 514 (10.3%) /
+4,967<br/>all: 1,440 (7%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 493 (7.7%) / 6,407<br/>invalid: 217 (10.6%) /
-2,044<br/>all: 710 (8.4%) / 8,451</small>
+<small>valid: 503 (7.9%) / 6,407<br/>invalid: 222 (10.9%) /
+2,044<br/>all: 725 (8.6%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 417 (4.5%) / 9,210<br/>invalid: 288 (9.9%) /
-2,923<br/>all: 705 (5.8%) / 12,133</small>
+<small>valid: 423 (4.6%) / 9,210<br/>invalid: 292 (10%) / 2,923<br/>all:
+715 (5.9%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -3144,16 +3144,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 1,323 (5.7%) / 23,345<br/>invalid: 721 (11.3%) /
-6,375<br/>all: 2,044 (6.9%) / 29,720</small>
+<small>valid: 1,339 (5.7%) / 23,345<br/>invalid: 730 (11.5%) /
+6,375<br/>all: 2,069 (7%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 636 (8.1%) / 7,851<br/>invalid: 311 (12.4%) /
-2,502<br/>all: 947 (9.1%) / 10,353</small>
+<small>valid: 646 (8.2%) / 7,851<br/>invalid: 316 (12.6%) /
+2,502<br/>all: 962 (9.3%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 687 (4.4%) / 15,494<br/>invalid: 410 (10.6%) /
-3,873<br/>all: 1,097 (5.7%) / 19,367</small>
+<small>valid: 693 (4.5%) / 15,494<br/>invalid: 414 (10.7%) /
+3,873<br/>all: 1,107 (5.7%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -3164,11 +3164,11 @@ Data Table
 
 |     | attachment_type                  | code                | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:--------------------|:--------------|:---------|:---------|-------:|------:|
-| 247 | spectral/postman/postman-library | request-body-on-put | kin           | OpenAPI2 | true     |    493 |  3483 |
-| 248 | spectral/postman/postman-library | request-body-on-put | kin           | OpenAPI3 | true     |    417 |  3464 |
-| 249 | spectral/postman/postman-library | request-body-on-put | kin           | OpenAPI3 | false    |    288 |  2148 |
+| 247 | spectral/postman/postman-library | request-body-on-put | kin           | OpenAPI2 | true     |    503 |  3623 |
+| 248 | spectral/postman/postman-library | request-body-on-put | kin           | OpenAPI3 | true     |    423 |  3504 |
+| 249 | spectral/postman/postman-library | request-body-on-put | kin           | OpenAPI3 | false    |    292 |  2167 |
 | 250 | spectral/postman/postman-library | request-body-on-put | postman_apis  | OpenAPI3 | true     |    264 |  9049 |
-| 251 | spectral/postman/postman-library | request-body-on-put | kin           | OpenAPI2 | false    |    217 |  2215 |
+| 251 | spectral/postman/postman-library | request-body-on-put | kin           | OpenAPI2 | false    |    222 |  2252 |
 | 252 | spectral/postman/postman-library | request-body-on-put | postman_apis  | OpenAPI2 | true     |    129 |  1536 |
 | 253 | spectral/postman/postman-library | request-body-on-put | postman_apis  | OpenAPI3 | false    |    116 |  4430 |
 | 254 | spectral/postman/postman-library | request-body-on-put | postman_apis  | OpenAPI2 | false    |     86 |  1460 |
@@ -3234,16 +3234,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 12,957 (83%) / 15,617<br/>invalid: 3,052 (61.4%) /
-4,967<br/>all: 16,009 (77.8%) / 20,584</small>
+<small>valid: 13,159 (84.3%) / 15,617<br/>invalid: 3,116 (62.7%) /
+4,967<br/>all: 16,275 (79.1%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 5,970 (93.2%) / 6,407<br/>invalid: 1,472 (72%) /
-2,044<br/>all: 7,442 (88.1%) / 8,451</small>
+<small>valid: 6,074 (94.8%) / 6,407<br/>invalid: 1,522 (74.5%) /
+2,044<br/>all: 7,596 (89.9%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 6,987 (75.9%) / 9,210<br/>invalid: 1,580 (54.1%) /
-2,923<br/>all: 8,567 (70.6%) / 12,133</small>
+<small>valid: 7,085 (76.9%) / 9,210<br/>invalid: 1,594 (54.5%) /
+2,923<br/>all: 8,679 (71.5%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -3285,16 +3285,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 20,279 (86.9%) / 23,345<br/>invalid: 3,872 (60.7%) /
-6,375<br/>all: 24,151 (81.3%) / 29,720</small>
+<small>valid: 20,481 (87.7%) / 23,345<br/>invalid: 3,936 (61.7%) /
+6,375<br/>all: 24,417 (82.2%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 7,381 (94%) / 7,851<br/>invalid: 1,890 (75.5%) /
-2,502<br/>all: 9,271 (89.5%) / 10,353</small>
+<small>valid: 7,485 (95.3%) / 7,851<br/>invalid: 1,940 (77.5%) /
+2,502<br/>all: 9,425 (91%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 12,898 (83.2%) / 15,494<br/>invalid: 1,982 (51.2%) /
-3,873<br/>all: 14,880 (76.8%) / 19,367</small>
+<small>valid: 12,996 (83.9%) / 15,494<br/>invalid: 1,996 (51.5%) /
+3,873<br/>all: 14,992 (77.4%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -3305,11 +3305,11 @@ Data Table
 
 |     | attachment_type                  | code                   | collection_id | class    | is_valid | n_apis |  n_err |
 |:----|:---------------------------------|:-----------------------|:--------------|:---------|:---------|-------:|-------:|
-| 259 | spectral/postman/postman-library | responses-examples-any | kin           | OpenAPI3 | true     |   6987 | 151020 |
-| 260 | spectral/postman/postman-library | responses-examples-any | kin           | OpenAPI2 | true     |   5970 | 186703 |
+| 259 | spectral/postman/postman-library | responses-examples-any | kin           | OpenAPI3 | true     |   7085 | 154831 |
+| 260 | spectral/postman/postman-library | responses-examples-any | kin           | OpenAPI2 | true     |   6074 | 191187 |
 | 261 | spectral/postman/postman-library | responses-examples-any | postman_apis  | OpenAPI3 | true     |   5772 | 137776 |
-| 262 | spectral/postman/postman-library | responses-examples-any | kin           | OpenAPI3 | false    |   1580 |  45352 |
-| 263 | spectral/postman/postman-library | responses-examples-any | kin           | OpenAPI2 | false    |   1472 |  55305 |
+| 262 | spectral/postman/postman-library | responses-examples-any | kin           | OpenAPI3 | false    |   1594 |  45813 |
+| 263 | spectral/postman/postman-library | responses-examples-any | kin           | OpenAPI2 | false    |   1522 |  58327 |
 | 264 | spectral/postman/postman-library | responses-examples-any | postman_apis  | OpenAPI2 | true     |   1269 | 126558 |
 | 265 | spectral/postman/postman-library | responses-examples-any | postman_apis  | OpenAPI3 | false    |    379 |  42968 |
 | 266 | spectral/postman/postman-library | responses-examples-any | postman_apis  | OpenAPI2 | false    |    343 | 129028 |
@@ -3372,16 +3372,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 10,851 (69.5%) / 15,617<br/>invalid: 2,728 (54.9%) /
-4,967<br/>all: 13,579 (66%) / 20,584</small>
+<small>valid: 11,017 (70.5%) / 15,617<br/>invalid: 2,780 (56%) /
+4,967<br/>all: 13,797 (67%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 4,621 (72.1%) / 6,407<br/>invalid: 1,153 (56.4%) /
-2,044<br/>all: 5,774 (68.3%) / 8,451</small>
+<small>valid: 4,706 (73.5%) / 6,407<br/>invalid: 1,195 (58.5%) /
+2,044<br/>all: 5,901 (69.8%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 6,230 (67.6%) / 9,210<br/>invalid: 1,575 (53.9%) /
-2,923<br/>all: 7,805 (64.3%) / 12,133</small>
+<small>valid: 6,311 (68.5%) / 9,210<br/>invalid: 1,585 (54.2%) /
+2,923<br/>all: 7,896 (65.1%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -3423,16 +3423,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 17,829 (76.4%) / 23,345<br/>invalid: 3,764 (59%) /
-6,375<br/>all: 21,593 (72.7%) / 29,720</small>
+<small>valid: 17,995 (77.1%) / 23,345<br/>invalid: 3,816 (59.9%) /
+6,375<br/>all: 21,811 (73.4%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 5,857 (74.6%) / 7,851<br/>invalid: 1,468 (58.7%) /
-2,502<br/>all: 7,325 (70.8%) / 10,353</small>
+<small>valid: 5,942 (75.7%) / 7,851<br/>invalid: 1,510 (60.4%) /
+2,502<br/>all: 7,452 (72%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 11,972 (77.3%) / 15,494<br/>invalid: 2,296 (59.3%) /
-3,873<br/>all: 14,268 (73.7%) / 19,367</small>
+<small>valid: 12,053 (77.8%) / 15,494<br/>invalid: 2,306 (59.5%) /
+3,873<br/>all: 14,359 (74.1%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -3443,11 +3443,11 @@ Data Table
 
 |     | attachment_type                  | code                        | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:---------------------------------|:----------------------------|:--------------|:---------|:---------|-------:|------:|
-| 271 | spectral/postman/postman-library | reusable-schema-description | kin           | OpenAPI3 | true     |   6230 | 95169 |
+| 271 | spectral/postman/postman-library | reusable-schema-description | kin           | OpenAPI3 | true     |   6311 | 96459 |
 | 272 | spectral/postman/postman-library | reusable-schema-description | postman_apis  | OpenAPI3 | true     |   5628 | 72180 |
-| 273 | spectral/postman/postman-library | reusable-schema-description | kin           | OpenAPI2 | true     |   4621 | 62940 |
-| 274 | spectral/postman/postman-library | reusable-schema-description | kin           | OpenAPI3 | false    |   1575 | 26214 |
-| 275 | spectral/postman/postman-library | reusable-schema-description | kin           | OpenAPI2 | false    |   1153 | 15734 |
+| 273 | spectral/postman/postman-library | reusable-schema-description | kin           | OpenAPI2 | true     |   4706 | 64401 |
+| 274 | spectral/postman/postman-library | reusable-schema-description | kin           | OpenAPI3 | false    |   1585 | 26478 |
+| 275 | spectral/postman/postman-library | reusable-schema-description | kin           | OpenAPI2 | false    |   1195 | 16585 |
 | 276 | spectral/postman/postman-library | reusable-schema-description | postman_apis  | OpenAPI2 | true     |   1119 | 30722 |
 | 277 | spectral/postman/postman-library | reusable-schema-description | postman_apis  | OpenAPI3 | false    |    704 | 53613 |
 | 278 | spectral/postman/postman-library | reusable-schema-description | postman_apis  | OpenAPI2 | false    |    249 | 25232 |
@@ -3510,16 +3510,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 11,266 (72.1%) / 15,617<br/>invalid: 2,646 (53.3%) /
-4,967<br/>all: 13,912 (67.6%) / 20,584</small>
+<small>valid: 11,450 (73.3%) / 15,617<br/>invalid: 2,701 (54.4%) /
+4,967<br/>all: 14,151 (68.7%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 4,729 (73.8%) / 6,407<br/>invalid: 1,023 (50%) /
-2,044<br/>all: 5,752 (68.1%) / 8,451</small>
+<small>valid: 4,822 (75.3%) / 6,407<br/>invalid: 1,067 (52.2%) /
+2,044<br/>all: 5,889 (69.7%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 6,537 (71%) / 9,210<br/>invalid: 1,623 (55.5%) /
-2,923<br/>all: 8,160 (67.3%) / 12,133</small>
+<small>valid: 6,628 (72%) / 9,210<br/>invalid: 1,634 (55.9%) /
+2,923<br/>all: 8,262 (68.1%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -3561,16 +3561,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 14,737 (63.1%) / 23,345<br/>invalid: 3,447 (54.1%) /
-6,375<br/>all: 18,184 (61.2%) / 29,720</small>
+<small>valid: 14,921 (63.9%) / 23,345<br/>invalid: 3,502 (54.9%) /
+6,375<br/>all: 18,423 (62%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 5,961 (75.9%) / 7,851<br/>invalid: 1,402 (56%) /
-2,502<br/>all: 7,363 (71.1%) / 10,353</small>
+<small>valid: 6,054 (77.1%) / 7,851<br/>invalid: 1,446 (57.8%) /
+2,502<br/>all: 7,500 (72.4%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 8,776 (56.6%) / 15,494<br/>invalid: 2,045 (52.8%) /
-3,873<br/>all: 10,821 (55.9%) / 19,367</small>
+<small>valid: 8,867 (57.2%) / 15,494<br/>invalid: 2,056 (53.1%) /
+3,873<br/>all: 10,923 (56.4%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -3581,12 +3581,12 @@ Data Table
 
 |     | attachment_type                  | code                                      | collection_id | class    | is_valid | n_apis |  n_err |
 |:----|:---------------------------------|:------------------------------------------|:--------------|:---------|:---------|-------:|-------:|
-| 283 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kin           | OpenAPI3 | true     |   6537 | 103876 |
-| 284 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kin           | OpenAPI2 | true     |   4729 |  64923 |
+| 283 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kin           | OpenAPI3 | true     |   6628 | 105695 |
+| 284 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kin           | OpenAPI2 | true     |   4822 |  66421 |
 | 285 | spectral/postman/postman-library | schema-properties-define-array-boundaries | postman_apis  | OpenAPI3 | true     |   2112 |  83394 |
-| 286 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kin           | OpenAPI3 | false    |   1623 |  28542 |
+| 286 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kin           | OpenAPI3 | false    |   1634 |  28727 |
 | 287 | spectral/postman/postman-library | schema-properties-define-array-boundaries | postman_apis  | OpenAPI2 | true     |   1107 |  35062 |
-| 288 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kin           | OpenAPI2 | false    |   1023 |  15072 |
+| 288 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kin           | OpenAPI2 | false    |   1067 |  16138 |
 | 289 | spectral/postman/postman-library | schema-properties-define-array-boundaries | postman_apis  | OpenAPI3 | false    |    401 |  31341 |
 | 290 | spectral/postman/postman-library | schema-properties-define-array-boundaries | postman_apis  | OpenAPI2 | false    |    311 |  39486 |
 | 291 | spectral/postman/postman-library | schema-properties-define-array-boundaries | kinweb        | OpenAPI3 | true     |    127 |   2343 |
@@ -3646,16 +3646,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 11,961 (76.6%) / 15,617<br/>invalid: 3,105 (62.5%) /
-4,967<br/>all: 15,066 (73.2%) / 20,584</small>
+<small>valid: 12,135 (77.7%) / 15,617<br/>invalid: 3,161 (63.6%) /
+4,967<br/>all: 15,296 (74.3%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 4,885 (76.2%) / 6,407<br/>invalid: 1,128 (55.2%) /
-2,044<br/>all: 6,013 (71.2%) / 8,451</small>
+<small>valid: 4,973 (77.6%) / 6,407<br/>invalid: 1,172 (57.3%) /
+2,044<br/>all: 6,145 (72.7%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 7,076 (76.8%) / 9,210<br/>invalid: 1,977 (67.6%) /
-2,923<br/>all: 9,053 (74.6%) / 12,133</small>
+<small>valid: 7,162 (77.8%) / 9,210<br/>invalid: 1,989 (68%) /
+2,923<br/>all: 9,151 (75.4%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -3697,16 +3697,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 19,041 (81.6%) / 23,345<br/>invalid: 4,152 (65.1%) /
-6,375<br/>all: 23,193 (78%) / 29,720</small>
+<small>valid: 19,215 (82.3%) / 23,345<br/>invalid: 4,208 (66%) /
+6,375<br/>all: 23,423 (78.8%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 6,106 (77.8%) / 7,851<br/>invalid: 1,474 (58.9%) /
-2,502<br/>all: 7,580 (73.2%) / 10,353</small>
+<small>valid: 6,194 (78.9%) / 7,851<br/>invalid: 1,518 (60.7%) /
+2,502<br/>all: 7,712 (74.5%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 12,935 (83.5%) / 15,494<br/>invalid: 2,678 (69.1%) /
-3,873<br/>all: 15,613 (80.6%) / 19,367</small>
+<small>valid: 13,021 (84%) / 15,494<br/>invalid: 2,690 (69.5%) /
+3,873<br/>all: 15,711 (81.1%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -3717,11 +3717,11 @@ Data Table
 
 |     | attachment_type                  | code                           | collection_id | class    | is_valid | n_apis |  n_err |
 |:----|:---------------------------------|:-------------------------------|:--------------|:---------|:---------|-------:|-------:|
-| 295 | spectral/postman/postman-library | schema-properties-descriptions | kin           | OpenAPI3 | true     |   7076 | 422539 |
+| 295 | spectral/postman/postman-library | schema-properties-descriptions | kin           | OpenAPI3 | true     |   7162 | 428935 |
 | 296 | spectral/postman/postman-library | schema-properties-descriptions | postman_apis  | OpenAPI3 | true     |   5742 | 776231 |
-| 297 | spectral/postman/postman-library | schema-properties-descriptions | kin           | OpenAPI2 | true     |   4885 | 273601 |
-| 298 | spectral/postman/postman-library | schema-properties-descriptions | kin           | OpenAPI3 | false    |   1977 | 155259 |
-| 299 | spectral/postman/postman-library | schema-properties-descriptions | kin           | OpenAPI2 | false    |   1128 |  76677 |
+| 297 | spectral/postman/postman-library | schema-properties-descriptions | kin           | OpenAPI2 | true     |   4973 | 280627 |
+| 298 | spectral/postman/postman-library | schema-properties-descriptions | kin           | OpenAPI3 | false    |   1989 | 156120 |
+| 299 | spectral/postman/postman-library | schema-properties-descriptions | kin           | OpenAPI2 | false    |   1172 |  83903 |
 | 300 | spectral/postman/postman-library | schema-properties-descriptions | postman_apis  | OpenAPI2 | true     |   1098 | 154394 |
 | 301 | spectral/postman/postman-library | schema-properties-descriptions | postman_apis  | OpenAPI3 | false    |    679 | 149314 |
 | 302 | spectral/postman/postman-library | schema-properties-descriptions | postman_apis  | OpenAPI2 | false    |    278 | 149735 |
@@ -3791,16 +3791,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 10,940 (70.1%) / 15,617<br/>invalid: 2,807 (56.5%) /
-4,967<br/>all: 13,747 (66.8%) / 20,584</small>
+<small>valid: 11,105 (71.1%) / 15,617<br/>invalid: 2,868 (57.7%) /
+4,967<br/>all: 13,973 (67.9%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 3,378 (52.7%) / 6,407<br/>invalid: 859 (42%) /
-2,044<br/>all: 4,237 (50.1%) / 8,451</small>
+<small>valid: 3,453 (53.9%) / 6,407<br/>invalid: 902 (44.1%) /
+2,044<br/>all: 4,355 (51.5%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 7,562 (82.1%) / 9,210<br/>invalid: 1,948 (66.6%) /
-2,923<br/>all: 9,510 (78.4%) / 12,133</small>
+<small>valid: 7,652 (83.1%) / 9,210<br/>invalid: 1,966 (67.3%) /
+2,923<br/>all: 9,618 (79.3%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -3842,16 +3842,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 17,475 (74.9%) / 23,345<br/>invalid: 3,995 (62.7%) /
-6,375<br/>all: 21,470 (72.2%) / 29,720</small>
+<small>valid: 17,640 (75.6%) / 23,345<br/>invalid: 4,056 (63.6%) /
+6,375<br/>all: 21,696 (73%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 4,183 (53.3%) / 7,851<br/>invalid: 1,230 (49.2%) /
-2,502<br/>all: 5,413 (52.3%) / 10,353</small>
+<small>valid: 4,258 (54.2%) / 7,851<br/>invalid: 1,273 (50.9%) /
+2,502<br/>all: 5,531 (53.4%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 13,292 (85.8%) / 15,494<br/>invalid: 2,765 (71.4%) /
-3,873<br/>all: 16,057 (82.9%) / 19,367</small>
+<small>valid: 13,382 (86.4%) / 15,494<br/>invalid: 2,783 (71.9%) /
+3,873<br/>all: 16,165 (83.5%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -3862,11 +3862,11 @@ Data Table
 
 |     | attachment_type                  | code                      | collection_id | class    | is_valid | n_apis |  n_err |
 |:----|:---------------------------------|:--------------------------|:--------------|:---------|:---------|-------:|-------:|
-| 307 | spectral/postman/postman-library | schema-reference-reusable | kin           | OpenAPI3 | true     |   7562 | 230806 |
+| 307 | spectral/postman/postman-library | schema-reference-reusable | kin           | OpenAPI3 | true     |   7652 | 234459 |
 | 308 | spectral/postman/postman-library | schema-reference-reusable | postman_apis  | OpenAPI3 | true     |   5601 | 229616 |
-| 309 | spectral/postman/postman-library | schema-reference-reusable | kin           | OpenAPI2 | true     |   3378 |  28025 |
-| 310 | spectral/postman/postman-library | schema-reference-reusable | kin           | OpenAPI3 | false    |   1948 |  70963 |
-| 311 | spectral/postman/postman-library | schema-reference-reusable | kin           | OpenAPI2 | false    |    859 |  13399 |
+| 309 | spectral/postman/postman-library | schema-reference-reusable | kin           | OpenAPI2 | true     |   3453 |  28869 |
+| 310 | spectral/postman/postman-library | schema-reference-reusable | kin           | OpenAPI3 | false    |   1966 |  71478 |
+| 311 | spectral/postman/postman-library | schema-reference-reusable | kin           | OpenAPI2 | false    |    902 |  14207 |
 | 312 | spectral/postman/postman-library | schema-reference-reusable | postman_apis  | OpenAPI3 | false    |    788 | 114225 |
 | 313 | spectral/postman/postman-library | schema-reference-reusable | postman_apis  | OpenAPI2 | true     |    705 |  17502 |
 | 314 | spectral/postman/postman-library | schema-reference-reusable | postman_apis  | OpenAPI2 | false    |    309 |  42405 |
