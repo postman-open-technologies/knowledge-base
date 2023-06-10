@@ -1,0 +1,7 @@
+version:
+  number: 1.0.0
+provenance:
+  author: Arnaud Lauret, Postman Open Technologies
+ruleset:
+  link: owasp/spectral-owasp-exported.spectral-v6.yaml
+  urn: postman:SpectralRuleset:stoplight.owasp:v1.0.0
