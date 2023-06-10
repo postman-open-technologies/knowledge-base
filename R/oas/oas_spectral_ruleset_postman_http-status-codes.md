@@ -1,6 +1,6 @@
 OAS Spectral Ruleset postman/http-status-codes
 ================
-<sup>Last updated: 2023-04-29</sup>
+<sup>Last updated: 2023-06-09</sup>
 
 <sup>*DISCLAIMER: the results and findings below are preliminary and
 have not been fully validated or peer reviewed. Use with care. Do not
@@ -28,8 +28,8 @@ for details and more granular analysis for each rule.
 
 | rule                                                                                                                                                                            | All<br/>(23,345) | OpenAPI2<br/>(7,851) | OpenAPI3<br/>(15,494) |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------:|:--------------------:|:---------------------:|
-| [postman:SpectralRule:http-status-codes:invalid:v1](#postman:SpectralRule:http-status-codes:invalid:v1)<br/><sup>HTTP status code not \[1-5\]XX, default or an x-tension.</sup> |   2,035 (8.7%)   |       474 (6%)       |     1,561 (10.1%)     |
-| [postman:SpectralRule:http-status-codes:unassigned:v1](#postman:SpectralRule:http-status-codes:unassigned:v1)<br/><sup>Unassigned HTTP status code.</sup>                       |    164 (0.7%)    |      43 (0.5%)       |      121 (0.8%)       |
+| [postman:SpectralRule:http-status-codes:invalid:v1](#postman:SpectralRule:http-status-codes:invalid:v1)<br/><sup>HTTP status code not \[1-5\]XX, default or an x-tension.</sup> |   2,056 (8.8%)   |      483 (6.2%)      |     1,573 (10.2%)     |
+| [postman:SpectralRule:http-status-codes:unassigned:v1](#postman:SpectralRule:http-status-codes:unassigned:v1)<br/><sup>Unassigned HTTP status code.</sup>                       |    170 (0.7%)    |      44 (0.6%)       |      126 (0.8%)       |
 | [postman:SpectralRule:http-status-codes:unused:v1](#postman:SpectralRule:http-status-codes:unused:v1)<br/><sup>Unused or obsolete HTTP status code.</sup>                       |    21 (0.1%)     |       7 (0.1%)       |       14 (0.1%)       |
 
 <a id="postman:SpectralRule:http-status-codes:unassigned:v1"></a>
@@ -83,16 +83,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 134 (0.9%) / 15,617<br/>invalid: 33 (0.7%) /
-4,967<br/>all: 167 (0.8%) / 20,584</small>
+<small>valid: 140 (0.9%) / 15,617<br/>invalid: 35 (0.7%) /
+4,967<br/>all: 175 (0.9%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 30 (0.5%) / 6,407<br/>invalid: 10 (0.5%) / 2,044<br/>all:
-40 (0.5%) / 8,451</small>
+<small>valid: 31 (0.5%) / 6,407<br/>invalid: 10 (0.5%) / 2,044<br/>all:
+41 (0.5%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 104 (1.1%) / 9,210<br/>invalid: 23 (0.8%) / 2,923<br/>all:
-127 (1%) / 12,133</small>
+<small>valid: 109 (1.2%) / 9,210<br/>invalid: 25 (0.9%) / 2,923<br/>all:
+134 (1.1%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -134,16 +134,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 164 (0.7%) / 23,345<br/>invalid: 38 (0.6%) /
-6,375<br/>all: 202 (0.7%) / 29,720</small>
+<small>valid: 170 (0.7%) / 23,345<br/>invalid: 40 (0.6%) /
+6,375<br/>all: 210 (0.7%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 43 (0.5%) / 7,851<br/>invalid: 10 (0.4%) / 2,502<br/>all:
-53 (0.5%) / 10,353</small>
+<small>valid: 44 (0.6%) / 7,851<br/>invalid: 10 (0.4%) / 2,502<br/>all:
+54 (0.5%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 121 (0.8%) / 15,494<br/>invalid: 28 (0.7%) /
-3,873<br/>all: 149 (0.8%) / 19,367</small>
+<small>valid: 126 (0.8%) / 15,494<br/>invalid: 30 (0.8%) /
+3,873<br/>all: 156 (0.8%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -154,9 +154,9 @@ Data Table
 
 |     | attachment_type                    | code                                                 | collection_id | class    | is_valid | n_apis | n_err |
 |:----|:-----------------------------------|:-----------------------------------------------------|:--------------|:---------|:---------|-------:|------:|
-| 13  | spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:unassigned:v1 | kin           | OpenAPI3 | true     |    104 |  4044 |
-| 14  | spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:unassigned:v1 | kin           | OpenAPI2 | true     |     30 |   606 |
-| 15  | spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:unassigned:v1 | kin           | OpenAPI3 | false    |     23 |   170 |
+| 13  | spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:unassigned:v1 | kin           | OpenAPI3 | true     |    109 |  4082 |
+| 14  | spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:unassigned:v1 | kin           | OpenAPI2 | true     |     31 |   607 |
+| 15  | spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:unassigned:v1 | kin           | OpenAPI3 | false    |     25 |   175 |
 | 16  | spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:unassigned:v1 | postman_apis  | OpenAPI2 | true     |     12 |   794 |
 | 17  | spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:unassigned:v1 | postman_apis  | OpenAPI3 | true     |     12 |    49 |
 | 18  | spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:unassigned:v1 | kin           | OpenAPI2 | false    |     10 |   128 |
@@ -334,16 +334,16 @@ OpenAPI3
 kin
 </td>
 <td style="text-align:center">
-<small>valid: 1,403 (9%) / 15,617<br/>invalid: 379 (7.6%) /
-4,967<br/>all: 1,782 (8.7%) / 20,584</small>
+<small>valid: 1,424 (9.1%) / 15,617<br/>invalid: 386 (7.8%) /
+4,967<br/>all: 1,810 (8.8%) / 20,584</small>
 </td>
 <td style="text-align:center">
-<small>valid: 382 (6%) / 6,407<br/>invalid: 112 (5.5%) / 2,044<br/>all:
-494 (5.8%) / 8,451</small>
+<small>valid: 391 (6.1%) / 6,407<br/>invalid: 114 (5.6%) /
+2,044<br/>all: 505 (6%) / 8,451</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,021 (11.1%) / 9,210<br/>invalid: 267 (9.1%) /
-2,923<br/>all: 1,288 (10.6%) / 12,133</small>
+<small>valid: 1,033 (11.2%) / 9,210<br/>invalid: 272 (9.3%) /
+2,923<br/>all: 1,305 (10.8%) / 12,133</small>
 </td>
 </tr>
 <tr>
@@ -385,16 +385,16 @@ kinweb
 <i>All Collections</i>
 </td>
 <td style="text-align:center">
-<small>valid: 2,035 (8.7%) / 23,345<br/>invalid: 456 (7.2%) /
-6,375<br/>all: 2,491 (8.4%) / 29,720</small>
+<small>valid: 2,056 (8.8%) / 23,345<br/>invalid: 463 (7.3%) /
+6,375<br/>all: 2,519 (8.5%) / 29,720</small>
 </td>
 <td style="text-align:center">
-<small>valid: 474 (6%) / 7,851<br/>invalid: 133 (5.3%) / 2,502<br/>all:
-607 (5.9%) / 10,353</small>
+<small>valid: 483 (6.2%) / 7,851<br/>invalid: 135 (5.4%) /
+2,502<br/>all: 618 (6%) / 10,353</small>
 </td>
 <td style="text-align:center">
-<small>valid: 1,561 (10.1%) / 15,494<br/>invalid: 323 (8.3%) /
-3,873<br/>all: 1,884 (9.7%) / 19,367</small>
+<small>valid: 1,573 (10.2%) / 15,494<br/>invalid: 328 (8.5%) /
+3,873<br/>all: 1,901 (9.8%) / 19,367</small>
 </td>
 </tr>
 </table>
@@ -405,11 +405,11 @@ Data Table
 
 | attachment_type                    | code                                              | collection_id | class    | is_valid | n_apis | n_err |
 |:-----------------------------------|:--------------------------------------------------|:--------------|:---------|:---------|-------:|------:|
-| spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:invalid:v1 | kin           | OpenAPI3 | true     |   1021 |  5701 |
+| spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:invalid:v1 | kin           | OpenAPI3 | true     |   1033 |  5735 |
 | spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:invalid:v1 | postman_apis  | OpenAPI3 | true     |    528 |  6109 |
-| spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:invalid:v1 | kin           | OpenAPI2 | true     |    382 |  1237 |
-| spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:invalid:v1 | kin           | OpenAPI3 | false    |    267 |  2276 |
-| spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:invalid:v1 | kin           | OpenAPI2 | false    |    112 |   470 |
+| spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:invalid:v1 | kin           | OpenAPI2 | true     |    391 |  1263 |
+| spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:invalid:v1 | kin           | OpenAPI3 | false    |    272 |  2316 |
+| spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:invalid:v1 | kin           | OpenAPI2 | false    |    114 |   481 |
 | spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:invalid:v1 | postman_apis  | OpenAPI2 | true     |     83 |  1514 |
 | spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:invalid:v1 | postman_apis  | OpenAPI3 | false    |     51 |   292 |
 | spectral/postman/http-status-codes | postman:SpectralRule:http-status-codes:invalid:v1 | postman_apis  | OpenAPI2 | false    |     19 |   175 |

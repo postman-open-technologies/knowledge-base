@@ -1,6 +1,6 @@
 {
   "name": "postman-open-technologies-knowledge-base-api",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "private": true,
   "license": "Apache 2.0",
   "author": {
@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "doc": "widdershins openapi.json -o README.md && widdershins --html openapi.json -o openapi.html",
+    "doc": "widdershins openapi.json -o README.md && redocly build-docs ./openapi.json --output=openapi.html --disableGoogleFont --theme.openapi.disableSearch",
     "version-sot": "version-sot -d openapi.json",
     "oas-lint": "spectral lint openapi.json"
   },
@@ -28,6 +28,7 @@
     "yaml": "^2.2.1"
   },
   "devDependencies": {
+    "@redocly/cli": "^1.0.0-beta.126",
     "version-sot": "^0.1.1",
     "widdershins": "^4.0.1"
   }

@@ -1,5 +1,5 @@
 ---
-title: Postman Open Technologies Knowledge Base API v0.2.0
+title: Postman Open Technologies Knowledge Base API v0.4.0
 language_tabs:
   - shell: Shell
   - http: HTTP
@@ -19,7 +19,7 @@ headingLevel: 2
 
 <!-- Generator: Widdershins v4.0.1 -->
 
-<h1 id="postman-open-technologies-knowledge-base-api">Postman Open Technologies Knowledge Base API v0.2.0</h1>
+<h1 id="postman-open-technologies-knowledge-base-api">Postman Open Technologies Knowledge Base API v0.4.0</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -186,17 +186,38 @@ func main() {
 > 200 Response
 
 ```json
-{}
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "A minimal OpenAPI definition",
+    "version": "1.2.3"
+  },
+  "components": {}
+}
+```
+
+```
+"string"
+```
+
+> default Response
+
+```json
+{
+  "status": 500,
+  "title": "Internal Server Error",
+  "details": "Error fetching /",
+  "instance": "/",
+  "type": "http://localhost:3000/InternalServerError"
+}
 ```
 
 <h3 id="getopenapi-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The OpenAPI definition|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The OpenAPI definition, available in JSON or HTML format, depending on the content type that you accept|string|
 |default|Default|Error|[ProblemDetailsError](#schemaproblemdetailserror)|
-
-<h3 id="getopenapi-responseschema">Response Schema</h3>
 
 <aside class="success">
 This operation does not require authentication
@@ -349,6 +370,8 @@ func main() {
 
 *Retrieve a list of the available types of statistical reports*
 
+You can use this path to retrieve the full list of available types of statistical reports. Each response element contains an `id` and a `scope`. The `id` is a unique identifier of the statistical report type and the `scope` identifies what the report is about.
+
 > Example responses
 
 > 200 Response
@@ -356,12 +379,26 @@ func main() {
 ```json
 [
   {
-    "id": "string",
-    "description": "string",
-    "output": "string",
-    "scope": "string"
+    "id": "info-contact",
+    "scope": "spectral/postman/postman-library"
+  },
+  {
+    "id": "info-license",
+    "scope": "spectral/postman/postman-library"
   }
 ]
+```
+
+> default Response
+
+```json
+{
+  "status": 500,
+  "title": "Internal Server Error",
+  "details": "Error fetching /reports",
+  "instance": "/reports",
+  "type": "http://localhost:3000/InternalServerError"
+}
 ```
 
 <h3 id="listreports-responses">Responses</h3>
@@ -534,10 +571,32 @@ func main() {
 
 ```json
 {
-  "id": "string",
-  "description": "string",
-  "output": "string",
-  "scope": "string"
+  "id": "info-contact",
+  "scope": "spectral/postman/postman-library"
+}
+```
+
+> 404 Response
+
+```json
+{
+  "status": 404,
+  "title": "Not Found",
+  "details": "Resource /reports/not%20found%20example not found",
+  "instance": "/reports/not%20found%20example",
+  "type": "http://localhost:3000/NotFoundError"
+}
+```
+
+> default Response
+
+```json
+{
+  "status": 500,
+  "title": "Internal Server Error",
+  "details": "Error fetching /reports/info-contact",
+  "instance": "/reports/info-contact",
+  "type": "http://localhost:3000/InternalServerError"
 }
 ```
 
@@ -563,13 +622,13 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X GET http://localhost:3000/statistics/{statisticType} \
+curl -X GET http://localhost:3000/statistics/{reportId} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET http://localhost:3000/statistics/{statisticType} HTTP/1.1
+GET http://localhost:3000/statistics/{reportId} HTTP/1.1
 Host: localhost:3000
 Accept: application/json
 
@@ -581,7 +640,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://localhost:3000/statistics/{statisticType}',
+fetch('http://localhost:3000/statistics/{reportId}',
 {
   method: 'GET',
 
@@ -603,7 +662,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'http://localhost:3000/statistics/{statisticType}',
+result = RestClient.get 'http://localhost:3000/statistics/{reportId}',
   params: {
   }, headers: headers
 
@@ -617,7 +676,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('http://localhost:3000/statistics/{statisticType}', headers = headers)
+r = requests.get('http://localhost:3000/statistics/{reportId}', headers = headers)
 
 print(r.json())
 
@@ -638,7 +697,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','http://localhost:3000/statistics/{statisticType}', array(
+    $response = $client->request('GET','http://localhost:3000/statistics/{reportId}', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -655,7 +714,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://localhost:3000/statistics/{statisticType}");
+URL obj = new URL("http://localhost:3000/statistics/{reportId}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -686,7 +745,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://localhost:3000/statistics/{statisticType}", data)
+    req, err := http.NewRequest("GET", "http://localhost:3000/statistics/{reportId}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -696,15 +755,15 @@ func main() {
 
 ```
 
-`GET /statistics/{statisticType}`
+`GET /statistics/{reportId}`
 
-*Retrieve a specific type of statistics report identified by statisticType*
+*Retrieve a specific type of statistics report identified by `reportId`*
 
 <h3 id="getstatistics-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|statisticType|path|string|true|The type of statistics report to retrieve|
+|reportId|path|string|true|The type of statistics report to retrieve|
 
 > Example responses
 
@@ -713,14 +772,38 @@ func main() {
 ```json
 {
   "info": {
-    "name": "string",
-    "type": "string",
-    "creationDateTime": "2019-08-24T14:15:22Z"
+    "id": "info-contact",
+    "scope": "spectral/postman/postman-library"
   },
   "data": {
-    "total": 0,
-    "count": 0
+    "creationDateTime": "2023-05-18T12:39:28.414Z",
+    "total": 29720,
+    "count": 18344
   }
+}
+```
+
+> 404 Response
+
+```json
+{
+  "status": 404,
+  "title": "Not Found",
+  "details": "Resource /statistics/not%20found%20example not found",
+  "instance": "/statistics/not%20found%20example",
+  "type": "http://localhost:3000/NotFoundError"
+}
+```
+
+> default Response
+
+```json
+{
+  "status": 500,
+  "title": "Internal Server Error",
+  "details": "Error fetching /statistics/info-contact",
+  "instance": "/statistics/info-contact",
+  "type": "http://localhost:3000/InternalServerError"
 }
 ```
 
@@ -889,7 +972,19 @@ func main() {
 
 ```json
 {
-  "response": "string"
+  "response": "Who is there?"
+}
+```
+
+> default Response
+
+```json
+{
+  "status": 500,
+  "title": "Internal Server Error",
+  "details": "Error fetching /knockknock",
+  "instance": "/knockknock",
+  "type": "http://localhost:3000/InternalServerError"
 }
 ```
 
@@ -916,9 +1011,9 @@ This operation does not require authentication
 ```json
 {
   "id": "string",
+  "scope": "string",
   "description": "string",
-  "output": "string",
-  "scope": "string"
+  "output": "string"
 }
 
 ```
@@ -928,9 +1023,9 @@ This operation does not require authentication
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |id|string|true|none|none|
-|description|string|true|none|none|
-|output|string|true|none|none|
 |scope|string|true|none|none|
+|description|string|false|none|none|
+|output|string|false|none|none|
 
 <h2 id="tocS_Reports">Reports</h2>
 <!-- backwards compatibility -->
@@ -943,9 +1038,9 @@ This operation does not require authentication
 [
   {
     "id": "string",
+    "scope": "string",
     "description": "string",
-    "output": "string",
-    "scope": "string"
+    "output": "string"
   }
 ]
 
@@ -967,11 +1062,13 @@ This operation does not require authentication
 ```json
 {
   "info": {
-    "name": "string",
-    "type": "string",
-    "creationDateTime": "2019-08-24T14:15:22Z"
+    "id": "string",
+    "scope": "string",
+    "description": "string",
+    "output": "string"
   },
   "data": {
+    "creationDateTime": "2019-08-24T14:15:22Z",
     "total": 0,
     "count": 0
   }
@@ -983,32 +1080,8 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|info|[StatisticInfo](#schemastatisticinfo)|false|none|none|
+|info|[Report](#schemareport)|false|none|none|
 |data|[StatisticData](#schemastatisticdata)|false|none|none|
-
-<h2 id="tocS_StatisticInfo">StatisticInfo</h2>
-<!-- backwards compatibility -->
-<a id="schemastatisticinfo"></a>
-<a id="schema_StatisticInfo"></a>
-<a id="tocSstatisticinfo"></a>
-<a id="tocsstatisticinfo"></a>
-
-```json
-{
-  "name": "string",
-  "type": "string",
-  "creationDateTime": "2019-08-24T14:15:22Z"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|name|string|false|none|none|
-|type|string|false|none|none|
-|creationDateTime|string(date-time)|false|none|none|
 
 <h2 id="tocS_StatisticData">StatisticData</h2>
 <!-- backwards compatibility -->
@@ -1019,6 +1092,7 @@ This operation does not require authentication
 
 ```json
 {
+  "creationDateTime": "2019-08-24T14:15:22Z",
   "total": 0,
   "count": 0
 }
@@ -1029,6 +1103,7 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|creationDateTime|string(date-time)|false|none|none|
 |total|integer|false|none|none|
 |count|integer|false|none|none|
 
