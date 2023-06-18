@@ -1,6 +1,6 @@
 OAS Paths Analysis
 ================
-<sup>Last updated: 2023-06-17</sup>
+<sup>Last updated: 2023-06-18</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#how-is-the-path-property-used-in-apis"
