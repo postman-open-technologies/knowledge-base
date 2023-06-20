@@ -1,6 +1,6 @@
 OAS Validity: Source of Errors
 ================
-<sup>Last updated: 2023-06-19</sup>
+<sup>Last updated: 2023-06-20</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a
