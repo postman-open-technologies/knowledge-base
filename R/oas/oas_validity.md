@@ -1,6 +1,6 @@
 OAS Validity
 ================
-<sup>Last updated: 2023-06-25</sup>
+<sup>Last updated: 2023-06-26</sup>
 
 - <a href="#findings" id="toc-findings">Findings</a>
   - <a href="#how-many-valid-openapis-do-we-have"
