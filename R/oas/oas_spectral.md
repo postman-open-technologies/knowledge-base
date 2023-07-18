@@ -1,6 +1,6 @@
 OAS Spectral Rulesets
 ================
-<sup>Last updated: 2023-07-17</sup>
+<sup>Last updated: 2023-07-18</sup>
 
 <sup>*DISCLAIMER: the results and findings below are preliminary and
 have not been fully validated or peer reviewed. Use with care. Do not
