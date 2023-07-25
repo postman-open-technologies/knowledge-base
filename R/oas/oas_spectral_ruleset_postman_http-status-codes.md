@@ -1,6 +1,6 @@
 OAS Spectral Ruleset postman/http-status-codes
 ================
-<sup>Last updated: 2023-07-24</sup>
+<sup>Last updated: 2023-07-25</sup>
 
 <sup>*DISCLAIMER: the results and findings below are preliminary and
 have not been fully validated or peer reviewed. Use with care. Do not
