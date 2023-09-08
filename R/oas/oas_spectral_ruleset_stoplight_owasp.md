@@ -1,6 +1,6 @@
 OAS Spectral Ruleset stoplight/owasp
 ================
-<sup>Last updated: 2023-09-07</sup>
+<sup>Last updated: 2023-09-08</sup>
 
 <sup>*DISCLAIMER: the results and findings below are preliminary and
 have not been fully validated or peer reviewed. Use with care. Do not
